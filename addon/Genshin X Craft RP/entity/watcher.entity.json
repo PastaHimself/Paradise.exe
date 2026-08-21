@@ -1,0 +1,36 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "paradise:watcher",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/abyssal_stalker"
+			},
+			"geometry": {
+				"default": "geometry.abyssal_stalker"
+			},
+			"scripts": {
+				"pre_animation": [
+					"variable.paradise_anim_state = query.property('paradise:anim_state');"
+				],
+				"animate": [
+					"anim_state_controller"
+				]
+			},
+			"animations": {
+				"anim_state_controller": "controller.animation.paradise_watcher.anim_state",
+				"idle": "animation.abyssal_stalker.idle",
+				"walk": "animation.abyssal_stalker.walk",
+				"run": "animation.abyssal_stalker.run",
+				"roar": "animation.abyssal_stalker.roar",
+				"attack": "animation.abyssal_stalker.attack"
+			},
+			"render_controllers": [
+				"controller.render.paradise_watcher"
+			]
+		}
+	}
+}

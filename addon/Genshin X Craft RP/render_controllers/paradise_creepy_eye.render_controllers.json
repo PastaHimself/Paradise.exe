@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.paradise_creepy_eye": {
+      "geometry": "Geometry.paradise_eye",
+      "materials": [
+        {
+          "*": "Material.paradise_eye"
+        }
+      ],
+      "textures": [
+        "Texture.paradise_eye"
+      ],
+      "ignore_lighting": true,
+      "part_visibility": [
+        {
+          "paradise_eye_adult": "variable.paradise_eye_enabled && !query.is_baby"
+        },
+        {
+          "paradise_eye_baby": "variable.paradise_eye_enabled && query.is_baby"
+        }
+      ]
+    }
+  }
+}

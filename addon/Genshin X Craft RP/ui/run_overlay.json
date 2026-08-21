@@ -1,0 +1,41 @@
+{
+  "namespace": "run_overlay",
+  "run_overlay_root": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 300,
+    "controls": [
+      {
+        "run_image": {
+          "type": "image",
+          "texture": "textures/ui/run",
+          "size": [
+            "60%",
+            "40%"
+          ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "keep_ratio": true,
+          "layer": 301
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "global",
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#raw_text"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#raw_text = 'PARADISE_RUN_SHOW')",
+        "target_property_name": "#visible"
+      }
+    ]
+  }
+}

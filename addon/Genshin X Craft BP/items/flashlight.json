@@ -1,0 +1,27 @@
+{
+	"format_version": "1.26.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "paradise:flashlight",
+			"menu_category": {
+				"category": "equipment"
+			}
+		},
+		"components": {
+			"minecraft:icon": "paradise:flashlight_off",
+			"minecraft:display_name": {
+				"value": "item.paradise:flashlight.name"
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:allow_off_hand": true,
+			"minecraft:use_modifiers": {
+				"use_duration": 0.1,
+				"movement_modifier": 1
+			},
+			"minecraft:cooldown": {
+				"category": "paradise_flashlight",
+				"duration": 0.3
+			}
+		}
+	}
+}

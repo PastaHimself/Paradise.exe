@@ -1,0 +1,105 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.paradise_watcher.anim_state": {
+			"initial_state": "idle",
+			"states": {
+				"idle": {
+					"animations": [
+						"idle"
+					],
+					"transitions": [
+						{
+							"walk": "variable.paradise_anim_state==1"
+						},
+						{
+							"run": "variable.paradise_anim_state==2"
+						},
+						{
+							"roar": "variable.paradise_anim_state==3"
+						},
+						{
+							"attack": "variable.paradise_anim_state==4"
+						}
+					]
+				},
+				"walk": {
+					"animations": [
+						"walk"
+					],
+					"transitions": [
+						{
+							"idle": "variable.paradise_anim_state==0"
+						},
+						{
+							"run": "variable.paradise_anim_state==2"
+						},
+						{
+							"roar": "variable.paradise_anim_state==3"
+						},
+						{
+							"attack": "variable.paradise_anim_state==4"
+						}
+					]
+				},
+				"run": {
+					"animations": [
+						"run"
+					],
+					"transitions": [
+						{
+							"idle": "variable.paradise_anim_state==0"
+						},
+						{
+							"walk": "variable.paradise_anim_state==1"
+						},
+						{
+							"roar": "variable.paradise_anim_state==3"
+						},
+						{
+							"attack": "variable.paradise_anim_state==4"
+						}
+					]
+				},
+				"roar": {
+					"animations": [
+						"roar"
+					],
+					"transitions": [
+						{
+							"idle": "variable.paradise_anim_state==0"
+						},
+						{
+							"walk": "variable.paradise_anim_state==1"
+						},
+						{
+							"run": "variable.paradise_anim_state==2"
+						},
+						{
+							"attack": "variable.paradise_anim_state==4"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"idle": "variable.paradise_anim_state==0"
+						},
+						{
+							"walk": "variable.paradise_anim_state==1"
+						},
+						{
+							"run": "variable.paradise_anim_state==2"
+						},
+						{
+							"roar": "variable.paradise_anim_state==3"
+						}
+					]
+				}
+			}
+		}
+	}
+}

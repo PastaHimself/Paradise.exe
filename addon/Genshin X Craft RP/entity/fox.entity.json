@@ -1,0 +1,65 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:fox",
+      "materials": {
+        "default": "fox",
+        "paradise_eye": "entity_alphatest"
+      },
+      "textures": {
+        "red": "textures/entity/fox/fox",
+        "arctic": "textures/entity/fox/arctic_fox",
+        "baby_red": "textures/entity/fox/fox_baby",
+        "baby_arctic": "textures/entity/fox/fox_snow_baby",
+        "baby_sleep_red": "textures/entity/fox/fox_sleep_baby",
+        "baby_sleep_arctic": "textures/entity/fox/fox_snow_sleep_baby",
+        "paradise_eye": "textures/entity/paradise/creepy_eye"
+      },
+      "geometry": {
+        "default": "geometry.fox",
+        "baby": "geometry.fox.baby",
+        "paradise_eye": "geometry.paradise.creepy_eye.fox"
+      },
+      "animations": {
+        "walk": "animation.quadruped.walk",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.fox.baby_transform",
+        "crouch": "animation.fox.crouch",
+        "sleep": "animation.fox.sleep",
+        "setup": "animation.fox.setup",
+        "sit": "animation.fox.sit",
+        "wiggle": "animation.fox.wiggle",
+        "stuck": "animation.fox.stuck",
+        "pounce": "animation.fox.pounce",
+        "move": "controller.animation.fox.move",
+        "baby_walk": "animation.fox.baby_walk",
+        "baby_pounce": "animation.fox.baby_pounce",
+        "baby_sit": "animation.fox.baby_sit",
+        "baby_sleep": "animation.fox.baby_sleep",
+        "baby_wiggle": "animation.fox.baby_wiggle",
+        "paradise_eye_stare": "animation.paradise.creepy_eye_stare"
+      },
+      "scripts": {
+        "animate": [
+          "setup",
+          "move",
+          {
+            "paradise_eye_stare": "variable.paradise_eye_enabled"
+          }
+        ],
+        "scale": "query.is_baby ? 2.0 : 1.0",
+        "initialize": [
+          "variable.paradise_eye_enabled = math.random_integer(1, 10) == 1;"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.fox.v2",
+        "controller.render.paradise_creepy_eye"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg_fox"
+      }
+    }
+  }
+}

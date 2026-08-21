@@ -1,0 +1,53 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Paradise.exe RP",
+        "description": "dont't enjoy",
+        "uuid": "d5a6452f-8580-46d6-b4f4-1009cb8fa8a3",
+        "version": [
+            1,
+            0,
+            15
+        ],
+        "min_engine_version": [
+            1,
+            26,
+            20
+        ]
+    },
+    "modules": [
+        {
+            "description": "Paradise.exe resource pack",
+            "type": "resources",
+            "uuid": "f18d64c3-dec6-4917-9041-8fc7b68594b6",
+            "version": [
+                1,
+                0,
+                15
+            ]
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "PastaHimself"
+        ],
+        "product_type": "addon"
+    },
+    "subpacks": [
+        {
+            "folder_name": "vhs_off",
+            "name": "VHS Off",
+            "memory_tier": 1,
+            "memory_performance_tier": 1
+        },
+        {
+            "folder_name": "vhs_on",
+            "name": "VHS On",
+            "memory_tier": 1,
+            "memory_performance_tier": 1
+        }
+    ],
+    "capabilities": [
+        "pbr"
+    ]
+}

@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.paradise.creepy_eye_stare": {
+      "loop": true,
+      "bones": {
+        "paradise_eye_adult": {
+          "rotation": [
+            "query.rotation_to_camera(0)",
+            "query.rotation_to_camera(1)",
+            "math.sin(query.life_time * 20.0) * 1.25"
+          ]
+        },
+        "paradise_eye_adult_blink": {
+          "scale": [
+            1.0,
+            "math.clamp((math.sin(query.life_time * 165.0) + 0.985) * 30.0, 0.08, 1.0)",
+            1.0
+          ]
+        },
+        "paradise_eye_baby": {
+          "rotation": [
+            "query.rotation_to_camera(0)",
+            "query.rotation_to_camera(1)",
+            "math.sin(query.life_time * 20.0) * 1.25"
+          ]
+        },
+        "paradise_eye_baby_blink": {
+          "scale": [
+            1.0,
+            "math.clamp((math.sin(query.life_time * 165.0) + 0.985) * 30.0, 0.08, 1.0)",
+            1.0
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Paradise.exe BP",
+        "description": "don't enjoy",
+        "uuid": "bf5b0afc-0ecc-40c0-8bac-fe6b1995d582",
+        "version": [
+            1,
+            2,
+            14
+        ],
+        "min_engine_version": [
+            1,
+            26,
+            20
+        ]
+    },
+    "modules": [
+        {
+            "description": "Paradise.exe behavior pack data",
+            "type": "data",
+            "uuid": "187fe7db-a6a1-4a27-8e58-48343ec46b55",
+            "version": [
+                1,
+                2,
+                14
+            ]
+        },
+        {
+            "description": "Paradise.exe script module",
+            "type": "script",
+            "uuid": "bee0581e-bc26-4ec7-9c27-2b9e9cd8a6e0",
+            "version": [
+                1,
+                2,
+                14
+            ],
+            "language": "javascript",
+            "entry": "scripts/main.js"
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "d5a6452f-8580-46d6-b4f4-1009cb8fa8a3",
+            "version": [
+                1,
+                0,
+                15
+            ]
+        },
+        {
+            "module_name": "@minecraft/server",
+            "version": "beta"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "beta"
+        }
+    ],
+    "metadata": {
+        "authors": [
+            "PastaHimself"
+        ],
+        "product_type": "addon"
+    }
+}

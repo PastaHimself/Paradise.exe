@@ -1,0 +1,48 @@
+{
+	"format_version": "1.26.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "paradise:watcher",
+			"is_experimental": false,
+			"is_summonable": true,
+			"is_spawnable": false,
+			"spawn_category": "monster",
+			"properties": {
+				"paradise:anim_state": {
+					"type": "int",
+					"range": [
+						0,
+						4
+					],
+					"default": 0,
+					"client_sync": true
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"height": 1.95,
+				"width": 0.85
+			},
+			"minecraft:conditional_bandwidth_optimization": {},
+			"minecraft:health": {
+				"max": 20,
+				"value": 20
+			},
+			"minecraft:nameable": {},
+			"minecraft:physics": {},
+			"minecraft:type_family": {
+				"family": [
+					"watcher",
+					"paradise",
+					"monster",
+					"mob"
+				]
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/watcher_empty.json"
+			}
+		},
+		"events": {}
+	}
+}

@@ -1,0 +1,82 @@
+{
+  "namespace": "android_corruption",
+  "android_corruption_root": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 200,
+    "clips_children": false,
+    "controls": [
+      {
+        "recovery_screen": {
+          "type": "image",
+          "texture": "textures/horror_recovery_ui_assets/android_recovery_full",
+          "fill": true,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 201
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "global",
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#raw_text"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#raw_text = 'PARADISE_ANDROID_SHOW')",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "android_corruption_panic_root": {
+    "type": "panel",
+    "size": [
+      "100%",
+      "100%"
+    ],
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "layer": 190,
+    "clips_children": false,
+    "controls": [
+      {
+        "recovery_screen": {
+          "type": "image",
+          "texture": "textures/horror_recovery_ui_assets/android_recovery_full",
+          "fill": true,
+          "size": [
+            "100%",
+            "100%"
+          ],
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "layer": 191,
+          "alpha": 0.92
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_type": "global",
+        "binding_name": "#hud_title_text_string",
+        "binding_name_override": "#raw_text"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#raw_text = 'PARADISE_ANDROID_PANIC')",
+        "target_property_name": "#visible"
+      }
+    ]
+  }
+}

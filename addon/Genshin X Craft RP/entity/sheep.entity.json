@@ -1,0 +1,54 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:sheep",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "sheep",
+        "paradise_eye": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/sheep/sheep",
+        "baby": "textures/entity/sheep/sheep_baby",
+        "paradise_eye": "textures/entity/paradise/creepy_eye"
+      },
+      "geometry": {
+        "default": "geometry.sheep.v1.8",
+        "sheared": "geometry.sheep.sheared.v1.8",
+        "baby": "geometry.sheep.baby",
+        "paradise_eye": "geometry.paradise.creepy_eye.sheep"
+      },
+      "animations": {
+        "setup": "animation.sheep.setup.v2",
+        "grazing": "animation.sheep.grazing.v2",
+        "walk": "animation.quadruped.walk",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.sheep.baby_transform",
+        "move": "controller.animation.sheep.move",
+        "paradise_eye_stare": "animation.paradise.creepy_eye_stare"
+      },
+      "scripts": {
+        "animate": [
+          "setup",
+          "look_at_target",
+          "move",
+          {
+            "paradise_eye_stare": "variable.paradise_eye_enabled"
+          }
+        ],
+        "scale": "query.is_baby ? 2.0 : 1.0",
+        "initialize": [
+          "variable.paradise_eye_enabled = math.random_integer(1, 10) == 1;"
+        ]
+      },
+      "render_controllers": [
+        "controller.render.sheep.v2",
+        "controller.render.paradise_creepy_eye"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg_sheep"
+      }
+    }
+  }
+}
