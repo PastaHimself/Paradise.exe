@@ -95,8 +95,9 @@ class MCStructureValidatorTests(unittest.TestCase):
         self.assertEqual(report["layers"], 2)
 
     def test_root_must_be_compound(self):
+        invalid_root = bytes([TAG_INT]) + nbt_string("") + struct.pack("<i", 1) + b"\x00"
         with self.assertRaisesRegex(MCStructureError, "root tag"):
-            validate_mcstructure_bytes(bytes([TAG_INT]) + nbt_string("") + struct.pack("<i", 1))
+            validate_mcstructure_bytes(invalid_root)
 
     def test_block_index_layer_length_must_match_volume(self):
         payload = build_mcstructure(size=(2, 1, 1), layers=[[0], [-1]])
