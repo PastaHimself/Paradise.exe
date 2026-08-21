@@ -512,7 +512,7 @@ function generateLibraryChunk(dim, cx, cz) {
       ? [[4, 4], [11, 11]]
       : [[4, 4], [11, 4], [8, 11]];
   for (const [lx, lz] of lights) {
-    fillSafe(dim, { x: ox + lx, y: CEILING_Y, z: oz + lz }, { x: ox + lx, y: CEILING_Y, z: oz + lz }, "minecraft:sea_lantern");
+    fillSafe(dim, { x: ox + lx, y: CEILING_Y, z: oz + lz }, { x: ox + lx, y: CEILING_Y, z: oz + lz }, "minecraft:glowstone");
   }
 
   // Keep the gameplay traversal cross exactly as before.

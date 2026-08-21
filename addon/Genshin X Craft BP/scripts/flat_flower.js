@@ -47,8 +47,8 @@ const FLOWER_MIN_DISTANCE = 220;
 const FLOWER_MAX_DISTANCE = 360;
 const FLOWER_CLEAR_RADIUS = 2;
 const SPAWN_CLEAR_RADIUS = 4;
-const FLOWER_DENSITY = 0.82;
-const MAX_LIGHT_ANCHORS_PER_PATCH = 16;
+const FLOWER_DENSITY = 0.76;
+const MAX_LIGHT_ANCHORS_PER_PATCH = 8;
 const FALSE_GOLDEN_FLOWERS_PER_RUN = 8;
 const FLAT_FLOWER_MODULES = Object.freeze([
   "paradise:flat_flower/lone_tree",

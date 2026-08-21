@@ -575,7 +575,7 @@ function paintHeavenFloorPattern(dim, cx, cz) {
   // following fills only replace that base with pale architectural bands.
   dim.fillBlocks(
     new BlockVolume({ x: ox, y: FLOOR_Y, z: oz }, { x: ox + 15, y: FLOOR_Y, z: oz + 15 }),
-    "minecraft:white_concrete",
+    "minecraft:light_gray_concrete",
   );
 
   if (seed % 2 === 0) {
