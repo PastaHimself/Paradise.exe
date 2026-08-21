@@ -110,6 +110,18 @@ test("Yellow Halls flicker uses spaced bursts with restoration", () => {
   assert.match(source, /const FLICKER_BURST_MAX_TICKS = 10;/);
   assert.match(source, /nextFlickerTick:/);
   assert.match(source, /flickerRestoreTick:/);
+
+  const restoreMatch = source.match(
+    /function restoreFlickeredLights\(dimension\) \{([\s\S]*?)\n\}\n\nfunction flickerLightsNearPlayer/,
+  );
+  assert.ok(restoreMatch, "restoreFlickeredLights must remain a distinct helper");
+  assert.match(restoreMatch[1], /state\.flickeredLights\.delete\(posKey\)/);
+  assert.doesNotMatch(
+    restoreMatch[1],
+    /state\.flickeredLights\.clear\(\)/,
+    "unloaded light positions must remain queued for a later restore attempt",
+  );
+  assert.match(source, /if \(!state\.flickerOn && state\.flickeredLights\.size > 0\)/);
 });
 
 test("Catacomb lights stay mostly lit and flicker in short bursts", () => {
