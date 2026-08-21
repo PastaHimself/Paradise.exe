@@ -1308,7 +1308,7 @@ async function maintainYellowHallsWorld() {
   const players = dimension.getPlayers();
 
   if (!players.length) {
-    if (state.flickerOn) {
+    if (state.flickerOn || state.flickeredLights.size > 0) {
       restoreFlickeredLights(dimension);
       state.nextFlickerTick = system.currentTick + randomInt(FLICKER_MIN_GAP_TICKS, FLICKER_MAX_GAP_TICKS);
     }
@@ -1424,15 +1424,23 @@ function restoreFlickeredLights(dimension) {
         continue;
       }
       const block = dimension.getBlock(position);
-      if (block) setBlockPermutationSafe(block, originalPermutation);
+      if (block && setBlockPermutationSafe(block, originalPermutation)) {
+        state.flickeredLights.delete(posKey);
+      }
     } catch (_error) {}
   }
-  state.flickeredLights.clear();
   state.flickerOn = false;
 }
 
 function flickerLightsNearPlayer(dimension, player) {
   const now = system.currentTick;
+
+  // A light from an earlier burst may have been in an unloaded chunk when its
+  // restore window elapsed. Retry loaded pending entries without discarding the
+  // positions that are still unavailable.
+  if (!state.flickerOn && state.flickeredLights.size > 0) {
+    restoreFlickeredLights(dimension);
+  }
 
   if (state.flickerOn) {
     if (now < state.flickerRestoreTick) return;
