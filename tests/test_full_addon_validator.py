@@ -122,6 +122,42 @@ class AddonValidatorTests(unittest.TestCase):
             result = AddonValidator(root).run()
             self.assertTrue(any("particle texture" in error.lower() for error in result["errors"]))
 
+    def test_vanilla_client_entity_texture_can_fall_back_to_base_pack(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            _, rp = self.make_pack_pair(root)
+            entity_dir = rp / "entity"
+            entity_dir.mkdir(parents=True)
+            (entity_dir / "cat.entity.json").write_text(json.dumps({
+                "format_version": "1.10.0",
+                "minecraft:client_entity": {
+                    "description": {
+                        "identifier": "minecraft:cat",
+                        "textures": {"default": "textures/entity/cat/cat"},
+                    },
+                },
+            }), encoding="utf-8")
+            result = AddonValidator(root).run()
+            self.assertFalse(any("textures/entity/cat/cat" in error for error in result["errors"]))
+
+    def test_custom_client_entity_texture_must_exist_in_pack(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            _, rp = self.make_pack_pair(root)
+            entity_dir = rp / "entity"
+            entity_dir.mkdir(parents=True)
+            (entity_dir / "watcher.entity.json").write_text(json.dumps({
+                "format_version": "1.10.0",
+                "minecraft:client_entity": {
+                    "description": {
+                        "identifier": "paradise:watcher",
+                        "textures": {"default": "textures/entity/paradise/watcher"},
+                    },
+                },
+            }), encoding="utf-8")
+            result = AddonValidator(root).run()
+            self.assertTrue(any("textures/entity/paradise/watcher" in error for error in result["errors"]))
+
     def test_structure_reference_must_resolve_to_mcstructure(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
