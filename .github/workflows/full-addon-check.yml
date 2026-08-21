@@ -1,0 +1,55 @@
+name: Full Add-on Check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-addon:
+    name: Validate complete Bedrock add-on
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Run validator unit tests
+        run: python -m unittest tests/test_full_addon_validator.py -v
+
+      - name: Validate complete add-on
+        run: python tools/validate_addon.py --report artifacts/addon-validation.json
+
+      - name: Check all behavior-pack JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do
+            echo "Checking $file"
+            node --check "$file"
+          done < <(find "addon/Genshin X Craft BP/scripts" -type f -name '*.js' -print0)
+
+      - name: Run JavaScript regression tests
+        run: node --test tests/*.test.mjs
+
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: addon-validation-report
+          path: artifacts/addon-validation.json
+          if-no-files-found: ignore
