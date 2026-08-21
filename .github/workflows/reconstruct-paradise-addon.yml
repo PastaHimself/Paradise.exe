@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/reconstruct-paradise-addon.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/reconstruct-paradise-addon.yml'
   workflow_dispatch:
 
 permissions:
@@ -23,19 +27,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
-          EXPECTED_COUNT=4127
-          EXPECTED_BYTES=27175883
-          EXPECTED_DIGEST=c0abd6e0e68d5bf2a831917a044f95ef4813ac66cc16e1bed96940365155971c
-
           mkdir -p /tmp/paradise
 
-          # Rebuild the exact Paradise-specific overlay staged as base64 text chunks.
           cat .reconstruct/overlay/*.txt > /tmp/paradise/overlay.b64
           base64 -d /tmp/paradise/overlay.b64 > /tmp/paradise/overlay.tar.gz
           gzip -t /tmp/paradise/overlay.tar.gz
 
-          # Download the public Genshin X Craft base used by the project.
           GCF=/tmp/paradise/genshin.mcaddon
           if ! curl -fL --retry 3 --retry-delay 2 \
             'https://mediafilez.forgecdn.net/files/7775/720/Genshin%20X%20Craft%20V1-9.mcaddon' \
@@ -48,13 +45,10 @@ jobs:
           mkdir -p /tmp/paradise/genshin
           unzip -q "$GCF" -d /tmp/paradise/genshin
 
-          # Pull Mojang's official current Bedrock sample resource pack. Paradise's
-          # RP contains that vanilla asset baseline plus Genshin and Paradise overlays.
           git clone --depth 1 https://github.com/Mojang/bedrock-samples.git /tmp/paradise/bedrock-samples
 
           rm -rf addon
           mkdir -p 'addon/Genshin X Craft BP' 'addon/Genshin X Craft RP'
-
           cp -a /tmp/paradise/bedrock-samples/resource_pack/. 'addon/Genshin X Craft RP/'
 
           GENS_BP="$(find /tmp/paradise/genshin -type d -name 'Genshin X Craft BP' -print -quit)"
@@ -63,7 +57,6 @@ jobs:
           test -n "$GENS_RP"
           cp -a "$GENS_BP"/. 'addon/Genshin X Craft BP/'
           cp -a "$GENS_RP"/. 'addon/Genshin X Craft RP/'
-
           tar -xzf /tmp/paradise/overlay.tar.gz -C addon
 
           python3 - <<'PY'
@@ -72,10 +65,6 @@ jobs:
           import sys
 
           root = Path('addon')
-          expected_count = 4127
-          expected_bytes = 27175883
-          expected_digest = 'c0abd6e0e68d5bf2a831917a044f95ef4813ac66cc16e1bed96940365155971c'
-
           files = sorted(p for p in root.rglob('*') if p.is_file())
           total = 0
           digest = hashlib.sha256()
@@ -90,12 +79,12 @@ jobs:
 
           actual = digest.hexdigest()
           print(f'files={len(files)} bytes={total} digest={actual}')
-          if len(files) != expected_count or total != expected_bytes or actual != expected_digest:
+          if len(files) != 4127 or total != 27175883 or actual != 'c0abd6e0e68d5bf2a831917a044f95ef4813ac66cc16e1bed96940365155971c':
               print('Reconstructed tree does not exactly match the uploaded addon; refusing to commit.', file=sys.stderr)
               sys.exit(1)
           PY
 
-      - name: Commit exact extracted addon
+      - name: Commit exact extracted addon to main
         shell: bash
         run: |
           set -euo pipefail
