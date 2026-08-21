@@ -29,10 +29,13 @@ jobs:
           node-version: "22"
 
       - name: Run validator unit tests
-        run: python -m unittest tests/test_full_addon_validator.py -v
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
 
       - name: Validate complete add-on
         run: python tools/validate_addon.py --report artifacts/addon-validation.json
+
+      - name: Validate all Bedrock structures
+        run: python tools/validate_mcstructures.py --report artifacts/mcstructure-validation.json
 
       - name: Check all behavior-pack JavaScript syntax
         shell: bash
@@ -46,10 +49,10 @@ jobs:
       - name: Run JavaScript regression tests
         run: node --test tests/*.test.mjs
 
-      - name: Upload validation report
+      - name: Upload validation reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: addon-validation-report
-          path: artifacts/addon-validation.json
+          name: addon-validation-reports
+          path: artifacts/*.json
           if-no-files-found: ignore
