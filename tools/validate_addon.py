@@ -17,10 +17,11 @@ RP_NAME = "Genshin X Craft RP"
 IMPORT_RE = re.compile(
     r"(?:import\s+(?:[^;]*?\s+from\s+)?|export\s+[^;]*?\s+from\s+)[\"']([^\"']+)[\"']"
 )
-STRUCTURE_RE = re.compile(
+STRUCTURE_CALL_RE = re.compile(
     r"scheduleStructurePlacement\s*\([^;]*?[\"']([a-z0-9_.-]+:[A-Za-z0-9_./-]+)[\"']",
     re.DOTALL,
 )
+NAMESPACED_PATH_LITERAL_RE = re.compile(r"[\"']([a-z0-9_.-]+:[A-Za-z0-9_./-]+)[\"']")
 TEXTURE_PATH_RE = re.compile(r"^textures/[A-Za-z0-9_./-]+$")
 
 
@@ -176,12 +177,10 @@ class AddonValidator:
         rp_header = rp_manifest.get("header", {})
         rp_uuid = rp_header.get("uuid")
         rp_version = rp_header.get("version")
-        matching = False
         for dep in bp_manifest.get("dependencies", []):
             if not isinstance(dep, dict) or dep.get("uuid") != rp_uuid:
                 continue
-            matching = dep.get("version") == rp_version
-            if not matching:
+            if dep.get("version") != rp_version:
                 self._error(
                     "Behavior-pack resource-pack dependency version does not match "
                     f"the RP header: dependency={dep.get('version')!r}, rp={rp_version!r}"
@@ -248,13 +247,42 @@ class AddonValidator:
             return None
         return bp / "structures" / namespace / f"{relative}.mcstructure"
 
+    def _structure_prefixes(self) -> set[tuple[str, str]]:
+        prefixes: set[tuple[str, str]] = set()
+        root = self.bp / "structures"
+        if not root.is_dir():
+            return prefixes
+        for namespace_dir in root.iterdir():
+            if not namespace_dir.is_dir():
+                continue
+            for child in namespace_dir.iterdir():
+                if child.is_dir():
+                    prefixes.add((namespace_dir.name, child.name))
+        return prefixes
+
     def _check_structure_references(self) -> None:
+        prefixes = self._structure_prefixes()
+        seen_refs: set[tuple[Path, str]] = set()
         for path in self._iter_javascript():
             try:
                 source = path.read_text(encoding="utf-8")
             except (OSError, UnicodeDecodeError):
                 continue
-            for identifier in STRUCTURE_RE.findall(source):
+
+            candidates = set(STRUCTURE_CALL_RE.findall(source))
+            for identifier in NAMESPACED_PATH_LITERAL_RE.findall(source):
+                if ":" not in identifier:
+                    continue
+                namespace, relative = identifier.split(":", 1)
+                first = relative.split("/", 1)[0]
+                if "/" in relative and (namespace, first) in prefixes:
+                    candidates.add(identifier)
+
+            for identifier in sorted(candidates):
+                key = (path, identifier)
+                if key in seen_refs:
+                    continue
+                seen_refs.add(key)
                 self.counts["checked_structure_references"] += 1
                 target = self._structure_path(self.bp, identifier)
                 if target is None or not target.is_file():
@@ -292,15 +320,50 @@ class AddonValidator:
                 return candidate
         return None
 
+    @staticmethod
+    def _client_identifier(doc: Any) -> str | None:
+        if not isinstance(doc, dict):
+            return None
+        for key in ("minecraft:client_entity", "minecraft:attachable"):
+            section = doc.get(key)
+            if not isinstance(section, dict):
+                continue
+            description = section.get("description")
+            if not isinstance(description, dict):
+                continue
+            identifier = description.get("identifier")
+            if isinstance(identifier, str):
+                return identifier
+        return None
+
+    def _texture_must_be_local(self, path: Path, doc: Any) -> bool:
+        # Particle JSON describes pack-owned emitters and their textures; a
+        # missing particle bitmap cannot be satisfied by the vanilla base pack.
+        if "particles" in path.parts:
+            return True
+
+        # Client entities and attachables in the minecraft namespace may
+        # intentionally inherit vanilla textures. Custom identifiers must ship
+        # their own referenced textures because the base pack cannot know them.
+        identifier = self._client_identifier(doc)
+        if identifier:
+            return not identifier.startswith("minecraft:")
+
+        # Atlas and other generic RP JSON may legally point at vanilla texture
+        # paths supplied by the base resource pack. If a local file exists we
+        # still count it, but absence alone is not an add-on error.
+        return False
+
     def _check_texture_references(self) -> None:
         for path, doc in self.json_documents.items():
             if self.rp not in path.parents:
                 continue
+            must_be_local = self._texture_must_be_local(path, doc)
             for value in self._walk_strings(doc):
                 if not TEXTURE_PATH_RE.match(value):
                     continue
                 self.counts["checked_texture_references"] += 1
-                if self._resolve_texture(value) is None:
+                if self._resolve_texture(value) is None and must_be_local:
                     kind = "Particle texture" if "particles" in path.parts else "Texture reference"
                     self._error(f"{kind} missing in {self._rel(path)}: {value}")
 
