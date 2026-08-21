@@ -69,15 +69,23 @@ def patch_yellow_halls() -> None:
         continue;
       }
       const block = dimension.getBlock(position);
-      if (block) setBlockPermutationSafe(block, originalPermutation);
+      if (block && setBlockPermutationSafe(block, originalPermutation)) {
+        state.flickeredLights.delete(posKey);
+      }
     } catch (_error) {}
   }
-  state.flickeredLights.clear();
   state.flickerOn = false;
 }
 
 function flickerLightsNearPlayer(dimension, player) {
   const now = system.currentTick;
+
+  // A light from an earlier burst may have been in an unloaded chunk when its
+  // restore window elapsed. Retry loaded pending entries without discarding the
+  // positions that are still unavailable.
+  if (!state.flickerOn && state.flickeredLights.size > 0) {
+    restoreFlickeredLights(dimension);
+  }
 
   if (state.flickerOn) {
     if (now < state.flickerRestoreTick) return;
@@ -124,14 +132,28 @@ function flickerLightsNearPlayer(dimension, player) {
 function handleEscapeProximity'''
     regex_replace_once(
         path,
-        r"function flickerLightsNearPlayer\(dimension, player\) \{.*?\n\}\n\nfunction handleEscapeProximity",
+        r"function restoreFlickeredLights\(dimension\) \{.*?\n\}\n\nfunction flickerLightsNearPlayer\(dimension, player\) \{.*?\n\}\n\nfunction handleEscapeProximity|function flickerLightsNearPlayer\(dimension, player\) \{.*?\n\}\n\nfunction handleEscapeProximity",
         replacement,
+    )
+
+    first_no_player_patch = (
+        "  if (!players.length) {\n"
+        "    if (state.flickerOn) {\n"
+        "      restoreFlickeredLights(dimension);\n"
+        "      state.nextFlickerTick = system.currentTick + randomInt(FLICKER_MIN_GAP_TICKS, FLICKER_MAX_GAP_TICKS);\n"
+        "    }\n"
+        "    if (system.currentTick >= state.nextWeatherRefreshTick) {"
     )
     replace_once(
         path,
         "  if (!players.length) {\n    if (system.currentTick >= state.nextWeatherRefreshTick) {",
+        first_no_player_patch,
+    )
+    replace_once(
+        path,
+        first_no_player_patch,
         "  if (!players.length) {\n"
-        "    if (state.flickerOn) {\n"
+        "    if (state.flickerOn || state.flickeredLights.size > 0) {\n"
         "      restoreFlickeredLights(dimension);\n"
         "      state.nextFlickerTick = system.currentTick + randomInt(FLICKER_MIN_GAP_TICKS, FLICKER_MAX_GAP_TICKS);\n"
         "    }\n"
