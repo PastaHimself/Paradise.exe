@@ -1,0 +1,75 @@
+name: Apply Dimension Visual Upgrade
+
+on:
+  push:
+    branches:
+      - dimension-visual-upgrade
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dimension-visual-upgrade-apply
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: dimension-visual-upgrade
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Apply deterministic visual patch
+        run: python tools/apply_dimension_visual_upgrade.py
+
+      - name: Verify JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in \
+            "addon/Genshin X Craft BP/scripts/yellow_halls.js" \
+            "addon/Genshin X Craft BP/scripts/catacombs.js" \
+            "addon/Genshin X Craft BP/scripts/flat_flower.js" \
+            "addon/Genshin X Craft BP/scripts/burning_highway.js" \
+            "addon/Genshin X Craft BP/scripts/endless_staircase.js" \
+            "addon/Genshin X Craft BP/scripts/heaven.js" \
+            "addon/Genshin X Craft BP/scripts/library.js"; do
+            node --check "$file"
+          done
+
+      - name: Run visual regression tests
+        run: node --test tests/dimension_visual_upgrade.test.mjs
+
+      - name: Check patch cleanliness
+        run: git diff --check
+
+      - name: Commit generated visual changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "Visual upgrade already applied; no commit needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "addon/Genshin X Craft BP/scripts"
+          git commit -m "feat: apply dimension horror visual upgrade"
+          git push origin HEAD:dimension-visual-upgrade
