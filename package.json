@@ -3,6 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "typecheck": "tsc --project tsconfig.json"
+  },
+  "devDependencies": {
+    "@minecraft/server": "beta",
+    "@minecraft/server-ui": "beta",
+    "typescript": "^5.9.3"
   }
 }
