@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:parrot",
@@ -27,6 +27,8 @@
           "variable.wing_flap = ((math.sin(query.wing_flap_position * 57.3) + 1) * query.wing_flap_speed);"
         ],
         "animate": [
+          "setup",
+          "move_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
           }
@@ -43,16 +45,10 @@
         "flying": "animation.parrot.flying",
         "standing": "animation.parrot.standing",
         "look_at_target": "animation.common.look_at_target",
-        "paradise_eye_stare": "animation.paradise.creepy_eye_stare"
+        "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
+        "setup": "controller.animation.parrot.setup",
+        "move_controller": "controller.animation.parrot.move"
       },
-      "animation_controllers": [
-        {
-          "setup": "controller.animation.parrot.setup"
-        },
-        {
-          "move": "controller.animation.parrot.move"
-        }
-      ],
       "render_controllers": [
         "controller.render.parrot",
         "controller.render.paradise_creepy_eye"
