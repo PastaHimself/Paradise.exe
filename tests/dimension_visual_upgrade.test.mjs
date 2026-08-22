@@ -122,6 +122,15 @@ test("Yellow Halls flicker uses spaced bursts with restoration", () => {
     "unloaded light positions must remain queued for a later restore attempt",
   );
   assert.match(source, /if \(!state\.flickerOn && state\.flickeredLights\.size > 0\)/);
+
+  // The maintenance loop runs every 20 ticks, so a 3-10 tick flicker must use
+  // its own timeout instead of waiting for the next maintenance pass.
+  assert.match(
+    source,
+    /const burstTicks = randomInt\(FLICKER_BURST_MIN_TICKS, FLICKER_BURST_MAX_TICKS\);/,
+  );
+  assert.match(source, /system\.runTimeout\(\(\) => \{/);
+  assert.match(source, /\}, burstTicks\);/);
 });
 
 test("Catacomb lights stay mostly lit and flicker in short bursts", () => {
