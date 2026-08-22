@@ -14,6 +14,7 @@ const PROFILE = Object.freeze({
 });
 
 export function getVisualBudget(player) {
+  /** @type {number} */
   let tier = MEMORY_TIER.Mid;
   try {
     const value = player?.clientSystemInfo?.memoryTier;

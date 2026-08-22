@@ -36,6 +36,7 @@ const DIMENSION = Object.freeze({
   library: "library:the_library",
 });
 
+/** @type {Set<string>} */
 const PARADISE_DIMENSION_IDS = new Set(Object.values(DIMENSION));
 const OVERWORLD_ID = "minecraft:overworld";
 const STALKER_TYPE_ID = "paradise:watcher";

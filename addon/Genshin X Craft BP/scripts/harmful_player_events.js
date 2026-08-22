@@ -226,7 +226,7 @@ function getHealth(player) {
   }
 }
 
-function safeDamage(player, amount, minHealth = CONFIG.lethalFloor, damagingEntity = undefined) {
+function safeDamage(player, amount, minHealth = Number(CONFIG.lethalFloor), damagingEntity = undefined) {
   if (!isValidPlayer(player)) return false;
   const health = getHealth(player);
   const safeAmount = Math.floor(Math.min(Math.max(0, amount), Math.max(0, health - minHealth)));

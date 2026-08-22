@@ -164,6 +164,7 @@ function scheduleStairScenery(dimension, laneOffset, z) {
 
   const y = getStairY(z);
   const intervalIndex = Math.floor(z / STAIR_SCENERY_INTERVAL);
+  /** @type {string} */
   let structureId = STAIR_SCENERY.support;
   let location = { x: laneOffset - 5, y: y - 1, z: z - 2 };
 

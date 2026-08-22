@@ -1234,7 +1234,7 @@ function executeAction(session, action, currentTick) {
     case "particle": spawnScenarioParticles(session, player, action, currentTick); break;
     case "watcher": executeWatcher(session, player, action, currentTick); break;
     case "vhs": executeVhs(player, action, currentTick, session.event.key); break;
-    case "temp_light": executeTempLight(session, player, action, currentTick); break;
+    case "temp_light": executeTempLight(session, player, action); break;
     case "destruct": executeDestruction(session, player, action, currentTick); break;
     default: break;
   }

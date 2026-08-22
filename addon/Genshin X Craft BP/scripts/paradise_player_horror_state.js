@@ -180,10 +180,10 @@ export function applyHorrorConsequence(playerOrId, consequence = {}, currentTick
   const tick = tickNow(currentTick);
   const state = getPlayerHorrorState(playerOrId, tick);
   const profile = getConsequenceProfile(consequence.category, consequence.intensity);
-  const merged = {
+  const merged = /** @type {any} */ ({
     ...profile,
     ...consequence,
-  };
+  });
 
   const fearDelta = Number(merged.fear ?? merged.fearDelta ?? 0) || 0;
   const attentionDelta = Number(merged.stalkerAttention ?? merged.stalkerAttentionDelta ?? 0) || 0;
