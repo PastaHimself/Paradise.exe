@@ -30,7 +30,7 @@
         "baby_transform": "animation.ocelot.baby_transform",
         "baby_sit": "animation.cat.baby_sit",
         "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
-        "move": "controller.animation.ocelot.move",
+        "move_controller": "controller.animation.ocelot.move",
         "look_at_target_controller": "controller.animation.ocelot.look_at_target"
       },
       "render_controllers": [
@@ -43,7 +43,7 @@
       "scripts": {
         "scale": "query.is_baby ? 2.0 : 1.0",
         "animate": [
-          "move",
+          "move_controller",
           "look_at_target_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
