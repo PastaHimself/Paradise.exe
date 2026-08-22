@@ -49,7 +49,7 @@
         "look_at_target": "animation.common.look_at_target",
         "baby_transform": "animation.llama.baby_transform",
         "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
-        "move": "controller.animation.llama.move"
+        "move_controller": "controller.animation.llama.move"
       },
       "render_controllers": [
         "controller.render.llama.v2",
@@ -61,7 +61,7 @@
       "scripts": {
         "scale": "query.is_baby ? 2.0 : 1.0",
         "animate": [
-          "move",
+          "move_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
           }
