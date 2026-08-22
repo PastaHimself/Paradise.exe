@@ -1,0 +1,70 @@
+name: Apply Beta Typecheck Fixes
+
+on:
+  push:
+    branches:
+      - dimension-visual-upgrade
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-beta-typecheck-fixes
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: dimension-visual-upgrade
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Bedrock beta typings
+        run: npm install --ignore-scripts --no-audit --no-fund
+
+      - name: Apply narrow typecheck fixes
+        run: python tools/apply_beta_typecheck_fixes.py
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r -d '' file; do
+            node --check "$file"
+          done < <(find "addon/Genshin X Craft BP/scripts" -type f -name '*.js' -print0)
+
+      - name: Type-check against Bedrock beta APIs
+        run: npm run typecheck
+
+      - name: Run JavaScript regressions
+        run: npm test
+
+      - name: Commit fixes
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet; then
+            echo "No source changes required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "addon/Genshin X Craft BP/scripts"
+          git commit -m "fix: satisfy Bedrock beta Script API typecheck"
+          git push origin HEAD:dimension-visual-upgrade
