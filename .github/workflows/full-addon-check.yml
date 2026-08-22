@@ -12,7 +12,7 @@ jobs:
   validate-addon:
     name: Validate complete Bedrock add-on
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
 
     steps:
       - name: Checkout repository
@@ -57,6 +57,29 @@ jobs:
 
       - name: Run JavaScript regression tests
         run: npm test
+
+      - name: Checkout Blockception Bedrock language server
+        uses: actions/checkout@v4
+        with:
+          repository: Blockception/minecraft-bedrock-language-server
+          path: .blockception/minecraft-bedrock-language-server
+          submodules: recursive
+
+      - name: Build Blockception Bedrock language server
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd .blockception/minecraft-bedrock-language-server
+          npm install --ignore-scripts --no-audit --no-fund
+          npm run build
+          echo "BLOCKCEPTION_REVISION=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Run Blockception project diagnostics
+        run: >-
+          node tools/run_blockception_lsp_check.mjs
+          --server .blockception/minecraft-bedrock-language-server/ide/vscode/lsp/server.js
+          --workspace addon
+          --report artifacts/blockception-lsp-diagnostics.json
 
       - name: Build installable Paradise.exe.mcaddon
         run: python tools/package_mcaddon.py --output artifacts/Paradise.exe.mcaddon
