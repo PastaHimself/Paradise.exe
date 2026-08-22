@@ -1,12 +1,9 @@
 name: Apply Watcher Stalking Upgrade
 
 on:
-  push:
+  pull_request:
     branches:
-      - watcher-evidence-stalking-ai
-    paths:
-      - .watcher-upgrade.b64
-      - .github/workflows/apply-watcher-stalking-upgrade.yml
+      - main
   workflow_dispatch:
 
 permissions:
@@ -14,9 +11,10 @@ permissions:
 
 jobs:
   apply-upgrade:
+    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'watcher-evidence-stalking-ai'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
+      - name: Checkout feature branch
         uses: actions/checkout@v4
         with:
           ref: watcher-evidence-stalking-ai
