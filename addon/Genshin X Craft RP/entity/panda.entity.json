@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:panda",
@@ -41,19 +41,11 @@
         "baby_sitting": "animation.panda.baby_sitting",
         "baby_rolling": "animation.panda.baby_rolling",
         "baby_lying": "animation.panda.baby_lying",
-        "paradise_eye_stare": "animation.paradise.creepy_eye_stare"
+        "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
+        "move": "controller.animation.panda.move",
+        "unhappy_controller": "controller.animation.panda.unhappy",
+        "sneezing_controller": "controller.animation.panda.sneezing"
       },
-      "animation_controllers": [
-        {
-          "move": "controller.animation.panda.move"
-        },
-        {
-          "unhappy": "controller.animation.panda.unhappy"
-        },
-        {
-          "sneezing": "controller.animation.panda.sneezing"
-        }
-      ],
       "render_controllers": [
         "controller.render.panda.v2",
         "controller.render.paradise_creepy_eye"
@@ -64,6 +56,9 @@
       "scripts": {
         "scale": "query.is_baby ? (1 / 0.4) : 1.0",
         "animate": [
+          "move",
+          "unhappy_controller",
+          "sneezing_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
           }
