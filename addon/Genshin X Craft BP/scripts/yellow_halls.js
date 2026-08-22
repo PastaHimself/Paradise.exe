@@ -1477,8 +1477,16 @@ function flickerLightsNearPlayer(dimension, player) {
   }
 
   if (disabled > 0) {
+    const burstTicks = randomInt(FLICKER_BURST_MIN_TICKS, FLICKER_BURST_MAX_TICKS);
     state.flickerOn = true;
-    state.flickerRestoreTick = now + randomInt(FLICKER_BURST_MIN_TICKS, FLICKER_BURST_MAX_TICKS);
+    state.flickerRestoreTick = now + burstTicks;
+    system.runTimeout(() => {
+      try {
+        if (!state.flickerOn) return;
+        restoreFlickeredLights(dimension);
+        state.nextFlickerTick = system.currentTick + randomInt(FLICKER_MIN_GAP_TICKS, FLICKER_MAX_GAP_TICKS);
+      } catch (_error) {}
+    }, burstTicks);
   } else {
     state.nextFlickerTick = now + randomInt(20, 60);
   }
