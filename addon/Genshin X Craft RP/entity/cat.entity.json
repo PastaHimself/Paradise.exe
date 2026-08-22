@@ -71,7 +71,7 @@
         "baby_sit": "animation.cat.baby_sit",
         "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
         "look_at_target_controller": "controller.animation.cat.look_at_target",
-        "move": "controller.animation.cat.move"
+        "move_controller": "controller.animation.cat.move"
       },
       "render_controllers": [
         "controller.render.cat.v2",
@@ -84,7 +84,7 @@
         "scale": "query.is_baby ? (1 / 0.4) : 1.0",
         "animate": [
           "look_at_target_controller",
-          "move",
+          "move_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
           }
