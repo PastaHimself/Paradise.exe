@@ -42,6 +42,10 @@ const ACTIVE_PATCH_RADIUS = 1;
 const MAINTENANCE_INTERVAL_TICKS = 20;
 const PROXIMITY_CHECK_TICKS = 5;
 const WEATHER_REFRESH_TICKS = 20 * 60 * 5;
+const FLICKER_MIN_GAP_TICKS = 80;
+const FLICKER_MAX_GAP_TICKS = 260;
+const FLICKER_BURST_MIN_TICKS = 3;
+const FLICKER_BURST_MAX_TICKS = 10;
 const ENTRY_RETRY_ATTEMPTS = 10;
 const ENTRY_RETRY_TICKS = 4;
 
@@ -134,6 +138,8 @@ const state = {
   runSeed: 0,
   nextWeatherRefreshTick: 0,
   flickerOn: false,
+  nextFlickerTick: FLICKER_MIN_GAP_TICKS,
+  flickerRestoreTick: 0,
   flickeredLights: new Map(),
   confidenceRules: new Map(),
 };
@@ -455,7 +461,7 @@ function placePatchLights(dimension, patchX, patchZ, maze, patchMinX, patchMinZ)
       if (isEscapeCell) continue;
 
       const cellRng = mulberry32(noise2D(patchX * 17 + cx, patchZ * 19 + cz));
-      if (cellRng() < 0.75) {
+      if (cellRng() < 0.62) {
         setBlockSafe(dimension, { x: midX, y: CEILING_Y, z: midZ }, BLOCK.seaLantern);
       }
       if (cellRng() < 0.3) {
@@ -1302,6 +1308,10 @@ async function maintainYellowHallsWorld() {
   const players = dimension.getPlayers();
 
   if (!players.length) {
+    if (state.flickerOn || state.flickeredLights.size > 0) {
+      restoreFlickeredLights(dimension);
+      state.nextFlickerTick = system.currentTick + randomInt(FLICKER_MIN_GAP_TICKS, FLICKER_MAX_GAP_TICKS);
+    }
     if (system.currentTick >= state.nextWeatherRefreshTick) {
       setCalmWeather(dimension);
       state.nextWeatherRefreshTick = system.currentTick + WEATHER_REFRESH_TICKS;
@@ -1405,43 +1415,81 @@ function checkPressurePlates(dimension, player) {
   } catch (e) {}
 }
 
-function flickerLightsNearPlayer(dimension, player) {
-  try {
-    const px = Math.floor(player.location.x);
-    const py = Math.floor(player.location.y);
-    const pz = Math.floor(player.location.z);
-
-    // Restore previously flickered lights
-    for (const [posKey, originalType] of state.flickeredLights.entries()) {
-      const [lx, ly, lz] = posKey.split(":").map(Number);
-      const dist = Math.abs(lx - px) + Math.abs(ly - py) + Math.abs(lz - pz);
-      if (dist > 32) {
-        try {
-          const block = dimension.getBlock({ x: lx, y: ly, z: lz });
-          if (block) setBlockPermutationSafe(block, originalType);
-        } catch (e) {}
+function restoreFlickeredLights(dimension) {
+  for (const [posKey, originalPermutation] of state.flickeredLights.entries()) {
+    const [x, y, z] = posKey.split(":").map(Number);
+    const position = { x, y, z };
+    try {
+      if (typeof dimension.isChunkLoaded === "function" && !dimension.isChunkLoaded(position)) {
+        continue;
+      }
+      const block = dimension.getBlock(position);
+      if (block && setBlockPermutationSafe(block, originalPermutation)) {
         state.flickeredLights.delete(posKey);
       }
-    }
+    } catch (_error) {}
+  }
+  state.flickerOn = false;
+}
 
-    // Randomly flicker nearby sea lanterns
-    const flickerCount = randomInt(1, 3);
-    for (let i = 0; i < flickerCount; i++) {
-      const fx = px + randomInt(-12, 12);
-      const fy = CEILING_Y;
-      const fz = pz + randomInt(-12, 12);
+function flickerLightsNearPlayer(dimension, player) {
+  const now = system.currentTick;
+
+  // A light from an earlier burst may have been in an unloaded chunk when its
+  // restore window elapsed. Retry loaded pending entries without discarding the
+  // positions that are still unavailable.
+  if (!state.flickerOn && state.flickeredLights.size > 0) {
+    restoreFlickeredLights(dimension);
+  }
+
+  if (state.flickerOn) {
+    if (now < state.flickerRestoreTick) return;
+    restoreFlickeredLights(dimension);
+    state.nextFlickerTick = now + randomInt(FLICKER_MIN_GAP_TICKS, FLICKER_MAX_GAP_TICKS);
+    return;
+  }
+
+  if (now < state.nextFlickerTick) return;
+
+  const px = Math.floor(player.location.x);
+  const pz = Math.floor(player.location.z);
+  const targetCount = randomInt(1, 3);
+  let disabled = 0;
+
+  for (let attempt = 0; attempt < 18 && disabled < targetCount; attempt++) {
+    const position = {
+      x: px + randomInt(-12, 12),
+      y: CEILING_Y,
+      z: pz + randomInt(-12, 12),
+    };
+    try {
+      if (typeof dimension.isChunkLoaded === "function" && !dimension.isChunkLoaded(position)) {
+        continue;
+      }
+      const block = dimension.getBlock(position);
+      if (!block || block.typeId !== BLOCK.seaLantern) continue;
+      const posKey = `${position.x}:${position.y}:${position.z}`;
+      if (state.flickeredLights.has(posKey)) continue;
+      state.flickeredLights.set(posKey, block.permutation);
+      setBlockPermutationSafe(block, BLOCK.air);
+      disabled++;
+    } catch (_error) {}
+  }
+
+  if (disabled > 0) {
+    const burstTicks = randomInt(FLICKER_BURST_MIN_TICKS, FLICKER_BURST_MAX_TICKS);
+    state.flickerOn = true;
+    state.flickerRestoreTick = now + burstTicks;
+    system.runTimeout(() => {
       try {
-        const block = dimension.getBlock({ x: fx, y: fy, z: fz });
-        if (block && block.typeId === BLOCK.seaLantern) {
-          const posKey = `${fx}:${fy}:${fz}`;
-          if (!state.flickeredLights.has(posKey)) {
-            state.flickeredLights.set(posKey, block.permutation);
-            setBlockPermutationSafe(block, BLOCK.air);
-          }
-        }
-      } catch (e) {}
-    }
-  } catch (e) {}
+        if (!state.flickerOn) return;
+        restoreFlickeredLights(dimension);
+        state.nextFlickerTick = system.currentTick + randomInt(FLICKER_MIN_GAP_TICKS, FLICKER_MAX_GAP_TICKS);
+      } catch (_error) {}
+    }, burstTicks);
+  } else {
+    state.nextFlickerTick = now + randomInt(20, 60);
+  }
 }
 
 function handleEscapeProximity() {

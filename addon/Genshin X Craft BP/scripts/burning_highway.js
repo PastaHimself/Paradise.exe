@@ -119,8 +119,9 @@ const BLOCK = {
 };
 
 const ROAD_BLOCK_WEIGHTS = [
-  { type: BLOCK.netherrack, weight: 70 },
-  { type: BLOCK.blackstone, weight: 22 },
+  { type: BLOCK.netherrack, weight: 18 },
+  { type: BLOCK.blackstone, weight: 46 },
+  { type: BLOCK.crackedPolishedBlackstoneBricks, weight: 28 },
   { type: BLOCK.obsidian, weight: 8 },
 ];
 

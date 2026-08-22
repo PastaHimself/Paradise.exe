@@ -16,7 +16,7 @@ export function currentTick() {
 function waitTeleportRetryTicks(ticks) {
   return new Promise((resolve) => {
     try {
-      system.runTimeout(resolve, Math.max(1, Math.floor(ticks || 1)));
+      system.runTimeout(() => resolve(), Math.max(1, Math.floor(ticks || 1)));
     } catch (_error) {
       resolve();
     }

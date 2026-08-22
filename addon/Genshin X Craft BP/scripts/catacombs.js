@@ -38,10 +38,10 @@ const RETURN_TICKING_AREA_PREFIX = "catacombs:return:";
 const CATACOMB_ESCAPE_LIMIT_TICKS = 20 * 60 * 20;
 const CATACOMB_TIMER_CHECK_INTERVAL_TICKS = 20;
 const FLICKER_LIGHT_INTERVAL_TICKS = 4;
-const FLICKER_ACTIVE_DISTANCE = 72;
+const FLICKER_ACTIVE_DISTANCE = 56;
 const EXTRA_LOOP_COUNT = 10;
 const MAX_AUTHORED_CATACOMB_MODULES = 6;
-const MAX_FLICKER_LIGHT_NODES = 32;
+const MAX_FLICKER_LIGHT_NODES = 48;
 const CATACOMB_MODULES = Object.freeze([
   { id: "paradise:catacombs/tomb_shrine", depth: 3 },
   { id: "paradise:catacombs/ossuary_panel", depth: 2 },
@@ -640,11 +640,11 @@ function registerFlickerLight(position, onPermutation, offPermutation, rng = nul
     offPermutation,
     lit: true,
     nextTick: system.currentTick + 8 + nodeRng.int(80),
-    onTicksMin: options.onTicksMin ?? 20,
-    onTicksMax: options.onTicksMax ?? 120,
+    onTicksMin: options.onTicksMin ?? 140,
+    onTicksMax: options.onTicksMax ?? 420,
     offTicksMin: options.offTicksMin ?? 2,
-    offTicksMax: options.offTicksMax ?? 10,
-    burstChance: options.burstChance ?? 0.25,
+    offTicksMax: options.offTicksMax ?? 12,
+    burstChance: options.burstChance ?? 0.18,
   });
 }
 

@@ -253,11 +253,12 @@ function toggleFlashlight(player) {
 }
 
 function handleFlashlightUse(event) {
-  if (!isFlashlightItem(event?.itemStack)) {
+  const itemStack = event?.beforeItemStack ?? event?.itemStack;
+  if (!isFlashlightItem(itemStack)) {
     return;
   }
 
-  const player = event.source;
+  const player = event?.source ?? event?.player;
   if (!player?.isValid || player.typeId !== "minecraft:player") {
     return;
   }
@@ -700,6 +701,6 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 });
 
 subscribeAfterEvent(world.afterEvents.itemUse, handleFlashlightUse);
-subscribeAfterEvent(world.afterEvents.itemUseOn, handleFlashlightUse);
+subscribeAfterEvent(world.afterEvents.playerInteractWithBlock, handleFlashlightUse);
 
 system.runInterval(tickPlayerLight, TICK_INTERVAL);
