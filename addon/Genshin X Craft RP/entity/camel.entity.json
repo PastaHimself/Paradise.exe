@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:camel",
@@ -33,6 +33,8 @@
         ],
         "scale": "query.is_baby ? (1 / 0.45) : 1.0",
         "animate": [
+          "general",
+          "idle_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
           }
@@ -56,21 +58,15 @@
         "baby_stand_up": "animation.camel.baby_stand_up",
         "baby_dashing": "animation.camel.baby_dash",
         "baby_idle": "animation.camel.baby_idle",
-        "paradise_eye_stare": "animation.paradise.creepy_eye_stare"
+        "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
+        "general": "controller.animation.camel.general",
+        "idle_controller": "controller.animation.camel.idle"
       },
       "sound_effects": {
         "sit_down": "mob.camel.sit",
         "stand_up": "mob.camel.stand",
         "dash": "mob.camel.dash"
       },
-      "animation_controllers": [
-        {
-          "general": "controller.animation.camel.general"
-        },
-        {
-          "idle": "controller.animation.camel.idle"
-        }
-      ],
       "render_controllers": [
         "controller.render.camel.v2",
         "controller.render.paradise_creepy_eye"
