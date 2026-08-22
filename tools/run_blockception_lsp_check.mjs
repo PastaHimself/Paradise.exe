@@ -13,6 +13,39 @@ const DIAGNOSTIC_SEVERITY = new Map([
   [4, 'hint'],
 ]);
 
+// Blockception validates the custom workspace in isolation. Minecraft itself stacks
+// the active resource pack over the vanilla/default resource pack, so vanilla
+// client-entity and terrain references can legitimately resolve outside this repo.
+// Keep this allowlist deliberately exact: any unlisted Blockception error still
+// fails CI.
+const VANILLA_SPAWN_EGG_BY_ENTITY = new Map([
+  ['armadillo.entity.json', 'spawn_egg_armadillo'],
+  ['camel.entity.json', 'spawn_egg_camel'],
+  ['cat.entity.json', 'spawn_egg_cat'],
+  ['chicken.entity.json', 'spawn_egg_chicken'],
+  ['cow.entity.json', 'spawn_egg_cow'],
+  ['fox.entity.json', 'spawn_egg_fox'],
+  ['goat.entity.json', 'spawn_egg_goat'],
+  ['llama.entity.json', 'spawn_egg_llama'],
+  ['ocelot.entity.json', 'spawn_egg_ocelot'],
+  ['panda.entity.json', 'spawn_egg_panda'],
+  ['parrot.entity.json', 'spawn_egg_parrot'],
+  ['pig.entity.json', 'spawn_egg_pig'],
+  ['rabbit.entity.json', 'spawn_egg_rabbit'],
+  ['sheep.entity.json', 'spawn_egg_sheep'],
+  ['turtle.entity.json', 'spawn_egg_turtle'],
+]);
+
+const VANILLA_ANIMATION_BY_ENTITY = new Map([
+  ['camel.entity.json', 'animation.camel.look_at_target'],
+  ['fox.entity.json', 'animation.fox.baby_transform'],
+]);
+
+const VANILLA_TERRAIN_TEXTURES = new Set([
+  'textures/blocks/cake',
+  'textures/blocks/smoker_front_on_1',
+]);
+
 function parseArgs(argv) {
   const result = {
     server: '',
@@ -94,6 +127,59 @@ function formatCode(code) {
     return JSON.stringify(code);
   }
   return String(code);
+}
+
+function vanillaFallbackReason(diagnostic) {
+  const file = String(diagnostic.file ?? '').replaceAll('\\', '/');
+  const fileName = path.posix.basename(file);
+  const code = formatCode(diagnostic.code);
+  const message = String(diagnostic.message ?? '');
+
+  if (code === 'behaviorpack.item.components.texture_not_found') {
+    const spawnEgg = VANILLA_SPAWN_EGG_BY_ENTITY.get(fileName);
+    if (
+      spawnEgg &&
+      file.includes('/Genshin X Craft RP/entity/') &&
+      message.includes(`"${spawnEgg}"`)
+    ) {
+      return `vanilla spawn-egg texture alias ${spawnEgg}`;
+    }
+  }
+
+  if (code === 'resourcepack.anim_or_controller.missing') {
+    const animation = VANILLA_ANIMATION_BY_ENTITY.get(fileName);
+    if (
+      animation &&
+      file.includes('/Genshin X Craft RP/entity/') &&
+      message.includes(animation)
+    ) {
+      return `vanilla client animation ${animation}`;
+    }
+  }
+
+  if (
+    code === 'resourcepack.texture.missing' &&
+    file.endsWith('/Genshin X Craft RP/textures/terrain_texture.json')
+  ) {
+    for (const texture of VANILLA_TERRAIN_TEXTURES) {
+      if (message.includes(texture)) {
+        return `vanilla terrain texture ${texture}`;
+      }
+    }
+  }
+
+  return null;
+}
+
+function sortDiagnostics(diagnostics) {
+  diagnostics.sort((left, right) => {
+    const fileComparison = left.file.localeCompare(right.file);
+    if (fileComparison !== 0) return fileComparison;
+    const leftLine = left.range?.start?.line ?? 0;
+    const rightLine = right.range?.start?.line ?? 0;
+    if (leftLine !== rightLine) return leftLine - rightLine;
+    return (left.range?.start?.character ?? 0) - (right.range?.start?.character ?? 0);
+  });
 }
 
 async function main() {
@@ -383,11 +469,11 @@ async function main() {
     // Let final publishDiagnostics notifications flush after the progress reporter closes.
     await new Promise((resolve) => setTimeout(resolve, 750));
 
-    const diagnostics = [];
+    const rawDiagnostics = [];
     for (const [uri, items] of diagnosticsByUri.entries()) {
       const file = toRelativeFile(uri, repositoryRoot);
       for (const item of items) {
-        diagnostics.push({
+        rawDiagnostics.push({
           file,
           uri,
           severity: item.severity ?? 3,
@@ -401,14 +487,19 @@ async function main() {
       }
     }
 
-    diagnostics.sort((left, right) => {
-      const fileComparison = left.file.localeCompare(right.file);
-      if (fileComparison !== 0) return fileComparison;
-      const leftLine = left.range?.start?.line ?? 0;
-      const rightLine = right.range?.start?.line ?? 0;
-      if (leftLine !== rightLine) return leftLine - rightLine;
-      return (left.range?.start?.character ?? 0) - (right.range?.start?.character ?? 0);
-    });
+    const diagnostics = [];
+    const ignoredVanillaFallbacks = [];
+    for (const diagnostic of rawDiagnostics) {
+      const ignoredReason = vanillaFallbackReason(diagnostic);
+      if (ignoredReason) {
+        ignoredVanillaFallbacks.push({ ...diagnostic, ignoredReason });
+      } else {
+        diagnostics.push(diagnostic);
+      }
+    }
+
+    sortDiagnostics(diagnostics);
+    sortDiagnostics(ignoredVanillaFallbacks);
 
     const summary = {
       errors: diagnostics.filter((item) => item.severity === 1).length,
@@ -416,6 +507,8 @@ async function main() {
       information: diagnostics.filter((item) => item.severity === 3).length,
       hints: diagnostics.filter((item) => item.severity === 4).length,
       total: diagnostics.length,
+      rawTotal: rawDiagnostics.length,
+      ignoredVanillaFallbacks: ignoredVanillaFallbacks.length,
       filesWithDiagnostics: new Set(diagnostics.map((item) => item.file)).size,
     };
 
@@ -429,6 +522,7 @@ async function main() {
           workspace: path.relative(repositoryRoot, workspacePath).split(path.sep).join('/'),
           summary,
           diagnostics,
+          ignoredVanillaFallbacks,
           serverStderr: serverStderr.join(''),
         },
         null,
@@ -436,6 +530,16 @@ async function main() {
       )}\n`,
       'utf8',
     );
+
+    for (const diagnostic of ignoredVanillaFallbacks) {
+      const line = (diagnostic.range?.start?.line ?? 0) + 1;
+      const column = (diagnostic.range?.start?.character ?? 0) + 1;
+      const code = formatCode(diagnostic.code);
+      console.log(
+        `${diagnostic.file}:${line}:${column} ignored vanilla fallback: ` +
+          `[${code}] ${diagnostic.message} (${diagnostic.ignoredReason})`,
+      );
+    }
 
     for (const diagnostic of diagnostics) {
       const line = (diagnostic.range?.start?.line ?? 0) + 1;
@@ -457,6 +561,10 @@ async function main() {
     console.log(
       `Blockception diagnostics: ${summary.errors} error(s), ${summary.warnings} warning(s), ` +
         `${summary.information} info, ${summary.hints} hint(s) across ${summary.filesWithDiagnostics} file(s).`,
+    );
+    console.log(
+      `Ignored ${summary.ignoredVanillaFallbacks} confirmed vanilla base-pack fallback diagnostic(s) ` +
+        `out of ${summary.rawTotal} raw diagnostic(s).`,
     );
     console.log(`Diagnostic report: ${path.relative(repositoryRoot, reportPath).split(path.sep).join('/')}`);
 
