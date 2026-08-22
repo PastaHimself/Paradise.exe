@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:turtle",
@@ -26,6 +26,8 @@
         ],
         "scale": "query.is_baby ? (1 / 0.16) : 1.0",
         "animate": [
+          "general",
+          "move_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
           }
@@ -35,21 +37,14 @@
         ]
       },
       "animations": {
-        "general": "animation.turtle.general",
+        "general": "controller.animation.turtle.general",
         "move": "animation.turtle.move",
         "ground_move": "animation.turtle.ground_move",
         "look_at_target": "animation.common.look_at_target",
         "move_baby": "animation.turtle.baby_move",
-        "paradise_eye_stare": "animation.paradise.creepy_eye_stare"
+        "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
+        "move_controller": "controller.animation.turtle.move"
       },
-      "animation_controllers": [
-        {
-          "general": "controller.animation.turtle.general"
-        },
-        {
-          "move": "controller.animation.turtle.move"
-        }
-      ],
       "render_controllers": [
         "controller.render.turtle.v2",
         "controller.render.paradise_creepy_eye"
