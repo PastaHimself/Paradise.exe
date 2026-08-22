@@ -26,7 +26,7 @@
         ],
         "scale": "query.is_baby ? (1 / 0.16) : 1.0",
         "animate": [
-          "general",
+          "general_controller",
           "move_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
@@ -37,12 +37,13 @@
         ]
       },
       "animations": {
-        "general": "controller.animation.turtle.general",
+        "general": "animation.turtle.general",
         "move": "animation.turtle.move",
         "ground_move": "animation.turtle.ground_move",
         "look_at_target": "animation.common.look_at_target",
         "move_baby": "animation.turtle.baby_move",
         "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
+        "general_controller": "controller.animation.turtle.general",
         "move_controller": "controller.animation.turtle.move"
       },
       "render_controllers": [
