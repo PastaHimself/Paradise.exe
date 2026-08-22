@@ -1,3 +1,4 @@
+// Regression coverage for evidence-driven reposition fairness; kept intentionally deterministic for CI.
 import test from "node:test";
 import assert from "node:assert/strict";
 import {
