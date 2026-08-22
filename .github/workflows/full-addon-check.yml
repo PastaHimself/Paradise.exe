@@ -58,6 +58,17 @@ jobs:
       - name: Run JavaScript regression tests
         run: npm test
 
+      - name: Build installable Paradise.exe.mcaddon
+        run: python tools/package_mcaddon.py --output artifacts/Paradise.exe.mcaddon
+
+      - name: Upload installable .mcaddon
+        uses: actions/upload-artifact@v4
+        with:
+          name: Paradise-exe-mcaddon
+          path: artifacts/Paradise.exe.mcaddon
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload validation reports
         if: always()
         uses: actions/upload-artifact@v4
