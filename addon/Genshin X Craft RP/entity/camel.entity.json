@@ -33,7 +33,7 @@
         ],
         "scale": "query.is_baby ? (1 / 0.45) : 1.0",
         "animate": [
-          "general",
+          "general_controller",
           "idle_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
@@ -59,7 +59,7 @@
         "baby_dashing": "animation.camel.baby_dash",
         "baby_idle": "animation.camel.baby_idle",
         "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
-        "general": "controller.animation.camel.general",
+        "general_controller": "controller.animation.camel.general",
         "idle_controller": "controller.animation.camel.idle"
       },
       "sound_effects": {
