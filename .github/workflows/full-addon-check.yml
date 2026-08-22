@@ -12,7 +12,7 @@ jobs:
   validate-addon:
     name: Validate complete Bedrock add-on
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -28,11 +28,17 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Install Minecraft Bedrock beta Script API typings
+        run: npm install --ignore-scripts --no-audit --no-fund
+
       - name: Run validator unit tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
 
       - name: Validate complete add-on
         run: python tools/validate_addon.py --report artifacts/addon-validation.json
+
+      - name: Validate Bedrock resource identifier links
+        run: python tools/validate_resource_links.py --report artifacts/resource-link-validation.json
 
       - name: Validate all Bedrock structures
         run: python tools/validate_mcstructures.py --report artifacts/mcstructure-validation.json
@@ -46,8 +52,11 @@ jobs:
             node --check "$file"
           done < <(find "addon/Genshin X Craft BP/scripts" -type f -name '*.js' -print0)
 
+      - name: Type-check behavior scripts against Bedrock beta APIs
+        run: npm run typecheck
+
       - name: Run JavaScript regression tests
-        run: node --test tests/*.test.mjs
+        run: npm test
 
       - name: Upload validation reports
         if: always()
