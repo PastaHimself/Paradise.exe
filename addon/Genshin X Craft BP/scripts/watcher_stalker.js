@@ -33,6 +33,21 @@ import {
   observeAdaptiveRoute,
   recordAdaptiveTactic,
 } from "./watcher_adaptive_profile.js";
+import {
+  EVIDENCE_KIND,
+  WATCHER_BEHAVIOR,
+  approximateWatcherEvidenceLocation,
+  advanceWatcherSearch,
+  beginWatcherSearch,
+  chooseEvidenceDrivenBehavior,
+  computeSightEvidenceStrength,
+  createWatcherEvidenceState,
+  getWatcherEvidenceReactionDelayTicks,
+  hasWatcherAttackEvidence,
+  observeWatcherEvidence,
+  predictWatcherInterception,
+  tickWatcherEvidence,
+} from "./watcher_evidence_model.js";
 import { getCachedPlayerById, getCachedPlayers } from "./paradise_tick_cache.js";
 import { clampPreferredLocationToRange } from "./watcher_psychological_choreography.js";
 import { isVhsEnabled } from "./player_config.js";
@@ -2204,8 +2219,19 @@ function recordSuspiciousAction(player, profile, action, points, options = {}) {
   }
 
   profile.suspicion = clamp(profile.suspicion + amount, 0, SUSPICION_CONFIG.max);
-  if (options.countsAsSoundEvidence !== false && isPlayerHeardByWatcher(player)) {
+  const heardByWatcher = options.countsAsSoundEvidence !== false && isPlayerHeardByWatcher(player);
+  if (heardByWatcher) {
     profile.lastHeardByWatcherTick = currentTick;
+    recordWatcherEvidenceForPlayer(
+      player,
+      options.evidenceKind || EVIDENCE_KIND.Sound,
+      options.evidenceStrength ?? clamp(points / SOUND_POINTS.loudCombat, 0.08, 1),
+      currentTick,
+      {
+        location: options.evidenceLocation || player.location,
+        maxDistance: options.evidenceMaxDistance || CONFIG.soundDetectionRadius,
+      },
+    );
   }
   if (options.soundPoints) {
     addSoundScore(profile, options.soundPoints);
@@ -2296,6 +2322,314 @@ function isPlayerHeardByWatcher(player) {
   return false;
 }
 
+function resetWatcherPerception(state, currentTick) {
+  if (!state) {
+    return;
+  }
+  state.evidence = createWatcherEvidenceState(currentTick);
+  state.behaviorState = WATCHER_BEHAVIOR.Dormant;
+  state.lastTargetLocation = undefined;
+  state.confirmedSightTicks = 0;
+  state.lastRouteHintSnapshotTick = -999999;
+}
+
+function getEvidenceMovementDirection(profile) {
+  const velocity = profile?.currentVelocity;
+  if (!velocity) {
+    return { x: 0, z: 0 };
+  }
+  const direction = horizontal({ x: velocity.x, y: 0, z: velocity.z });
+  return { x: direction.x, z: direction.z };
+}
+
+function snapshotEvidenceRouteHints(profile, origin, dimensionId) {
+  if (!profile?.cells || !origin || !dimensionId) {
+    return [];
+  }
+  const maxDistance = 56;
+  const ranked = [...profile.cells.values()]
+    .filter((cell) => cell?.center && cell.dimensionId === dimensionId)
+    .filter((cell) => distance(cell.center, origin) <= maxDistance)
+    .sort((a, b) => scoreCell(b) - scoreCell(a))
+    .slice(0, 6)
+    .map((cell) => cloneLocation(cell.center));
+
+  for (const cell of [profile.routeCell, profile.baseCell, profile.primaryCell]) {
+    if (!cell?.center || cell.dimensionId !== dimensionId || distance(cell.center, origin) > maxDistance) {
+      continue;
+    }
+    const key = getRouteCellKey(dimensionId, cell.center);
+    if (!ranked.some((candidate) => getRouteCellKey(dimensionId, candidate) === key)) {
+      ranked.push(cloneLocation(cell.center));
+    }
+  }
+  return ranked.slice(0, 8);
+}
+
+function recordWatcherEvidenceForPlayer(player, kind, strength, currentTick, options = {}) {
+  if (!player || !player.location || isPlayerInSafeRoom(player, currentTick)) {
+    return 0;
+  }
+
+  const sourceOrigin = cloneLocation(options.location || player.location);
+  const origin = kind === EVIDENCE_KIND.Flashlight
+    ? approximateWatcherEvidenceLocation(sourceOrigin, options.uncertainty ?? 4)
+    : sourceOrigin;
+  const maxDistance = Math.max(1, Number(options.maxDistance) || CONFIG.soundDetectionRadius);
+  const profile = playerProfiles.get(player.id);
+  let recorded = 0;
+
+  for (const entity of getTrackedWatchers()) {
+    const state = getState(entity);
+    const assigned = state.targetPlayerId === player.id || state.ownerPlayerId === player.id;
+    if (!assigned || state.phase === PHASE.Dormant || state.phase === PHASE.Vanish || state.phase === PHASE.Psychological) {
+      continue;
+    }
+    if (!entity.dimension || entity.dimension.id !== player.dimension.id) {
+      continue;
+    }
+    if (distance(entity.location, sourceOrigin) > maxDistance) {
+      continue;
+    }
+
+    if (!state.evidence) {
+      state.evidence = createWatcherEvidenceState(currentTick);
+    }
+    const refreshRouteHints =
+      kind !== EVIDENCE_KIND.Flashlight &&
+      currentTick - (state.lastRouteHintSnapshotTick || -999999) >= 20 * 4;
+    const routeHints = kind === EVIDENCE_KIND.Flashlight
+      ? undefined
+      : refreshRouteHints
+        ? snapshotEvidenceRouteHints(profile, origin, player.dimension.id)
+        : state.evidence.routeHints;
+    if (refreshRouteHints) {
+      state.lastRouteHintSnapshotTick = currentTick;
+    }
+    observeWatcherEvidence(state.evidence, {
+      kind,
+      location: origin,
+      strength: clamp(strength, 0, 1),
+      movementDirection: kind === EVIDENCE_KIND.Flashlight
+        ? { x: 0, z: 0 }
+        : getEvidenceMovementDirection(profile),
+      routeHints,
+    }, currentTick);
+    state.behaviorState = chooseEvidenceDrivenBehavior(state.evidence, {
+      directorPhase: profile?.tensionState,
+      safeRoom: false,
+      currentTick,
+    });
+    const reactionTick = currentTick + getWatcherEvidenceReactionDelayTicks(kind, strength);
+    if (!state.nextMoveTick || state.nextMoveTick < currentTick) {
+      state.nextMoveTick = reactionTick;
+    } else {
+      state.nextMoveTick = Math.min(state.nextMoveTick, reactionTick);
+    }
+    if (profile && (kind === EVIDENCE_KIND.Sound || kind === EVIDENCE_KIND.Interaction)) {
+      profile.lastHeardByWatcherTick = currentTick;
+    }
+    recorded += 1;
+  }
+
+  return recorded;
+}
+
+function getEvidenceRouteCandidates(state) {
+  const evidence = state?.evidence;
+  if (!evidence?.lastKnownPosition || !Array.isArray(evidence.routeHints)) {
+    return [];
+  }
+
+  const radius = Math.max(18, (evidence.searchRadius || 10) * 1.75);
+  return evidence.routeHints
+    .filter(Boolean)
+    .filter((candidate) => distance(candidate, evidence.lastKnownPosition) <= radius * 1.35)
+    .map((candidate) => cloneLocation(candidate))
+    .slice(0, 8);
+}
+
+function chooseEvidenceTeleportSpot(player, profile, phase, state, currentTick, preferredCenter) {
+  const evidence = state?.evidence;
+  if (!player?.dimension || !evidence?.lastKnownPosition) {
+    return undefined;
+  }
+
+  const routeCandidates = getEvidenceRouteCandidates(state);
+  let origin = cloneLocation(preferredCenter || evidence.lastKnownPosition);
+  const adaptive = profile?.adaptive;
+  const learnedDirection = adaptive?.escapeConfidence >= 0.25 ? adaptive.escapeDirection : undefined;
+  const evidenceDirection = evidence.movementDirection?.x || evidence.movementDirection?.z
+    ? evidence.movementDirection
+    : learnedDirection;
+  const routeConfidence = clamp(
+    Math.max(evidence.confidence * 0.75, adaptive?.escapeConfidence || 0),
+    0,
+    1,
+  );
+
+  if (!preferredCenter && (phase === PHASE.Ambush || state.adaptiveTactic === ADAPTIVE_TACTIC.PredictedAmbush || Math.random() < 0.35)) {
+    const prediction = predictWatcherInterception(state.evidence, {
+      direction: evidenceDirection,
+      routeConfidence,
+      distance: phase === PHASE.Ambush ? 14 : 10,
+      uncertainty: phase === PHASE.Ambush ? 5 : 7,
+      failureChance: phase === PHASE.Ambush ? 0.28 : 0.38,
+    });
+    if (prediction.success && prediction.location) {
+      origin = prediction.location;
+    }
+  }
+
+  const centers = [origin, ...routeCandidates.slice(0, 4)];
+  const range = phase === "search"
+    ? [3, Math.max(8, evidence.searchRadius || 10)]
+    : getPhaseRangeForPlayer(player, phase);
+  const samples = phase === "search" ? 18 : Math.min(24, CONFIG.candidateSamples[phase] || 20);
+  let best;
+
+  for (let i = 0; i < samples; i++) {
+    const center = i === 0 ? origin : pickRandom(centers);
+    const radius = randomFloat(range[0], range[1]);
+    const candidate = candidateFromPolar(center, radius, randomFloat(0, Math.PI * 2), randomInt(-2, 2));
+    const standPhase = phase === "search" ? PHASE.Shadow : phase;
+    const spot = resolveStandSpot(player.dimension, candidate, standPhase);
+    if (!spot) {
+      continue;
+    }
+
+    const spotEye = addVec(spot, 0, 0.9, 0);
+    const visible = hasLineOfSight(player.dimension, getEyeLocation(player), spotEye);
+    const focused = isPlayerLookingAtLocation(player, spotEye, 0.35);
+    const light = getLightLevel(player.dimension, spot);
+    const cover = countCoverBlocks(player.dimension, spot);
+    const playerDistance = distance(player.location, spot);
+    let score = (visible ? -28 : 14) + (focused ? -32 : 4) + cover * 3;
+    score += light <= CONFIG.lightPreference ? 10 : -Math.max(0, light - CONFIG.lightPreference);
+    score -= countDangerBlocks(player.dimension, spot) * 18;
+    score += Math.min(10, playerDistance / 10);
+    if (phase !== PHASE.Ambush && phase !== PHASE.Vanish && playerDistance < 24) {
+      score -= 40;
+    }
+    if (preferredCenter) {
+      score -= Math.min(20, distance(spot, preferredCenter)) * 0.35;
+    }
+    score += randomFloat(-2, 2);
+
+    if (!best || score > best.score) {
+      best = {
+        spot,
+        score,
+        anchor: undefined,
+        patternKey: `evidence-${phase}:band-${Math.max(0, Math.floor(playerDistance / 8))}`,
+      };
+    }
+  }
+
+  return best;
+}
+
+function shouldUseEvidenceMovement(state, currentTick) {
+  const evidence = state?.evidence;
+  if (!evidence?.lastKnownPosition) {
+    return false;
+  }
+  if (state.behaviorState === WATCHER_BEHAVIOR.Search || evidence.behavior === WATCHER_BEHAVIOR.Search) {
+    return true;
+  }
+  const freshConfirmedSight = evidence.confirmed && currentTick - evidence.lastSightTick <= 20;
+  return !freshConfirmedSight;
+}
+
+function moveWatcherByEvidence(entity, state, player, profile, currentTick, force = false) {
+  if (!state?.evidence?.lastKnownPosition) {
+    return false;
+  }
+
+  tickWatcherEvidence(state.evidence, currentTick);
+  let behavior = chooseEvidenceDrivenBehavior(state.evidence, {
+    directorPhase: profile?.tensionState,
+    safeRoom: isPlayerInSafeRoom(player, currentTick),
+    currentTick,
+  });
+  state.behaviorState = behavior;
+  let preferredCenter;
+
+  if (behavior === WATCHER_BEHAVIOR.Search) {
+    const search = advanceWatcherSearch(
+      state.evidence,
+      currentTick,
+      getEvidenceRouteCandidates(state),
+    );
+    behavior = search.behavior;
+    state.behaviorState = behavior;
+    preferredCenter = search.target;
+
+    if (behavior === WATCHER_BEHAVIOR.Disengage) {
+      profile.heat = clamp(profile.heat - 10, 0, 100);
+      profile.suspicion = clamp(profile.suspicion - 18, 0, SUSPICION_CONFIG.max);
+      enterPhase(entity, state, player, profile, PHASE.Vanish, currentTick, "search-failed", {
+        skipImmediateMove: true,
+      });
+      markPlayerCooldownSeconds(player, randomInt(20, 90));
+      return true;
+    }
+  }
+
+  const phase = state.phase === PHASE.Dormant ? PHASE.Observe : state.phase;
+  const result = chooseEvidenceTeleportSpot(player, profile, behavior === WATCHER_BEHAVIOR.Search ? "search" : phase, state, currentTick, preferredCenter);
+  if (!result) {
+    state.failedSpotCount += 1;
+    state.nextMoveTick = currentTick + randomInt(20 * 4, 20 * 8);
+    return false;
+  }
+
+  const teleportPhase = behavior === WATCHER_BEHAVIOR.Search ? "search" : phase;
+  const moved = teleportWatcher(
+    entity,
+    result.spot,
+    state.evidence.lastKnownPosition,
+    player.dimension,
+    {
+      player,
+      state,
+      phase: teleportPhase,
+      reason: behavior === WATCHER_BEHAVIOR.Search ? "search-investigate" : (force ? `evidence-immediate-${phase}` : `evidence-${phase}`),
+      currentTick,
+      directorPhase: profile?.tensionState,
+      protectedRelief: profile?.tensionState === TENSION.Relief,
+      physicallyValid: true,
+      patternKey: result.patternKey,
+    },
+  );
+  if (!moved) {
+    state.failedSpotCount += 1;
+    return false;
+  }
+
+  state.failedSpotCount = 0;
+  state.lastMoveTick = currentTick;
+  state.totalMoves += 1;
+  state.lastTargetLocation = cloneLocation(state.evidence.lastKnownPosition);
+  if (behavior === WATCHER_BEHAVIOR.Search) {
+    state.nextMoveTick = currentTick + randomInt(20 * 10, 20 * 18);
+    if (Math.random() < 0.16) {
+      tryPlayAtPosition(
+        player,
+        "search:misleading-cue",
+        HORROR_SOUND.StalkerStepBehind,
+        result.spot,
+        { volume: 0.38, pitch: randomFloat(0.82, 1.02) },
+        20 * 45,
+      );
+    }
+  } else {
+    scheduleNextMove(state, state.phase, currentTick);
+  }
+  setWatcherAnimation(entity, getWatcherBaseAnimationForPhase(state.phase), { force: true });
+  return true;
+}
+
 function classifyAndApplyMovementSound(player, profile, currentTick) {
   if (currentTick - profile.lastMovementSoundTick < CONFIG.movementSoundCooldownTicks) {
     return;
@@ -2337,6 +2671,14 @@ function classifyAndApplyMovementSound(player, profile, currentTick) {
 
   if (pts > 0) {
     addSoundScore(profile, pts);
+    if (hSpeed < 4.0) {
+      recordWatcherEvidenceForPlayer(
+        player,
+        EVIDENCE_KIND.Sound,
+        clamp(pts / SOUND_POINTS.loudCombat, 0.08, 0.75),
+        currentTick,
+      );
+    }
   }
 }
 
@@ -2452,8 +2794,18 @@ function getState(entity) {
       adaptiveTacticUntilTick: 0,
       confirmedSightTicks: 0,
       lastAdaptiveExposureTick: -999999,
+      behaviorState: WATCHER_BEHAVIOR.Dormant,
+      evidence: createWatcherEvidenceState(system.currentTick || 0),
+      lastRouteHintSnapshotTick: -999999,
     };
     watcherStates.set(entity.id, state);
+  }
+
+  if (!state.evidence) {
+    state.evidence = createWatcherEvidenceState(system.currentTick || 0);
+  }
+  if (!state.behaviorState) {
+    state.behaviorState = WATCHER_BEHAVIOR.Dormant;
   }
 
   return state;
@@ -3042,6 +3394,13 @@ function teleportWatcher(entity, location, facingLocation, dimension, options = 
     (sameEntityDimension && isPlayerLookingAtLocation(player, entity.location, 0.35)) ||
     (sameTargetDimension && isPlayerLookingAtLocation(player, location, 0.35))
   );
+  const strongLineOfSight = options.strongLineOfSight === true || (
+    sameTargetDimension &&
+    player &&
+    location &&
+    hasLineOfSight(player.dimension, getEyeLocation(player), addVec(location, 0, 0.9, 0))
+  );
+  let governorPatternKey = options.patternKey;
 
   if (player && options.skipGovernor !== true) {
     const decision = canTeleportStalker({
@@ -3060,7 +3419,14 @@ function teleportWatcher(entity, location, facingLocation, dimension, options = 
       visibleMinTicks: options.visibleMinTicks,
       maxPerEncounter: options.maxPerEncounter,
       encounterKey: options.encounterKey,
+      directorPhase: options.directorPhase,
+      protectedRelief: options.protectedRelief === true,
+      strongLineOfSight,
+      physicallyValid: options.physicallyValid !== false,
+      patternKey: options.patternKey,
+      allowVisibleSetup: options.allowVisibleSetup === true,
     });
+    governorPatternKey = decision.patternKey || governorPatternKey;
 
     if (!decision.allowed) {
       recordStalkerTeleport({
@@ -3073,6 +3439,7 @@ function teleportWatcher(entity, location, facingLocation, dimension, options = 
         visible,
         allowed: false,
         denialReason: decision.reason,
+        patternKey: decision.patternKey || options.patternKey,
       });
       if (state && decision.remainingTicks > 0) {
         state.nextMoveTick = Math.max(state.nextMoveTick || 0, currentTick + Math.max(20, Math.min(decision.remainingTicks, 20 * 45)));
@@ -3100,6 +3467,7 @@ function teleportWatcher(entity, location, facingLocation, dimension, options = 
         visible,
         allowed: true,
         skipBudget: options.skipBudget === true,
+        patternKey: governorPatternKey,
       });
     }
     return true;
@@ -4153,13 +4521,20 @@ function hideWatcher(entity, state, player, profile, currentTick) {
     return true;
   }
 
-  const result = chooseTeleportSpot(player, profile, PHASE.Vanish, state);
-  if (result && teleportWatcher(entity, result.spot, player.location, player.dimension, {
+  const result = state.evidence?.lastKnownPosition
+    ? chooseEvidenceTeleportSpot(player, profile, PHASE.Vanish, state, currentTick)
+    : chooseTeleportSpot(player, profile, PHASE.Vanish, state);
+  const facingLocation = state.evidence?.lastKnownPosition || player.location;
+  if (result && teleportWatcher(entity, result.spot, facingLocation, player.dimension, {
     player,
     state,
     phase: PHASE.Vanish,
     reason: "vanish-cleanup",
     currentTick,
+    directorPhase: profile?.tensionState,
+    protectedRelief: profile?.tensionState === TENSION.Relief,
+    physicallyValid: true,
+    patternKey: result.patternKey,
   })) {
     state.lastMoveTick = currentTick;
     state.totalMoves += 1;
@@ -4807,13 +5182,18 @@ function maybePlayAdaptiveTacticCue(player, state, profile, currentTick) {
 }
 
 function hasHonestAttackEvidence(player, entity, state, profile, currentTick) {
-  if (!player || !entity || !state || !profile || !entity.dimension || !player.dimension) {
+  if (!player || !entity || !state || !profile || !entity.dimension || !player.dimension || !state.evidence) {
     return false;
   }
   const sameDimension = entity.dimension.id === player.dimension.id;
-  const withinSoundRange = sameDimension && distance(entity.location, player.location) <= CONFIG.soundDetectionRadius;
+  const evidenceLocation = state.evidence.lastKnownPosition;
+  const withinSoundRange = !!(
+    sameDimension &&
+    evidenceLocation &&
+    distance(entity.location, evidenceLocation) <= CONFIG.soundDetectionRadius
+  );
   const heardTicksAgo = currentTick - (profile.lastHeardByWatcherTick || -999999);
-  return hasAttackEvidencePolicy({
+  return hasWatcherAttackEvidence(state.evidence, currentTick) && hasAttackEvidencePolicy({
     confirmedSightTicks: state.confirmedSightTicks || 0,
     heardTicksAgo,
     soundWithinRange: withinSoundRange,
@@ -4849,7 +5229,9 @@ function enterPhase(entity, state, player, profile, phase, currentTick, reason =
   state.exposedTicks = 0;
   state.lostTargetTicks = 0;
   state.failedSpotCount = 0;
-  state.lastTargetLocation = player ? cloneLocation(player.location) : undefined;
+  state.lastTargetLocation = state.evidence?.lastKnownPosition
+    ? cloneLocation(state.evidence.lastKnownPosition)
+    : state.lastTargetLocation;
   state.lastReason = reason;
 
   if (prevPhase !== phase) {
@@ -4874,6 +5256,10 @@ function enterPhase(entity, state, player, profile, phase, currentTick, reason =
         fear: profile ? profile.fear : 0,
       });
     }
+  }
+
+  if (phase === PHASE.Dormant) {
+    resetWatcherPerception(state, currentTick);
   }
 
   if (phase === PHASE.Vanish) {
@@ -4920,6 +5306,15 @@ function moveWatcher(entity, state, player, profile, currentTick, force = false)
   }
 
   const phase = state.phase === PHASE.Dormant ? PHASE.Observe : state.phase;
+  const dimensionSyncPending = !!(entity.dimension && player.dimension && entity.dimension.id !== player.dimension.id);
+  if (!state.evidence?.lastKnownPosition && !dimensionSyncPending) {
+    state.nextMoveTick = currentTick + randomInt(20 * 8, 20 * 16);
+    return false;
+  }
+  if (shouldUseEvidenceMovement(state, currentTick)) {
+    return moveWatcherByEvidence(entity, state, player, profile, currentTick, force);
+  }
+
   const adaptiveTactic = chooseStateAdaptiveTactic(state, profile, phase, currentTick);
   const result = chooseTeleportSpot(player, profile, phase, state, adaptiveTactic);
 
@@ -4937,6 +5332,9 @@ function moveWatcher(entity, state, player, profile, currentTick, force = false)
     reason: dimensionSync ? "dimension-sync" : (force ? `immediate-${phase}` : `scheduled-${phase}`),
     currentTick,
     force: dimensionSync,
+    directorPhase: profile?.tensionState,
+    protectedRelief: profile?.tensionState === TENSION.Relief,
+    physicallyValid: true,
   });
   if (!moved) {
     state.failedSpotCount += 1;
@@ -5036,19 +5434,59 @@ function updateTargetPressure(player, watcher, state, profile, currentTick) {
   const visible = hasLineOfSight(player.dimension, getEyeLocation(player), getEyeLocation(watcher));
   const focused = isPlayerLookingAtWatcher(player, watcher);
 
+  const previousSightTicks = state.confirmedSightTicks || 0;
   if (visible) {
     state.confirmedSightTicks = clamp(
-      (state.confirmedSightTicks || 0) + CONFIG.tickInterval,
+      previousSightTicks + CONFIG.tickInterval,
       0,
       CONFIG.adaptive.sightEvidenceMaxTicks,
     );
+    const sightStrength = computeSightEvidenceStrength({
+      distance: dist,
+      maxDistance: CONFIG.maxLineOfSightDistance,
+      lightLevel: getLightLevel(player.dimension, player.location),
+      sneaking: isPlayerSneaking(player),
+      obstructed: false,
+    });
+    const refreshRouteHints = currentTick - (state.lastRouteHintSnapshotTick || -999999) >= 20 * 4;
+    const routeHints = refreshRouteHints
+      ? snapshotEvidenceRouteHints(profile, player.location, player.dimension.id)
+      : state.evidence.routeHints;
+    if (refreshRouteHints) {
+      state.lastRouteHintSnapshotTick = currentTick;
+    }
+    observeWatcherEvidence(state.evidence, {
+      kind: EVIDENCE_KIND.Sight,
+      location: player.location,
+      strength: sightStrength,
+      contactTicks: state.confirmedSightTicks,
+      movementDirection: getEvidenceMovementDirection(profile),
+      routeHints,
+    }, currentTick);
+    const sightReactionTick = currentTick + getWatcherEvidenceReactionDelayTicks(EVIDENCE_KIND.Sight, sightStrength);
+    if (!state.nextMoveTick || state.nextMoveTick < currentTick) {
+      state.nextMoveTick = sightReactionTick;
+    } else {
+      state.nextMoveTick = Math.min(state.nextMoveTick, sightReactionTick);
+    }
     if (currentTick - (state.lastAdaptiveExposureTick || -999999) >= CONFIG.adaptive.exposureObservationCooldownTicks) {
       observeAdaptiveExposure(profile.adaptive, currentTick);
       state.lastAdaptiveExposureTick = currentTick;
     }
   } else {
-    state.confirmedSightTicks = Math.max(0, (state.confirmedSightTicks || 0) - CONFIG.tickInterval * 2);
+    const hadReliableContact = state.evidence?.confirmed || previousSightTicks >= 15;
+    state.confirmedSightTicks = Math.max(0, previousSightTicks - CONFIG.tickInterval * 2);
+    if (hadReliableContact && state.evidence?.lastKnownPosition && state.evidence.behavior !== WATCHER_BEHAVIOR.Search) {
+      beginWatcherSearch(state.evidence, currentTick);
+    }
+    tickWatcherEvidence(state.evidence, currentTick);
   }
+
+  state.behaviorState = chooseEvidenceDrivenBehavior(state.evidence, {
+    directorPhase: profile.tensionState,
+    safeRoom: false,
+    currentTick,
+  });
 
   if (visible && focused) {
     state.exposedTicks += CONFIG.tickInterval;
@@ -5373,7 +5811,13 @@ function startAmbush(entity, state, player, profile, currentTick, options = {}) 
   profile.lastMajorScareTick = currentTick;
 
   const adaptiveTactic = chooseStateAdaptiveTactic(state, profile, PHASE.Ambush, currentTick, true);
-  const result = chooseTeleportSpot(player, profile, PHASE.Ambush, state, adaptiveTactic);
+  const freshDirectSight = !!(
+    state.evidence?.confirmed &&
+    currentTick - (state.evidence.lastSightTick || -999999) <= 20 * 2
+  );
+  const result = options.bypassHonestEvidence || freshDirectSight
+    ? chooseTeleportSpot(player, profile, PHASE.Ambush, state, adaptiveTactic)
+    : chooseEvidenceTeleportSpot(player, profile, PHASE.Ambush, state, currentTick);
   if (!result) {
     horrorDirector.endScare("watcher_ambush", { currentTick, reliefTicks: 20 * 12 });
     enterRelief(profile, currentTick, "ambush-no-spot");
@@ -5401,6 +5845,11 @@ function startAmbush(entity, state, player, profile, currentTick, options = {}) 
     maxPerEncounter: 1,
     minTicks: 20 * 8,
     visibleMinTicks: 20 * 16,
+    directorPhase: profile.tensionState,
+    protectedRelief: profile.tensionState === TENSION.Relief,
+    physicallyValid: true,
+    patternKey: result.patternKey,
+    allowVisibleSetup: true,
   });
   if (!armedTeleport) {
     horrorDirector.endScare("watcher_ambush", { currentTick, reliefTicks: 20 * 12 });
@@ -5479,7 +5928,7 @@ function finishAmbush(entity, state, player, profile, currentTick) {
   spawnParticles(player.dimension, attackSpot, outcome === AMBUSH_OUTCOME.Fakeout ? 0.9 : 0.75);
   playCue(player, PHASE.Ambush, true);
 
-  const canDamage = canResolveAdaptiveAmbushDamage({
+  const canDamage = hasWatcherAttackEvidence(state.evidence, currentTick) && canResolveAdaptiveAmbushDamage({
     outcomeDamageCapable: outcome === AMBUSH_OUTCOME.MinorDamage || outcome === AMBUSH_OUTCOME.Hit,
     sameDimension,
     escapedWarning,
@@ -5683,6 +6132,7 @@ function tickVanish(entity, state, currentTick) {
     state.cooldownPlayerId = undefined;
     state.phaseChangedTick = currentTick;
     state.lastReason = "vanish-ended";
+    resetWatcherPerception(state, currentTick);
     setWatcherAnimation(entity, "Idle", { force: true });
   }
 }
@@ -5695,6 +6145,7 @@ function tickActiveWatcher(entity, state, currentTick) {
       state.targetPlayerId = undefined;
       state.phaseChangedTick = currentTick;
       state.lastReason = "no-target";
+      resetWatcherPerception(state, currentTick);
       scheduleNextMove(state, PHASE.Dormant, currentTick);
     }
     return;
@@ -6212,9 +6663,10 @@ function recordFlashlightToggleSignal(player, failed = false) {
     return;
   }
 
-  const profile = samplePlayerMemory(player, system.currentTick, false) || getProfile(player);
+  const currentTick = system.currentTick || 0;
+  const profile = samplePlayerMemory(player, currentTick, false) || getProfile(player);
   const attraction = CONFIG.flashlightToggleAttraction;
-  observeAdaptiveFlashlight(profile.adaptive, system.currentTick || 0);
+  observeAdaptiveFlashlight(profile.adaptive, currentTick);
   recordSuspiciousAction(
     player,
     profile,
@@ -6224,7 +6676,15 @@ function recordFlashlightToggleSignal(player, failed = false) {
       heat: failed ? attraction.failedHeat : attraction.heat,
       soundPoints: isPlayerHeardByWatcher(player) ? (failed ? attraction.failedSoundPoints : attraction.soundPoints) : 0,
       cooldownTicks: attraction.cooldownTicks,
+      countsAsSoundEvidence: false,
     }
+  );
+  recordWatcherEvidenceForPlayer(
+    player,
+    EVIDENCE_KIND.Flashlight,
+    failed ? 0.30 : 0.52,
+    currentTick,
+    { maxDistance: CONFIG.soundDetectionRadius + 12 },
   );
 }
 
@@ -6371,8 +6831,16 @@ function handleScriptEvent(event) {
       break;
     case "light":
       if (player) {
-        const profile = samplePlayerMemory(player, system.currentTick, false) || getProfile(player);
+        const currentTick = system.currentTick || 0;
+        const profile = samplePlayerMemory(player, currentTick, false) || getProfile(player);
         recordSuspiciousAction(player, profile, "bright_light", 5, { heat: 2, cooldownTicks: 20 * 4, countsAsSoundEvidence: false });
+        recordWatcherEvidenceForPlayer(
+          player,
+          EVIDENCE_KIND.Flashlight,
+          0.22,
+          currentTick,
+          { maxDistance: CONFIG.soundDetectionRadius + 8 },
+        );
       }
       break;
     case "light_toggle_on":
@@ -6522,6 +6990,7 @@ world.afterEvents.explosion.subscribe((event) => {
 
       const source = event.source;
       const epicenter = source && isEntityValid(source) ? cloneLocation(source.location) : undefined;
+      const currentTick = system.currentTick || 0;
 
       for (const player of getCachedPlayers()) {
         if (!isInterestingPlayer(player) || player.dimension.id !== dimension.id) {
@@ -6535,6 +7004,15 @@ world.afterEvents.explosion.subscribe((event) => {
         const profile = playerProfiles.get(player.id);
         if (profile) {
           addSoundScore(profile, SOUND_POINTS.explosion);
+          if (epicenter) {
+            recordWatcherEvidenceForPlayer(
+              player,
+              EVIDENCE_KIND.Sound,
+              1,
+              currentTick,
+              { location: epicenter, maxDistance: CONFIG.soundExplosionRadius },
+            );
+          }
         }
       }
     } catch (_error) {

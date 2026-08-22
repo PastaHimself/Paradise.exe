@@ -1,4 +1,5 @@
 import { recordPlayerTelemetry, recordTelemetry } from "./paradise_telemetry.js";
+import { evaluateRepositionFairness } from "./watcher_evidence_model.js";
 
 const DEFAULT_MIN_TELEPORT_TICKS = 20 * 12;
 const DEFAULT_VISIBLE_MIN_TELEPORT_TICKS = 20 * 20;
@@ -9,6 +10,7 @@ const phasePolicy = Object.freeze({
   presence: { minTicks: 20 * 18, visibleMinTicks: 20 * 28, maxPerEncounter: 1 },
   observe: { minTicks: 20 * 22, visibleMinTicks: 20 * 32, maxPerEncounter: 1 },
   shadow: { minTicks: 20 * 22, visibleMinTicks: 20 * 32, maxPerEncounter: 1 },
+  search: { minTicks: 20 * 10, visibleMinTicks: 20 * 30, maxPerEncounter: 2 },
   pressure: { minTicks: 20 * 30, visibleMinTicks: 20 * 45, maxPerEncounter: 0 },
   hunt: { minTicks: 20 * 30, visibleMinTicks: 20 * 45, maxPerEncounter: 0 },
   warning: { minTicks: 20 * 30, visibleMinTicks: 20 * 45, maxPerEncounter: 0 },
@@ -80,6 +82,28 @@ function pushRecent(record, entry) {
   }
 }
 
+function hasRecentPattern(record, patternKey, tick) {
+  if (!patternKey) {
+    return false;
+  }
+  const cutoff = tick - 20 * 180;
+  return record.recent
+    .slice(-6)
+    .some((entry) => entry.status === "allowed" && entry.patternKey === patternKey && entry.tick >= cutoff);
+}
+
+function repositionPatternKey(options, phase, reason, destinationDistance) {
+  if (options.patternKey) {
+    return String(options.patternKey);
+  }
+  if (!Number.isFinite(destinationDistance)) {
+    return `${phase}:${reason}:far`;
+  }
+  const band = Math.max(0, Math.floor(destinationDistance / 8));
+  const reasonFamily = String(reason || "move").split("-")[0] || "move";
+  return `${phase}:${reasonFamily}:band-${band}`;
+}
+
 function resolvePolicy(phase, options = {}) {
   const normalizedPhase = String(phase || "observe").toLowerCase();
   const policy = phasePolicy[normalizedPhase] || phasePolicy.observe;
@@ -119,17 +143,9 @@ export function canTeleportStalker(options = {}) {
   }
 
   const nearPlayerDistanceSq = distanceSquared(player?.location, options.toLocation || options.location);
+  const destinationDistance = Number.isFinite(nearPlayerDistanceSq) ? Math.sqrt(nearPlayerDistanceSq) : Number.POSITIVE_INFINITY;
   const isNearPlayerTeleport = Number.isFinite(nearPlayerDistanceSq) && nearPlayerDistanceSq <= 24 * 24;
   const canBlinkNearPlayer = policy.phase === "vanish" || reason.startsWith("ambush-warning") || reason.startsWith("dimension-sync");
-  if (isNearPlayerTeleport && !canBlinkNearPlayer && !isOrientationOnly && options.force !== true && options.skipGovernor !== true) {
-    return {
-      allowed: false,
-      reason: "noBlinkZone",
-      phase: policy.phase,
-      encounterKey,
-      remainingTicks: policy.minTicks,
-    };
-  }
 
   if (options.force === true || options.skipGovernor === true || isOrientationOnly) {
     return {
@@ -138,6 +154,40 @@ export function canTeleportStalker(options = {}) {
       phase: policy.phase,
       encounterKey,
       remainingBudget: Math.max(0, policy.maxPerEncounter - record.encounterCount),
+    };
+  }
+
+  const patternKey = repositionPatternKey(options, policy.phase, reason, destinationDistance);
+  const fairness = evaluateRepositionFairness({
+    directorPhase: options.directorPhase,
+    protectedRelief: options.protectedRelief === true,
+    visibleFromPlayer: visible && options.allowVisibleSetup !== true,
+    strongLineOfSight: options.strongLineOfSight === true && options.allowVisibleSetup !== true,
+    destinationDistance,
+    minSafeDistance: canBlinkNearPlayer ? 0 : 24,
+    budgetRemaining: Math.max(0, policy.maxPerEncounter - record.encounterCount),
+    patternRepeated: hasRecentPattern(record, patternKey, tick),
+    physicallyValid: options.physicallyValid !== false,
+  });
+  if (!fairness.allowed) {
+    return {
+      allowed: false,
+      reason: fairness.reason,
+      phase: policy.phase,
+      encounterKey,
+      patternKey,
+      remainingTicks: fairness.reason === "budget" ? 0 : policy.minTicks,
+    };
+  }
+
+  if (isNearPlayerTeleport && !canBlinkNearPlayer) {
+    return {
+      allowed: false,
+      reason: "noBlinkZone",
+      phase: policy.phase,
+      encounterKey,
+      patternKey,
+      remainingTicks: policy.minTicks,
     };
   }
 
@@ -180,6 +230,7 @@ export function canTeleportStalker(options = {}) {
     reason: "allowed",
     phase: policy.phase,
     encounterKey,
+    patternKey,
     remainingBudget: Math.max(0, policy.maxPerEncounter - record.encounterCount - 1),
   };
 }
@@ -197,6 +248,7 @@ export function recordStalkerTeleport(options = {}) {
     status: allowed ? "allowed" : "denied",
     denialReason: options.denialReason || "",
     playerId: idOf(options.player),
+    patternKey: options.patternKey ? String(options.patternKey) : "",
   };
 
   if (allowed) {
