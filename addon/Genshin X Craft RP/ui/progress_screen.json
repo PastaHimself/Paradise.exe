@@ -1,0 +1,29 @@
+{
+  "namespace": "progress",
+  "paradise_loading_cycle": {
+    "anim_type": "flip_book",
+    "initial_uv": [0, 0],
+    "frame_count": 6,
+    "frame_step": 192,
+    "fps": 1.35,
+    "reversible": false,
+    "looping": true,
+    "wait_until_rendered_to_play": true
+  },
+  "paradise_loading_background": {
+    "type": "image",
+    "texture": "textures/ui/paradise_loading/backgrounds.jpg",
+    "anchor_from": "center",
+    "anchor_to": "center",
+    "size": ["100%", "100%"],
+    "uv_size": [192, 87],
+    "uv": "@progress.paradise_loading_cycle",
+    "keep_ratio": false,
+    "bilinear": true,
+    "layer": -100
+  },
+  "world_loading_screen_background@progress.paradise_loading_background": {},
+  "overworld_loading_background@progress.paradise_loading_background": {},
+  "nether_loading_background@progress.paradise_loading_background": {},
+  "theend_loading_background@progress.paradise_loading_background": {}
+}
