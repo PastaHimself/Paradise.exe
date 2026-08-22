@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:rabbit",
@@ -36,13 +36,9 @@
         "look_at_target": "animation.common.look_at_target",
         "move_baby": "animation.rabbit.move.baby",
         "idle_head_tilt": "animation.rabbit.idle_head_tilt",
-        "paradise_eye_stare": "animation.paradise.creepy_eye_stare"
+        "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
+        "general": "controller.animation.rabbit.general.v2"
       },
-      "animation_controllers": [
-        {
-          "general": "controller.animation.rabbit.general.v2"
-        }
-      ],
       "render_controllers": [
         "controller.render.rabbit.v2",
         "controller.render.paradise_creepy_eye"
@@ -61,6 +57,7 @@
           "variable.should_idle = variable.idle_cooldown <= 0;"
         ],
         "animate": [
+          "general",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
           }
