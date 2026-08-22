@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:llama",
@@ -48,13 +48,9 @@
         "walk": "animation.quadruped.walk",
         "look_at_target": "animation.common.look_at_target",
         "baby_transform": "animation.llama.baby_transform",
-        "paradise_eye_stare": "animation.paradise.creepy_eye_stare"
+        "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
+        "move": "controller.animation.llama.move"
       },
-      "animation_controllers": [
-        {
-          "move": "controller.animation.llama.move"
-        }
-      ],
       "render_controllers": [
         "controller.render.llama.v2",
         "controller.render.paradise_creepy_eye"
@@ -65,6 +61,7 @@
       "scripts": {
         "scale": "query.is_baby ? 2.0 : 1.0",
         "animate": [
+          "move",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
           }
