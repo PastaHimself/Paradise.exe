@@ -42,7 +42,7 @@
         "baby_rolling": "animation.panda.baby_rolling",
         "baby_lying": "animation.panda.baby_lying",
         "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
-        "move": "controller.animation.panda.move",
+        "move_controller": "controller.animation.panda.move",
         "unhappy_controller": "controller.animation.panda.unhappy",
         "sneezing_controller": "controller.animation.panda.sneezing"
       },
@@ -56,7 +56,7 @@
       "scripts": {
         "scale": "query.is_baby ? (1 / 0.4) : 1.0",
         "animate": [
-          "move",
+          "move_controller",
           "unhappy_controller",
           "sneezing_controller",
           {
