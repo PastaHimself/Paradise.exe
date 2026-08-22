@@ -123,6 +123,27 @@ class ResourceLinkValidatorTests(unittest.TestCase):
             result = self.validate(root)
             self.assertTrue(any("controller.render.test_watcher" in error for error in result["errors"]))
 
+    def test_custom_attachable_can_use_vanilla_item_default_render_controller(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            rp = self.make_resource_pack(root)
+            attachables = rp / "attachables"
+            attachables.mkdir(parents=True)
+            (attachables / "flashlight.json").write_text(json.dumps({
+                "format_version": "1.10.0",
+                "minecraft:attachable": {
+                    "description": {
+                        "identifier": "paradise:flashlight",
+                        "render_controllers": ["controller.render.item_default"],
+                    },
+                },
+            }), encoding="utf-8")
+            result = self.validate(root)
+            self.assertFalse(
+                any("controller.render.item_default" in error for error in result["errors"]),
+                result["errors"],
+            )
+
     def test_vanilla_client_entity_links_can_use_base_pack(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
