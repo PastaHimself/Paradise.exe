@@ -1,0 +1,62 @@
+name: Apply Watcher Stalking Upgrade
+
+on:
+  push:
+    branches:
+      - watcher-evidence-stalking-ai
+    paths:
+      - .watcher-upgrade.b64
+      - .github/workflows/apply-watcher-stalking-upgrade.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apply-upgrade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: watcher-evidence-stalking-ai
+          fetch-depth: 0
+
+      - name: Decode guarded upgrade bundle
+        shell: bash
+        run: |
+          base64 --decode .watcher-upgrade.b64 > /tmp/watcher-upgrade.zip
+          mkdir -p /tmp/watcher-upgrade
+          unzip -q /tmp/watcher-upgrade.zip -d /tmp/watcher-upgrade
+
+      - name: Apply guarded upgrade
+        shell: bash
+        run: |
+          node /tmp/watcher-upgrade/Paradise-Watcher-Stalking-Upgrade/apply_upgrade.mjs "$GITHUB_WORKSPACE"
+
+      - name: Run targeted JavaScript tests
+        shell: bash
+        run: |
+          node --test tests/watcher_stalking_intelligence.test.mjs tests/stalker_teleport_governor_fairness.test.mjs
+
+      - name: Check modified script syntax
+        shell: bash
+        run: |
+          node --check "addon/Genshin X Craft BP/scripts/watcher_evidence_model.js"
+          node --check "addon/Genshin X Craft BP/scripts/stalker_teleport_governor.js"
+          node --check "addon/Genshin X Craft BP/scripts/watcher_stalker.js"
+
+      - name: Remove bootstrap files
+        shell: bash
+        run: |
+          rm -f .watcher-upgrade.b64
+          rm -f .github/workflows/apply-watcher-stalking-upgrade.yml
+
+      - name: Commit upgrade to feature branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: add evidence-driven Watcher stalking AI"
+          git push origin HEAD:watcher-evidence-stalking-ai
