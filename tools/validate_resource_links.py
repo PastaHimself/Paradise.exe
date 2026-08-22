@@ -11,6 +11,7 @@ from typing import Any, Iterable
 
 
 RP_NAME = "Genshin X Craft RP"
+BASE_RENDER_CONTROLLERS = frozenset({"controller.render.item_default"})
 
 
 def walk_strings(value: Any) -> Iterable[str]:
@@ -168,6 +169,8 @@ def validate_resource_links(root: Path) -> dict[str, Any]:
             if not reference.startswith("controller.render."):
                 continue
             counts["checked_render_controller_references"] += 1
+            if reference in BASE_RENDER_CONTROLLERS:
+                continue
             if reference not in definitions["render_controller"]:
                 errors.append(f"Missing render controller reference in {relative}: {reference}")
 
