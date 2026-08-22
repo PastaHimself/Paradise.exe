@@ -27,7 +27,7 @@
           "variable.wing_flap = ((math.sin(query.wing_flap_position * 57.3) + 1) * query.wing_flap_speed);"
         ],
         "animate": [
-          "setup",
+          "setup_controller",
           "move_controller",
           {
             "paradise_eye_stare": "variable.paradise_eye_enabled"
@@ -46,7 +46,7 @@
         "standing": "animation.parrot.standing",
         "look_at_target": "animation.common.look_at_target",
         "paradise_eye_stare": "animation.paradise.creepy_eye_stare",
-        "setup": "controller.animation.parrot.setup",
+        "setup_controller": "controller.animation.parrot.setup",
         "move_controller": "controller.animation.parrot.move"
       },
       "render_controllers": [
