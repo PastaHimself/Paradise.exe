@@ -1,126 +1,129 @@
-# Paradise.exe - Genshin Impact x Minecraft Bedrock Add-on
+# Paradise.exe
 
-[![Full Add-on Check](https://github.com/Paradise-exe/paradise-exe-addon-checks/actions/workflows/full-addon-check.yml/badge.svg)](https://github.com/Paradise-exe/paradise-exe-addon-checks/actions/workflows/full-addon-check.yml)
+[![CI](https://github.com/PastaHimself/Paradise.exe/actions/workflows/check.yml/badge.svg)](https://github.com/PastaHimself/Paradise.exe/actions/workflows/check.yml)
 
-A comprehensive **Genshin Impact × Minecraft Bedrock** crossover add-on that brings elements from Genshin Impact into Minecraft Bedrock Edition. This repository includes the add-on source code along with a robust validation and testing framework to ensure quality and compatibility.
+> **don't enjoy**
+
+A psychological horror addon for Minecraft Bedrock Edition featuring an extreme visual upgrade atmosphere bootstrap and multiple terrifying horror scenarios.
+
+## ⚠️ Warning
+
+This addon contains disturbing imagery, intense atmospheric effects, and horror elements. Player discretion is advised.
 
 ## 📦 Contents
 
-- **addon/Genshin X Craft BP** – Behavior Pack containing game logic and scripts
-- **addon/Genshin X Craft RP** – Resource Pack containing assets, models, and textures
-- **tools/** – Validation scripts for add-on integrity, structure checks, and resource linking
-- **tests/** – Unit tests for validators and add-on functionality
+- **Behavior Pack** (`addon/Genshin X Craft BP`) - Horror scenario logic, entity behaviors, and dimension mechanics
+- **Resource Pack** (`addon/Genshin X Craft RP`) - Visual assets, VHS effects, and atmospheric textures
+  - Includes optional VHS filter subpacks (On/Off)
+  - PBR (Physically Based Rendering) support
 
-## 🚀 Features
+## 👻 Features
 
-- Genshin Impact-themed content for Minecraft Bedrock
-- Custom entities, items, and mechanics
-- Fully validated against Minecraft Bedrock standards
-- Automated CI/CD pipeline for quality assurance
+- **Multiple Horror Dimensions & Scenarios:**
+  - Burning Highway
+  - Catacombs
+  - Endless Staircase
+  - Flat Flower
+  - Heaven
+  - Library
+  - Watcher Stalker
+  - Yellow Halls
+  - Paradise Dimension
 
-## 🛠️ Development
+- **Extreme Visual Upgrade** - Atmospheric bootstrap with enhanced horror aesthetics
+- **VHS Effects** - Optional retro VHS filter overlay (toggleable via subpacks)
+- **Player Configuration** - Customizable horror experience settings
+- **Dynamic Player Light** - Adaptive lighting system for heightened tension
+- **Horror Events V2** - Generic horror scenario framework
+
+## 🛠️ Development Setup
 
 ### Prerequisites
 
-- **Node.js 22+**
-- **Python 3.12+**
-- **Minecraft Bedrock Script API** (beta typings installed via npm)
+- Python 3.12+
+- Node.js 22+
+- Minecraft Bedrock Editor (optional, for testing)
 
 ### Installation
 
 ```bash
-# Install dependencies
+# Install Node.js dependencies (Minecraft Bedrock Script API typings)
 npm install --ignore-scripts --no-audit --no-fund
 ```
 
 ### Available Scripts
 
-```bash
-# Run JavaScript unit tests
-npm test
+| Command | Description |
+|---------|-------------|
+| `npm test` | Run JavaScript regression tests |
+| `npm run typecheck` | Type-check behavior scripts against Bedrock beta APIs |
 
-# Type-check behavior pack scripts against Bedrock beta APIs
-npm run typecheck
-```
+## 🔍 Validation Tools
 
-### Validation Tools
+This repository includes comprehensive validation tools for addon development:
 
-This project includes several validation tools to ensure add-on quality:
-
-| Tool | Description |
-|------|-------------|
+| Tool | Purpose |
+|------|---------|
 | `validate_addon.py` | Complete add-on structure and content validation |
-| `validate_resource_links.py` | Checks Bedrock resource identifier links |
-| `validate_mcstructures.py` | Validates all Bedrock structures |
-| `run_blockception_lsp_check.mjs` | Runs Blockception language server diagnostics |
-| `package_mcaddon.py` | Builds installable `.mcaddon` package |
+| `validate_resource_links.py` | Validate Bedrock resource identifier links |
+| `validate_mcstructures.py` | Validate all Bedrock structure files (.mcstructure) |
+| `run_blockception_lsp_check.mjs` | Run Blockception language server diagnostics |
+| `package_mcaddon.py` | Package addon into .mcaddon format |
 
-#### Running Validators
+### Usage Examples
 
 ```bash
-# Validate complete add-on
+# Full addon validation with JSON report
 python tools/validate_addon.py --report artifacts/addon-validation.json
 
-# Validate resource links
+# Resource link validation
 python tools/validate_resource_links.py --report artifacts/resource-link-validation.json
 
-# Validate structures
+# Structure validation
 python tools/validate_mcstructures.py --report artifacts/mcstructure-validation.json
 
-# Check JavaScript syntax
-find "addon/Genshin X Craft BP/scripts" -type f -name '*.js' -exec node --check {} \;
-
-# Build .mcaddon package
-python tools/package_mcaddon.py --output artifacts/Paradise.exe.mcaddon
-```
-
-### Running Tests
-
-```bash
-# Run Python validator unit tests
+# Run all unit tests
 python -m unittest discover -s tests -p 'test_*.py' -v
-
-# Run JavaScript tests
-npm test
 ```
 
-## 🏗️ CI/CD Pipeline
+## 🚀 CI/CD Pipeline
 
-The repository uses GitHub Actions to automatically:
+The GitHub Actions workflow automatically runs on every push and pull request:
 
-- ✅ Run all validator unit tests
-- ✅ Validate add-on structure and content
-- ✅ Check resource identifier links
-- ✅ Validate all Bedrock structures
-- ✅ Verify JavaScript syntax
-- ✅ Type-check scripts against Bedrock beta APIs
-- ✅ Run JavaScript regression tests
-- ✅ Run Blockception language server diagnostics
-- ✅ Build and package `.mcaddon` file
-- ✅ Upload build artifacts and validation reports
+- ✅ Python & Node.js environment setup
+- ✅ Validator unit tests
+- ✅ Complete addon validation
+- ✅ Resource link validation
+- ✅ Structure file validation
+- ✅ JavaScript syntax checking
+- ✅ TypeScript type checking
+- ✅ Blockception language server diagnostics
 
 ## 📁 Project Structure
 
 ```
-paradise-exe-addon-checks/
+paradise-exe/
 ├── addon/
-│   ├── Genshin X Craft BP/    # Behavior Pack (scripts, entities)
-│   └── Genshin X Craft RP/    # Resource Pack (assets, models)
-├── tests/                     # Unit tests for validators
-├── tools/                     # Validation and packaging scripts
-├── .github/workflows/         # CI/CD pipeline configuration
-├── package.json               # Node.js dependencies and scripts
-└── tsconfig.json              # TypeScript configuration for type checking
+│   ├── Genshin X Craft BP/     # Behavior Pack
+│   │   └── scripts/            # JavaScript modules for horror scenarios
+│   └── Genshin X Craft RP/     # Resource Pack
+│       ├── textures/           # Horror assets & VHS effects
+│       └── subpacks/           # VHS On/Off variants
+├── tools/                      # Validation & packaging scripts
+├── tests/                      # Unit tests (Python & JavaScript)
+├── .github/workflows/          # CI/CD pipeline
+├── package.json                # Node.js dependencies & scripts
+└── tsconfig.json               # TypeScript configuration
 ```
 
 ## 📄 License
 
-This project is private and proprietary.
+All rights reserved. This addon and its assets are proprietary.
 
 ## 🤝 Contributing
 
-This is a private repository. For issues or questions, please contact the maintainers directly.
+This is a personal project. For issues or suggestions, please open an issue on the repository.
 
 ---
 
-**Made with ❤️ for Minecraft Bedrock and Genshin Impact fans**
+**Paradise.exe** - *Enter at your own risk.*
