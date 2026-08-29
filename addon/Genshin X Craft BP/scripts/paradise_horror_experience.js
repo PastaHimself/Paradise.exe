@@ -321,3 +321,8 @@ export function createHorrorExperienceCoordinator(options = {}) {
     get majorPeaks() { return majorPeaks; },
   });
 }
+
+export const horrorExperienceCoordinator = createHorrorExperienceCoordinator({
+  defaultMinimumQuietTicks: 900,
+  serverMajorPeakLimit: 2,
+});
