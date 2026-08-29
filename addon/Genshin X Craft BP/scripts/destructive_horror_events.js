@@ -1,5 +1,5 @@
 import { BlockPermutation, system, world } from "@minecraft/server";
-import { isPlayerInSafeRoom, requestVhsTier, VHS_TIER } from "./paradise_horror_state.js";
+import { requestVhsTier, VHS_TIER } from "./paradise_horror_state.js";
 import { applyHorrorConsequence, getPlayerHorrorSnapshot } from "./paradise_player_horror_state.js";
 
 const TICKS = 20;
@@ -708,7 +708,6 @@ const EVENTS = [
 function canRunEvent(player, event, forced = false) {
   if (!isValidPlayer(player)) return false;
   const now = nowTick();
-  if (isPlayerInSafeRoom(player, now)) return false;
   if (!forced) {
     if (globalCooldownUntil > now) return false;
     if ((playerCooldowns.get(playerId(player)) || 0) > now) return false;
@@ -773,7 +772,6 @@ function chooseEvent(player) {
 function tryTrigger(player, triggerBoost = 0) {
   if (!isValidPlayer(player)) return false;
   const now = nowTick();
-  if (isPlayerInSafeRoom(player, now)) return false;
   if (globalCooldownUntil > now || (playerCooldowns.get(playerId(player)) || 0) > now) return false;
 
   const horror = getPlayerHorrorSnapshot(player, now);
