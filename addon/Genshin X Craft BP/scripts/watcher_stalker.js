@@ -4554,8 +4554,6 @@ function handleWatcherAttacked(event, fromDeath = false) {
         buildupTicks: 20,
         peakTicks: CONFIG.vhs.panicDurationTicks,
         reliefTicks: 20 * 20,
-        globalCooldownTicks: CONFIG.antiCombat.panicCooldownTicks,
-        playerCooldownTicks: CONFIG.antiCombat.panicCooldownTicks,
         currentTick,
       });
       if (panicDecision.allowed) {
