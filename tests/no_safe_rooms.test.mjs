@@ -8,6 +8,8 @@ const productionFiles = [
   "addon/Genshin X Craft BP/scripts/paradise_horror_state.js",
   "addon/Genshin X Craft BP/scripts/horror_events_v2.js",
   "addon/Genshin X Craft BP/scripts/paradise_horror_experience.js",
+  "addon/Genshin X Craft BP/scripts/watcher_stalker.js",
+  "addon/Genshin X Craft BP/scripts/watcher_stalker_visibility_model.js",
 ];
 
 test("production horror code contains no safe-room mechanics", () => {
