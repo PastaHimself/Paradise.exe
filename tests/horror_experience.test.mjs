@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import {
   HORROR_PHASE,
   createHorrorExperienceCoordinator,
-} from "./paradise_horror_experience.js";
+} from "../addon/Genshin X Craft BP/scripts/paradise_horror_experience.js";
 
 const player = (id) => ({ id });
 
