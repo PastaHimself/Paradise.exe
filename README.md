@@ -35,6 +35,10 @@ This addon contains disturbing imagery, intense atmospheric effects, and horror 
 - **Player Configuration** - Customizable horror experience settings
 - **Dynamic Player Light** - Adaptive lighting system for heightened tension
 - **Horror Events V2** - Generic horror scenario framework
+- **Per-Player Horror Coordinator** - Separates multiplayer pacing and cleans up active scares on death, leaving, and dimension changes.
+- **Watcher Encounter Phases** - Observe, Shadow, Pressure, Ambush, and Vanish behavior with warning evidence before attacks.
+- **Curated Horror Audio** - Supplied horror sounds are converted to compressed OGG variants and used for private Watcher cues, ambience, and dimension tension.
+- **No Safe Rooms** - No location, bed, shelter, or lodestone grants immunity or suppresses horror events; relief is temporary pacing only.
 
 ## 🛠️ Development Setup
 
@@ -57,6 +61,7 @@ npm install --ignore-scripts --no-audit --no-fund
 |---------|-------------|
 | `npm test` | Run JavaScript regression tests |
 | `npm run typecheck` | Type-check behavior scripts against Bedrock beta APIs |
+| `npm run prepare:audio` | Convert and validate supplied horror audio as compressed OGG assets |
 
 ## 🔍 Validation Tools
 
@@ -69,6 +74,10 @@ This repository includes comprehensive validation tools for addon development:
 | `validate_mcstructures.py` | Validate all Bedrock structure files (.mcstructure) |
 | `run_blockception_lsp_check.mjs` | Run Blockception language server diagnostics |
 | `package_mcaddon.py` | Package addon into .mcaddon format |
+
+### Audio Preparation
+
+The audio pipeline reads the manifest at `docs/audio/paradise-sound-assets.json`, converts positional cues to mono OGG Vorbis and ambience to stereo OGG Vorbis, then writes a size report. Source archives are development inputs only; the resource pack ships normalized OGG outputs. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for credits and license restrictions.
 
 ### Usage Examples
 
