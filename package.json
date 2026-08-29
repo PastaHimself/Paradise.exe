@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "typecheck": "tsc --project tsconfig.json"
+    "typecheck": "tsc --project tsconfig.json",
+    "prepare:audio": "node tools/prepare_audio_assets.mjs --manifest docs/audio/paradise-sound-assets.json --source-root artifacts/audio-source/expanded --output-root \"addon/Genshin X Craft RP/sounds\" --report artifacts/audio-prep-report.json"
   },
   "devDependencies": {
     "@minecraft/server": "beta",
