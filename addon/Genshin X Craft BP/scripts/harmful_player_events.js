@@ -1,7 +1,7 @@
 import { BlockPermutation, system, world } from "@minecraft/server";
 import { applyHorrorConsequence, getPlayerHorrorSnapshot } from "./paradise_player_horror_state.js";
 import { recordPlayerTelemetry, recordTelemetry } from "./paradise_telemetry.js";
-import { isPlayerInSafeRoom, requestVhsTier, VHS_TIER } from "./paradise_horror_state.js";
+import { requestVhsTier, VHS_TIER } from "./paradise_horror_state.js";
 
 const TICKS = 20;
 
@@ -336,7 +336,6 @@ function canFireEvent(player, event, triggerType, forced = false) {
   if (!isValidPlayer(player)) return false;
   const now = tickNow();
   if (!forced) {
-    if (isPlayerInSafeRoom(player, now)) return false;
     if (globalCooldownUntil > now) return false;
     if ((playerCooldowns.get(idOf(player)) || 0) > now) return false;
     if ((eventCooldowns.get(event.key) || 0) > now) return false;
@@ -386,7 +385,7 @@ function enhanceHarmfulEvent(player, event) {
     pitch: panic ? 0.48 : 0.62,
   });
   system.runTimeout(() => {
-    if (!isValidPlayer(player) || isPlayerInSafeRoom(player, tickNow())) return;
+    if (!isValidPlayer(player)) return;
     for (let i = 0; i < (panic ? 12 : major ? 8 : 5); i++) {
       safeParticle(player.dimension, "minecraft:basic_smoke_particle", {
         x: player.location.x + randomFloat(-2.5, 2.5),
@@ -485,7 +484,7 @@ function eventShadowBite(player, ctx) {
   safePlaySound(player.dimension, "mob.phantom.flap", player.location, { volume: 0.8, pitch: 0.55 });
   showAction(player, "§8Something is behind you.");
   system.runTimeout(() => {
-    if (!isValidPlayer(player) || isPlayerInSafeRoom(player, tickNow())) return;
+    if (!isValidPlayer(player)) return;
     safePlaySound(player.dimension, "mob.phantom.bite", player.location, { volume: 1.0, pitch: 0.6 });
     safeDamage(player, randomInt(2, 5), CONFIG.lowHealthFloor);
     safeAddEffect(player, "darkness", TICKS * 3, 0);
@@ -605,7 +604,7 @@ function eventExecutionWarning(player, ctx) {
   showSubtitle(player, "MOVE.", 30);
   showAction(player, "§4MOVE OR IT WILL HIT.");
   system.runTimeout(() => {
-    if (!isValidPlayer(player) || isPlayerInSafeRoom(player, tickNow())) return;
+    if (!isValidPlayer(player)) return;
     const movedSq = distanceSquared(start, player.location);
     if (movedSq < 4.0) {
       safePlaySound(player.dimension, "mob.wither.break_block", player.location, { volume: 0.9, pitch: 0.65 });
