@@ -57,6 +57,13 @@ function getAudioState(player) {
   return state;
 }
 
+export function clearPlayerAudioState(playerOrId) {
+  const key = typeof playerOrId === "string"
+    ? playerOrId
+    : playerOrId?.id || playerOrId?.name;
+  if (key) PLAYER_AUDIO_STATE.delete(String(key));
+}
+
 function canPlay(player, key, cooldownTicks, tick = currentTick()) {
   if (!player || !key) {
     return false;
@@ -170,6 +177,13 @@ export function playForOnePlayer(player, soundId, options = {}) {
 }
 
 export function playAtPosition(playerOrDimension, soundId, location, options = {}) {
+  if (playerOrDimension?.dimension && typeof playerOrDimension.playSound === "function") {
+    return playForOnePlayer(playerOrDimension, soundId, {
+      ...options,
+      location,
+    });
+  }
+
   const dimension = playerOrDimension?.dimension || playerOrDimension;
   if (!dimension || !soundId || !location || typeof dimension.playSound !== "function") {
     return false;
