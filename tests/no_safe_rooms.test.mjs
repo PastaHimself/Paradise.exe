@@ -10,6 +10,9 @@ const productionFiles = [
   "addon/Genshin X Craft BP/scripts/paradise_horror_experience.js",
   "addon/Genshin X Craft BP/scripts/watcher_stalker.js",
   "addon/Genshin X Craft BP/scripts/watcher_stalker_visibility_model.js",
+  "addon/Genshin X Craft BP/scripts/destructive_horror_events.js",
+  "addon/Genshin X Craft BP/scripts/harmful_player_events.js",
+  "addon/Genshin X Craft BP/scripts/paradise_debug.js",
 ];
 
 test("production horror code contains no safe-room mechanics", () => {
@@ -26,4 +29,11 @@ test("the event loop no longer imports or calls a safe-room gate", () => {
     "utf8",
   );
   assert.doesNotMatch(source, /isPlayerInSafeRoom|safe_room|safeRoom/i);
+});
+
+test("secondary horror modules do not depend on removed safe-room exports", () => {
+  for (const relativePath of productionFiles.slice(-3)) {
+    const source = fs.readFileSync(path.join(root, relativePath), "utf8");
+    assert.doesNotMatch(source, /isPlayerInSafeRoom|safe_room|safeRoom/i, relativePath);
+  }
 });
