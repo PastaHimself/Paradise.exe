@@ -13,7 +13,6 @@ import {
   eventStartChance,
   ambientReadinessScore,
   rankEventCandidates,
-  shouldAbortSessionForDirector,
   serializeEventMemory,
   deserializeEventMemory,
 } from "./horror_event_model_v2.js";
@@ -33,14 +32,11 @@ import {
   removeRestorationSnapshot,
   serializeRestorationJournal,
 } from "./horror_event_persistence_v2.js";
-import { configureHorrorDirector, horrorDirector } from "./horror_director.js";
-import { isPlayerInSafeRoom, requestVhsTier, VHS_TIER } from "./paradise_horror_state.js";
+import { requestVhsTier, VHS_TIER } from "./paradise_horror_state.js";
 import { applyHorrorConsequence, getPlayerHorrorSnapshot } from "./paradise_player_horror_state.js";
 import { getCachedPlayerById, getCachedPlayers } from "./paradise_tick_cache.js";
 import { recordPlayerTelemetry } from "./paradise_telemetry.js";
 import { requestWatcherGlimpse } from "./watcher_stalker.js";
-
-configureHorrorDirector({ tickProvider: () => system.currentTick || 0 });
 
 const TICKS_PER_SECOND = 20;
 const SAMPLE_INTERVAL_TICKS = 10;
@@ -56,6 +52,10 @@ const ERROR_REPORT_COOLDOWN_TICKS = 20 * 30;
 const DOORWAY_TARGET_CLEARANCE = 1.75;
 const RESTORATION_JOURNAL_KEY = "paradise:horror_v2_restorations_v1";
 const HORROR_MEMORY_PROPERTY = "paradise:horror_v2_event_memory_v1";
+const horrorExperience = createHorrorExperienceCoordinator({
+  defaultMinimumQuietTicks: 20 * 45,
+  serverMajorPeakLimit: 2,
+});
 
 const SAFE_DESTRUCTIBLE_BLOCKS = new Set([
   "minecraft:stone", "minecraft:cobblestone", "minecraft:mossy_cobblestone",
@@ -491,7 +491,6 @@ function updatePlayerContext(player, currentTick) {
   const bravery = clamp01((horror.fearScore / 70) * (moving && !sprinting ? 1 : 0.25) * (currentTick > tracker.backtrackedUntilTick ? 1 : 0.45));
 
   const context = {
-    safeRoom: isPlayerInSafeRoom(player, currentTick),
     tension,
     tensionNorm: tension / 100,
     ambientReadiness,
@@ -535,9 +534,9 @@ function updatePlayerContext(player, currentTick) {
 
 function playerContext(playerId, session) {
   const player = getCachedPlayerById(playerId);
-  if (!player) return { safeRoom: true };
+  if (!player) return {};
   const tracker = trackerFor(player, system.currentTick || 0);
-  if (session?.data?.dimensionId && session.data.dimensionId !== player.dimension?.id) return { safeRoom: true };
+  if (session?.data?.dimensionId && session.data.dimensionId !== player.dimension?.id) return {};
   return tracker.context || updatePlayerContext(player, system.currentTick || 0);
 }
 
@@ -1224,11 +1223,6 @@ function reportRuntimeError(info = {}) {
 function executeAction(session, action, currentTick) {
   const player = getCachedPlayerById(session.playerId);
   if (!player || player.dimension?.id !== session.data.dimensionId) return;
-  if (isPlayerInSafeRoom(player, currentTick)) {
-    runtime.abort(session.id, "safe_room");
-    return;
-  }
-
   switch (action.type) {
     case "sound": playSpatialSound(session, player, action, currentTick); break;
     case "particle": spawnScenarioParticles(session, player, action, currentTick); break;
@@ -1270,12 +1264,16 @@ function cleanupSession(session, reason) {
     });
   }
 
-  if (session.event.tier === EVENT_TIER.Major) {
-    horrorDirector.endScare(`horror_v2:${session.event.key}`, {
-      currentTick,
-      reliefTicks: reason === "complete" ? 20 * 35 : 0,
-      skipRelief: reason !== "complete",
-    });
+  if (session.data.experienceBeatId) {
+    const experiencePlayer = livePlayer || session.playerId;
+    if (reason === "complete") {
+      horrorExperience.completeHorrorBeat(experiencePlayer, session.data.experienceBeatId, {
+        currentTick,
+        reliefTicks: 20 * 35,
+      });
+    } else {
+      horrorExperience.cancelHorrorBeat(experiencePlayer, session.data.experienceBeatId, reason, currentTick);
+    }
   }
 
   recordPlayerTelemetry(session.playerId, "horror_v2", {
@@ -1308,28 +1306,37 @@ function consequenceForEvent(event) {
 }
 
 function startEventForPlayer(player, event, currentTick, scene) {
-  if (!player || !event || isPlayerInSafeRoom(player, currentTick)) return false;
+  if (!player || !event) return false;
   const preparedScene = scene || prepareEventScene(player, event, currentTick);
   if (!preparedScene) return false;
   const source = `horror_v2:${event.key}`;
-  const directorSnapshot = horrorDirector.getSnapshot(currentTick);
-  if (directorSnapshot.phase !== "quiet") return false;
-
   const major = event.tier === EVENT_TIER.Major;
-  const directorDecision = horrorDirector.tryBeginScare(player, {
-    source,
-    intensity: event.intensity,
-    minor: !major,
-    currentTick,
-    minimumQuietTicks: event.minimumQuietTicks,
-    buildupTicks: major ? Math.min(20 * 5, Math.floor(event.durationTicks * 0.32)) : 0,
-    peakTicks: major ? Math.max(20, event.durationTicks - Math.min(20 * 5, Math.floor(event.durationTicks * 0.32))) : event.durationTicks,
-    reliefTicks: major ? 20 * 35 : 0,
-    globalCooldownTicks: major ? 20 * 75 : 0,
-    playerCooldownTicks: major ? 20 * 120 : 0,
-    sourceCooldownTicks: major ? 20 * 60 * 20 : 0,
-  });
-  if (!directorDecision.allowed) return false;
+  const experienceDecision = major
+    ? horrorExperience.requestHorrorBeat(player, {
+      source,
+      family: event.family,
+      tier: event.tier,
+      intensity: event.intensity,
+      dimensionId: player.dimension?.id,
+      currentTick,
+      minimumQuietTicks: event.minimumQuietTicks,
+      buildupTicks: Math.min(20 * 5, Math.floor(event.durationTicks * 0.32)),
+      peakTicks: Math.max(20, event.durationTicks - Math.min(20 * 5, Math.floor(event.durationTicks * 0.32))),
+      reliefTicks: 20 * 35,
+      sourceCooldownTicks: 20 * 60 * 20,
+    })
+    : { allowed: true };
+  if (!experienceDecision.allowed) {
+    recordPlayerTelemetry(player, "horror_experience", {
+      currentTick,
+      source,
+      reason: experienceDecision.reason,
+      status: "denied",
+      family: event.family,
+      tier: event.tier,
+    });
+    return false;
+  }
 
   const session = runtime.start({
     id: `horror-v2-${nextSessionId++}`,
@@ -1341,10 +1348,11 @@ function startEventForPlayer(player, event, currentTick, scene) {
       restores: [],
       runIds: [],
       scene: preparedScene,
+      experienceBeatId: experienceDecision.beatId,
     },
   });
   if (!session) {
-    if (major) horrorDirector.endScare(source, { currentTick, skipRelief: true });
+    if (major && experienceDecision.beatId) horrorExperience.cancelHorrorBeat(player, experienceDecision.beatId, "runtime_start_failed", currentTick);
     return false;
   }
 
@@ -1376,11 +1384,6 @@ function attemptEvent(player, currentTick) {
   tracker.nextAttemptTick = currentTick + 20 * (8 + Math.floor(Math.random() * 9));
 
   const context = tracker.context || updatePlayerContext(player, currentTick);
-  if (context.safeRoom) return false;
-
-  const directorSnapshot = horrorDirector.getSnapshot(currentTick);
-  if (directorSnapshot.phase !== "quiet") return false;
-
   const memory = memoryFor(player);
   const memoryNow = memoryClock();
   const quietTicks = memory.lastCompletedTick !== undefined
@@ -1431,20 +1434,15 @@ function samplePlayers(currentTick) {
 
 function tickHorrorEventsV2() {
   const currentTick = system.currentTick || 0;
-  const directorSnapshot = horrorDirector.tick(currentTick);
+  horrorExperience.tick(currentTick);
   if (currentTick % TICKS_PER_SECOND === 0 && pendingRestorations.length > 0) processPendingRestorations();
 
   if (currentTick % SAMPLE_INTERVAL_TICKS === 0) samplePlayers(currentTick);
 
   for (const session of runtime.getSessions()) {
-    const source = `horror_v2:${session.event.key}`;
-    if (shouldAbortSessionForDirector({ tier: session.event.tier, source }, directorSnapshot)) {
-      runtime.abort(session.id, "director_preempted");
-      continue;
-    }
     const player = getCachedPlayerById(session.playerId);
-    if (!player || player.dimension?.id !== session.data.dimensionId || isPlayerInSafeRoom(player, currentTick)) {
-      runtime.abort(session.id, !player ? "player_missing" : "context_changed");
+    if (!player || player.dimension?.id !== session.data.dimensionId) {
+      runtime.abort(session.id, !player ? "player_missing" : "dimension_changed");
     }
   }
   runtime.tick(currentTick);
@@ -1479,6 +1477,7 @@ function noteBreak(event) {
 
 function abortPlayerSession(playerId, reason) {
   runtime.abortPlayer(playerId, reason);
+  horrorExperience.clearHorrorExperience(playerId, reason);
   playerTrackers.delete(playerId);
   playerMemories.delete(playerId);
 }
@@ -1495,6 +1494,7 @@ if (catalogErrors.length > 0) {
       const currentTick = system.currentTick || 0;
       trackerFor(event.player, currentTick);
       memoryFor(event.player);
+      horrorExperience.getSnapshot(event.player, currentTick);
     });
   } catch (_error) {}
   try {
