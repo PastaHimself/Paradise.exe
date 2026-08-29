@@ -127,8 +127,9 @@ export function tryBeginRuleScare(player, ruleState, key, cooldownTicks, request
   }
 
   const decision = horrorExperienceCoordinator.requestHorrorBeat(player, {
-    currentTick: tick,
     ...request,
+    currentTick: tick,
+    major: request.major ?? !(request.minor === true || request.isMinor === true),
   });
   if (decision.allowed) {
     markTrigger(ruleState, key, tick);
