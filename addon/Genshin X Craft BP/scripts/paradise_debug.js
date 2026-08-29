@@ -8,7 +8,6 @@ import {
 import {
   clearVhsRequest,
   getRequestedVhsTier,
-  isPlayerInSafeRoom,
   requestVhsTier,
   showVhsTier,
   VHS_TIER,
@@ -56,7 +55,7 @@ const FEATURE_INVENTORY = Object.freeze({
     { id: "script.library", source: "BP/scripts/library.js", reason: "Library custom dimension, entry command, room generation, library debt/quiz rules, item-use and chat-answer listeners." },
     { id: "script.yellow_halls", source: "BP/scripts/yellow_halls.js", reason: "Yellow Halls custom dimension, entry command/chat command, room generation, entity filtering, lures, and yellow-hum audio." },
     { id: "script.watcher_stalker", source: "BP/scripts/watcher_stalker.js", reason: "Watcher stalker AI, profile memory, heat/fear/sound scoring, debug script events, VHS pressure, anti-combat, spawn and cleanup loop." },
-    { id: "script.paradise_horror_state", source: "BP/scripts/paradise_horror_state.js", reason: "Safe-room detection and VHS overlay request state." },
+    { id: "script.paradise_horror_state", source: "BP/scripts/paradise_horror_state.js", reason: "VHS overlay request state." },
     { id: "script.player_light", source: "BP/scripts/player_light.js", reason: "Player-carried dynamic light probe and watcher bright-light script-event integration." },
     { id: "script.dimension_horror_rules", source: "BP/scripts/dimension_horror_rules.js", reason: "Reusable dimension horror utilities for cooldowns, motion sampling, remembered locations, sound/particle/title/effect wrappers, signs, and notes." },
     { id: "script.horror_audio", source: "BP/scripts/horror_audio.js", reason: "Horror sound ID registry and positional/player audio helpers for stalker, ambient, Yellow Halls, and Catacombs audio." },
@@ -141,7 +140,6 @@ const FEATURE_INVENTORY = Object.freeze({
     { id: "scoreboard.paradise_watcher_cd", category: "scoreboard", source: "BP/scripts/watcher_stalker.js", reason: "Watcher cooldown objective." },
     { id: "scoreboard.catacombs_state", category: "scoreboard", source: "BP/scripts/catacombs.js", reason: "Catacomb build/maze generation objective discovered from BUILD_OBJECTIVE_ID." },
     { id: "tag.paradise_watcher_managed", category: "tag", source: "BP/scripts/watcher_stalker.js", reason: "Watcher-managed entity tag." },
-    { id: "tag.paradise:safe_room", category: "tag", source: "BP/scripts/paradise_horror_state.js", reason: "Player safe-room bypass tag." },
     { id: "state.player_maps", category: "state", source: "BP/scripts/main.js; watcher_stalker.js; dimension modules", reason: "In-memory player maps for global horror, watcher profiles, dimension timers, route memory, trust/debt, and return positions." },
   ],
   behaviorData: [
@@ -158,7 +156,7 @@ const FEATURE_INVENTORY = Object.freeze({
     "lockedInside", "copyRoom", "lightWithoutSource", "nameOnWall", "quietBell", "pantryRule",
     "rainShelter", "bedRefusal", "fakeRepair", "perfectHallway", "exitThankYou", "signThatLeaves",
     "wrongChestItem", "watchingVillager", "secondBed", "cleanPatch", "wrongSunrise", "bellNoVillage",
-    "safeRoomPreview", "animalSilence", "itemNameFlicker", "noFallSound", "torchBlink", "doorCount",
+    "animalSilence", "itemNameFlicker", "noFallSound", "torchBlink", "doorCount",
     "buriedTile", "approvedPath", "chestApology", "firstRefusal", "bedMoved", "wrongCoordinatesNote",
     "shadowFollow", "bloodTrail", "androidCorruption",
   ].map((id) => ({ id, source: "BP/scripts/main.js", reason: "Registered global horror event director entry." })),
@@ -221,7 +219,6 @@ const FEATURE_INVENTORY = Object.freeze({
     { id: "refs.library.blocks_items_entities", source: "BP/scripts/library.js", reason: "Library dimension block/item/entity IDs used by room generation, quiz/debt rules, and filters." },
     { id: "refs.watcher.blocks_entities_effects_particles", source: "BP/scripts/watcher_stalker.js", reason: "33 watcher IDs covering watcher entity, particles, animation property, memory dynamic property, dimensions, containers, player/effects." },
     { id: "refs.player_light.blocks_items_sounds", source: "BP/scripts/player_light.js", reason: "Player-light IDs covering light blocks, custom flashlight item, switch sound, carried light sources, equippable component, and watcher script event." },
-    { id: "refs.safe_room.blocks", source: "BP/scripts/paradise_horror_state.js", reason: "5 safe-room block IDs plus paradise:safe_room player tag." },
     { id: "refs.dimension_horror_rules.blocks_items", source: "BP/scripts/dimension_horror_rules.js", reason: "3 utility block/item IDs for signs and note items." },
     { id: "refs.horror_director.pacing", source: "BP/scripts/horror_director.js", reason: "Phase, cooldown, and scare-decision identifiers used by shared scare pacing." },
   ],
@@ -409,11 +406,6 @@ function* runActiveChecks(ctx) {
     return value === undefined ? "property currently unset; API available" : `property readable; type=${typeof value}`;
   }, "read-only; no mutation");
   yield;
-
-  runCheck(ctx, "safe_room", "safe_room_detection", "isPlayerInSafeRoom probe", "BP/scripts/paradise_horror_state.js", () => {
-    const inside = isPlayerInSafeRoom(player, system.currentTick);
-    return `safe-room state evaluated as ${inside ? "inside" : "outside"}`;
-  });
 
   runCheck(ctx, "horror_state", "vhs_request_lifecycle", "request/get/clear VHS tier", "BP/scripts/paradise_horror_state.js", () => {
     requestVhsTier(player, VHS_TIER.Low, system.currentTick, 2, "debug-probe");
