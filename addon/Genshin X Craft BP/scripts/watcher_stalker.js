@@ -3804,7 +3804,7 @@ export function requestWatcherGlimpse(player, options = {}) {
   const type = styleMap[String(options.style || 'hallway')] || PSYCHOLOGICAL_APPEARANCE_TYPE.HallwayGlimpse;
   const profile = samplePlayerMemory(player, currentTick, false) || getProfile(player);
 
-  if (!isPsychologicalDecisionAllowed(player, profile, currentTick, false)) {
+  if (!isPsychologicalDecisionAllowed(player, profile, currentTick)) {
     return false;
   }
   if (currentTick < getPsychologicalTypeCooldown(profile, type)) {
@@ -3839,11 +3839,11 @@ function suppressChaseAfterNoEncounter(profile, currentTick) {
 }
 
 function decideWatcherEncounterForSpawn(player, profile, currentTick) {
-  if (!isPsychologicalDecisionAllowed(player, profile, currentTick, false)) {
+  if (!isPsychologicalDecisionAllowed(player, profile, currentTick)) {
     return PSYCHOLOGICAL_OUTCOME.DirectChase;
   }
 
-  const outcome = choosePsychologicalEncounterOutcome(profile, currentTick, false);
+  const outcome = choosePsychologicalEncounterOutcome(profile, currentTick);
   if (outcome === PSYCHOLOGICAL_OUTCOME.NoEncounter) {
     suppressChaseAfterNoEncounter(profile, currentTick);
   } else if (outcome === PSYCHOLOGICAL_OUTCOME.DirectChase) {
@@ -5969,7 +5969,7 @@ function ensureWatchersForPlayers(currentTick) {
         continue;
       }
       if (outcome === PSYCHOLOGICAL_OUTCOME.PsychologicalOnly || outcome === PSYCHOLOGICAL_OUTCOME.PsychologicalThenChase) {
-        if (triggerPsychologicalAppearance(player, profile, currentTick, outcome, false)) {
+        if (triggerPsychologicalAppearance(player, profile, currentTick, outcome)) {
           continue;
         }
       }
