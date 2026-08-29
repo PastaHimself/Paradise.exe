@@ -69,3 +69,17 @@ test("cleans up a player without changing another player's state", () => {
   assert.equal(coordinator.getSnapshot(alice, 2).activeBeat, undefined);
   assert.equal(coordinator.getSnapshot(bob, 2).activeBeat.source, "library");
 });
+
+test("cancels an active beat when a player changes dimensions", () => {
+  const coordinator = createHorrorExperienceCoordinator({ defaultMinimumQuietTicks: 0 });
+  const alice = { id: "alice", dimension: { id: "yellow_halls" } };
+  const beat = coordinator.requestHorrorBeat(alice, { source: "watcher", currentTick: 1 });
+
+  alice.dimension = { id: "catacombs" };
+  const snapshot = coordinator.getSnapshot(alice, 2);
+
+  assert.equal(snapshot.activeBeat, undefined);
+  assert.equal(snapshot.phase, HORROR_PHASE.Quiet);
+  assert.equal(snapshot.lastCleanupReason, "dimension_changed");
+  assert.equal(beat.allowed, true);
+});
