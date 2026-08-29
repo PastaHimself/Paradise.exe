@@ -1,6 +1,6 @@
 import { ItemStack, system } from "@minecraft/server";
 import { requestVhsTier, VHS_TIER } from "./paradise_horror_state.js";
-import { horrorDirector } from "./horror_director.js";
+import { horrorExperienceCoordinator } from "./paradise_horror_experience.js";
 
 export { VHS_TIER };
 
@@ -122,11 +122,11 @@ export function tryBeginRuleScare(player, ruleState, key, cooldownTicks, request
     return {
       allowed: false,
       reason: "rule_cooldown",
-      phase: horrorDirector.getSnapshot(tick).phase,
+      phase: horrorExperienceCoordinator.getSnapshot(player, tick)?.phase || "quiet",
     };
   }
 
-  const decision = horrorDirector.tryBeginScare(player, {
+  const decision = horrorExperienceCoordinator.requestHorrorBeat(player, {
     currentTick: tick,
     ...request,
   });
