@@ -1,20 +1,3 @@
-import { system } from "@minecraft/server";
-import { isVhsEnabled, onVhsPreferenceChanged } from "./player_config.js";
-
-/**
- * Shared Paradise horror state helpers.
- *
- * Real safe rooms are intentionally simple and creator-defined:
- * - Tag a player with `paradise_safe_room` for scripted/special rooms, or
- * - Place a `minecraft:lodestone` marker within 8 blocks horizontally and 4
- *   blocks vertically of the playable safe area.
- *
- * Recommended visual language for trustworthy safe rooms:
- * smooth quartz / quartz blocks / white concrete, sea lanterns, and one visible
- * or hidden lodestone marker. The marker is the authoritative detection signal;
- * the palette is the player-facing cue.
- */
-
 export const VHS_TIER = Object.freeze({
   Off: "PARADISE_VHS_OFF",
   Low: "PARADISE_VHS_LOW",
@@ -34,22 +17,6 @@ export function normalizeVhsTier(value) {
   return Object.prototype.hasOwnProperty.call(VHS_RANK, tier) ? tier : VHS_TIER.Off;
 }
 
-export const SAFE_ROOM_CONFIG = Object.freeze({
-  playerTag: "paradise_safe_room",
-  markerBlockIds: Object.freeze(["minecraft:lodestone"]),
-  recommendedPalette: Object.freeze([
-    "minecraft:white_concrete",
-    "minecraft:smooth_quartz",
-    "minecraft:quartz_block",
-    "minecraft:sea_lantern",
-    "minecraft:lodestone",
-  ]),
-  horizontalRadius: 8,
-  verticalRadius: 4,
-  cacheTicks: 20,
-});
-
-const safeRoomCache = new Map();
 const vhsRequests = new Map();
 
 function currentTick() {
@@ -58,106 +25,6 @@ function currentTick() {
   } catch (_error) {
     return 0;
   }
-}
-
-function floorLocation(location) {
-  return {
-    x: Math.floor(location.x),
-    y: Math.floor(location.y),
-    z: Math.floor(location.z),
-  };
-}
-
-function hasSafeRoomTag(player) {
-  try {
-    return !!player.hasTag(SAFE_ROOM_CONFIG.playerTag);
-  } catch (_error) {
-    return false;
-  }
-}
-
-function cacheStillApplies(cached, player, now) {
-  if (!cached || now - cached.tick > SAFE_ROOM_CONFIG.cacheTicks) {
-    return false;
-  }
-  if (!player || !player.dimension || cached.dimensionId !== player.dimension.id) {
-    return false;
-  }
-
-  const loc = player.location;
-  return (
-    Math.abs(loc.x - cached.location.x) <= 2 &&
-    Math.abs(loc.y - cached.location.y) <= 2 &&
-    Math.abs(loc.z - cached.location.z) <= 2
-  );
-}
-
-function scanForSafeRoomMarker(player) {
-  if (!player || !player.dimension || !player.location) {
-    return false;
-  }
-
-  const origin = floorLocation(player.location);
-  const horizontalRadius = SAFE_ROOM_CONFIG.horizontalRadius;
-  const verticalRadius = SAFE_ROOM_CONFIG.verticalRadius;
-  const markerIds = new Set(SAFE_ROOM_CONFIG.markerBlockIds);
-
-  for (let dy = -verticalRadius; dy <= verticalRadius; dy++) {
-    for (let dx = -horizontalRadius; dx <= horizontalRadius; dx++) {
-      for (let dz = -horizontalRadius; dz <= horizontalRadius; dz++) {
-        if (dx * dx + dz * dz > horizontalRadius * horizontalRadius) {
-          continue;
-        }
-
-        const location = {
-          x: origin.x + dx,
-          y: origin.y + dy,
-          z: origin.z + dz,
-        };
-
-        try {
-          const block = player.dimension.getBlock(location);
-          if (block && markerIds.has(block.typeId)) {
-            return true;
-          }
-        } catch (_error) {
-          // Unloaded chunks or invalid heights are treated as not safe.
-        }
-      }
-    }
-  }
-
-  return false;
-}
-
-export function isPlayerInSafeRoom(player, tick = currentTick()) {
-  if (!player || !player.id) {
-    return false;
-  }
-
-  if (hasSafeRoomTag(player)) {
-    safeRoomCache.set(player.id, {
-      tick,
-      value: true,
-      dimensionId: player.dimension ? player.dimension.id : "unknown",
-      location: player.location ? { ...player.location } : { x: 0, y: 0, z: 0 },
-    });
-    return true;
-  }
-
-  const cached = safeRoomCache.get(player.id);
-  if (cacheStillApplies(cached, player, tick)) {
-    return cached.value;
-  }
-
-  const value = scanForSafeRoomMarker(player);
-  safeRoomCache.set(player.id, {
-    tick,
-    value,
-    dimensionId: player.dimension ? player.dimension.id : "unknown",
-    location: player.location ? { ...player.location } : { x: 0, y: 0, z: 0 },
-  });
-  return value;
 }
 
 export function getVhsTierRank(tier) {
@@ -172,10 +39,6 @@ export function requestVhsTier(player, tier, tick = currentTick(), durationTicks
 
   if (!isVhsEnabled(player)) {
     clearVhsRequest(player);
-    return false;
-  }
-
-  if (isPlayerInSafeRoom(player, tick) && getVhsTierRank(normalizedTier) > getVhsTierRank(VHS_TIER.Low)) {
     return false;
   }
 
