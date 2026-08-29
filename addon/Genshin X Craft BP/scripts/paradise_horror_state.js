@@ -1,3 +1,6 @@
+import { system } from "@minecraft/server";
+import { isVhsEnabled, onVhsPreferenceChanged } from "./player_config.js";
+
 export const VHS_TIER = Object.freeze({
   Off: "PARADISE_VHS_OFF",
   Low: "PARADISE_VHS_LOW",
