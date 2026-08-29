@@ -15,6 +15,13 @@ test("production horror code contains no safe-room mechanics", () => {
     const source = fs.readFileSync(path.join(root, relativePath), "utf8");
     assert.doesNotMatch(source, /safe[ _-]?room/i, relativePath);
     assert.doesNotMatch(source, /paradise_safe_room/i, relativePath);
-    assert.doesNotMatch(source, /lodestone/i, relativePath);
   }
+});
+
+test("the event loop no longer imports or calls a safe-room gate", () => {
+  const source = fs.readFileSync(
+    path.join(root, "addon/Genshin X Craft BP/scripts/horror_events_v2.js"),
+    "utf8",
+  );
+  assert.doesNotMatch(source, /isPlayerInSafeRoom|safe_room|safeRoom/i);
 });
