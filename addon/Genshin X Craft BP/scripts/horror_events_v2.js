@@ -17,6 +17,7 @@ import {
   deserializeEventMemory,
 } from "./horror_event_model_v2.js";
 import { createHorrorEventRuntime } from "./horror_event_runtime_v2.js";
+import { createHorrorExperienceCoordinator } from "./paradise_horror_experience.js";
 import {
   aabbIntersectsBlockCell,
   geometryCandidates,
