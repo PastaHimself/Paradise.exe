@@ -1,4 +1,5 @@
 import { system, world } from "@minecraft/server";
+import { horrorExperienceCoordinator } from "./paradise_horror_experience.js";
 import {
   DEBUG_COMMANDS,
   STALKER_SPAWN_BLOCK_REASON,
@@ -9,7 +10,6 @@ import {
   makeWatcherSpawnResult,
   isForceWatcherCommand,
 } from "./watcher_stalker_visibility_model.js";
-import { configureHorrorDirector, horrorDirector } from "./horror_director.js";
 import {
   HORROR_SOUND,
   maybePlayAmbientHorrorAudio,
@@ -50,13 +50,10 @@ import {
   clearVhsRequest,
   getRequestedVhsRequest,
   getVhsTierRank,
-  isPlayerInSafeRoom,
   requestVhsTier,
   showVhsTier,
   VHS_TIER,
 } from "./paradise_horror_state.js";
-
-configureHorrorDirector({ tickProvider: () => system.currentTick || 0 });
 
 /**
  * Paradise watcher stalker AI.
@@ -277,7 +274,6 @@ const CONFIG = {
     minimumTierTicks: 20 * 4,
     refreshTicks: 30,
     panicMinIntervalTicks: 20 * 120,
-    safeRoomClearRefreshTicks: 20,
   },
   psychological: {
     enabled: true,
@@ -286,7 +282,6 @@ const CONFIG = {
     minimumPressure: 24,
     globalCooldownTicks: 20 * 38,
     playerCooldownTicks: 20 * 95,
-    safeRoomPlayerCooldownTicks: 20 * 80,
     typeCooldownTicks: 20 * 150,
     noEncounterSuppressTicks: [20 * 20, 20 * 42],
     psychOnlySuppressChaseTicks: [20 * 70, 20 * 125],
@@ -298,15 +293,10 @@ const CONFIG = {
     closeVanishDistance: 5.25,
     staredVanishTicks: 10,
     halfHiddenStaredVanishTicks: 18,
-    safeRoomExteriorChance: 0.10,
     outcomeWeights: {
       psychologicalOnly: 0.50,
       psychologicalThenChase: 0.16,
       directChase: 0.18,
-      noEncounter: 0.16,
-    },
-    safeRoomOutcomeWeights: {
-      psychologicalOnly: 0.84,
       noEncounter: 0.16,
     },
     typeWeights: {
@@ -314,7 +304,6 @@ const CONFIG = {
       turnaroundApparition: 1.05,
       halfHidden: 1.25,
       fogSilhouette: 1.05,
-      safeRoomExterior: 1.0,
       catacombsOverhead: 1.15,
       passiveMobReplacement: 0.65,
     },
@@ -323,7 +312,6 @@ const CONFIG = {
       turnaroundApparition: 12,
       halfHidden: 22,
       fogSilhouette: 28,
-      safeRoomExterior: 30,
       catacombsOverhead: 16,
       passiveMobReplacement: 14,
     },
@@ -332,7 +320,6 @@ const CONFIG = {
       turnaroundApparition: [6, 11],
       halfHidden: [9, 22],
       fogSilhouette: [30, 62],
-      safeRoomExterior: [10, 18],
       catacombsOverhead: [5, 14],
       passiveMobReplacement: [6, 18],
     },
@@ -409,7 +396,6 @@ const PSYCHOLOGICAL_APPEARANCE_TYPE = {
   TurnaroundApparition: "turnaroundApparition",
   HalfHidden: "halfHidden",
   FogSilhouette: "fogSilhouette",
-  SafeRoomExterior: "safeRoomExterior",
   CatacombsOverhead: "catacombsOverhead",
   PassiveMobReplacement: "passiveMobReplacement",
 };
@@ -2187,9 +2173,6 @@ function recordSuspiciousAction(player, profile, action, points, options = {}) {
   }
 
   const currentTick = system.currentTick || 0;
-  if (isPlayerInSafeRoom(player, currentTick)) {
-    return;
-  }
   const lastTick = profile.lastSuspiciousActionTicks.get(action) || -999999;
   const cooldown = options.cooldownTicks ?? SUSPICION_CONFIG.actionCooldownTicks;
   if (currentTick - lastTick < cooldown) {
@@ -2238,7 +2221,7 @@ function canStartMajorScare(profile, currentTick) {
 }
 
 function warnBeforeAttack(player, entity, state, profile, currentTick) {
-  if (!player || !profile || isPlayerInSafeRoom(player, currentTick)) {
+  if (!player || !profile) {
     return false;
   }
   if (profile.suspicion < SUSPICION_CONFIG.warning) {
@@ -2437,6 +2420,7 @@ function getState(entity) {
       ambushOutcome: undefined,
       ambushStartTick: 0,
       ambushLastPulseTick: 0,
+      experienceBeatId: undefined,
       stareHoldUntilTick: 0,
       lastStareHoldTick: -999999,
       vanishUntilTick: 0,
@@ -2457,6 +2441,25 @@ function getState(entity) {
   }
 
   return state;
+}
+
+function settleWatcherHorrorBeat(state, player, currentTick, reason = "cancelled", complete = false) {
+  const beatId = state?.experienceBeatId;
+  if (!beatId) return;
+  const target = player || (state.targetPlayerId ? getPlayerById(state.targetPlayerId) : state.targetPlayerId);
+  try {
+    if (complete) {
+      horrorExperienceCoordinator.completeHorrorBeat(target, beatId, {
+        currentTick,
+        reliefTicks: 20 * 30,
+      });
+    } else {
+      horrorExperienceCoordinator.cancelHorrorBeat(target, beatId, reason, currentTick);
+    }
+  } catch (_error) {
+    // Beat cleanup is best effort; stale state is still bounded by coordinator expiry.
+  }
+  state.experienceBeatId = undefined;
 }
 
 function registerWatcher(entity) {
@@ -3227,7 +3230,7 @@ function hasActivePsychologicalAppearance(player) {
   return false;
 }
 
-function isPsychologicalDecisionAllowed(player, profile, currentTick, allowSafeRoomExterior = false) {
+function isPsychologicalDecisionAllowed(player, profile, currentTick) {
   if (!CONFIG.psychological.enabled || !player || !profile || !isInterestingPlayer(player)) {
     return false;
   }
@@ -3250,9 +3253,7 @@ function isPsychologicalDecisionAllowed(player, profile, currentTick, allowSafeR
     return false;
   }
 
-  const playerCooldown = allowSafeRoomExterior
-    ? CONFIG.psychological.safeRoomPlayerCooldownTicks
-    : CONFIG.psychological.playerCooldownTicks;
+  const playerCooldown = CONFIG.psychological.playerCooldownTicks;
   if (currentTick - profile.lastPsychologicalTick < playerCooldown) {
     return false;
   }
@@ -3262,17 +3263,15 @@ function isPsychologicalDecisionAllowed(player, profile, currentTick, allowSafeR
   }
 
   const pressure = getProfilePressure(profile);
-  if (!allowSafeRoomExterior && profile.heat < CONFIG.psychological.minHeat && pressure < CONFIG.psychological.minimumPressure) {
+  if (profile.heat < CONFIG.psychological.minHeat && pressure < CONFIG.psychological.minimumPressure) {
     return false;
   }
 
   return true;
 }
 
-function choosePsychologicalEncounterOutcome(profile, currentTick, allowSafeRoomExterior = false) {
-  const weights = allowSafeRoomExterior
-    ? CONFIG.psychological.safeRoomOutcomeWeights
-    : CONFIG.psychological.outcomeWeights;
+function choosePsychologicalEncounterOutcome(profile, currentTick) {
+  const weights = CONFIG.psychological.outcomeWeights;
   const picked = weightedPick(weights);
 
   switch (picked) {
@@ -3447,32 +3446,6 @@ function findFogSilhouetteSpot(player, profile, currentTick) {
   return best;
 }
 
-function findSafeRoomExteriorSpot(player, profile, currentTick) {
-  const range = CONFIG.psychological.ranges[PSYCHOLOGICAL_APPEARANCE_TYPE.SafeRoomExterior];
-  const basis = getPlayerBasis(player);
-  let best = undefined;
-
-  for (let i = 0; i < 36; i++) {
-    const radius = randomFloat(range[0], range[1]);
-    const angle = Math.random() < 0.65
-      ? Math.atan2(basis.forward.z, basis.forward.x) + randomFloat(-0.7, 0.7)
-      : randomFloat(0, Math.PI * 2);
-    const candidate = candidateFromPolar(player.location, radius, angle, randomInt(-1, 2));
-    const spot = resolveStandSpot(player.dimension, candidate, PHASE.Observe);
-    if (!spot || !isPsychologicalSpotSafe(player, spot, PSYCHOLOGICAL_APPEARANCE_TYPE.SafeRoomExterior)) {
-      continue;
-    }
-    const visible = hasLineOfSight(player.dimension, getEyeLocation(player), addVec(spot, 0, 0.9, 0));
-    const cover = countCoverBlocks(player.dimension, spot);
-    const score = (visible ? 10 : 2) + cover * 2 - Math.abs(distance(player.location, spot) - 12) + randomFloat(-1, 1);
-    if (!best || score > best.score) {
-      best = { spot, score };
-    }
-  }
-
-  return best;
-}
-
 function findCatacombsOverheadSpot(player, profile, currentTick) {
   if (!isCatacombsLikeDimension(player.dimension)) {
     return undefined;
@@ -3571,8 +3544,6 @@ function tryFindPsychologicalSpot(type, player, profile, currentTick) {
       return findHalfHiddenWatcherSpot(player, profile, currentTick);
     case PSYCHOLOGICAL_APPEARANCE_TYPE.FogSilhouette:
       return findFogSilhouetteSpot(player, profile, currentTick);
-    case PSYCHOLOGICAL_APPEARANCE_TYPE.SafeRoomExterior:
-      return findSafeRoomExteriorSpot(player, profile, currentTick);
     case PSYCHOLOGICAL_APPEARANCE_TYPE.CatacombsOverhead:
       return findCatacombsOverheadSpot(player, profile, currentTick);
     case PSYCHOLOGICAL_APPEARANCE_TYPE.PassiveMobReplacement:
@@ -3582,13 +3553,8 @@ function tryFindPsychologicalSpot(type, player, profile, currentTick) {
   }
 }
 
-function getCandidatePsychologicalTypes(player, profile, currentTick, allowSafeRoomExterior = false) {
+function getCandidatePsychologicalTypes(player, profile, currentTick) {
   const weights = { ...CONFIG.psychological.typeWeights };
-  if (allowSafeRoomExterior) {
-    return { [PSYCHOLOGICAL_APPEARANCE_TYPE.SafeRoomExterior]: weights.safeRoomExterior || 1 };
-  }
-
-  delete weights.safeRoomExterior;
   if (!isCatacombsLikeDimension(player.dimension)) {
     delete weights.catacombsOverhead;
   }
@@ -3601,10 +3567,10 @@ function getCandidatePsychologicalTypes(player, profile, currentTick, allowSafeR
   return weights;
 }
 
-function choosePsychologicalAppearance(player, profile, currentTick, allowSafeRoomExterior = false) {
+function choosePsychologicalAppearance(player, profile, currentTick) {
   const tried = new Set();
   for (let attempt = 0; attempt < 5; attempt++) {
-    const weights = getCandidatePsychologicalTypes(player, profile, currentTick, allowSafeRoomExterior);
+    const weights = getCandidatePsychologicalTypes(player, profile, currentTick);
     for (const type of tried) {
       delete weights[type];
     }
@@ -3644,7 +3610,7 @@ function playPsychologicalCue(player, type, spot) {
 
   try {
     player.dimension.playSound(sound, spot, {
-      volume: type === PSYCHOLOGICAL_APPEARANCE_TYPE.SafeRoomExterior ? 0.18 : 0.25,
+      volume: 0.25,
       pitch: randomFloat(0.78, 0.94),
     });
   } catch (_error) {
@@ -3675,7 +3641,7 @@ function removePsychologicalWatcherSilently(entity, state) {
 }
 
 function schedulePsychologicalEscalation(player, profile, type, currentTick) {
-  if (!player || !profile || isPlayerInSafeRoom(player, currentTick)) {
+  if (!player || !profile) {
     return;
   }
 
@@ -3690,7 +3656,7 @@ function schedulePsychologicalEscalation(player, profile, type, currentTick) {
   system.runTimeout(() => {
     const livePlayer = getPlayerById(playerId);
     const tick = system.currentTick || 0;
-    if (!livePlayer || !isInterestingPlayer(livePlayer) || isPlayerInSafeRoom(livePlayer, tick)) {
+    if (!livePlayer || !isInterestingPlayer(livePlayer)) {
       return;
     }
     const liveProfile = samplePlayerMemory(livePlayer, tick, true) || getProfile(livePlayer);
@@ -3803,16 +3769,14 @@ function startPsychologicalAppearance(player, profile, currentTick, appearance, 
   if (type === PSYCHOLOGICAL_APPEARANCE_TYPE.FogSilhouette || type === PSYCHOLOGICAL_APPEARANCE_TYPE.CatacombsOverhead) {
     spawnParticles(player.dimension, appearance.spot, 0.18);
   }
-  if (type !== PSYCHOLOGICAL_APPEARANCE_TYPE.SafeRoomExterior) {
-    requestVhsTier(player, VHS_TIER.Low, currentTick, Math.max(visibleTicks + 20, 20 * 3), `psychological-${type}`);
-  }
+  requestVhsTier(player, VHS_TIER.Low, currentTick, Math.max(visibleTicks + 20, 20 * 3), `psychological-${type}`);
   playPsychologicalCue(player, type, appearance.spot);
   debugPlayer(player, `psychological ${type} outcome=${outcome}`);
   return true;
 }
 
-function triggerPsychologicalAppearance(player, profile, currentTick, outcome, allowSafeRoomExterior = false) {
-  const appearance = choosePsychologicalAppearance(player, profile, currentTick, allowSafeRoomExterior);
+function triggerPsychologicalAppearance(player, profile, currentTick, outcome) {
+  const appearance = choosePsychologicalAppearance(player, profile, currentTick);
   if (!appearance) {
     return false;
   }
@@ -3886,37 +3850,6 @@ function decideWatcherEncounterForSpawn(player, profile, currentTick) {
     incrementDebugStat("psychologicalDirectChase");
   }
   return outcome;
-}
-
-function maybeTriggerSafeRoomExteriorPsychology(player, currentTick) {
-  if (!CONFIG.psychological.enabled || !player || !isInterestingPlayer(player) || !isPlayerInSafeRoom(player, currentTick)) {
-    return false;
-  }
-
-  const profile = samplePlayerMemory(player, currentTick, false) || getProfile(player);
-  if (!isPsychologicalDecisionAllowed(player, profile, currentTick, true)) {
-    return false;
-  }
-  if (Math.random() > CONFIG.psychological.safeRoomExteriorChance) {
-    return false;
-  }
-
-  const outcome = choosePsychologicalEncounterOutcome(profile, currentTick, true);
-  if (outcome === PSYCHOLOGICAL_OUTCOME.NoEncounter) {
-    suppressChaseAfterNoEncounter(profile, currentTick);
-    return false;
-  }
-  return triggerPsychologicalAppearance(player, profile, currentTick, PSYCHOLOGICAL_OUTCOME.PsychologicalOnly, true);
-}
-
-function tickSafeRoomExteriorPsychology(currentTick) {
-  if (!CONFIG.psychological.enabled || currentTick % CONFIG.psychological.tickInterval !== 0) {
-    return;
-  }
-
-  for (const player of getCachedPlayers()) {
-    maybeTriggerSafeRoomExteriorPsychology(player, currentTick);
-  }
 }
 
 function tickPsychologicalAppearance(entity, state, currentTick) {
@@ -4095,7 +4028,6 @@ function maybeTriggerMinorHorrorEvent(entity, state, player, profile, currentTic
   if (
     !player ||
     !profile ||
-    isPlayerInSafeRoom(player, currentTick) ||
     state.phase === PHASE.Ambush ||
     state.phase === PHASE.Vanish ||
     state.phase === PHASE.Dormant
@@ -4288,10 +4220,6 @@ function chooseDesiredVhsTier(player, profile, currentTick) {
     return { tier: VHS_TIER.Off, reason: "vhs-disabled" };
   }
 
-  if (isPlayerInSafeRoom(player, currentTick)) {
-    return { tier: VHS_TIER.Off, reason: "safe-room" };
-  }
-
   const requested = getRequestedVhsRequest(player, currentTick);
   let desired = requested.tier;
   let reason = requested.reason || "request";
@@ -4341,24 +4269,12 @@ function applyVhsTier(player, desiredTier, currentTick, reason = "tick") {
     }
     state.currentTier = VHS_TIER.Off;
     state.lastAppliedTick = currentTick;
-    state.nextRefreshTick = currentTick + CONFIG.vhs.safeRoomClearRefreshTicks;
+    state.nextRefreshTick = currentTick + CONFIG.vhs.refreshTicks;
     state.lockUntilTick = currentTick;
     state.lastReason = "vhs-disabled";
     return;
   }
 
-  if (isPlayerInSafeRoom(player, currentTick)) {
-    clearVhsRequest(player);
-    if (state.currentTier !== VHS_TIER.Off || currentTick >= state.nextRefreshTick) {
-      showVhsTier(player, VHS_TIER.Off, 1);
-    }
-    state.currentTier = VHS_TIER.Off;
-    state.lastAppliedTick = currentTick;
-    state.nextRefreshTick = currentTick + CONFIG.vhs.safeRoomClearRefreshTicks;
-    state.lockUntilTick = currentTick;
-    state.lastReason = "safe-room";
-    return;
-  }
 
   const desiredRank = getVhsTierRank(tier);
   const currentRank = getVhsTierRank(state.currentTier);
@@ -4506,7 +4422,7 @@ function scheduleAggressiveReappearance(player, profile, delayTicks) {
   system.runTimeout(() => {
     const livePlayer = getPlayerById(playerId);
     const currentTick = system.currentTick || 0;
-    if (!livePlayer || !isInterestingPlayer(livePlayer) || isPlayerInSafeRoom(livePlayer, currentTick)) {
+    if (!livePlayer || !isInterestingPlayer(livePlayer)) {
       return;
     }
 
@@ -4534,7 +4450,7 @@ function scheduleAggressiveReappearance(player, profile, delayTicks) {
 }
 
 function applyAntiCombatPsychologicalConsequences(player, profile, currentTick) {
-  if (!player || !profile || isPlayerInSafeRoom(player, currentTick)) {
+  if (!player || !profile) {
     return;
   }
 
@@ -4597,8 +4513,6 @@ function handleWatcherAttacked(event, fromDeath = false) {
 
   const currentTick = system.currentTick || 0;
   const profile = samplePlayerMemory(attacker, currentTick, true) || getProfile(attacker);
-  const attackerInSafeRoom = isPlayerInSafeRoom(attacker, currentTick);
-
   if (!fromDeath && currentTick - profile.lastWatcherHitTick < CONFIG.antiCombat.hitCooldownTicks) {
     resetWatcherHealth(watcher);
     removeWatcherWithoutLoot(watcher);
@@ -4614,10 +4528,6 @@ function handleWatcherAttacked(event, fromDeath = false) {
   profile.lastWatcherHitTick = currentTick;
   profile.lastAntiCombatTick = currentTick;
 
-  if (attackerInSafeRoom) {
-    clearVhsRequest(attacker);
-    applyVhsTier(attacker, VHS_TIER.Off, currentTick, "safe-room-attack");
-  } else {
     increaseHeat(profile, CONFIG.antiCombat.heatPerHit + profile.antiCombatAggression * 3);
     increaseFear(profile, CONFIG.antiCombat.fearPerHit + profile.antiCombatAggression);
     profile.suspicion = clamp(profile.suspicion + CONFIG.antiCombat.suspicionPerHit, 0, SUSPICION_CONFIG.max);
@@ -4634,8 +4544,11 @@ function handleWatcherAttacked(event, fromDeath = false) {
       profile.antiCombatAggression >= CONFIG.antiCombat.panicHitThreshold &&
       currentTick - profile.lastAntiCombatPanicTick >= CONFIG.antiCombat.panicCooldownTicks
     ) {
-      const panicDecision = horrorDirector.tryBeginScare(attacker, {
+      const panicDecision = horrorExperienceCoordinator.requestHorrorBeat(attacker, {
         source: "watcher_anti_combat_panic",
+        family: "anti_combat",
+        tier: "major",
+        major: true,
         intensity: 4,
         minimumQuietTicks: 20 * 35,
         buildupTicks: 20,
@@ -4649,16 +4562,19 @@ function handleWatcherAttacked(event, fromDeath = false) {
         profile.lastAntiCombatPanicTick = currentTick;
         requestVhsTier(attacker, VHS_TIER.Panic, currentTick, CONFIG.vhs.panicDurationTicks, "anti-combat-hit");
         playCue(attacker, PHASE.Ambush, true);
+        horrorExperienceCoordinator.completeHorrorBeat(attacker, panicDecision.beatId, {
+          currentTick,
+          reliefTicks: 20 * 20,
+        });
       }
     } else {
       requestVhsTier(attacker, VHS_TIER.High, currentTick, 20 * 6, "anti-combat-hit");
       playCue(attacker, PHASE.Pressure, true);
     }
-  }
 
   if (!fromDeath) {
     const state = watcherStates.get(watcher.id);
-    if (state && !attackerInSafeRoom) {
+    if (state) {
       state.vanishUntilTick = currentTick + computeAntiCombatVanishTicks(profile);
       state.cooldownPlayerId = attacker.id;
       state.lastReason = "anti-combat-hit";
@@ -4672,9 +4588,7 @@ function handleWatcherAttacked(event, fromDeath = false) {
     }
   }
 
-  if (!attackerInSafeRoom) {
-    scheduleAggressiveReappearance(attacker, profile, computeAntiCombatReappearTicks(profile));
-  }
+  scheduleAggressiveReappearance(attacker, profile, computeAntiCombatReappearTicks(profile));
   saveProfileMemory(profile, true);
   return true;
 }
@@ -4840,6 +4754,9 @@ function enterPhase(entity, state, player, profile, phase, currentTick, reason =
   }
 
   const prevPhase = state.phase;
+  if (prevPhase === PHASE.Ambush && phase !== PHASE.Ambush) {
+    settleWatcherHorrorBeat(state, player, currentTick, reason, false);
+  }
   state.phase = phase;
   if (player && !state.ownerPlayerId) {
     state.ownerPlayerId = player.id;
@@ -4915,7 +4832,7 @@ function enterPhase(entity, state, player, profile, phase, currentTick, reason =
 }
 
 function moveWatcher(entity, state, player, profile, currentTick, force = false) {
-  if (!player || !isInterestingPlayer(player) || isPlayerInSafeRoom(player, currentTick)) {
+  if (!player || !isInterestingPlayer(player)) {
     return false;
   }
 
@@ -4971,8 +4888,7 @@ function selectTarget(entity, state) {
     if (
       owner &&
       isInterestingPlayer(owner) &&
-      !isPlayerOnCooldown(owner) &&
-      !isPlayerInSafeRoom(owner, currentTick)
+      !isPlayerOnCooldown(owner)
     ) {
       state.ownerPlayerId = owner.id;
       state.targetPlayerId = owner.id;
@@ -4989,7 +4905,7 @@ function selectTarget(entity, state) {
 
   let best = undefined;
   for (const player of getCachedPlayers()) {
-    if (!isInterestingPlayer(player) || isPlayerOnCooldown(player) || isPlayerInSafeRoom(player, currentTick)) {
+    if (!isInterestingPlayer(player) || isPlayerOnCooldown(player)) {
       continue;
     }
 
@@ -5175,7 +5091,7 @@ function faceWatcherTowardPlayer(entity, player) {
 }
 
 function maybeStartStareHold(entity, state, player, profile, currentTick, reason = "stare", forced = false) {
-  if (!isEntityValid(entity) || !player || !profile || isPlayerInSafeRoom(player, currentTick)) {
+  if (!isEntityValid(entity) || !player || !profile) {
     return false;
   }
   if (state.phase === PHASE.Ambush || state.phase === PHASE.Vanish || state.phase === PHASE.Dormant) {
@@ -5331,14 +5247,6 @@ function getLungeSpot(player) {
 }
 
 function startAmbush(entity, state, player, profile, currentTick, options = {}) {
-  if (isPlayerInSafeRoom(player, currentTick)) {
-    clearVhsRequest(player);
-    enterPhase(entity, state, player, profile, PHASE.Vanish, currentTick, "safe-room-ambush-block", {
-      skipImmediateMove: true,
-    });
-    return;
-  }
-
   if (!canStartMajorScare(profile, currentTick)) {
     warnBeforeAttack(player, entity, state, profile, currentTick);
     enterPhase(entity, state, player, profile, PHASE.Pressure, currentTick, "ambush-gated");
@@ -5351,16 +5259,16 @@ function startAmbush(entity, state, player, profile, currentTick, options = {}) 
     return;
   }
 
-  const scareDecision = horrorDirector.tryBeginScare(player, {
+  const scareDecision = horrorExperienceCoordinator.requestHorrorBeat(player, {
     source: "watcher_ambush",
+    family: "watcher",
+    tier: "major",
+    major: true,
     intensity: 4,
     minimumQuietTicks: 20 * 45,
     buildupTicks: CONFIG.ambushWarmupTicks,
     peakTicks: CONFIG.ambushMaxTicks,
     reliefTicks: 20 * 30,
-    globalCooldownTicks: 20 * 90,
-    playerCooldownTicks: CONFIG.samePlayerSpawnCooldownTicks,
-    sourceCooldownTicks: CONFIG.minSpawnAttemptIntervalTicks,
     currentTick,
   });
   if (!scareDecision.allowed) {
@@ -5369,13 +5277,15 @@ function startAmbush(entity, state, player, profile, currentTick, options = {}) 
     return;
   }
 
+  state.experienceBeatId = scareDecision.beatId;
+
   profile.peakMajorUsed = true;
   profile.lastMajorScareTick = currentTick;
 
   const adaptiveTactic = chooseStateAdaptiveTactic(state, profile, PHASE.Ambush, currentTick, true);
   const result = chooseTeleportSpot(player, profile, PHASE.Ambush, state, adaptiveTactic);
   if (!result) {
-    horrorDirector.endScare("watcher_ambush", { currentTick, reliefTicks: 20 * 12 });
+    settleWatcherHorrorBeat(state, player, currentTick, "ambush-aborted", false);
     enterRelief(profile, currentTick, "ambush-no-spot");
     enterPhase(entity, state, player, profile, PHASE.Vanish, currentTick, "ambush-no-spot");
     markPlayerCooldown(player);
@@ -5403,7 +5313,7 @@ function startAmbush(entity, state, player, profile, currentTick, options = {}) 
     visibleMinTicks: 20 * 16,
   });
   if (!armedTeleport) {
-    horrorDirector.endScare("watcher_ambush", { currentTick, reliefTicks: 20 * 12 });
+    settleWatcherHorrorBeat(state, player, currentTick, "ambush-aborted", false);
     enterRelief(profile, currentTick, "ambush-governor-blocked");
     profile.attackDebt = Math.min(4, (profile.attackDebt || 0) + 1);
     enterPhase(entity, state, player, profile, PHASE.Vanish, currentTick, "ambush-governor-blocked");
@@ -5431,7 +5341,7 @@ function startAmbush(entity, state, player, profile, currentTick, options = {}) 
 }
 
 function abortAmbush(entity, state, player, profile, currentTick, reason) {
-  horrorDirector.endScare("watcher_ambush", { currentTick, reliefTicks: 20 * 24 });
+  settleWatcherHorrorBeat(state, player, currentTick, reason, false);
   profile.heat = clamp(profile.heat - 16, 0, 100);
   profile.fear = clamp(profile.fear + 8, 0, 100);
   const ambushDebtReason = String(reason || "");
@@ -5454,12 +5364,6 @@ function finishAmbush(entity, state, player, profile, currentTick) {
   if (!marker || !player) {
     return;
   }
-  if (isPlayerInSafeRoom(player, currentTick)) {
-    abortAmbush(entity, state, player, profile, currentTick, "safe-room-ambush-block");
-    clearVhsRequest(player);
-    return;
-  }
-
   let outcome = state.ambushOutcome || chooseAmbushOutcome(player, profile, state, marker);
   const attackSpot = marker;
   const playerDistanceFromWarning = distance(player.location, marker);
@@ -5602,7 +5506,7 @@ function finishAmbush(entity, state, player, profile, currentTick) {
     markPlayerCooldown(player);
   }
 
-  horrorDirector.endScare("watcher_ambush", { currentTick, reliefTicks: 20 * 30 });
+  settleWatcherHorrorBeat(state, player, currentTick, "ambush-complete", true);
   enterRelief(profile, currentTick, "ambush-" + outcome);
   saveProfileMemory(profile, true);
   enterPhase(entity, state, player, profile, PHASE.Vanish, currentTick, "ambush-" + outcome, {
@@ -5635,6 +5539,7 @@ function finishAmbush(entity, state, player, profile, currentTick) {
 function tickAmbush(entity, state, currentTick) {
   const player = getPlayerById(state.targetPlayerId);
   if (!player || !isInterestingPlayer(player)) {
+    settleWatcherHorrorBeat(state, undefined, currentTick, "ambush-target-lost", false);
     state.phase = PHASE.Dormant;
     state.targetPlayerId = undefined;
     state.ambushLocation = undefined;
@@ -5643,11 +5548,6 @@ function tickAmbush(entity, state, currentTick) {
   }
 
   const profile = getProfile(player);
-  if (isPlayerInSafeRoom(player, currentTick)) {
-    clearVhsRequest(player);
-    abortAmbush(entity, state, player, profile, currentTick, "safe-room-ambush-block");
-    return;
-  }
   if (!state.ambushLocation || player.dimension.id !== state.ambushDimensionId) {
     abortAmbush(entity, state, player, profile, currentTick, "ambush-target-left");
     return;
@@ -5702,14 +5602,6 @@ function tickActiveWatcher(entity, state, currentTick) {
 
   const player = targetInfo.player;
   const profile = samplePlayerMemory(player, currentTick, false) || targetInfo.profile;
-
-  if (isPlayerInSafeRoom(player, currentTick)) {
-    clearVhsRequest(player);
-    enterPhase(entity, state, player, profile, PHASE.Vanish, currentTick, "safe-room-target", {
-      skipImmediateMove: true,
-    });
-    return;
-  }
 
   if (player.dimension.id !== entity.dimension.id) {
     const moved = moveWatcher(entity, state, player, profile, currentTick, true);
@@ -5841,7 +5733,6 @@ function getWatcherSpawnBlockers(player, currentTick, profile, options = {}) {
   const validPlayer = isValidWatcherDebugPlayer(player);
   const allowedDimension = validPlayer && isAllowedStalkerDimension(player.dimension) && !isBurningHighwayDimension(player.dimension);
   const playerCooldown = validPlayer ? isPlayerOnCooldown(player) : false;
-  const safeRoom = validPlayer ? isPlayerInSafeRoom(player, currentTick) : false;
   const psychologicalSuppression = !!(profile && currentTick < (profile.psychologicalSuppressChaseUntilTick || 0));
   const spawnAttemptCooldown = !!(profile && currentTick - profile.lastSpawnAttemptTick < CONFIG.minSpawnAttemptIntervalTicks);
   const recentSuccessfulSpawn = !!(profile && currentTick - profile.lastSuccessfulSpawnTick < CONFIG.samePlayerSpawnCooldownTicks);
@@ -5861,7 +5752,6 @@ function getWatcherSpawnBlockers(player, currentTick, profile, options = {}) {
     bypassCooldowns: options.bypassCooldowns === true,
     bypassTension: options.bypassTension === true,
     playerCooldown,
-    safeRoom,
     psychologicalSuppression,
     tensionState: profile ? profile.tensionState : undefined,
     spawnAttemptCooldown,
@@ -5996,7 +5886,7 @@ function spawnWatcherForPlayer(player, currentTick, options = {}) {
 }
 
 function maybeTriggerWatcherPresenceCue(player, profile, currentTick, reason = "pressure") {
-  if (!player || !profile || isPlayerInSafeRoom(player, currentTick)) {
+  if (!player || !profile) {
     return false;
   }
 
@@ -6059,7 +5949,7 @@ function ensureWatchersForPlayers(currentTick) {
   }
 
   for (const player of getCachedPlayers()) {
-    if (!isInterestingPlayer(player) || isPlayerOnCooldown(player) || isPlayerInSafeRoom(player, currentTick)) {
+    if (!isInterestingPlayer(player) || isPlayerOnCooldown(player)) {
       continue;
     }
 
@@ -6505,6 +6395,10 @@ world.afterEvents.entityHurt.subscribe((event) => {
 world.afterEvents.entityDie.subscribe((event) => {
   system.run(() => {
     try {
+      const deadPlayer = event?.deadEntity;
+      if (deadPlayer?.typeId === "minecraft:player" && deadPlayer.id) {
+        horrorExperienceCoordinator.clearHorrorExperience(deadPlayer.id, "player_died");
+      }
       handleWatcherDeath(event);
     } catch (_error) {
       // entityDie handling is best-effort.
@@ -6555,6 +6449,7 @@ world.afterEvents.playerLeave.subscribe((event) => {
   }
   playerProfiles.delete(playerId);
   psychologicalCooldownUntilByPlayer.delete(playerId);
+  horrorExperienceCoordinator.clearHorrorExperience(playerId, "player_left");
   activePsychologicalWatchersByPlayer.delete(playerId);
   debugWatcherFailureReasonByPlayer.delete(playerId);
   resetPlayerHorrorState(playerId);
@@ -6579,7 +6474,7 @@ system.runInterval(() => {
   if (currentTick % CONFIG.memorySampleInterval === 0) {
     for (const player of getCachedPlayers()) {
       const profile = samplePlayerMemory(player, currentTick, false);
-      if (profile && !isPlayerInSafeRoom(player, currentTick)) {
+      if (profile) {
         maybePlayAmbientHorrorAudio(player, {
           heat: profile.heat,
           fear: profile.fear,
@@ -6597,7 +6492,6 @@ system.runInterval(() => {
   }
 
   tickVhsForPlayers(currentTick);
-  tickSafeRoomExteriorPsychology(currentTick);
   ensureWatchersForPlayers(currentTick);
   tickAllWatchers(currentTick);
   saveDueProfiles(currentTick);
