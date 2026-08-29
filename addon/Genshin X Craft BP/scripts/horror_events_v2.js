@@ -37,6 +37,7 @@ import { requestVhsTier, VHS_TIER } from "./paradise_horror_state.js";
 import { applyHorrorConsequence, getPlayerHorrorSnapshot } from "./paradise_player_horror_state.js";
 import { getCachedPlayerById, getCachedPlayers } from "./paradise_tick_cache.js";
 import { recordPlayerTelemetry } from "./paradise_telemetry.js";
+import { clearPlayerAudioState } from "./horror_audio.js";
 import { requestWatcherGlimpse } from "./watcher_stalker.js";
 
 const TICKS_PER_SECOND = 20;
@@ -1479,6 +1480,7 @@ function noteBreak(event) {
 function abortPlayerSession(playerId, reason) {
   runtime.abortPlayer(playerId, reason);
   horrorExperience.clearHorrorExperience(playerId, reason);
+  clearPlayerAudioState(playerId);
   playerTrackers.delete(playerId);
   playerMemories.delete(playerId);
 }
