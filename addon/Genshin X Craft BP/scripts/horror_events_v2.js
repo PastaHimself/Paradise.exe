@@ -1324,7 +1324,7 @@ function startEventForPlayer(player, event, currentTick, scene) {
       reliefTicks: 20 * 35,
       sourceCooldownTicks: 20 * 60 * 20,
     })
-    : { allowed: true };
+    : { allowed: true, reason: "minor_event", beatId: undefined };
   if (!experienceDecision.allowed) {
     recordPlayerTelemetry(player, "horror_experience", {
       currentTick,
