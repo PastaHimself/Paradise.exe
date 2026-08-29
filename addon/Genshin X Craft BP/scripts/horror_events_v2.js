@@ -17,7 +17,7 @@ import {
   deserializeEventMemory,
 } from "./horror_event_model_v2.js";
 import { createHorrorEventRuntime } from "./horror_event_runtime_v2.js";
-import { createHorrorExperienceCoordinator } from "./paradise_horror_experience.js";
+import { horrorExperienceCoordinator } from "./paradise_horror_experience.js";
 import {
   aabbIntersectsBlockCell,
   geometryCandidates,
@@ -54,10 +54,7 @@ const ERROR_REPORT_COOLDOWN_TICKS = 20 * 30;
 const DOORWAY_TARGET_CLEARANCE = 1.75;
 const RESTORATION_JOURNAL_KEY = "paradise:horror_v2_restorations_v1";
 const HORROR_MEMORY_PROPERTY = "paradise:horror_v2_event_memory_v1";
-const horrorExperience = createHorrorExperienceCoordinator({
-  defaultMinimumQuietTicks: 20 * 45,
-  serverMajorPeakLimit: 2,
-});
+const horrorExperience = horrorExperienceCoordinator;
 
 const SAFE_DESTRUCTIBLE_BLOCKS = new Set([
   "minecraft:stone", "minecraft:cobblestone", "minecraft:mossy_cobblestone",
