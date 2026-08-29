@@ -55,6 +55,7 @@ function copyState(state, tick) {
   const now = tickOf(tick);
   return {
     playerId: state.playerId,
+    dimensionId: state.dimensionId,
     phase: state.phase,
     phaseStartedTick: state.phaseStartedTick,
     quietStartedTick: state.quietStartedTick,
@@ -70,10 +71,11 @@ function copyState(state, tick) {
   };
 }
 
-function createState(playerId, tick) {
+function createState(playerId, tick, dimensionId) {
   const now = tickOf(tick);
   return {
     playerId,
+    dimensionId,
     phase: HORROR_PHASE.Quiet,
     phaseStartedTick: now,
     quietStartedTick: now,
@@ -140,10 +142,24 @@ export function createHorrorExperienceCoordinator(options = {}) {
   function stateFor(playerOrId, tick = 0) {
     const playerId = playerIdOf(playerOrId);
     if (!playerId) return undefined;
-    if (!states.has(playerId)) states.set(playerId, createState(playerId, tick));
+    const dimensionId = typeof playerOrId === "string"
+      ? undefined
+      : String(playerOrId?.dimension?.id || "").trim() || undefined;
+    if (!states.has(playerId)) states.set(playerId, createState(playerId, tick, dimensionId));
     const state = states.get(playerId);
+    const now = tickOf(tick);
+    if (dimensionId && state.dimensionId && state.dimensionId !== dimensionId) {
+      releaseMajorBeat(state, () => { majorPeaks = Math.max(0, majorPeaks - 1); });
+      for (const callback of state.cleanupCallbacks.splice(0)) {
+        try { callback("dimension_changed", playerId); } catch (_error) { /* cleanup must continue */ }
+      }
+      state.evidence = [];
+      state.lastCleanupReason = "dimension_changed";
+      setPhase(state, HORROR_PHASE.Quiet, now);
+    }
+    if (dimensionId) state.dimensionId = dimensionId;
     syncState(state, tick, () => { majorPeaks = Math.max(0, majorPeaks - 1); });
-    cleanupCooldowns(state, tickOf(tick));
+    cleanupCooldowns(state, now);
     return state;
   }
 
@@ -163,6 +179,7 @@ export function createHorrorExperienceCoordinator(options = {}) {
     const now = tickOf(request.currentTick);
     const state = stateFor(player, now);
     if (!state) return result(undefined, false, HORROR_DENIAL_REASON.InvalidPlayer, now);
+    if (request.dimensionId) state.dimensionId = String(request.dimensionId);
 
     if (state.activeBeat) return result(state, false, HORROR_DENIAL_REASON.ActiveBeat, now);
 
