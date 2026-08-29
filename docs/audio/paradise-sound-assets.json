@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "sourceArchive": "sounds.zip",
+  "outputRoot": "addon/Genshin X Craft RP/sounds",
+  "profiles": {
+    "positional": {
+      "channels": 1,
+      "sampleRate": 44100,
+      "codec": "vorbis",
+      "quality": 3
+    },
+    "ambience": {
+      "channels": 2,
+      "sampleRate": 44100,
+      "codec": "vorbis",
+      "quality": 4
+    }
+  },
+  "totalBudgetBytes": 78643200,
+  "assets": [
+    {
+      "sourceArchive": "juanjo_sound - Backrooms Entity SFX (Vol. 1).zip",
+      "sourcePath": "juanjo_sound - Backrooms Entity 1.wav",
+      "targetPath": "paradise_horror/breath_far_01.ogg",
+      "cueId": "paradise.stalker.breath_far",
+      "profile": "positional",
+      "role": "watcher_evidence",
+      "licenseUrl": "https://juanjosound.itch.io/backrooms-entity-sound-effects",
+      "credit": "juanjo_sound"
+    },
+    {
+      "sourceArchive": "juanjo_sound - Backrooms Entity SFX (Vol. 1).zip",
+      "sourcePath": "juanjo_sound - Backrooms Entity 2.wav",
+      "targetPath": "paradise_horror/breath_far_02.ogg",
+      "cueId": "paradise.stalker.breath_far",
+      "profile": "positional",
+      "role": "watcher_evidence",
+      "licenseUrl": "https://juanjosound.itch.io/backrooms-entity-sound-effects",
+      "credit": "juanjo_sound"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/Character/Breathing_slow.wav",
+      "targetPath": "paradise_horror/breath_near_01.ogg",
+      "cueId": "paradise.stalker.breath_near",
+      "profile": "positional",
+      "role": "watcher_pressure",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/Character/Breathing_fast.wav",
+      "targetPath": "paradise_horror/breath_near_02.ogg",
+      "cueId": "paradise.stalker.breath_near",
+      "profile": "positional",
+      "role": "watcher_pressure",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "40 Free PSX Footsteps.zip",
+      "sourcePath": "40 Free PSX Footsteps/Concrete/Footstep Concrete 1.ogg",
+      "targetPath": "paradise_horror/step_behind_01.ogg",
+      "cueId": "paradise.stalker.step_behind",
+      "profile": "positional",
+      "role": "watcher_shadow",
+      "licenseUrl": "https://hazardpay.itch.io/40-free-psx-crunchy-footsteps",
+      "credit": "Hazard Pay"
+    },
+    {
+      "sourceArchive": "40 Free PSX Footsteps.zip",
+      "sourcePath": "40 Free PSX Footsteps/Concrete/Footstep Concrete 4.ogg",
+      "targetPath": "paradise_horror/step_behind_02.ogg",
+      "cueId": "paradise.stalker.step_behind",
+      "profile": "positional",
+      "role": "watcher_shadow",
+      "licenseUrl": "https://hazardpay.itch.io/40-free-psx-crunchy-footsteps",
+      "credit": "Hazard Pay"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/House & Office/Metal scrape_scratch.wav",
+      "targetPath": "paradise_horror/wall_scratch_01.ogg",
+      "cueId": "paradise.stalker.wall_scratch",
+      "profile": "positional",
+      "role": "watcher_pressure",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/Ambient/Metal_random tapping.wav",
+      "targetPath": "paradise_horror/wall_scratch_02.ogg",
+      "cueId": "paradise.stalker.wall_scratch",
+      "profile": "positional",
+      "role": "watcher_pressure",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/Monsters & Ghosts/Monster_growl_1.wav",
+      "targetPath": "paradise_horror/roar_muffled_01.ogg",
+      "cueId": "paradise.stalker.roar_muffled",
+      "profile": "positional",
+      "role": "watcher_peak",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "juanjo_sound - Backrooms Entity SFX (Vol. 1).zip",
+      "sourcePath": "juanjo_sound - Backrooms Entity 3.wav",
+      "targetPath": "paradise_horror/roar_muffled_02.ogg",
+      "cueId": "paradise.stalker.roar_muffled",
+      "profile": "positional",
+      "role": "watcher_peak",
+      "licenseUrl": "https://juanjosound.itch.io/backrooms-entity-sound-effects",
+      "credit": "juanjo_sound"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/Ambient/Drone_doom.wav",
+      "targetPath": "paradise_horror/low_hum_01.ogg",
+      "cueId": "paradise.ambient.low_hum",
+      "profile": "ambience",
+      "role": "quiet_bed",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "(OGG) Horror SFX Volume 1 - Free Pack.zip",
+      "sourcePath": "drones/horror_01_drone_01.ogg",
+      "targetPath": "paradise_horror/low_hum_02.ogg",
+      "cueId": "paradise.ambient.low_hum",
+      "profile": "ambience",
+      "role": "buildup_bed",
+      "licenseUrl": "https://obsydianx.itch.io/horror-sfx-volume-1",
+      "credit": "ObsydianX"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/House & Office/Fluorescent light bulb buzz_2.wav",
+      "targetPath": "paradise_horror/light_pop_01.ogg",
+      "cueId": "paradise.ambient.light_pop",
+      "profile": "positional",
+      "role": "environment_evidence",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/Ambient/Radio_static.wav",
+      "targetPath": "paradise_horror/radio_numbers_01.ogg",
+      "cueId": "paradise.ambient.radio_numbers",
+      "profile": "positional",
+      "role": "environment_evidence",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "juanjo_sound - Backrooms Entity SFX (Vol. 1).zip",
+      "sourcePath": "juanjo_sound - Backrooms Entity 4.wav",
+      "targetPath": "paradise_horror/radio_numbers_02.ogg",
+      "cueId": "paradise.ambient.radio_numbers",
+      "profile": "positional",
+      "role": "environment_evidence",
+      "licenseUrl": "https://juanjosound.itch.io/backrooms-entity-sound-effects",
+      "credit": "juanjo_sound"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/Ambient/Creepy_ambience_3.wav",
+      "targetPath": "paradise_horror/yellow_hum_01.ogg",
+      "cueId": "paradise.dimension.yellow_hum",
+      "profile": "ambience",
+      "role": "yellow_halls_bed",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/Ambient/Creepy_ambience_5.wav",
+      "targetPath": "paradise_horror/yellow_hum_02.ogg",
+      "cueId": "paradise.dimension.yellow_hum",
+      "profile": "ambience",
+      "role": "yellow_halls_bed",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "juanjo_sound - Backrooms Entity SFX (Vol. 1).zip",
+      "sourcePath": "juanjo_sound - Backrooms Entity 5.wav",
+      "targetPath": "paradise_horror/catacomb_whisper_01.ogg",
+      "cueId": "paradise.dimension.catacomb_whisper",
+      "profile": "positional",
+      "role": "catacomb_evidence",
+      "licenseUrl": "https://juanjosound.itch.io/backrooms-entity-sound-effects",
+      "credit": "juanjo_sound"
+    },
+    {
+      "sourceArchive": "juanjo_sound - Backrooms Entity SFX (Vol. 1).zip",
+      "sourcePath": "juanjo_sound - Backrooms Entity 6.wav",
+      "targetPath": "paradise_horror/catacomb_whisper_02.ogg",
+      "cueId": "paradise.dimension.catacomb_whisper",
+      "profile": "positional",
+      "role": "catacomb_evidence",
+      "licenseUrl": "https://juanjosound.itch.io/backrooms-entity-sound-effects",
+      "credit": "juanjo_sound"
+    },
+    {
+      "sourceArchive": "(OGG) Horror SFX Volume 1 - Free Pack.zip",
+      "sourcePath": "stingers/horror_01_stinger_violin_01.ogg",
+      "targetPath": "paradise_horror/stinger_01.ogg",
+      "cueId": "paradise.stalker.stinger",
+      "profile": "ambience",
+      "role": "peak_stinger",
+      "licenseUrl": "https://obsydianx.itch.io/horror-sfx-volume-1",
+      "credit": "ObsydianX"
+    },
+    {
+      "sourceArchive": "Horror SFX Free.zip",
+      "sourcePath": "Horror SFX Free/Stingers and Spooky Triggers/Slow Stinger.wav",
+      "targetPath": "paradise_horror/stinger_02.ogg",
+      "cueId": "paradise.stalker.stinger",
+      "profile": "ambience",
+      "role": "peak_stinger",
+      "licenseUrl": "https://yourpalrob.itch.io/must-have-horror-sound-effects",
+      "credit": "YourPalRob"
+    },
+    {
+      "sourceArchive": "Free PSX Wind Ambience.zip",
+      "sourcePath": "Free PSX Wind Ambience/Wind 1.wav",
+      "targetPath": "paradise_horror/wind_01.ogg",
+      "cueId": "paradise.dimension.wind",
+      "profile": "ambience",
+      "role": "outdoor_bed",
+      "licenseUrl": "https://hazardpay.itch.io/free-psx-wind-weather-ambience",
+      "credit": "Hazard Pay"
+    }
+  ]
+}
