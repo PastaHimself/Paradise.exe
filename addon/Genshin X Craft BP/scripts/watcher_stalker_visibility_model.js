@@ -4,7 +4,6 @@ export const STALKER_SPAWN_BLOCK_REASON = Object.freeze({
   BlockedDimension: "blocked_dimension",
   PlayerCooldown: "cooldown",
   Cooldown: "cooldown",
-  SafeRoom: "safe_room",
   PsychologicalSuppression: "psychological_suppression",
   QuietPhase: "quiet_phase",
   ReliefPhase: "relief_phase",
@@ -79,10 +78,6 @@ export function getWatcherSpawnBlockersForState(input = {}) {
 
   if (!bypassCooldowns && input.playerCooldown === true) {
     blockers.push(STALKER_SPAWN_BLOCK_REASON.PlayerCooldown);
-  }
-
-  if (input.safeRoom === true) {
-    blockers.push(STALKER_SPAWN_BLOCK_REASON.SafeRoom);
   }
 
   if (input.psychologicalSuppression === true) {
