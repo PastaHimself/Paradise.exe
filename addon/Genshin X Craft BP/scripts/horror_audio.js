@@ -6,6 +6,7 @@ export const HORROR_SOUND = Object.freeze({
   StalkerStepBehind: "paradise.stalker.step_behind",
   StalkerWallScratch: "paradise.stalker.wall_scratch",
   StalkerRoarMuffled: "paradise.stalker.roar_muffled",
+  StalkerStinger: "paradise.stalker.stinger",
   AmbientLowHum: "paradise.ambient.low_hum",
   AmbientLightPop: "paradise.ambient.light_pop",
   AmbientRadioNumbers: "paradise.ambient.radio_numbers",
