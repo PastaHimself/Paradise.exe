@@ -177,6 +177,7 @@ export function getAudioSoundRecord(soundId) {
 
 export function getPlayableSoundId(soundId) {
   const record = getAudioSoundRecord(soundId);
+  if (!record && String(soundId || "").startsWith("paradise.")) return undefined;
   if (!record || record.runtimeReady) return soundId;
   return record.fallbackSoundId || undefined;
 }

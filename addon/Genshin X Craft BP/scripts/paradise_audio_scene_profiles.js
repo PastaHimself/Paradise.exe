@@ -16,6 +16,7 @@ function profile({
   fallbackSoundId,
   scenarioTags,
   assetStatus = "pending_source",
+  segmentSoundIds = [],
 }) {
   return Object.freeze({
     profileId,
@@ -26,6 +27,8 @@ function profile({
     allowedPhases: PHASES,
     scenarioTags: Object.freeze([...scenarioTags]),
     assetStatus,
+    segmentSoundIds: Object.freeze([...segmentSoundIds]),
+    segmentDurationTicks: 20 * 8,
   });
 }
 

@@ -1207,15 +1207,29 @@ function executeWatcher(session, player, action, currentTick) {
   }
 
   session.data.watcherDenied = (session.data.watcherDenied || 0) + 1;
-  try {
-    player.playSound("paradise.stalker.breath_far", {
-      location: preferredLocation,
-      volume: 0.18,
-      pitch: 0.72,
-    });
-    markCue(player, preferredLocation, currentTick);
-  } catch (error) {
-    reportRuntimeError({ stage: "watcher_fallback", playerId: player.id, eventKey: session.event.key, actionType: action.style, error });
+  const cueId = `watcher:fallback:${session.event.key}:${currentTick}`;
+  const cue = requestPlayerAudioCue(player, {
+    cueId,
+    audioTier: "reaction",
+    currentTick,
+    safeRoom: isPlayerInSafeRoom(player, currentTick),
+  });
+  if (cue.allowed) {
+    try {
+      const soundId = getPlayableSoundId("paradise.stalker.breath_far");
+      if (soundId) {
+        player.playSound(soundId, {
+          location: preferredLocation,
+          volume: 0.18,
+          pitch: 0.72,
+        });
+        markCue(player, preferredLocation, currentTick);
+      }
+    } catch (error) {
+      reportRuntimeError({ stage: "watcher_fallback", playerId: player.id, eventKey: session.event.key, actionType: action.style, error });
+    } finally {
+      releasePlayerAudioCue(player, cue.cueId || cueId, currentTick);
+    }
   }
   recordPlayerTelemetry(player, "horror_v2_watcher", {
     currentTick,

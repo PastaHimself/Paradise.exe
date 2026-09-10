@@ -34,6 +34,14 @@ REQUIRED_ASSET_FIELDS = {
 }
 
 
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 def load_manifest(path: Path) -> dict[str, Any]:
     with path.open("r", encoding="utf-8") as handle:
         value = json.load(handle)
@@ -118,6 +126,12 @@ def validate_manifest(manifest: dict[str, Any], project_root: Path, require_comp
             resolved_source = project_root / source_path
             if not resolved_source.exists():
                 warnings.append(f"{asset_id}: source is not staged at {source_path}")
+            elif isinstance(checksum, str) and SHA256_RE.fullmatch(checksum):
+                actual_checksum = file_sha256(resolved_source)
+                if actual_checksum != checksum:
+                    errors.append(
+                        f"{asset_id}: source_sha256 mismatch (manifest {checksum}, actual {actual_checksum})"
+                    )
 
     for pack_id, pack in pack_by_id.items():
         actual = counts.get(pack_id, 0)

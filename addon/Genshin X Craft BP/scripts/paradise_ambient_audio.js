@@ -16,6 +16,7 @@ import {
 } from "./paradise_audio_playback_model.js";
 
 const AMBIENT_STATE = new Map();
+const DEFAULT_SEGMENT_DURATION_TICKS = 20 * 8;
 
 function currentTick() {
   try {
@@ -44,7 +45,7 @@ function setInstanceVolume(instance, volume) {
       return true;
     }
     if (typeof instance.fade === "function") {
-      instance.fade(volume, 5);
+      instance.fade(5, volume);
       return true;
     }
   } catch (_error) {}
@@ -61,7 +62,7 @@ function playOneShot(player, soundId, volume) {
   }
 }
 
-function tryStartSoundInstanceLoop(player, soundId, volume) {
+function tryStartSoundInstanceLoop(player, soundId, volume, segmentSoundIds = [], segmentDurationTicks = DEFAULT_SEGMENT_DURATION_TICKS) {
   if (!player || typeof player.playSound !== "function" || !soundId) {
     return { mode: AMBIENT_PLAYBACK_MODE.Disabled, instance: undefined };
   }
@@ -77,7 +78,7 @@ function tryStartSoundInstanceLoop(player, soundId, volume) {
       soundInstance: Boolean(instance),
       setVolume: typeof instance?.setVolume === "function" || typeof instance?.fade === "function",
       stop: typeof instance?.stop === "function",
-      segmentSoundIds: [],
+      segmentSoundIds,
     };
     const mode = selectAmbientPlaybackMode(capabilities);
     if (mode === AMBIENT_PLAYBACK_MODE.SoundInstanceLoop) {
@@ -85,6 +86,18 @@ function tryStartSoundInstanceLoop(player, soundId, volume) {
     }
   } catch (_error) {
     // The runtime may expose the stable API without beta loop handles.
+  }
+
+  if (Array.isArray(segmentSoundIds) && segmentSoundIds.length > 0) {
+    const firstSegment = getPlayableSoundId(segmentSoundIds[0]);
+    if (playOneShot(player, firstSegment, volume)) {
+      return {
+        mode: AMBIENT_PLAYBACK_MODE.FiniteSegmentLoop,
+        instance: undefined,
+        segmentIndex: 0,
+        nextSegmentTick: segmentDurationTicks,
+      };
+    }
   }
 
   return { mode: AMBIENT_PLAYBACK_MODE.Disabled, instance: undefined };
@@ -106,12 +119,34 @@ function stateSnapshot(state) {
     lastStartTick: state.lastStartTick,
     lastUpdateTick: state.lastUpdateTick,
     nextSegmentTick: state.nextSegmentTick,
+    segmentIndex: state.segmentIndex,
   };
+}
+
+function advanceFiniteSegment(player, state, profile, tick) {
+  const segmentSoundIds = state.segmentSoundIds || profile.segmentSoundIds || [];
+  if (state.playbackMode !== AMBIENT_PLAYBACK_MODE.FiniteSegmentLoop || segmentSoundIds.length === 0) {
+    return;
+  }
+  if (tick < state.nextSegmentTick) return;
+
+  const nextIndex = (state.segmentIndex + 1) % segmentSoundIds.length;
+  const segmentSoundId = getPlayableSoundId(segmentSoundIds[nextIndex]);
+  if (playOneShot(player, segmentSoundId, getPhaseVolume(state.phase, profile))) {
+    state.segmentIndex = nextIndex;
+    state.nextSegmentTick = tick + state.segmentDurationTicks;
+  }
 }
 
 function startAmbient(player, profile, soundId, phase, tick) {
   const volume = getPhaseVolume(phase, profile);
-  const started = tryStartSoundInstanceLoop(player, soundId, volume);
+  const started = tryStartSoundInstanceLoop(
+    player,
+    soundId,
+    volume,
+    profile.segmentSoundIds,
+    profile.segmentDurationTicks,
+  );
   return {
     profileId: profile.profileId,
     dimensionId: profile.dimensionId,
@@ -121,7 +156,10 @@ function startAmbient(player, profile, soundId, phase, tick) {
     instance: started.instance,
     lastStartTick: tick,
     lastUpdateTick: tick,
-    nextSegmentTick: 0,
+    nextSegmentTick: started.nextSegmentTick || 0,
+    segmentIndex: started.segmentIndex ?? -1,
+    segmentSoundIds: profile.segmentSoundIds,
+    segmentDurationTicks: profile.segmentDurationTicks || DEFAULT_SEGMENT_DURATION_TICKS,
   };
 }
 
@@ -181,6 +219,7 @@ export function syncPlayerAmbient(player, context = {}) {
 
   previous.phase = phase;
   previous.lastUpdateTick = tick;
+  advanceFiniteSegment(player, previous, profile, tick);
   setInstanceVolume(previous.instance, getPhaseVolume(phase, profile));
   AMBIENT_STATE.set(playerId, previous);
   return stateSnapshot(previous);

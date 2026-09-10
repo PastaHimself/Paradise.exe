@@ -9,6 +9,7 @@ atomic temporary file and validates the encoded stream with ffprobe.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -28,6 +29,14 @@ PROFILE_ARGS = {
 
 class CompressionError(RuntimeError):
     pass
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def run_checked(command: list[str]) -> subprocess.CompletedProcess[str]:
@@ -105,6 +114,12 @@ def validate_encoded_output(asset: dict[str, Any], output: Path, ffprobe: str) -
 def compress_asset(asset: dict[str, Any], project_root: Path, ffmpeg: str, ffprobe: str, force: bool, check_only: bool) -> dict[str, Any]:
     validate_license(asset)
     source = source_path_for(asset, project_root)
+    expected_checksum = str(asset.get("source_sha256", ""))
+    actual_checksum = file_sha256(source)
+    if expected_checksum != actual_checksum:
+        raise CompressionError(
+            f"{asset['id']}: source_sha256 mismatch (manifest {expected_checksum}, actual {actual_checksum})"
+        )
     output = output_path_for(asset, project_root)
     if output.exists() and not force and not check_only:
         raise CompressionError(f"{asset['id']}: output exists; pass --force to replace it")

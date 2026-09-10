@@ -116,6 +116,8 @@ test("the central audio registry preserves legacy IDs and fails closed for pendi
   assert.equal(AUDIO_SOUND_REGISTRY[pending].licenseStatus, "pending_source");
   assert.equal(getPlayableSoundId(pending), "paradise.dimension.yellow_hum");
   assert.equal(getPlayableSoundId(HORROR_SOUND.AmbientLowHum), HORROR_SOUND.AmbientLowHum);
+  assert.equal(getPlayableSoundId("paradise.audio.unregistered"), undefined);
+  assert.equal(getPlayableSoundId("random.click"), "random.click");
 });
 
 test("every catalog sound action carries a budget tier", () => {

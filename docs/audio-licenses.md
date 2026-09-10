@@ -23,6 +23,9 @@ paths can be generated. Run the strict gate with:
 python tools/validate_audio_manifest.py --require-complete
 ```
 
+Pull requests run the non-destructive audit and publish its report; manual and
+tagged release workflows enforce the strict completion gate.
+
 After the missing archives are available, place each pack under
 `tools/audio-staging/<pack id>/` and run:
 
