@@ -3642,14 +3642,18 @@ function playPsychologicalCue(player, type, spot) {
       ? "paradise.stalker.step_behind"
       : "paradise.stalker.breath_far";
 
-  try {
-    player.dimension.playSound(sound, spot, {
+  tryPlayForOnePlayer(
+    player,
+    `watcher:psychological:${type}`,
+    sound,
+    {
+      location: spot,
       volume: type === PSYCHOLOGICAL_APPEARANCE_TYPE.SafeRoomExterior ? 0.18 : 0.25,
       pitch: randomFloat(0.78, 0.94),
-    });
-  } catch (_error) {
-    // Psychological cues are intentionally optional.
-  }
+      audioTier: type === PSYCHOLOGICAL_APPEARANCE_TYPE.SafeRoomExterior ? "ambient" : "reaction",
+    },
+    20 * 10,
+  );
 }
 
 function removePsychologicalWatcherSilently(entity, state) {
@@ -4070,14 +4074,18 @@ function playCue(player, phase, force = false) {
     z: player.location.z + basis.back.z * randomFloat(5, 16) + basis.right.z * randomFloat(-8, 8),
   };
 
-  try {
-    player.dimension.playSound(sound, source, {
+  tryPlayForOnePlayer(
+    player,
+    "watcher:phase_cue",
+    sound,
+    {
+      location: source,
       volume: phase === PHASE.Ambush ? 1.2 : 0.45,
       pitch: phase === PHASE.Pressure ? 0.55 : 0.85,
-    });
-  } catch (_error) {
-    // Sound is optional.
-  }
+      audioTier: phase === PHASE.Ambush ? "peak" : "reaction",
+    },
+    phase === PHASE.Ambush ? 20 * 45 : 20 * 8,
+  );
 }
 
 function chooseMinorHorrorEvent(phase) {

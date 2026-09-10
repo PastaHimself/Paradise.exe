@@ -92,4 +92,9 @@ export function shouldRestartAmbient(previous, next, currentTick = 0, lastStartT
   return finiteTick(currentTick) - finiteTick(lastStartTick) >= MIN_AMBIENT_DWELL_TICKS;
 }
 
+export function shouldRestartFiniteAmbient(previous, nextPhase) {
+  return previous?.playbackMode === "finite_segment_loop"
+    && previous.phase !== normalizedPhase(nextPhase);
+}
+
 export { MIN_AMBIENT_DWELL_TICKS };

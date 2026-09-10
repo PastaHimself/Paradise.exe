@@ -41,6 +41,12 @@ jobs:
           mkdir -p artifacts
           python tools/validate_audio_manifest.py --json > artifacts/audio-manifest.json
 
+      - name: Verify generated audio definitions
+        run: python tools/generate_sound_definitions.py --check
+
+      - name: Verify cleared audio outputs
+        run: python tools/compress_audio.py --check-only --cleared-only --verify-output
+
       - name: Enforce complete audio release gate
         if: github.event_name == 'workflow_dispatch' || startsWith(github.ref, 'refs/tags/')
         run: python tools/validate_audio_manifest.py --require-complete

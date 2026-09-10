@@ -31,6 +31,14 @@ After the missing archives are available, place each pack under
 
 ```bash
 python tools/stage_audio_manifest.py --write
-python tools/compress_audio.py --check-only
-python tools/compress_audio.py --force
+python tools/compress_audio.py --check-only --cleared-only
+python tools/compress_audio.py --force --cleared-only
+python tools/generate_sound_definitions.py --write
 ```
+
+Looping beds are split into the declared maximum segment length, encoded as
+44100 Hz Ogg Vorbis, and checked for the configured fade handoff and output
+size limit. The definition generator updates both `sound_definitions.json` and
+the runtime-ready registry only after a complete pack has encoded outputs. The
+strict release gate also probes every encoded stream; it fails until all 127
+source records are present, cleared, and generated outputs exist.

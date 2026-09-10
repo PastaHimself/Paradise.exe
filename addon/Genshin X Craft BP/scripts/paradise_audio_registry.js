@@ -1,3 +1,7 @@
+import { GENERATED_AUDIO_READY_IDS } from "./paradise_generated_audio_registry.js";
+
+const GENERATED_AUDIO_READY_ID_SET = new Set(GENERATED_AUDIO_READY_IDS);
+
 /**
  * Single source of truth for custom audio identifiers.
  *
@@ -52,17 +56,16 @@ function existingRecord(soundId, resourcePath) {
 
 function pendingRecord(soundId, {
   sourcePack,
-  resourcePath,
   fallbackSoundId,
   licenseStatus = "pending_source",
 }) {
+  const runtimeReady = GENERATED_AUDIO_READY_ID_SET.has(soundId);
   return Object.freeze({
     soundId,
     sourcePack,
-    resourcePath,
     fallbackSoundId,
-    licenseStatus,
-    runtimeReady: false,
+    licenseStatus: runtimeReady ? "cleared" : licenseStatus,
+    runtimeReady,
   });
 }
 
@@ -115,7 +118,6 @@ export const AUDIO_SOUND_REGISTRY = Object.freeze({
     AUDIO_SOUND_ID.AmbientOldLocationsYellowHalls,
     {
       sourcePack: "Old Locations",
-      resourcePath: "sounds/paradise_audio/old_locations/yellow_halls.ogg",
       fallbackSoundId: AUDIO_SOUND_ID.DimensionYellowHum,
     },
   ),
@@ -123,7 +125,6 @@ export const AUDIO_SOUND_REGISTRY = Object.freeze({
     AUDIO_SOUND_ID.AmbientOldLocationsFlatFlower,
     {
       sourcePack: "Old Locations",
-      resourcePath: "sounds/paradise_audio/old_locations/flat_flower.ogg",
       fallbackSoundId: AUDIO_SOUND_ID.AmbientLowHum,
     },
   ),
@@ -131,7 +132,6 @@ export const AUDIO_SOUND_REGISTRY = Object.freeze({
     AUDIO_SOUND_ID.AmbientOldLocationsEndlessStaircase,
     {
       sourcePack: "Old Locations",
-      resourcePath: "sounds/paradise_audio/old_locations/endless_staircase.ogg",
       fallbackSoundId: AUDIO_SOUND_ID.AmbientLowHum,
     },
   ),
@@ -139,7 +139,6 @@ export const AUDIO_SOUND_REGISTRY = Object.freeze({
     AUDIO_SOUND_ID.AmbientOldLocationsCatacombs,
     {
       sourcePack: "Old Locations",
-      resourcePath: "sounds/paradise_audio/old_locations/catacombs.ogg",
       fallbackSoundId: AUDIO_SOUND_ID.DimensionCatacombWhisper,
     },
   ),
@@ -147,7 +146,6 @@ export const AUDIO_SOUND_REGISTRY = Object.freeze({
     AUDIO_SOUND_ID.AmbientOldLocationsLibrary,
     {
       sourcePack: "Old Locations",
-      resourcePath: "sounds/paradise_audio/old_locations/library.ogg",
       fallbackSoundId: AUDIO_SOUND_ID.AmbientLowHum,
     },
   ),
@@ -155,7 +153,6 @@ export const AUDIO_SOUND_REGISTRY = Object.freeze({
     AUDIO_SOUND_ID.AmbientWindOpen,
     {
       sourcePack: "Free PSX Wind Ambience",
-      resourcePath: "sounds/paradise_audio/wind/open.ogg",
       fallbackSoundId: AUDIO_SOUND_ID.AmbientLowHum,
       licenseStatus: "license_blocked",
     },
@@ -164,7 +161,6 @@ export const AUDIO_SOUND_REGISTRY = Object.freeze({
     AUDIO_SOUND_ID.AmbientWindHeaven,
     {
       sourcePack: "Free PSX Wind Ambience",
-      resourcePath: "sounds/paradise_audio/wind/heaven.ogg",
       fallbackSoundId: AUDIO_SOUND_ID.AmbientLowHum,
       licenseStatus: "license_blocked",
     },

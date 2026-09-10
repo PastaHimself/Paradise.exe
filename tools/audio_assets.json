@@ -10,7 +10,8 @@
     "voice_entity_profile": "-q:a 4 -ar 44100 -ac 1",
     "footstep_stinger_profile": "-q:a 3 -ar 44100 -ac 1",
     "max_bed_segment_seconds": 8,
-    "loop_crossfade_milliseconds": 500
+    "loop_crossfade_milliseconds": 500,
+    "max_encoded_size_bytes": 8388608
   },
   "packs": [
     {
@@ -25,6 +26,10 @@
       "derivative_encoding_allowed": false,
       "attribution_text": null,
       "evidence_path": null,
+      "runtime_sound_ids": [
+        "paradise.ambient.wind.open",
+        "paradise.ambient.wind.heaven"
+      ],
       "notes": "The supplied archive contains no license/readme or verified source URL. Do not encode, copy, or ship until clarified."
     },
     {
@@ -39,6 +44,13 @@
       "derivative_encoding_allowed": true,
       "attribution_text": "Old Locations by Canvas Coven, licensed under CC BY 4.0.",
       "evidence_path": "docs/audio-licenses.md",
+      "runtime_sound_ids": [
+        "paradise.ambient.old_locations.yellow_halls",
+        "paradise.ambient.old_locations.flat_flower",
+        "paradise.ambient.old_locations.endless_staircase",
+        "paradise.ambient.old_locations.catacombs",
+        "paradise.ambient.old_locations.library"
+      ],
       "notes": "The source archive must still be staged and hashed before runtime integration."
     },
     {
@@ -110,6 +122,7 @@
       "intensity_tier": "quiet",
       "codec_profile": "ambience",
       "output_path": null,
+      "license_name": null,
       "license_status": "license_blocked",
       "source_url": null,
       "author": null,
@@ -132,6 +145,7 @@
       "intensity_tier": "quiet",
       "codec_profile": "ambience",
       "output_path": null,
+      "license_name": null,
       "license_status": "license_blocked",
       "source_url": null,
       "author": null,
@@ -154,6 +168,7 @@
       "intensity_tier": "quiet",
       "codec_profile": "ambience",
       "output_path": null,
+      "license_name": null,
       "license_status": "license_blocked",
       "source_url": null,
       "author": null,

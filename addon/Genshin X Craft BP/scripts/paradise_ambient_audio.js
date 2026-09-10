@@ -7,11 +7,13 @@ import {
   getAmbientProfile,
   getPhaseVolume,
   getPlayerAudioPhase,
+  shouldRestartFiniteAmbient,
   shouldRestartAmbient,
 } from "./paradise_ambient_audio_model.js";
 import {
   AMBIENT_PLAYBACK_MODE,
   buildAmbientSoundOptions,
+  getAmbientPlaybackCapabilities,
   selectAmbientPlaybackMode,
 } from "./paradise_audio_playback_model.js";
 
@@ -35,6 +37,16 @@ function stopInstance(instance) {
   try {
     if (instance && typeof instance.stop === "function") instance.stop();
   } catch (_error) {}
+}
+
+function stopPlayerSound(player, soundId) {
+  if (!player || !soundId || typeof player.stopSound !== "function") return false;
+  try {
+    player.stopSound(soundId);
+    return true;
+  } catch (_error) {
+    return false;
+  }
 }
 
 function setInstanceVolume(instance, volume) {
@@ -67,33 +79,36 @@ function tryStartSoundInstanceLoop(player, soundId, volume, segmentSoundIds = []
     return { mode: AMBIENT_PLAYBACK_MODE.Disabled, instance: undefined };
   }
 
+  // Without stopSound there is no safe way to cancel the initial probe if the
+  // runtime returns a partial/undefined handle. Start the finite fallback
+  // directly so a semantic bed and its first segment cannot overlap.
+  if (typeof player.stopSound !== "function") {
+    const firstSegment = getPlayableSoundId(segmentSoundIds[0]);
+    if (firstSegment && playOneShot(player, firstSegment, volume)) {
+      return {
+        mode: AMBIENT_PLAYBACK_MODE.FiniteSegmentLoop,
+        instance: undefined,
+        segmentIndex: 0,
+        nextSegmentTick: segmentDurationTicks,
+        currentSegmentSoundId: firstSegment,
+      };
+    }
+    return { mode: AMBIENT_PLAYBACK_MODE.Disabled, instance: undefined };
+  }
+
   try {
     // loopCount and SoundInstance are beta APIs in the target Bedrock runtime.
     // Keep the cast local so the rest of the project stays type-safe on the
     // stable PlayerSoundOptions surface.
     const options = /** @type {any} */ (buildAmbientSoundOptions(volume));
     const instance = player.playSound(soundId, options);
-    const capabilities = {
-      loopCount: true,
-      soundInstance: Boolean(instance),
-      setVolume: typeof instance?.setVolume === "function" || typeof instance?.fade === "function",
-      stop: typeof instance?.stop === "function",
-      segmentSoundIds,
-    };
+    const capabilities = getAmbientPlaybackCapabilities(player, instance, options, segmentSoundIds);
     const mode = selectAmbientPlaybackMode(capabilities);
     if (mode === AMBIENT_PLAYBACK_MODE.SoundInstanceLoop) {
-      return { mode, instance };
+      return { mode, instance, currentSegmentSoundId: undefined };
     }
 
-    const firstSegment = getPlayableSoundId(segmentSoundIds[0]);
-    if (firstSegment && firstSegment === soundId) {
-      return {
-        mode: AMBIENT_PLAYBACK_MODE.FiniteSegmentLoop,
-        instance: undefined,
-        segmentIndex: 0,
-        nextSegmentTick: segmentDurationTicks,
-      };
-    }
+    stopPlayerSound(player, soundId);
   } catch (_error) {
     // The runtime may expose the stable API without beta loop handles.
   }
@@ -106,6 +121,7 @@ function tryStartSoundInstanceLoop(player, soundId, volume, segmentSoundIds = []
         instance: undefined,
         segmentIndex: 0,
         nextSegmentTick: segmentDurationTicks,
+        currentSegmentSoundId: firstSegment,
       };
     }
   }
@@ -113,9 +129,10 @@ function tryStartSoundInstanceLoop(player, soundId, volume, segmentSoundIds = []
   return { mode: AMBIENT_PLAYBACK_MODE.Disabled, instance: undefined };
 }
 
-function stopState(state) {
+function stopState(state, player = state?.player) {
   if (!state) return;
   stopInstance(state.instance);
+  stopPlayerSound(player, state.currentSegmentSoundId || state.soundId);
 }
 
 function stateSnapshot(state) {
@@ -142,9 +159,11 @@ function advanceFiniteSegment(player, state, profile, tick) {
 
   const nextIndex = (state.segmentIndex + 1) % segmentSoundIds.length;
   const segmentSoundId = getPlayableSoundId(segmentSoundIds[nextIndex]);
+  stopPlayerSound(player, state.currentSegmentSoundId);
   if (playOneShot(player, segmentSoundId, getPhaseVolume(state.phase, profile))) {
     state.segmentIndex = nextIndex;
     state.nextSegmentTick = tick + state.segmentDurationTicks;
+    state.currentSegmentSoundId = segmentSoundId;
   }
 }
 
@@ -164,6 +183,8 @@ function startAmbient(player, profile, soundId, phase, tick) {
     soundId,
     playbackMode: started.mode,
     instance: started.instance,
+    player,
+    currentSegmentSoundId: started.currentSegmentSoundId || soundId,
     lastStartTick: tick,
     lastUpdateTick: tick,
     nextSegmentTick: started.nextSegmentTick || 0,
@@ -184,7 +205,7 @@ export function syncPlayerAmbient(player, context = {}) {
   const previous = AMBIENT_STATE.get(playerId);
 
   if (!profile) {
-    stopState(previous);
+    stopState(previous, player);
     AMBIENT_STATE.delete(playerId);
     return undefined;
   }
@@ -203,7 +224,7 @@ export function syncPlayerAmbient(player, context = {}) {
   });
   const soundId = getPlayableSoundId(profile.soundId);
   if (!soundId) {
-    stopState(previous);
+    stopState(previous, player);
     AMBIENT_STATE.delete(playerId);
     return undefined;
   }
@@ -218,10 +239,10 @@ export function syncPlayerAmbient(player, context = {}) {
     { ...nextIdentity, phase },
     tick,
     previous?.lastStartTick ?? tick,
-  );
+  ) || shouldRestartFiniteAmbient(previous, phase);
 
   if (!previous || restart) {
-    stopState(previous);
+    stopState(previous, player);
     const next = startAmbient(player, profile, soundId, phase, tick);
     AMBIENT_STATE.set(playerId, next);
     return stateSnapshot(next);

@@ -4,6 +4,33 @@ export const AMBIENT_PLAYBACK_MODE = Object.freeze({
   Disabled: "disabled",
 });
 
+export function getAmbientPlaybackCapabilities(
+  player,
+  instance,
+  options = {},
+  segmentSoundIds = [],
+) {
+  const soundInstance = Boolean(instance);
+  const setVolume = typeof instance?.setVolume === "function"
+    || typeof instance?.fade === "function";
+  const stop = typeof instance?.stop === "function";
+  const hasPlayerLoopControl = typeof player?.stopSound === "function";
+
+  return {
+    // A returned handle alone is not enough. The beta player control surface
+    // is the compatibility signal that makes loopCount safe to use here.
+    loopCount: options?.loopCount === -1
+      && hasPlayerLoopControl
+      && soundInstance
+      && setVolume
+      && stop,
+    soundInstance,
+    setVolume,
+    stop,
+    segmentSoundIds,
+  };
+}
+
 export function selectAmbientPlaybackMode({
   loopCount = false,
   soundInstance = false,

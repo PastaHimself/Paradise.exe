@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import re
 import shutil
 import subprocess
@@ -75,6 +76,31 @@ def staged_files(directory: Path) -> list[Path]:
     )
 
 
+def encoded_outputs(
+    pack_id: str,
+    asset_id: str,
+    role: str,
+    duration_seconds: float | None,
+    compression: dict[str, Any],
+    cleared: bool,
+) -> tuple[list[str], list[float]]:
+    if not cleared:
+        return [], []
+    base = f"addon/Genshin X Craft RP/sounds/paradise_audio/{pack_id}/{asset_id}"
+    max_segment = float(compression.get("max_bed_segment_seconds") or 0)
+    if role != "looping_bed" or not duration_seconds or max_segment <= 0:
+        return [f"{base}.ogg"], [duration_seconds] if duration_seconds else []
+    segment_count = max(1, math.ceil(duration_seconds / max_segment))
+    if segment_count == 1:
+        return [f"{base}.ogg"], [duration_seconds]
+    durations = [
+        min(max_segment, max(0.0, duration_seconds - index * max_segment))
+        for index in range(segment_count)
+    ]
+    paths = [f"{base}_segment_{index + 1:03d}.ogg" for index in range(segment_count)]
+    return paths, durations
+
+
 def build_assets(manifest: dict[str, Any], project_root: Path, staging_root: Path, ffprobe: str, allow_partial: bool) -> list[dict[str, Any]]:
     assets: list[dict[str, Any]] = []
     missing_packs: list[str] = []
@@ -89,14 +115,20 @@ def build_assets(manifest: dict[str, Any], project_root: Path, staging_root: Pat
         if len(files) != expected:
             raise ValueError(f"{pack_id}: staged {len(files)} files, expected {expected}")
         defaults = PACK_DEFAULTS[pack_id]
+        compression = manifest.get("compression", {})
         for index, source in enumerate(files, start=1):
             relative_source = source.relative_to(project_root).as_posix()
             stem = slug(source.stem)
             asset_id = f"{pack_id}_{index:03d}_{stem}"
             cleared = pack.get("license_status") == "cleared" and pack.get("derivative_encoding_allowed") is True
-            output_path = (
-                f"addon/Genshin X Craft RP/sounds/paradise_audio/{pack_id}/{asset_id}.ogg"
-                if cleared else None
+            source_duration = duration(source, ffprobe)
+            output_paths, segment_durations = encoded_outputs(
+                pack_id,
+                asset_id,
+                defaults["role"],
+                source_duration,
+                compression,
+                cleared,
             )
             assets.append({
                 "id": asset_id,
@@ -108,15 +140,20 @@ def build_assets(manifest: dict[str, Any], project_root: Path, staging_root: Pat
                 "scenario_tags": defaults["tags"],
                 "intensity_tier": defaults["intensity"],
                 "codec_profile": defaults["codec"],
-                "output_path": output_path,
+                "output_path": output_paths[0] if output_paths else None,
+                "output_paths": output_paths,
                 "license_status": pack.get("license_status"),
                 "source_url": pack.get("source_url"),
                 "author": pack.get("author"),
+                "license_name": pack.get("license_name"),
                 "attribution_text": pack.get("attribution_text"),
                 "redistribution_allowed": pack.get("redistribution_allowed"),
                 "derivative_encoding_allowed": pack.get("derivative_encoding_allowed"),
                 "evidence_path": pack.get("evidence_path"),
-                "duration_seconds": duration(source, ffprobe),
+                "duration_seconds": source_duration,
+                "segment_count": len(output_paths),
+                "segment_durations_seconds": segment_durations,
+                "loop_crossfade_milliseconds": compression.get("loop_crossfade_milliseconds", 0),
                 "loop_start_seconds": None,
                 "loop_end_seconds": None,
             })

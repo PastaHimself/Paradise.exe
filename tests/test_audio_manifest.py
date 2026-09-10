@@ -10,7 +10,12 @@ def base_pack(status="cleared", derivative=True, redistribution=True):
         "id": "test_pack",
         "display_name": "Test Pack",
         "expected_file_count": 1,
+        "source_url": "https://example.test/test-pack",
+        "author": "Test Author",
         "license_status": status,
+        "license_name": "Test project license",
+        "attribution_text": "Test Pack by Test Author.",
+        "evidence_path": "docs/audio-licenses.md",
         "redistribution_allowed": redistribution,
         "derivative_encoding_allowed": derivative,
     }
@@ -31,6 +36,7 @@ def base_asset(status="cleared", derivative=True, redistribution=True, checksum=
         "license_status": status,
         "source_url": None,
         "author": None,
+        "license_name": None,
         "attribution_text": None,
         "redistribution_allowed": redistribution,
         "derivative_encoding_allowed": derivative,
@@ -70,6 +76,51 @@ class AudioManifestTests(unittest.TestCase):
             report = validate_manifest(manifest, root, require_complete=False)
             self.assertFalse(report["ok"])
             self.assertTrue(any("source_sha256 mismatch" in error for error in report["errors"]))
+
+    def test_cleared_pack_requires_provenance_and_evidence(self):
+        pack = base_pack()
+        pack.update({
+            "source_url": None,
+            "author": None,
+            "license_name": None,
+            "attribution_text": None,
+            "evidence_path": None,
+        })
+        manifest = {
+            "schema_version": 1,
+            "required_total_files": 1,
+            "packs": [pack],
+            "assets": [base_asset()],
+        }
+
+        report = validate_manifest(manifest, Path("."), require_complete=False)
+
+        self.assertFalse(report["ok"])
+        self.assertTrue(any("source_url" in error for error in report["errors"]))
+        self.assertTrue(any("evidence_path" in error for error in report["errors"]))
+
+    def test_source_path_must_stay_inside_the_project(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            outside = root.parent / "outside.wav"
+            outside.write_bytes(b"outside")
+            manifest = {
+                "schema_version": 1,
+                "required_total_files": 1,
+                "packs": [base_pack()],
+                "assets": [
+                    {
+                        **base_asset(),
+                        "source_path": "../outside.wav",
+                        "source_sha256": "0" * 64,
+                    }
+                ],
+            }
+
+            report = validate_manifest(manifest, root, require_complete=False)
+
+            self.assertFalse(report["ok"])
+            self.assertTrue(any("must stay inside project" in error for error in report["errors"]))
 
 
 if __name__ == "__main__":

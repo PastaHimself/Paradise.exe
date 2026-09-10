@@ -60,6 +60,7 @@ npm install --ignore-scripts --no-audit --no-fund
 | `npm run audio:stage` | Hash staged audio and rebuild the per-file manifest (requires all source packs) |
 | `npm run audio:validate` | Audit audio counts, hashes, license gates, and output readiness |
 | `npm run audio:compress` | Encode license-cleared audio to the approved Ogg Vorbis profiles |
+| `npm run audio:definitions` | Generate semantic Bedrock sound definitions from validated outputs |
 
 ### Horror audio integration
 

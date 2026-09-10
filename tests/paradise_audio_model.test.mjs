@@ -10,6 +10,7 @@ import {
   getAmbientProfile,
   getPhaseVolume,
   getPlayerAudioPhase,
+  shouldRestartFiniteAmbient,
   shouldRestartAmbient,
 } from "../addon/Genshin X Craft BP/scripts/paradise_ambient_audio_model.js";
 import { HORROR_PHASE } from "../addon/Genshin X Craft BP/scripts/horror_director.js";
@@ -102,6 +103,23 @@ test("phase mixing keeps phase transitions on the same sound instance", () => {
   assert.equal(shouldRestartAmbient(sameSound, { ...sameSound, soundId: "paradise.ambient.old_locations.library" }, 300, 100), true);
   assert.equal(shouldRestartAmbient(sameSound, { ...sameSound, profileId: "catacombs" }, 300, 100), true);
   assert.equal(shouldRestartAmbient(sameSound, { ...sameSound, playbackMode: "finite_segment_loop" }, 300, 100), true);
+});
+
+test("finite fallback restarts when the phase volume changes", () => {
+  assert.equal(
+    shouldRestartFiniteAmbient(
+      { playbackMode: "finite_segment_loop", phase: HORROR_PHASE.Quiet },
+      HORROR_PHASE.Relief,
+    ),
+    true,
+  );
+  assert.equal(
+    shouldRestartFiniteAmbient(
+      { playbackMode: "sound_instance_loop", phase: HORROR_PHASE.Quiet },
+      HORROR_PHASE.Relief,
+    ),
+    false,
+  );
 });
 
 test("the central audio registry preserves legacy IDs and fails closed for pending packs", () => {
