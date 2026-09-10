@@ -4,6 +4,7 @@
 
 import "./player_config.js";
 import "./paradise_dimension_atmosphere.js";
+import "./paradise_player_lifecycle.js";
 import "./burning_highway.js";
 import "./catacombs.js";
 import "./endless_staircase.js";

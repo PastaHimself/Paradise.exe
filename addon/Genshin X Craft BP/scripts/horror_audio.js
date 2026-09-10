@@ -1,17 +1,20 @@
 import { system } from "@minecraft/server";
+import { getPlayerHorrorSnapshot } from "./paradise_player_horror_state.js";
+import { isPlayerInSafeRoom } from "./paradise_horror_state.js";
+import {
+  AUDIO_SOUND_ID,
+  HORROR_SOUND,
+  getPlayableSoundId,
+} from "./paradise_audio_registry.js";
+import {
+  AUDIO_CUE_TIER,
+  createAudioBudgetState,
+  releaseAudioCue,
+  requestAudioCue,
+} from "./paradise_audio_arbiter.js";
 
-export const HORROR_SOUND = Object.freeze({
-  StalkerBreathFar: "paradise.stalker.breath_far",
-  StalkerBreathNear: "paradise.stalker.breath_near",
-  StalkerStepBehind: "paradise.stalker.step_behind",
-  StalkerWallScratch: "paradise.stalker.wall_scratch",
-  StalkerRoarMuffled: "paradise.stalker.roar_muffled",
-  AmbientLowHum: "paradise.ambient.low_hum",
-  AmbientLightPop: "paradise.ambient.light_pop",
-  AmbientRadioNumbers: "paradise.ambient.radio_numbers",
-  DimensionYellowHum: "paradise.dimension.yellow_hum",
-  DimensionCatacombWhisper: "paradise.dimension.catacomb_whisper",
-});
+export { AUDIO_SOUND_ID, HORROR_SOUND };
+export { getPlayableSoundId };
 
 const TICKS_PER_SECOND = 20;
 const PLAYER_AUDIO_STATE = new Map();
@@ -48,6 +51,7 @@ function getAudioState(player) {
   if (!PLAYER_AUDIO_STATE.has(key)) {
     PLAYER_AUDIO_STATE.set(key, {
       cooldowns: new Map(),
+      budget: createAudioBudgetState(),
       lastSeenTick: currentTick(),
     });
   }
@@ -55,6 +59,40 @@ function getAudioState(player) {
   const state = PLAYER_AUDIO_STATE.get(key);
   state.lastSeenTick = currentTick();
   return state;
+}
+
+export function requestPlayerAudioCue(player, options = {}) {
+  if (!player) return { allowed: false, reason: "no_player" };
+  const state = getAudioState(player);
+  const tick = options.currentTick ?? currentTick();
+  const horrorSnapshot = getPlayerHorrorSnapshot(player, tick);
+  const safeRoom = typeof options.safeRoom === "boolean"
+    ? options.safeRoom
+    : isPlayerInSafeRoom(player, tick);
+  const result = requestAudioCue(state.budget, {
+    cueId: options.cueId,
+    tier: options.audioTier || AUDIO_CUE_TIER.Ambient,
+    currentTick: tick,
+    reliefUntilTick: options.reliefUntilTick ?? horrorSnapshot.reliefUntilTick,
+    safeRoom,
+  });
+  if (result.allowed) {
+    state.budget = result.state;
+  }
+  return result;
+}
+
+export function releasePlayerAudioCue(player, cueId, currentTickValue = currentTick()) {
+  if (!player) return;
+  const state = getAudioState(player);
+  state.budget = releaseAudioCue(state.budget, cueId, currentTickValue);
+}
+
+export function clearPlayerAudioState(playerOrId) {
+  const key = typeof playerOrId === "string"
+    ? playerOrId
+    : String(playerOrId?.id || playerOrId?.name || "unknown");
+  PLAYER_AUDIO_STATE.delete(key);
 }
 
 function canPlay(player, key, cooldownTicks, tick = currentTick()) {
@@ -155,13 +193,15 @@ export function playForOnePlayer(player, soundId, options = {}) {
     return false;
   }
 
+  const playableSoundId = getPlayableSoundId(soundId);
+  if (!playableSoundId) return false;
   const soundOptions = normalizeSoundOptions(options);
   try {
-    player.playSound(soundId, soundOptions);
+    player.playSound(playableSoundId, soundOptions);
     return true;
   } catch (_error) {
     try {
-      player.playSound(soundId);
+      player.playSound(playableSoundId);
       return true;
     } catch (_fallbackError) {
       return false;
@@ -175,10 +215,12 @@ export function playAtPosition(playerOrDimension, soundId, location, options = {
     return false;
   }
 
+  const playableSoundId = getPlayableSoundId(soundId);
+  if (!playableSoundId) return false;
   const soundOptions = normalizeSoundOptions(options);
   delete soundOptions.location;
   try {
-    dimension.playSound(soundId, safeLocation(location), soundOptions);
+    dimension.playSound(playableSoundId, safeLocation(location), soundOptions);
     return true;
   } catch (_error) {
     return false;
@@ -186,30 +228,50 @@ export function playAtPosition(playerOrDimension, soundId, location, options = {
 }
 
 export function tryPlayForOnePlayer(player, key, soundId, options = {}, cooldownTicks = TICKS_PER_SECOND * 45) {
+  const cue = requestPlayerAudioCue(player, {
+    ...options,
+    cueId: options.cueId || key,
+  });
+  if (!cue.allowed) {
+    return false;
+  }
   if (!canPlay(player, key, cooldownTicks)) {
+    releasePlayerAudioCue(player, cue.cueId || key);
     return false;
   }
 
   if (playForOnePlayer(player, soundId, options)) {
+    releasePlayerAudioCue(player, cue.cueId || key);
     return true;
   }
 
   const state = getAudioState(player);
   state.cooldowns.delete(key);
+  releasePlayerAudioCue(player, cue.cueId || key);
   return false;
 }
 
 export function tryPlayAtPosition(player, key, soundId, location, options = {}, cooldownTicks = TICKS_PER_SECOND * 45) {
+  const cue = requestPlayerAudioCue(player, {
+    ...options,
+    cueId: options.cueId || key,
+  });
+  if (!cue.allowed) {
+    return false;
+  }
   if (!canPlay(player, key, cooldownTicks)) {
+    releasePlayerAudioCue(player, cue.cueId || key);
     return false;
   }
 
   if (playAtPosition(player, soundId, location, options)) {
+    releasePlayerAudioCue(player, cue.cueId || key);
     return true;
   }
 
   const state = getAudioState(player);
   state.cooldowns.delete(key);
+  releasePlayerAudioCue(player, cue.cueId || key);
   return false;
 }
 
