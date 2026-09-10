@@ -84,6 +84,16 @@ function tryStartSoundInstanceLoop(player, soundId, volume, segmentSoundIds = []
     if (mode === AMBIENT_PLAYBACK_MODE.SoundInstanceLoop) {
       return { mode, instance };
     }
+
+    const firstSegment = getPlayableSoundId(segmentSoundIds[0]);
+    if (firstSegment && firstSegment === soundId) {
+      return {
+        mode: AMBIENT_PLAYBACK_MODE.FiniteSegmentLoop,
+        instance: undefined,
+        segmentIndex: 0,
+        nextSegmentTick: segmentDurationTicks,
+      };
+    }
   } catch (_error) {
     // The runtime may expose the stable API without beta loop handles.
   }

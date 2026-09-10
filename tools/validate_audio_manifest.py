@@ -108,6 +108,15 @@ def validate_manifest(manifest: dict[str, Any], project_root: Path, require_comp
             errors.append(f"{asset_id}: unknown pack {pack_id!r}")
             continue
         counts[pack_id] += 1
+        for authoritative_field in (
+            "license_status",
+            "redistribution_allowed",
+            "derivative_encoding_allowed",
+        ):
+            if asset.get(authoritative_field) != pack.get(authoritative_field):
+                errors.append(
+                    f"{asset_id}: {authoritative_field} disagrees with pack {pack_id}"
+                )
         checksum = asset.get("source_sha256")
         if not isinstance(checksum, str) or not SHA256_RE.fullmatch(checksum):
             errors.append(f"{asset_id}: source_sha256 must be a lowercase SHA-256")

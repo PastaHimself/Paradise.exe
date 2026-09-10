@@ -27,7 +27,9 @@ function profile({
     allowedPhases: PHASES,
     scenarioTags: Object.freeze([...scenarioTags]),
     assetStatus,
-    segmentSoundIds: Object.freeze([...segmentSoundIds]),
+    segmentSoundIds: Object.freeze([
+      ...(segmentSoundIds.length > 0 ? segmentSoundIds : [fallbackSoundId]),
+    ]),
     segmentDurationTicks: 20 * 8,
   });
 }
