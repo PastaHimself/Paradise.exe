@@ -108,6 +108,9 @@ test("the central audio registry preserves legacy IDs and fails closed for pendi
   for (const soundId of Object.values(HORROR_SOUND)) {
     assert.ok(AUDIO_SOUND_REGISTRY[soundId], `${soundId} must have one registry record`);
   }
+  for (const profile of Object.values(AUDIO_SCENE_PROFILES)) {
+    assert.ok(AUDIO_SOUND_REGISTRY[profile.soundId], `${profile.soundId} must have one registry record`);
+  }
 
   const pending = "paradise.ambient.old_locations.yellow_halls";
   assert.equal(AUDIO_SOUND_REGISTRY[pending].licenseStatus, "pending_source");

@@ -4,7 +4,10 @@
   "type": "module",
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "typecheck": "tsc --project tsconfig.json"
+    "typecheck": "tsc --project tsconfig.json",
+    "audio:stage": "python tools/stage_audio_manifest.py --write",
+    "audio:validate": "python tools/validate_audio_manifest.py",
+    "audio:compress": "python tools/compress_audio.py"
   },
   "devDependencies": {
     "@minecraft/server": "beta",

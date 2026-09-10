@@ -141,7 +141,12 @@ def main() -> int:
             manifest = json.load(handle)
         assets = build_assets(manifest, project_root, (project_root / args.staging_root).resolve(), args.ffprobe, args.allow_partial)
         manifest["assets"] = assets
-        manifest["status"] = "ready_for_compression" if len(assets) == int(manifest["required_total_files"]) else "blocked_pending_sources"
+        all_cleared = all(asset.get("license_status") == "cleared" for asset in assets)
+        manifest["status"] = (
+            "ready_for_compression"
+            if len(assets) == int(manifest["required_total_files"]) and all_cleared
+            else "blocked_pending_sources"
+        )
         payload = json.dumps(manifest, indent=2, ensure_ascii=False) + "\n"
         if args.write:
             args.manifest.write_text(payload, encoding="utf-8")
