@@ -7,6 +7,11 @@ import { DIMENSION_VISUAL_PROFILES } from "./paradise_dimension_visual_profiles.
 const FOG_TAG = "paradise_dimension_atmosphere";
 const nextParticleTick = new Map();
 
+export function clearDimensionAtmospherePlayer(playerOrId) {
+  const playerId = typeof playerOrId === "string" ? playerOrId : playerOrId?.id;
+  if (playerId) nextParticleTick.delete(String(playerId));
+}
+
 export function applyDimensionAtmosphere(player) {
   if (!player) return false;
   const profile = DIMENSION_VISUAL_PROFILES[player?.dimension?.id];
@@ -25,9 +30,10 @@ function pulseAmbientParticles() {
     const budget = getVisualBudget(player);
     if (budget.particleBurst <= 0) continue;
 
-    const due = nextParticleTick.get(player.id) ?? 0;
+    const playerId = String(player.id || player.name || "unknown");
+    const due = nextParticleTick.get(playerId) ?? 0;
     if (now < due) continue;
-    nextParticleTick.set(player.id, now + budget.particlePulseTicks);
+    nextParticleTick.set(playerId, now + budget.particlePulseTicks);
 
     const radiusMax = Math.max(4, budget.particleRadius * profile.radiusScale);
     for (let i = 0; i < budget.particleBurst; i++) {
@@ -45,17 +51,5 @@ function pulseAmbientParticles() {
     }
   }
 }
-
-world.afterEvents.playerDimensionChange.subscribe((event) => {
-  system.run(() => applyDimensionAtmosphere(event.player));
-});
-
-world.afterEvents.playerSpawn.subscribe((event) => {
-  system.run(() => applyDimensionAtmosphere(event.player));
-});
-
-world.afterEvents.playerLeave.subscribe((event) => {
-  nextParticleTick.delete(event.playerId);
-});
 
 system.runInterval(pulseAmbientParticles, 10);

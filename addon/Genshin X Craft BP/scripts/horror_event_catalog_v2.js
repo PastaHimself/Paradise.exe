@@ -4,7 +4,16 @@ const T = 20;
 const S = (seconds) => Math.max(0, Math.round(seconds * T));
 
 function sound(at, soundId, anchor, options = {}) {
-  return { at: S(at), type: 'sound', soundId, anchor, volume: options.volume ?? 0.8, pitch: options.pitch ?? 1, condition: options.condition };
+  return {
+    at: S(at),
+    type: 'sound',
+    soundId,
+    anchor,
+    volume: options.volume ?? 0.8,
+    pitch: options.pitch ?? 1,
+    audioTier: options.audioTier,
+    condition: options.condition,
+  };
 }
 
 function particle(at, particleId, anchor, options = {}) {
@@ -47,6 +56,10 @@ function score(spec = {}) {
 }
 
 function event(key, family, tier, intensity, durationSeconds, scorer, actions, extra = {}) {
+  const defaultAudioTier = tier === EVENT_TIER.Major ? 'peak' : tier === EVENT_TIER.Scenario ? 'buildup' : 'ambient';
+  const normalizedActions = actions.map((action) => action.type === 'sound'
+    ? { ...action, audioTier: action.audioTier || defaultAudioTier }
+    : action);
   return Object.freeze({
     key,
     family,
@@ -58,7 +71,7 @@ function event(key, family, tier, intensity, durationSeconds, scorer, actions, e
     durationTicks: S(durationSeconds),
     anchorPolicy: extra.anchorPolicy ?? defaultAnchorPolicy(family),
     score: scorer,
-    actions: Object.freeze(actions),
+    actions: Object.freeze(normalizedActions),
   });
 }
 

@@ -39,6 +39,11 @@ import { applyHorrorConsequence, getPlayerHorrorSnapshot } from "./paradise_play
 import { getCachedPlayerById, getCachedPlayers } from "./paradise_tick_cache.js";
 import { recordPlayerTelemetry } from "./paradise_telemetry.js";
 import { requestWatcherGlimpse } from "./watcher_stalker.js";
+import {
+  getPlayableSoundId,
+  releasePlayerAudioCue,
+  requestPlayerAudioCue,
+} from "./horror_audio.js";
 
 configureHorrorDirector({ tickProvider: () => system.currentTick || 0 });
 
@@ -616,12 +621,33 @@ function markCue(player, location, currentTick) {
 
 function playSpatialSound(session, player, action, currentTick) {
   const location = sceneAnchor(session, action, player, currentTick);
-  player.playSound(action.soundId, {
-    location,
-    volume: Math.max(0, Number(action.volume) || 0.8),
-    pitch: Math.max(0.05, Number(action.pitch) || 1),
+  const cueId = `event:${session.event.key}:${eventActionIndex(session, action)}`;
+  const cue = requestPlayerAudioCue(player, {
+    cueId,
+    audioTier: action.audioTier || "ambient",
+    currentTick,
+    safeRoom: action.audioTier === "peak" && isPlayerInSafeRoom(player, currentTick),
   });
+  if (!cue.allowed) return false;
+
+  try {
+    const soundId = getPlayableSoundId(action.soundId);
+    if (!soundId) {
+      releasePlayerAudioCue(player, cue.cueId || cueId, currentTick);
+      return false;
+    }
+    player.playSound(soundId, {
+      location,
+      volume: Math.max(0, Number(action.volume) || 0.8),
+      pitch: Math.max(0.05, Number(action.pitch) || 1),
+    });
+  } catch (_error) {
+    releasePlayerAudioCue(player, cue.cueId || cueId, currentTick);
+    return false;
+  }
+  releasePlayerAudioCue(player, cue.cueId || cueId, currentTick);
   markCue(player, location, currentTick);
+  return true;
 }
 
 function spawnScenarioParticles(session, player, action, currentTick) {
@@ -1181,15 +1207,29 @@ function executeWatcher(session, player, action, currentTick) {
   }
 
   session.data.watcherDenied = (session.data.watcherDenied || 0) + 1;
-  try {
-    player.playSound("paradise.stalker.breath_far", {
-      location: preferredLocation,
-      volume: 0.18,
-      pitch: 0.72,
-    });
-    markCue(player, preferredLocation, currentTick);
-  } catch (error) {
-    reportRuntimeError({ stage: "watcher_fallback", playerId: player.id, eventKey: session.event.key, actionType: action.style, error });
+  const cueId = `watcher:fallback:${session.event.key}:${currentTick}`;
+  const cue = requestPlayerAudioCue(player, {
+    cueId,
+    audioTier: "reaction",
+    currentTick,
+    safeRoom: isPlayerInSafeRoom(player, currentTick),
+  });
+  if (cue.allowed) {
+    try {
+      const soundId = getPlayableSoundId("paradise.stalker.breath_far");
+      if (soundId) {
+        player.playSound(soundId, {
+          location: preferredLocation,
+          volume: 0.18,
+          pitch: 0.72,
+        });
+        markCue(player, preferredLocation, currentTick);
+      }
+    } catch (error) {
+      reportRuntimeError({ stage: "watcher_fallback", playerId: player.id, eventKey: session.event.key, actionType: action.style, error });
+    } finally {
+      releasePlayerAudioCue(player, cue.cueId || cueId, currentTick);
+    }
   }
   recordPlayerTelemetry(player, "horror_v2_watcher", {
     currentTick,

@@ -57,6 +57,23 @@ npm install --ignore-scripts --no-audit --no-fund
 |---------|-------------|
 | `npm test` | Run JavaScript regression tests |
 | `npm run typecheck` | Type-check behavior scripts against Bedrock beta APIs |
+| `npm run audio:stage` | Hash staged audio and rebuild the per-file manifest (requires all source packs) |
+| `npm run audio:validate` | Audit audio counts, hashes, license gates, and output readiness |
+| `npm run audio:compress` | Encode license-cleared audio to the approved Ogg Vorbis profiles |
+| `npm run audio:definitions` | Generate semantic Bedrock sound definitions from validated outputs |
+
+### Horror audio integration
+
+Audio is intentionally staged outside the resource pack until its source,
+checksum, and redistribution terms are recorded. The runtime uses a guarded
+per-player audio arbiter and falls back to the existing built-in horror sounds
+while a supplied pack is pending. See [`docs/audio-licenses.md`](docs/audio-licenses.md)
+for the five cleared source records and the blocked wind archive. The strict
+release gate is:
+
+```bash
+python tools/validate_audio_manifest.py --require-complete
+```
 
 ## 🔍 Validation Tools
 

@@ -169,6 +169,18 @@ test("the main entrypoint still uses the existing atmosphere bootstrap", () => {
   assert.equal(atmosphereImports.length, 1);
 });
 
+test("player lifecycle owns atmosphere refresh and ambient audio refresh", () => {
+  const atmosphere = readText(path.join(BP_SCRIPTS, "paradise_dimension_atmosphere.js"));
+  const lifecycle = readText(path.join(BP_SCRIPTS, "paradise_player_lifecycle.js"));
+  assert.doesNotMatch(atmosphere, /afterEvents\.playerDimensionChange/);
+  assert.doesNotMatch(atmosphere, /afterEvents\.playerSpawn/);
+  assert.doesNotMatch(atmosphere, /afterEvents\.playerLeave/);
+  assert.match(lifecycle, /playerDimensionChange/);
+  assert.match(lifecycle, /playerSpawn/);
+  assert.match(lifecycle, /playerLeave/);
+  assert.match(lifecycle, /syncPlayerAmbient/);
+});
+
 test("visual profile module stays pure and testable", () => {
   const source = readText(PROFILE_PATH);
   assert.doesNotMatch(source, /@minecraft\/server/);
