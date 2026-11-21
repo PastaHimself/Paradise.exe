@@ -5,7 +5,8 @@ from __future__ import annotations
 
 import argparse
 import io
-import shutil
+import tempfile
+from collections.abc import Callable
 import zipfile
 from pathlib import Path
 
@@ -24,18 +25,29 @@ def _validate_pack(pack_dir: Path, label: str) -> None:
         raise FileNotFoundError(f"{label} is missing manifest.json: {manifest}")
 
 
-def _pack_bytes(pack_dir: Path) -> bytes:
+def _pack_bytes(pack_dir: Path, include: Callable[[Path], bool]) -> bytes:
     buffer = io.BytesIO()
     with zipfile.ZipFile(buffer, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for source in sorted(pack_dir.rglob("*")):
             if not source.is_file():
                 continue
-            relative = source.relative_to(pack_dir).as_posix()
-            archive.write(source, relative)
+            relative = source.relative_to(pack_dir)
+            if include(relative):
+                _write_entry(archive, relative.as_posix(), source.read_bytes(), zipfile.ZIP_DEFLATED)
     return buffer.getvalue()
 
 
-def package_mcaddon(bp_dir: Path, rp_dir: Path, output: Path) -> Path:
+def _write_entry(archive: zipfile.ZipFile, name: str, content: bytes, compression: int) -> None:
+    # Fixed ZIP metadata makes unchanged pack content produce identical bytes.
+    entry = zipfile.ZipInfo(name)
+    entry.create_system = 3
+    entry.external_attr = 0o100644 << 16
+    archive.writestr(entry, content, compress_type=compression, compresslevel=9)
+
+
+def package_mcaddon(
+    bp_dir: Path, rp_dir: Path, output: Path, *, include: Callable[[Path], bool] | None = None,
+) -> Path:
     bp_dir = Path(bp_dir)
     rp_dir = Path(rp_dir)
     output = Path(output)
@@ -44,42 +56,32 @@ def package_mcaddon(bp_dir: Path, rp_dir: Path, output: Path) -> Path:
     _validate_pack(rp_dir, "Resource pack")
 
     output.parent.mkdir(parents=True, exist_ok=True)
-    temp_output = output.with_suffix(output.suffix + ".tmp")
-
-    try:
-        with zipfile.ZipFile(temp_output, "w", compression=zipfile.ZIP_STORED) as addon:
-            addon.writestr("Paradise_BP.mcpack", _pack_bytes(bp_dir))
-            addon.writestr("Paradise_RP.mcpack", _pack_bytes(rp_dir))
+    if include is None:
+        include = lambda relative: True
+    with tempfile.TemporaryDirectory(dir=output.parent) as directory:
+        temp_output = Path(directory) / output.name
+        with zipfile.ZipFile(temp_output, "w") as addon:
+            _write_entry(addon, "Paradise_BP.mcpack", _pack_bytes(bp_dir, include), zipfile.ZIP_STORED)
+            _write_entry(addon, "Paradise_RP.mcpack", _pack_bytes(rp_dir, include), zipfile.ZIP_STORED)
+        verify_mcaddon(temp_output)
         temp_output.replace(output)
-    finally:
-        if temp_output.exists():
-            temp_output.unlink()
 
     return output
 
 
 def verify_mcaddon(path: Path) -> None:
-    path = Path(path)
     with zipfile.ZipFile(path) as addon:
         expected = {"Paradise_BP.mcpack", "Paradise_RP.mcpack"}
-        actual = set(addon.namelist())
-        if actual != expected:
+        actual = addon.namelist()
+        if len(actual) != len(expected) or set(actual) != expected:
             raise ValueError(f"Unexpected .mcaddon contents: {sorted(actual)}")
-
-        temp_dir = path.parent / ".mcaddon_verify"
-        if temp_dir.exists():
-            shutil.rmtree(temp_dir)
-        temp_dir.mkdir(parents=True)
-        try:
-            for name in sorted(expected):
-                nested = temp_dir / name
-                nested.write_bytes(addon.read(name))
-                with zipfile.ZipFile(nested) as pack:
-                    names = set(pack.namelist())
-                    if "manifest.json" not in names:
-                        raise ValueError(f"{name} does not contain manifest.json at pack root")
-        finally:
-            shutil.rmtree(temp_dir, ignore_errors=True)
+        for name in sorted(expected):
+            with zipfile.ZipFile(io.BytesIO(addon.read(name))) as pack:
+                if "manifest.json" not in pack.namelist():
+                    raise ValueError(f"{name} does not contain manifest.json at pack root")
+                corrupt = pack.testzip()
+                if corrupt:
+                    raise ValueError(f"{name} has a corrupt member: {corrupt}")
 
 
 def main() -> int:
@@ -90,7 +92,6 @@ def main() -> int:
     args = parser.parse_args()
 
     output = package_mcaddon(args.bp, args.rp, args.output)
-    verify_mcaddon(output)
     print(f"Built installable Bedrock add-on: {output}")
     print(f"Size: {output.stat().st_size} bytes")
     return 0

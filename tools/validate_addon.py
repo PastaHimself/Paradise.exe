@@ -157,9 +157,21 @@ class AddonValidator:
         if bp_manifest is None or rp_manifest is None:
             return
 
+        errors_before = len(self.errors)
         seen: set[str] = set()
         self._check_manifest_shape(self.bp, bp_manifest, seen)
         self._check_manifest_shape(self.rp, rp_manifest, seen)
+        if len(self.errors) > errors_before:
+            return
+
+        dependencies = bp_manifest.get("dependencies", [])
+        subpacks = rp_manifest.get("subpacks", [])
+        if not isinstance(dependencies, list):
+            self._error("Behavior pack dependencies must be an array")
+        if not isinstance(subpacks, list):
+            self._error("Resource pack subpacks must be an array")
+        if len(self.errors) > errors_before:
+            return
 
         bp_modules = bp_manifest.get("modules", [])
         script_modules = [m for m in bp_modules if isinstance(m, dict) and m.get("type") == "script"]
@@ -177,7 +189,7 @@ class AddonValidator:
         rp_header = rp_manifest.get("header", {})
         rp_uuid = rp_header.get("uuid")
         rp_version = rp_header.get("version")
-        for dep in bp_manifest.get("dependencies", []):
+        for dep in dependencies:
             if not isinstance(dep, dict) or dep.get("uuid") != rp_uuid:
                 continue
             if dep.get("version") != rp_version:
@@ -193,7 +205,7 @@ class AddonValidator:
         if not any(isinstance(m, dict) and m.get("type") == "resources" for m in rp_modules):
             self._error("Resource pack manifest must contain a resources module")
 
-        for subpack in rp_manifest.get("subpacks", []):
+        for subpack in subpacks:
             if not isinstance(subpack, dict):
                 self._error("Resource pack subpack entries must be objects")
                 continue
