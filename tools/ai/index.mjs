@@ -12,6 +12,8 @@ const modules = new Set();
 const textures = new Set();
 const dependencies = [];
 const references = [];
+const identifiers = new Set();
+const moduleImports = new Map();
 const relative = (file) => path.relative(root, file).split(path.sep).join("/");
 
 function files(directory) {
@@ -37,11 +39,19 @@ for (const filename of scriptFiles) {
   function collect(node) {
     if (ts.isImportDeclaration(node) && ts.isStringLiteral(node.moduleSpecifier)) {
       const name = node.moduleSpecifier.text;
-      if (name.startsWith("@minecraft/")) modules.add(name);
-      if (name === "@minecraft/server" && node.importClause?.namedBindings &&
-          ts.isNamedImports(node.importClause.namedBindings)) {
-        for (const entry of node.importClause.namedBindings.elements) {
-          imports.set(entry.name.text, entry.propertyName?.text ?? entry.name.text);
+      if (name.startsWith("@minecraft/")) {
+        modules.add(name);
+        const clause = node.importClause;
+        if (clause?.namedBindings && ts.isNamedImports(clause.namedBindings)) {
+          for (const entry of clause.namedBindings.elements) {
+            const exported = entry.propertyName?.text ?? entry.name.text;
+            imports.set(entry.name.text, exported);
+            moduleImports.set(entry.name.text, { module: name, exported });
+          }
+        } else if (clause?.namedBindings && ts.isNamespaceImport(clause.namedBindings)) {
+          moduleImports.set(clause.namedBindings.name.text, { module: name, exported: null });
+        } else if (clause?.name) {
+          moduleImports.set(clause.name.text, { module: name, exported: "default" });
         }
       }
     }
@@ -92,6 +102,8 @@ for (const filename of scriptFiles) {
   function visit(node) {
     const isLiteral = ts.isStringLiteralLike(node);
     if (isLiteral && node.text.startsWith("textures/")) textures.add(node.text);
+    if (isLiteral && (/^[a-z][a-z0-9_.-]*:[a-z0-9_./-]+$/.test(node.text) ||
+                      /^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+$/.test(node.text))) identifiers.add(node.text);
     if (lookup && (isLiteral || (lookup.contains && ts.isTemplateLiteralToken(node)))) {
       const match = node.text === lookup.query || (lookup.contains && node.text.includes(lookup.query));
       if (match) {
@@ -114,6 +126,49 @@ for (const filename of scriptFiles) {
     if ((ts.isFunctionDeclaration(node) || ts.isClassDeclaration(node) ||
         ts.isVariableDeclaration(node) || ts.isMethodDeclaration(node)) && node.name) {
       add("symbol", compact(node.name), node, { type: ts.SyntaxKind[node.kind], end: line(node.end) });
+    }
+    // In-memory state stores a future agent must know about before editing.
+    if (ts.isVariableDeclaration(node) && node.initializer && ts.isNewExpression(node.initializer)) {
+      const storeType = text(node.initializer.expression);
+      if (["Map", "Set", "WeakMap"].includes(storeType) && ts.isIdentifier(node.name)) {
+        add("store", node.name.text, node, { type: storeType, end: line(node.end) });
+      }
+    }
+    // Per-module export surface for impact-style reasoning.
+    const exported = ts.canHaveModifiers(node) &&
+      (ts.getModifiers(node) ?? []).some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword);
+    if (exported) {
+      if (ts.isVariableStatement(node)) {
+        for (const declaration of node.declarationList.declarations) {
+          if (ts.isIdentifier(declaration.name)) add("export", declaration.name.text, declaration, { end: line(declaration.end) });
+        }
+      } else if (node.name) {
+        add("export", compact(node.name), node, { end: line(node.end) });
+      }
+    }
+    if (ts.isExportDeclaration(node) && node.exportClause && ts.isNamedExports(node.exportClause)) {
+      for (const element of node.exportClause.elements) add("export", element.name.text, element);
+    }
+    if (ts.isExportAssignment(node)) add("export", "default", node);
+    // Script API member usage on @minecraft imports, e.g. system.runInterval.
+    if (ts.isPropertyAccessExpression(node) && ts.isIdentifier(node.expression)) {
+      const info = moduleImports.get(node.expression.text);
+      if (info && info.exported) {
+        add("api", `${info.module}.${info.exported}.${node.name.text}`, node,
+          { module: info.module, object: info.exported, member: node.name.text });
+      }
+    }
+    if (ts.isPropertyAccessExpression(node) && ts.isPropertyAccessExpression(node.expression) &&
+        ts.isIdentifier(node.expression.expression)) {
+      const info = moduleImports.get(node.expression.expression.text);
+      if (info && !info.exported) {
+        add("api", `${info.module}.${node.expression.name.text}.${node.name.text}`, node,
+          { module: info.module, object: node.expression.name.text, member: node.name.text });
+      }
+    }
+    if (ts.isNewExpression(node) && text(node.expression) === "ItemStack") {
+      const id = literal(node.arguments?.[0]);
+      if (typeof id === "string") add("item", id, node);
     }
     if (ts.isCallExpression(node)) {
       const target = node.expression;
@@ -144,14 +199,26 @@ for (const filename of scriptFiles) {
       if (method === "playSound" && typeof literal(first) === "string") {
         add("sound", literal(first), node);
       }
+      if (method === "spawnParticle" && typeof literal(first) === "string") {
+        add("particle", literal(first), node);
+      }
+      if (method === "spawnEntity" && typeof literal(first) === "string") {
+        add("entity", literal(first), node);
+      }
+      if (["place", "load"].includes(method) && /structureManager$/.test(text(target.expression) ?? "")) {
+        const id = literal(first);
+        if (typeof id === "string") add("structure", id, node, { method });
+      }
       if (method === "runCommand" || method === "runCommandAsync") {
         // Recognize literal IDs in command strings and templates with a dynamic target.
         const command = text(first) ?? "";
         if (command.startsWith('"') || command.startsWith("'") || command.startsWith("`")) {
           const fog = command.match(/^.[/]?fog\s+(?:\$\{[^}]+\}|\S+)\s+push\s+([\w.-]+:[\w./-]+)/);
           const sound = command.match(/^.[/]?playsound\s+([\w.:-]+)(?=\s|["'`])/);
+          const structure = command.match(/^.[/]?structure\s+(?:load|place)\s+([\w.-]+:[\w./-]+)/);
           if (fog) add("fog", fog[1], node);
           if (sound) add("sound", sound[1], node);
+          if (structure) add("structure", structure[1], node, { method: "runCommand" });
         }
       }
     }
@@ -167,5 +234,6 @@ for (const filename of scriptFiles) {
 
 console.log(JSON.stringify({
   files: scriptFiles.length, rows, errors, modules: [...modules].sort(), textures: [...textures].sort(),
+  identifiers: [...identifiers].sort(),
   scriptPaths: scriptFiles.map(relative), dependencies, references,
 }));

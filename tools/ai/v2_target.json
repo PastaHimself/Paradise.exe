@@ -1,0 +1,40 @@
+{
+  "comment": "V2 readiness target profile. Facts grounded in Microsoft Learn: Bedrock 1.26.50 ships @minecraft/server 2.10.0 and @minecraft/server-ui 2.2.0 as stable, releases custom dimension JSON from experimental, and tightens entity JSON validation at format_version 1.26.50+. Dimension height: minecraft:dimension_height min_y defaults -64 (absolute range -512..512), height_range defaults 384 (range 16..1024); at format_version 1.26.50 the legacy minecraft:dimension_bounds (min/max) must be replaced by min_y=min and height_range=max-min. Without experiments, dimensions stay within the default Overworld heights -64..320. sound_definitions.json gains allow_concurrent_streaming, defaulting to true at format_version 1.26.50+. Keep this file data-only; edit rules in audit.py.",
+  "target_engine": "1.26.50",
+  "stable_script_api": {
+    "@minecraft/server": "2.10.0",
+    "@minecraft/server-ui": "2.2.0",
+    "@minecraft/server-graphics": "1.0.0"
+  },
+  "beta_only_at_target": [
+    "@minecraft/server-admin"
+  ],
+  "dimension": {
+    "component": "minecraft:dimension_height",
+    "legacy_component": "minecraft:dimension_bounds",
+    "defaults": { "min_y": -64, "height_range": 384 },
+    "absolute": { "min_y_min": -512, "min_y_max": 512, "height_range_min": 16, "height_range_max": 1024 },
+    "no_experiment": { "min_y_min": -64, "top_max": 320, "height_range_max": 384 }
+  },
+  "format_version": {
+    "max": "1.26.50",
+    "geometry_note": "models/**/*.geo.json use the separate geometry format scheme (1.8.0-1.21.x); they are inventoried but never flagged.",
+    "unversioned_ok": ["manifest.json is integer 2", "ui files, texts/languages.json, loot_tables, biomes_client.json carry no format_version and are inventoried only"]
+  },
+  "entity_schema_at_1_26_50": {
+    "ranged_attack_requires_field": { "component": "minecraft:behavior.ranged_attack", "field": "in_range_movement_mode", "values": ["hold_position", "follow_target"] },
+    "projectile_isolated_physics_true": "content error at format_version 1.26.30 and later",
+    "projectile_multiple_targets_default": "flips from true to false at format_version 1.26.50",
+    "stricter_components": ["minecraft:instant_despawn", "minecraft:insomnia"]
+  },
+  "sound_at_1_26_50": {
+    "field": "allow_concurrent_streaming",
+    "note": "defaults to true for sound objects at format_version 1.26.50 and later; looping/streamed playback behavior changes when bumping sound_definitions.json"
+  },
+  "api_flags": [
+    { "match": "event", "name": "world.beforeEvents.worldInitialize", "severity": "error", "reason": "worldInitialize before-event was removed in @minecraft/server 2.0.0; check the stable 2.10.0 changelog for the supported replacement" },
+    { "match": "event", "name": "world.afterEvents.worldInitialize", "severity": "error", "reason": "WorldInitializeAfterEvent was removed in @minecraft/server 2.0.0; check the stable 2.10.0 changelog for the supported replacement" },
+    { "match": "kind", "name": "dimension", "severity": "warning", "reason": "Script-registered custom dimension (DimensionRegistry.registerCustomDimension). At 1.26.50 custom dimension JSON is stable: prefer BP/dimensions/<id>.json with minecraft:dimension_height and remove the startup registration." }
+  ],
+  "known_rp_capabilities": ["pbr"]
+}

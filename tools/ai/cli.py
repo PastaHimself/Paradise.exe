@@ -16,12 +16,15 @@ sys.dont_write_bytecode = True
 
 from common import BP, ROOT, RP, page, read_json, require_packs
 sys.path.insert(1, str(ROOT / "tools"))
+from audit import CHECKS, audit
 from checks import texture_candidates, validate
 from manifests import pack_versions, version_argument
 from navigation import references, script_impact
 from package_mcaddon import package_mcaddon
+from prune import SCOPES, prune
 from runtime import compare_diagnostics, cpu_profile
 from scaffold import RENDER_METHODS, Conflict, blocks_from_exports, build_plan, catalog, scaffold_lock
+from slice import slice_file
 from structures import inventory
 
 
@@ -61,7 +64,9 @@ def options():
     parser.add_argument("--json", action="store_true", help="Compact JSON output (default)")
     commands = parser.add_subparsers(dest="command", required=True, parser_class=Parser)
     inspect = commands.add_parser("inspect", help="Find source locations and show scheduler or state entries", allow_abbrev=False)
-    inspect.add_argument("--kind", choices=["summary", "symbol", "event", "schedule", "state", "dimension", "fog", "sound"], default="summary")
+    inspect.add_argument("--kind", choices=["summary", "symbol", "export", "store", "event", "schedule", "state",
+                                            "dimension", "fog", "sound", "particle", "entity", "item", "structure", "api"],
+                         default="summary")
     inspect.add_argument("--query", default="", help="Case-insensitive substring across result fields")
     inspect.add_argument("--file", default="", help="Case-insensitive substring of repo-relative script path")
     scan = commands.add_parser("catalog", help="Find Bedrock geometry exports and same-stem texture candidates", allow_abbrev=False)
@@ -75,6 +80,8 @@ def options():
     scaffold.add_argument("--texture-dir", type=Path, help="Separate texture directory for --from-directory")
     scaffold.add_argument("--namespace", help="Block identifier namespace for --from-directory (default paradise)")
     scaffold.add_argument("--render-method", choices=sorted(RENDER_METHODS), help="Block render method for --from-directory (default opaque)")
+    scaffold.add_argument("--ids", help="Comma-separated block/dimension IDs to include from the spec")
+    scaffold.add_argument("--batch", help="Only include spec rows whose batch field matches this tag")
     writable(scaffold)
     check = commands.add_parser("validate", help="Run pack, audio, references, structure, and Script API checks", allow_abbrev=False)
     preflight(check)
@@ -116,7 +123,28 @@ def options():
     manifest.add_argument("--rp-version", type=version_argument, help="Target RP and BP dependency version as MAJOR.MINOR.PATCH")
     manifest.add_argument("--engine", type=version_argument, help="Target min_engine_version in both manifests")
     writable(manifest)
-    for command in (inspect, scan, scaffold, check, assets, build, refs, impact, structs, profile, diagnostics, manifest):
+    slice = commands.add_parser("slice", help="Read an exact 1-based line range or symbol body of one script", allow_abbrev=False)
+    slice.add_argument("--file", required=True, help="Unique script substring or repo-relative path")
+    slice.add_argument("--start", type=integer(1, 10**9), help="First line to read (default 1)")
+    slice.add_argument("--end", type=integer(1, 10**9), help="Last line to read (default end of file)")
+    slice.add_argument("--symbol", help="Slice the indexed symbol whose name contains this text")
+    audit_cmd = commands.add_parser("audit", help="Audit the packs for the V2 target engine readiness (read-only)", allow_abbrev=False)
+    audit_cmd.add_argument("--check", action="append", choices=list(CHECKS), help="Audit section to run (repeatable; default all)")
+    audit_cmd.add_argument("--target", help="Target engine version MAJOR.MINOR.PATCH (default 1.26.50)")
+    audit_cmd.add_argument("--examples", type=integer(1, 50), default=5, help="Max locations kept per finding (default 5)")
+    prune_cmd = commands.add_parser("prune", help="Plan or apply removal of unreferenced RP assets (dry-run default)", allow_abbrev=False)
+    prune_cmd.add_argument("--scope", action="append", choices=[*SCOPES, "all"],
+                           help="Asset scope to audit (repeatable; default textures)")
+    prune_cmd.add_argument("--include-subpacks", action="store_true", help="Include subpack textures in the texture scope")
+    writable(prune_cmd)
+    gate = commands.add_parser("preflight", help="Run validate plus the V2 audit and return one pass/fail report", allow_abbrev=False)
+    preflight(gate)
+    gate.add_argument("--require-v2", action="store_true", help="Fail the gate when the V2 audit has findings")
+    gate.add_argument("--check", action="append", choices=list(CHECKS), help="V2 audit section to include (repeatable; default all)")
+    gate.add_argument("--target", help="Target engine version MAJOR.MINOR.PATCH (default 1.26.50)")
+    gate.add_argument("--examples", type=integer(1, 50), default=5, help="Max locations kept per audit finding (default 5)")
+    for command in (inspect, scan, scaffold, check, assets, build, refs, impact, structs, profile, diagnostics, manifest,
+                    slice, audit_cmd, prune_cmd, gate):
         command.add_argument("--json", action="store_true", help="Compact JSON output (default)")
         pagination(command)
     return parser.parse_args()
@@ -235,6 +263,35 @@ def build_archive(root, args):
     return False, report
 
 
+def filter_spec(spec, args):
+    ids = {part.strip() for part in args.ids.split(",") if part.strip()} if args.ids else None
+    if ids is None and args.batch is None:
+        return spec
+    filtered = {}
+    for key in ("blocks", "dimensions"):
+        rows = spec.get(key, [])
+        kept = [row for row in rows
+                if (ids is None or row.get("id") in ids) and (args.batch is None or row.get("batch") == args.batch)]
+        if rows and not kept:
+            raise ValueError(f"No {key} rows match the --ids/--batch filters")
+        filtered[key] = kept
+    return filtered
+
+
+def run_preflight(root, args):
+    index = script_index(root)
+    hard_issues, hard = summarize_checks(validate(root, args, index), args)
+    audit_issues, v2 = audit(root, args, index)
+    gate = hard_issues or (bool(args.require_v2) and audit_issues)
+    return gate, {
+        "gate": "fail" if gate else "pass",
+        "require_v2": bool(args.require_v2),
+        "checks": hard["checks"],
+        "diagnostics": hard["diagnostics"],
+        "v2_audit": {"target": v2["target"], "checks": v2["checks"], "findings": v2["findings"]},
+    }
+
+
 def run(args):
     root = args.root.resolve()
     if args.command == "profile":
@@ -242,6 +299,15 @@ def run(args):
     if args.command == "diagnostics":
         return compare_diagnostics(args.current, args.baseline, args)
     require_packs(root)
+    if args.command == "slice":
+        return False, slice_file(root, args, script_index(root))
+    if args.command == "audit":
+        return audit(root, args, script_index(root))
+    if args.command == "prune":
+        with scaffold_lock(root, args.apply):
+            return prune(root, args, script_index(root))
+    if args.command == "preflight":
+        return run_preflight(root, args)
     if args.command == "refs":
         if not args.query:
             raise ValueError("Specify a nonempty reference")
@@ -279,7 +345,7 @@ def run(args):
         mode = "apply" if args.apply else "dry-run"
         with scaffold_lock(root, args.apply):
             if args.spec:
-                spec = read_json(args.spec)
+                spec = filter_spec(read_json(args.spec), args)
             else:
                 spec, errors = blocks_from_exports(root, args.from_directory, args.texture_dir,
                                                    args.namespace or "paradise", args.render_method or "opaque")
