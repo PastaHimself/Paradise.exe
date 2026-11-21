@@ -14,6 +14,7 @@ import json
 import math
 import struct
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Any, Mapping
 
@@ -220,6 +221,7 @@ def validate_mcstructure_bytes(
     max_size: tuple[int, int, int] = DEFAULT_MAX_SIZE,
     max_volume: int = DEFAULT_MAX_VOLUME,
     max_non_air_blocks: int = DEFAULT_MAX_NON_AIR_BLOCKS,
+    include_blocks: bool = False,
 ) -> dict[str, Any]:
     if len(payload) < 8:
         raise MCStructureError("file is too small to be a valid .mcstructure NBT payload")
@@ -297,7 +299,7 @@ def validate_mcstructure_bytes(
             f"non-air block count {non_air_blocks} exceeds maximum {max_non_air_blocks}"
         )
 
-    return {
+    metadata = {
         "format_version": format_version,
         "size": size,
         "origin": origin,
@@ -308,14 +310,20 @@ def validate_mcstructure_bytes(
         "block_position_data_entries": len(block_position_data or {}),
         "warnings": warnings,
     }
+    if include_blocks:
+        metadata["block_counts"] = [
+            dict(sorted(Counter(palette_names[index] for index in layer if index >= 0).items()))
+            for layer in layers
+        ]
+    return metadata
 
 
-def validate_mcstructure_file(path: Path) -> dict[str, Any]:
+def validate_mcstructure_file(path: Path, *, include_blocks: bool = False) -> dict[str, Any]:
     try:
         payload = path.read_bytes()
     except OSError as exc:
         raise MCStructureError(f"unable to read file: {exc}") from exc
-    return validate_mcstructure_bytes(payload)
+    return validate_mcstructure_bytes(payload, include_blocks=include_blocks)
 
 
 def validate_structure_tree(root: Path) -> dict[str, Any]:

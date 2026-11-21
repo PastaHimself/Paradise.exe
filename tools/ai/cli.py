@@ -17,8 +17,12 @@ sys.dont_write_bytecode = True
 from common import BP, ROOT, RP, page, read_json, require_packs
 sys.path.insert(1, str(ROOT / "tools"))
 from checks import texture_candidates, validate
+from manifests import pack_versions, version_argument
+from navigation import references, script_impact
 from package_mcaddon import package_mcaddon
-from scaffold import Conflict, build_plan, catalog, scaffold_lock
+from runtime import compare_diagnostics, cpu_profile
+from scaffold import RENDER_METHODS, Conflict, blocks_from_exports, build_plan, catalog, scaffold_lock
+from structures import inventory
 
 
 class Parser(argparse.ArgumentParser):
@@ -65,7 +69,12 @@ def options():
     scan.add_argument("--texture-dir", type=Path, help="Optional separate texture directory")
     scan.add_argument("--query", default="", help="Case-insensitive substring of model path or geometry ID")
     scaffold = commands.add_parser("scaffold", help="Plan a JSON batch of blocks and dimensions", allow_abbrev=False)
-    scaffold.add_argument("--spec", type=Path, required=True, help="Path to a batch JSON file")
+    source = scaffold.add_mutually_exclusive_group(required=True)
+    source.add_argument("--spec", type=Path, help="Path to a batch JSON file")
+    source.add_argument("--from-directory", type=Path, help="Batch-import geometry exports with unique same-stem textures")
+    scaffold.add_argument("--texture-dir", type=Path, help="Separate texture directory for --from-directory")
+    scaffold.add_argument("--namespace", help="Block identifier namespace for --from-directory (default paradise)")
+    scaffold.add_argument("--render-method", choices=sorted(RENDER_METHODS), help="Block render method for --from-directory (default opaque)")
     writable(scaffold)
     check = commands.add_parser("validate", help="Run pack, audio, references, structure, and Script API checks", allow_abbrev=False)
     preflight(check)
@@ -76,15 +85,49 @@ def options():
     writable(build)
     build.add_argument("--output", type=Path, default=Path("artifacts/Paradise.exe.mcaddon"), help="Repo-relative or absolute .mcaddon output")
     build.add_argument("--replace", action="store_true", help="Allow replacing an existing archive with different bytes")
-    for command in (inspect, scan, scaffold, check, assets, build):
+    refs = commands.add_parser("refs", help="Find exact JS literals and JSON key/value occurrences", allow_abbrev=False)
+    refs.add_argument("query", help="Identifier, asset path, or literal to find (case-sensitive)")
+    refs.add_argument("--contains", action="store_true", help="Match substrings, including static template segments")
+    refs.add_argument("--file", default="", help="Case-insensitive substring of repo-relative file path")
+
+    impact = commands.add_parser("impact", help="Trace changed scripts back to their importers and BP entry points", allow_abbrev=False)
+    target = impact.add_mutually_exclusive_group()
+    target.add_argument("--file", action="append", help="Existing script path or unique basename, repeatable")
+    target.add_argument("--base", help="Git commit to compare with the checkout (default HEAD)")
+
+    structs = commands.add_parser("structures", help="Inspect .mcstructure metadata and actual placed blocks", allow_abbrev=False)
+    structs.add_argument("--query", default="", help="Case-insensitive substring of structure identifier")
+    structs.add_argument("--block", help="Only show structures containing this exact block identifier")
+    structs.add_argument("--palette", action="store_true", help="Include observed block counts by layer")
+    structs.add_argument("--check-blocks", action="store_true", help="Require local definitions for all used custom blocks")
+
+    profile = commands.add_parser("profile", help="Rank recorded function costs from a Bedrock .cpuprofile", allow_abbrev=False)
+    profile.add_argument("path", type=Path, help="Path to the .cpuprofile")
+    profile.add_argument("--file", default="", help="Case-insensitive substring of script URL")
+    profile.add_argument("--sort", choices=["self", "total"], default="self", help="Rank own work or inclusive work (default self)")
+
+    diagnostics = commands.add_parser("diagnostics", help="Compare errors in two Blockception JSON reports", allow_abbrev=False)
+    diagnostics.add_argument("--current", type=Path, required=True, help="Current Blockception report")
+    diagnostics.add_argument("--baseline", type=Path, help="Earlier Blockception report to compare")
+    diagnostics.add_argument("--warnings", action="store_true", help="Include warnings as well as errors")
+
+    manifest = commands.add_parser("manifest", help="Inspect or plan linked BP/RP version updates", allow_abbrev=False)
+    manifest.add_argument("--bp-version", type=version_argument, help="Target BP version as MAJOR.MINOR.PATCH")
+    manifest.add_argument("--rp-version", type=version_argument, help="Target RP and BP dependency version as MAJOR.MINOR.PATCH")
+    manifest.add_argument("--engine", type=version_argument, help="Target min_engine_version in both manifests")
+    writable(manifest)
+    for command in (inspect, scan, scaffold, check, assets, build, refs, impact, structs, profile, diagnostics, manifest):
         command.add_argument("--json", action="store_true", help="Compact JSON output (default)")
         pagination(command)
     return parser.parse_args()
 
 
-def script_index(root):
+def script_index(root, lookup=None):
+    command = ["node", str(Path(__file__).with_name("index.mjs")), str(root), str(root / BP)]
+    if lookup is not None:
+        command.append(json.dumps(lookup))
     process = subprocess.run(
-        ["node", str(Path(__file__).with_name("index.mjs")), str(root), str(root / BP)],
+        command,
         cwd=root, capture_output=True, text=True, timeout=60,
     )
     if process.returncode:
@@ -194,7 +237,28 @@ def build_archive(root, args):
 
 def run(args):
     root = args.root.resolve()
+    if args.command == "profile":
+        return False, cpu_profile(args.path, args)
+    if args.command == "diagnostics":
+        return compare_diagnostics(args.current, args.baseline, args)
     require_packs(root)
+    if args.command == "refs":
+        if not args.query:
+            raise ValueError("Specify a nonempty reference")
+        return references(root, args, script_index(root, {"query": args.query, "contains": args.contains}))
+    if args.command == "impact":
+        return script_impact(root, args, script_index(root))
+    if args.command == "structures":
+        return inventory(root, args)
+    if args.command == "manifest":
+        if args.apply and all(target is None for target in (args.bp_version, args.rp_version, args.engine)):
+            raise ValueError("Pass a target version with --apply")
+        with scaffold_lock(root, args.apply):
+            plan, versions = pack_versions(root, args)
+            if args.apply:
+                plan.apply()
+        return False, {"mode": "apply" if args.apply else "dry-run", "versions": versions,
+                       **page(plan.summary(), args)}
     if args.command == "inspect":
         return inspect_scripts(root, args)
     if args.command == "assets":
@@ -210,9 +274,21 @@ def run(args):
                    " ".join([row["model"], *row["geometries"]]).casefold()]
         return bool(errors), {**page(matches, args), "errors": page(errors, args)}
     if args.command == "scaffold":
+        if args.spec and (args.texture_dir or args.namespace or args.render_method):
+            raise ValueError("--texture-dir, --namespace, and --render-method require --from-directory")
+        mode = "apply" if args.apply else "dry-run"
         with scaffold_lock(root, args.apply):
-            plan, warnings = build_plan(root, read_json(args.spec), lambda: script_index(root))
-            report = {"mode": "apply" if args.apply else "dry-run", "warnings": warnings, **page(plan.summary(), args)}
+            if args.spec:
+                spec = read_json(args.spec)
+            else:
+                spec, errors = blocks_from_exports(root, args.from_directory, args.texture_dir,
+                                                   args.namespace or "paradise", args.render_method or "opaque")
+                if errors:
+                    return True, {"mode": mode, "paired_blocks": len(spec["blocks"]), "diagnostics": page(errors, args)}
+            plan, warnings = build_plan(root, spec, lambda: script_index(root))
+            report = {"mode": mode, "warnings": warnings, **page(plan.summary(), args)}
+            if args.from_directory:
+                report["paired_blocks"] = len(spec["blocks"])
             if args.apply:
                 plan.apply()
             return False, report

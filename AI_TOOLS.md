@@ -9,7 +9,7 @@ python3 tools/ai/cli.py --help
 
 Each invocation emits a single compact JSON object by default, including when you pass `--json`. `--help` emits text. Exit `0` means pass, `1` means findings or conflicts, and `2` means bad input, a missing prerequisite, or an execution error. Warnings can accompany exit `0`. For lists, read `total` before fetching another page with `--offset N --limit N` (default 20, maximum 500). JSON examples below show selected fields.
 
-Put `--root /path/to/checkout` before the subcommand to inspect another Paradise.exe checkout. The TypeScript parser is loaded from the toolkit’s checkout. Type-checking uses the target checkout’s compiler, configuration, and API typings. `scaffold` and `package` default to dry-run. Pass `--apply` to write after reviewing the plan.
+Put `--root /path/to/checkout` before the subcommand to inspect another Paradise.exe checkout. The TypeScript parser is loaded from the toolkit’s checkout. Type-checking uses the target checkout’s compiler, configuration, and API typings. `scaffold`, `manifest`, and `package` default to dry-run. Pass `--apply` to write after reviewing the plan.
 
 ## Choose a command
 
@@ -19,7 +19,14 @@ Put `--root /path/to/checkout` before the subcommand to inspect another Paradise
 | Trace startup and tick registrations | `python3 tools/ai/cli.py inspect --kind event --query startup` or `python3 tools/ai/cli.py inspect --kind schedule --query runInterval` |
 | Find dynamic property reads and writes | `python3 tools/ai/cli.py inspect --kind state --query watcher_memory` |
 | Find dimension registration, fog references, or direct sound calls | `python3 tools/ai/cli.py inspect --kind dimension` or use `--kind fog` or `--kind sound` |
+| Find every literal occurrence before editing an ID or asset path | `python3 tools/ai/cli.py refs geometry.flashlight` |
+| Check what imports a script or what a Git change affects | `python3 tools/ai/cli.py impact --file paradise_dimension_visual_profiles.js` or `impact --base origin/main` |
+| Find which structures place a block | `python3 tools/ai/cli.py structures --block minecraft:bone_block` |
+| Rank observed script time | `python3 tools/ai/cli.py profile /path/to/session.cpuprofile --file scripts/ --limit 10` |
+| Compare Blockception regressions | `python3 tools/ai/cli.py diagnostics --current /tmp/current.json --baseline /tmp/baseline.json --warnings` |
+| Preview a version bump or inspect the installed manifest versions | `python3 tools/ai/cli.py manifest --bp-version 1.2.15 --rp-version 1.0.16` |
 | Inventory Bedrock model exports | `python3 tools/ai/cli.py catalog --directory /path/to/models --texture-dir /path/to/textures` |
+| Preview a folder of paired décor exports | `python3 tools/ai/cli.py scaffold --from-directory /path/to/exports --namespace decor` |
 | Preview a block and dimension batch | `python3 tools/ai/cli.py scaffold --spec /path/to/batch.json --dry-run` |
 | Check the packs, structures, audio, and Script API | `python3 tools/ai/cli.py validate` |
 | Review textures with no exact reference observed | `python3 tools/ai/cli.py assets --query textures/blocks/ --limit 10` |
@@ -41,6 +48,43 @@ python3 tools/ai/cli.py catalog --directory 'addon/Genshin X Craft RP/models' --
 {"command":"catalog","status":0,"total":1,"items":[{"model":"addon/Genshin X Craft RP/models/blocks/flashlight.geo.json","geometries":["geometry.flashlight"],"textures":[]}]}
 ```
 
+## Trace changes before editing
+
+`refs` reads both packs’ JSON keys and values and JS string literals. Use the default case-sensitive exact match before renaming an ID. Use `--contains` for near matches or static segments in a templated command. `--file SUBSTRING` scopes results by path. JSON locations are RFC 6901 pointers. `definition:true` marks a likely declaration under an `identifier` field or known registry. Computed strings and IDs inside binary NBT need their own checks.
+
+```sh
+python3 tools/ai/cli.py refs geometry.flashlight --limit 4
+python3 tools/ai/cli.py refs 'paradise:catacombs/' --contains --file scripts
+```
+
+```json
+{"command":"refs","status":0,"total":4,"items":[{"kind":"json-value","pointer":"/minecraft:geometry/0/description/identifier","definition":true}]}
+```
+
+`impact` finds direct and transitive importers through static imports, re-exports, and literal dynamic imports. It reports reachability from the current BP manifest’s script entries. Use `--file` repeatedly to seed known scripts or `--base REV` to include tracked and untracked add-on changes relative to a Git commit. With neither flag it compares against `HEAD`. Deleted script paths can still appear as seeds when an importer refers to them. `depth:0` means selected, and `via` names the next file on one shortest path to a selected script. Git mode lists all changed add-on files in `changed`. The graph traces JS only and treats literal dynamic imports as possible edges.
+
+```sh
+python3 tools/ai/cli.py impact --file paradise_dimension_visual_profiles.js --limit 5
+python3 tools/ai/cli.py impact --base origin/main --limit 10
+```
+
+```json
+{"command":"impact","status":0,"reachable_scripts":44,"unreachable_scripts":3,"total":4,"items":[{"file":"addon/Genshin X Craft BP/scripts/main.js","depth":2,"entry_reachable":true,"exists":true}]}
+```
+
+## Inspect placed blocks
+
+`structures` uses the existing NBT reader and validator. Use `--query SUBSTRING` for a dimension or structure, `--palette` for observed block counts by layer, or `--block ID` to find structures where an exact block ID is placed. Counts include named air entries if present and exclude empty cells (`-1`). `--check-blocks` checks placed custom IDs against this BP’s block definitions. Leave it off when intentionally depending on another pack’s blocks.
+
+```sh
+python3 tools/ai/cli.py structures --query catacombs --palette --limit 4
+python3 tools/ai/cli.py structures --block minecraft:bone_block --check-blocks --limit 4
+```
+
+```json
+{"command":"structures","status":0,"blocks":{"items":[{"structure":"paradise:catacombs/collapsed_crypt","block":"minecraft:bone_block","by_layer":[2,0]}]}}
+```
+
 ## Scaffold a batch
 
 Save JSON like this to a scratch file such as `/tmp/paradise-batch.json`. Both arrays are optional. This preview uses a model and texture that already ship with 0.3.
@@ -56,7 +100,19 @@ Save JSON like this to a scratch file such as `/tmp/paradise-batch.json`. Both a
 }
 ```
 
-For new models supply a `model` source path and a `geometry` ID exported by it. For each block supply either `texture` (a PNG/TGA/JPEG source path) or `texture_path` (an extensionless existing base-RP path). Source paths are absolute or relative to the repo root. The scaffold copies supplied assets, creates a BP block, and merges the `namespace__name` key into the terrain atlas. It uses one wildcard material and defaults to `opaque`. The supported `render_method` values follow the Bedrock material instance component. [Material instances](https://learn.microsoft.com/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_material_instances?view=minecraft-bedrock-stable)
+For a staging folder where each model has one geometry and one same-stem texture, skip hand-authoring the spec.
+
+```sh
+python3 tools/ai/cli.py scaffold --from-directory /path/to/models --texture-dir /path/to/textures --namespace decor --render-method alpha_test --dry-run
+```
+
+The file `desk_lamp.geo.json` becomes `decor:desk_lamp`. The namespace defaults to `paradise`, and the texture directory defaults to the model directory. Any unpaired model, ambiguous texture, or repeated generated ID stops the whole batch before files are written. Use a reviewed JSON spec for alternate filenames and multi-geometry exports. Once the plan is correct, rerun with `--apply` in place of `--dry-run`.
+
+```json
+{"command":"scaffold","status":0,"mode":"dry-run","paired_blocks":1,"total":4}
+```
+
+For new models in a JSON spec supply a `model` source path and a `geometry` ID exported by it. For each block supply either `texture` (a PNG/TGA/JPEG source path) or `texture_path` (an extensionless existing base-RP path). Source paths are absolute or relative to the repo root. The scaffold copies supplied assets, creates a BP block, and merges the `namespace__name` key into the terrain atlas. It uses one wildcard material and defaults to `opaque`. The supported `render_method` values follow the Bedrock material instance component. [Material instances](https://learn.microsoft.com/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_material_instances?view=minecraft-bedrock-stable)
 
 Dimensions accept `id`, optional `min_y`, `height_range`, and a namespaced `biome`. The generated dimension starts as a void. Use this only for a Bedrock 1.26.50+ target. The current BP minimum is 1.26.20, so dimension previews surface an engine warning. Existing script-registered IDs are rejected. The scaffold leaves manifest versions and startup scripts to the caller. Review the block and dimension formats against the target version. [Custom blocks](https://learn.microsoft.com/minecraft/creator/documents/advancedcustomblocks?view=minecraft-bedrock-stable) · [Custom dimensions](https://learn.microsoft.com/minecraft/creator/documents/scripting/custom-dimension-api-tutorial?view=minecraft-bedrock-stable)
 
@@ -98,6 +154,41 @@ Both commands accept `--release-audio` for the strict release gate. Use `--skip-
 
 ```json
 {"command":"assets","status":0,"matched":1571,"unmatched":2145,"items":[{"path":"addon/Genshin X Craft RP/textures/blocks/bed_feet_end.png","scope":".","bytes":384}]}
+```
+
+## Use runtime evidence and compare diagnostics
+
+Run `/script profiler start` and `/script profiler stop` in a test world around the behavior you want to measure. Feed the resulting file to `profile`. `--sort self` ranks time spent in the sampled function and `--sort total` includes descendants. Rows represent call-tree nodes, so a function can appear in more than one calling context. Timing fields are microseconds when `timeDeltas` is present. Profiles without timings are ranked by sample counts. [Bedrock script profiling](https://learn.microsoft.com/minecraft/creator/documents/scripting/script-performance?view=minecraft-bedrock-stable#script-profiling)
+
+```sh
+python3 tools/ai/cli.py profile /path/to/session.cpuprofile --sort self --limit 10
+```
+
+```json
+{"command":"profile","status":0,"samples":94,"sampled_us":126507,"items":[{"function":"measure","self_us":87847,"total_us":87847}]}
+```
+
+Run the existing Blockception helper on the base and current revisions using the same server version. `diagnostics` compares report entries by severity, path, diagnostic code, and message. Line shifts leave identity intact, and duplicate counts are preserved. It exits `1` for added findings. Omit `--baseline` to report all current errors. Pass `--warnings` to include warnings. This comparison leaves the standalone CI gate in place.
+
+```sh
+python3 tools/ai/cli.py diagnostics --current /tmp/current.json --baseline /tmp/baseline.json --warnings
+```
+
+```json
+{"command":"diagnostics","status":0,"current":5,"baseline":5,"added":{"total":0,"items":[]},"resolved":{"total":0,"items":[]}}
+```
+
+## Plan pack version changes
+
+Call `manifest` with no flags to inspect both manifest versions and BP Script API declarations. `--bp-version` sets the BP header and modules, `--rp-version` sets the RP header, modules, and linked version in the BP dependency, and `--engine` sets the minimum engine version in both. Pack version downgrades are rejected. UUIDs and API dependency values are preserved. After reviewing a planned bump, rerun with `--apply`. [Bedrock pack manifests](https://learn.microsoft.com/minecraft/creator/reference/content/manifestreference/header?view=minecraft-bedrock-stable)
+
+```sh
+python3 tools/ai/cli.py manifest
+python3 tools/ai/cli.py manifest --bp-version 1.2.15 --rp-version 1.0.16 --engine 1.26.50 --dry-run
+```
+
+```json
+{"command":"manifest","status":0,"mode":"dry-run","versions":{"bp_rp_dependency":{"before":[1,0,15],"after":[1,0,16]}}}
 ```
 
 ## Existing tools

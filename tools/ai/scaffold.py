@@ -349,3 +349,32 @@ def catalog(root, directory, texture_directory):
         stem = path.name.removesuffix(".geo.json").casefold()
         models.append({"model": display(path), "geometries": exported, "textures": textures.get(stem, [])})
     return models, errors
+
+
+def blocks_from_exports(root, directory, texture_directory, namespace, render_method):
+    """Require one Bedrock geometry and one texture per export stem."""
+    identifier(f"{namespace}:example")
+    models, errors = catalog(root, directory, texture_directory)
+    blocks = []
+    seen_ids = set()
+    seen_geometry = set()
+    for model in models:
+        stem = Path(model["model"]).name.removesuffix(".geo.json").casefold()
+        name = f"{namespace}:{stem}"
+        try:
+            identifier(name)
+            if len(model["geometries"]) != 1 or len(model["textures"]) != 1:
+                raise ValueError("Expected one geometry and one matching texture")
+            geometry, = model["geometries"]
+            if name in seen_ids or geometry in seen_geometry:
+                raise ValueError("Generated block ID or geometry is repeated")
+        except ValueError as error:
+            errors.append({**model, "message": str(error)})
+            continue
+        seen_ids.add(name)
+        seen_geometry.add(geometry)
+        blocks.append({"id": name, "model": model["model"], "geometry": geometry,
+                       "texture": model["textures"][0], "render_method": render_method})
+    if not models and not errors:
+        errors.append({"file": str(directory), "message": "No .geo.json exports found"})
+    return {"blocks": blocks}, errors

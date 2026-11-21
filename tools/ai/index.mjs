@@ -3,12 +3,16 @@ import { readdirSync } from "node:fs";
 import path from "node:path";
 import ts from "typescript";
 
-const [root, pack] = process.argv.slice(2);
+const [root, pack, lookupArg] = process.argv.slice(2);
+const lookup = lookupArg && JSON.parse(lookupArg);
 const scripts = path.join(pack, "scripts");
 const rows = [];
 const errors = [];
 const modules = new Set();
 const textures = new Set();
+const dependencies = [];
+const references = [];
+const relative = (file) => path.relative(root, file).split(path.sep).join("/");
 
 function files(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -23,7 +27,7 @@ const program = ts.createProgram(scriptFiles, { allowJs: true, noResolve: true, 
 const checker = program.getTypeChecker();
 
 for (const filename of scriptFiles) {
-  const file = path.relative(root, filename).split(path.sep).join("/");
+  const file = relative(filename);
   const source = program.getSourceFile(filename);
   const line = (position) => source.getLineAndCharacterOfPosition(position).line + 1;
   const text = (node) => node?.getText(source);
@@ -86,7 +90,22 @@ for (const filename of scriptFiles) {
   }
 
   function visit(node) {
-    if (ts.isStringLiteralLike(node) && node.text.startsWith("textures/")) textures.add(node.text);
+    const isLiteral = ts.isStringLiteralLike(node);
+    if (isLiteral && node.text.startsWith("textures/")) textures.add(node.text);
+    if (lookup && (isLiteral || (lookup.contains && ts.isTemplateLiteralToken(node)))) {
+      const match = node.text === lookup.query || (lookup.contains && node.text.includes(lookup.query));
+      if (match) {
+        const position = source.getLineAndCharacterOfPosition(node.getStart(source));
+        references.push({ file, line: position.line + 1, column: position.character + 1, kind: "js-literal" });
+      }
+    }
+    const dynamic = ts.isCallExpression(node) && node.expression.kind === ts.SyntaxKind.ImportKeyword;
+    if (dynamic || ts.isImportDeclaration(node) || ts.isExportDeclaration(node)) {
+      const specifier = dynamic ? node.arguments[0] : node.moduleSpecifier;
+      if (specifier && ts.isStringLiteralLike(specifier)) {
+        dependencies.push({ file, line: line(specifier.getStart(source)), specifier: specifier.text, dynamic });
+      }
+    }
     if ((ts.isPropertyAssignment(node) && ["fog", "fogId"].includes(node.name.text)) ||
         (ts.isVariableDeclaration(node) && /(?:^|_)FOG_ID$/.test(node.name.text ?? ""))) {
       const id = literal(node.initializer);
@@ -146,4 +165,7 @@ for (const filename of scriptFiles) {
   visit(source);
 }
 
-console.log(JSON.stringify({ files: scriptFiles.length, rows, errors, modules: [...modules].sort(), textures: [...textures].sort() }));
+console.log(JSON.stringify({
+  files: scriptFiles.length, rows, errors, modules: [...modules].sort(), textures: [...textures].sort(),
+  scriptPaths: scriptFiles.map(relative), dependencies, references,
+}));
