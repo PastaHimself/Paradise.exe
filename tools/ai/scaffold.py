@@ -19,6 +19,76 @@ RENDER_METHODS = {
     "opaque", "double_sided", "blend", "alpha_test", "alpha_test_single_sided",
     "blend_to_opaque", "alpha_test_to_opaque", "alpha_test_single_sided_to_opaque",
 }
+BLOCK_OPTIONAL = {"model", "texture", "texture_path", "render_method", "collision_box", "selection_box",
+                  "light_emission", "light_dampening", "friction", "sound", "display_name", "materials",
+                  "rp_block", "batch"}
+DIMENSION_OPTIONAL = {"min_y", "height_range", "biome", "batch"}
+MATERIAL_FACES = {"*", "up", "down", "north", "south", "east", "west", "side"}
+
+
+def box_component(value, field):
+    if value is True:
+        return {"width": 1.0, "height": 1.0}
+    if isinstance(value, dict):
+        keys = set(value)
+        if keys <= {"width", "height"}:
+            width = value.get("width", 1.0)
+            height = value.get("height", 1.0)
+            if (type(width) not in (int, float) or type(height) not in (int, float)
+                    or not 0 < width <= 16 or not 0 < height <= 16):
+                raise ValueError(f"Invalid {field} width/height: {value!r}")
+            return {"width": float(width), "height": float(height)}
+        if keys <= {"origin", "size"}:
+            origin = value.get("origin", [-8, 0, -8])
+            size = value.get("size", [16, 16, 16])
+            for vector in (origin, size):
+                if (not isinstance(vector, list) or len(vector) != 3
+                        or any(type(part) not in (int, float) for part in vector)):
+                    raise ValueError(f"Invalid {field} origin/size: {value!r}")
+            if any(part <= 0 for part in size):
+                raise ValueError(f"Invalid {field} size: {value!r}")
+            return {"origin": list(origin), "size": list(size)}
+    raise ValueError(f"{field} must be true, {{width,height}}, or {{origin,size}} in 16-block units")
+
+
+def light_component(value, field, maximum):
+    if type(value) is not int or not 0 <= value <= maximum:
+        raise ValueError(f"{field} must be an integer 0..{maximum}, received {value!r}")
+    return value
+
+
+def lang_set(root, plan, relative, key, value):
+    """Set one key=value line in a .lang file without disturbing other lines."""
+    path = checked_path(root, relative)
+    old = path.read_bytes() if path.exists() else None
+    text = old.decode("utf-8") if old is not None else ""
+    lines = text.splitlines()
+    replaced = False
+    for index, line in enumerate(lines):
+        if line.startswith(key + "="):
+            lines[index] = f"{key}={value}"
+            replaced = True
+            break
+    if not replaced:
+        lines.append(f"{key}={value}")
+    plan.add(relative, ("\n".join(lines) + "\n").encode("utf-8"), merge_from=old)
+
+
+def rp_blocks_set(root, plan, name, value):
+    """Merge one entry into the RP blocks.json (sound/textures), creating it if absent."""
+    if not isinstance(value, dict):
+        raise ValueError(f"rp_block for {name} must be an object")
+    relative = RP / "blocks.json"
+    path = checked_path(root, relative)
+    old = path.read_bytes() if path.exists() else None
+    doc = parse_json(old, path.name) if old is not None else {"format_version": "1.19.30"}
+    if not isinstance(doc, dict):
+        raise ValueError("RP blocks.json must be a JSON object")
+    doc.setdefault("format_version", "1.19.30")
+    if name in doc and doc[name] != value:
+        raise Conflict(f"RP blocks.json already has a different entry for {name}")
+    doc[name] = value
+    plan.add(relative, json_bytes(doc), merge_from=old)
 
 
 class Conflict(ValueError):
@@ -195,8 +265,10 @@ def block_assets(root, spec, plan):
     before_count = len(entries)
     blocks = []
     names = set()
+    lang_entries = []
+    rp_block_entries = []
     for row in spec:
-        fields(row, {"id", "geometry"}, {"model", "texture", "texture_path", "render_method"})
+        fields(row, {"id", "geometry"}, BLOCK_OPTIONAL)
         name = row["id"]
         slug = identifier(name)
         if name in names:
@@ -252,22 +324,65 @@ def block_assets(root, spec, plan):
         if slug in entries and entries[slug] != entry:
             raise Conflict(f"Different atlas entry already exists: {slug}")
         entries[slug] = entry
+        instances = {"*": {"texture": slug, "render_method": render}}
+        if "materials" in row:
+            materials = row["materials"]
+            if not isinstance(materials, dict) or not materials:
+                raise ValueError(f"{name}: materials must be a non-empty face map")
+            faces = set(materials)
+            if not faces <= MATERIAL_FACES:
+                raise ValueError(f"{name}: unknown material faces {sorted(faces - MATERIAL_FACES)}; choose from {sorted(MATERIAL_FACES)}")
+            for face, material in materials.items():
+                if not isinstance(material, str) or material not in entries:
+                    raise ValueError(f"{name}: material face {face!r} must reference an existing terrain atlas key, received {material!r}")
+                instances[face] = {"texture": material, "render_method": render}
+            if "*" not in instances:
+                instances["*"] = {"texture": slug, "render_method": render}
+        components = {
+            "minecraft:geometry": geometry,
+            "minecraft:material_instances": instances,
+        }
+        if "collision_box" in row:
+            components["minecraft:collision_box"] = box_component(row["collision_box"], "collision_box")
+        if "selection_box" in row:
+            components["minecraft:selection_box"] = box_component(row["selection_box"], "selection_box")
+        if "light_emission" in row:
+            components["minecraft:light_emission"] = light_component(row["light_emission"], "light_emission", 15)
+        if "light_dampening" in row:
+            components["minecraft:light_dampening"] = light_component(row["light_dampening"], "light_dampening", 15)
+        if "friction" in row:
+            friction = row["friction"]
+            if type(friction) not in (int, float) or not 0 <= friction <= 1:
+                raise ValueError(f"{name}: friction must be a number 0..1, received {friction!r}")
+            components["minecraft:friction"] = float(friction)
+        if "sound" in row:
+            sound = row["sound"]
+            if not isinstance(sound, str) or not re.fullmatch(r"[a-z0-9_.-]+", sound):
+                raise ValueError(f"{name}: invalid block sound {sound!r}")
+            components["minecraft:sound"] = sound
         blocks.append((BP / f"blocks/{slug}.json", name, {
             "format_version": "1.21.80",
             "minecraft:block": {
                 "description": {"identifier": name},
-                "components": {
-                    "minecraft:geometry": geometry,
-                    "minecraft:material_instances": {"*": {"texture": slug, "render_method": render}},
-                },
+                "components": components,
             },
         }))
+        if "display_name" in row:
+            if not isinstance(row["display_name"], str) or not row["display_name"].strip():
+                raise ValueError(f"{name}: display_name must be a non-empty string")
+            lang_entries.append((f"tile.{name}.name", row["display_name"]))
+        if "rp_block" in row:
+            rp_block_entries.append((name, row["rp_block"]))
     if len(entries) != before_count:
         plan.add(atlas_path, json_bytes(atlas), merge_from=atlas_bytes)
     else:
         plan.add(atlas_path, atlas_bytes, merge_from=atlas_bytes)
     for relative, name, doc in blocks:
         add_document(root, plan, defines, relative, name, doc)
+    for key, value in lang_entries:
+        lang_set(root, plan, RP / "texts/en_US.lang", key, value)
+    for name, value in rp_block_entries:
+        rp_blocks_set(root, plan, name, value)
 
 
 def dimension_assets(root, spec, plan, index):
@@ -275,7 +390,7 @@ def dimension_assets(root, spec, plan, index):
     scripts = {row["name"] for row in index["rows"] if row["kind"] == "dimension" and row["resolved"]}
     names = set()
     for row in spec:
-        fields(row, {"id"}, {"min_y", "height_range", "biome"})
+        fields(row, {"id"}, DIMENSION_OPTIONAL)
         name = row["id"]
         slug = identifier(name)
         if name in scripts or name in names:

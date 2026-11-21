@@ -34,6 +34,9 @@ jobs:
       - name: Run validator unit tests
         run: python -m unittest discover -s tests -p 'test_*.py' -v
 
+      - name: Run AI toolkit unit tests
+        run: python -m unittest discover -s tools/ai -p 'test_*.py' -v
+
       - name: Audit audio manifest
         shell: bash
         run: |
@@ -71,6 +74,9 @@ jobs:
 
       - name: Type-check behavior scripts against Bedrock beta APIs
         run: npm run typecheck
+
+      - name: Run unified AI toolkit pre-flight gate
+        run: python tools/ai/cli.py preflight
 
       - name: Run JavaScript regression tests
         run: npm test

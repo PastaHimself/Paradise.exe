@@ -4,6 +4,7 @@ import re
 import subprocess
 
 from common import BP, IMAGE_SUFFIXES, RP, read_json, strings
+from integrity import integrity
 from validate_addon import AddonValidator
 from validate_audio_manifest import load_manifest, validate_manifest
 from validate_mcstructures import validate_structure_tree
@@ -155,9 +156,11 @@ def validate(root, args, index):
     # Legacy validators own malformed JSON reporting. Only inspect well-formed pack data.
     if not result["addon"]["errors"]:
         result["cross_links"] = cross_links(root, addon.json_documents, index)
+        result["integrity"] = integrity(root, index)
         result["api"] = api_check(root, addon.json_documents, index, not args.skip_typecheck)
     else:
         result["cross_links"] = {"skipped": "Resolve add-on diagnostics first"}
+        result["integrity"] = {"skipped": "Resolve add-on diagnostics first"}
         result["api"] = {"skipped": "Resolve add-on diagnostics first"}
     return result
 
