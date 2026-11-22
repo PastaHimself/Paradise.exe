@@ -618,3 +618,44 @@ stop before the finish area. The wreck cluster sits at `W=(L+9,64,min(D−30,286
 - [ ] Shelter camping follows baseline lava/collapse behaviour.
 - [ ] `buildServiceDetour` never runs and the main road is never burned by it.
 - [ ] The phone box and emergency exit boards stay static and unpowered.
+
+## Ticket 7 · Heaven (`feat/v2-static-7-heaven`)
+
+**Artifact:** `/tmp/Paradise-static-7.mcaddon` (23,577,740 bytes, built with
+`python3 tools/ai/cli.py package --output /tmp/Paradise-static-7.mcaddon --apply --json`).
+
+**Dress.** 113 registered blocks across 36 families; the three seal families stay deferred and
+unregistered. `heaven_scene.js` stages the clean rest station `R` at the spawn anchor and the disturbed
+twin `R'` nine blocks east, exit frames at ±4, pool edging with a two-wide north opening, and the
+temple dais reserve `[10..13,3..6,10..13]`. `hv_dark_tile_seams_calcite_brick_seams` uses an exact copy
+of `V/quartz_bricks.png` because the calcite tile is Preview-only.
+
+### Viewpoints (rest anchor near spawn)
+
+```text
+/execute in heaven:the_heaven run tp @s 1000.5 66 105.5
+/execute in heaven:the_heaven run tp @s 1009.5 66 105.5
+/execute in heaven:the_heaven run tp @s 996.5 66 102.5
+/execute in heaven:the_heaven run tp @s 1000.5 66 87.5
+/execute in heaven:the_heaven run tp @s 1010.5 66 22.5
+/execute in heaven:the_heaven run tp @s 1012.5 69 12.5
+```
+
+### Checks
+
+| Check | Expectation |
+| --- | --- |
+| Rest pair | `R` reads clean and intact; `R'` nine blocks east reads disturbed with footprints, a damaged bench, lamp and sign; both keep the bed, chest and approach slots |
+| Exit frames | `hv_open_exit_frame` west and `hv_final_door_frame` east of the arrival pad, both static and unpowered |
+| Pool | Garden edging wraps the rim with the two-wide north pedestrian opening and planters on the four corners; cyan glass interior untouched |
+| Dais reserve | `[10..13,3..6,10..13]` inside the temple stays empty; no seal pedestal, face or floor inlay is registered or placed |
+| Materials | `hv_dark_tile_seams_calcite_brick_seams` reads as quartz bricks (stable substitute); other seams use their pinned sources |
+| Structure patches | `reflection_pool` rim at Y0, `celestial_arch` top ring, `distant_temple` floor; colonnade had no perimeter solids and is unchanged |
+| Gameplay | Rest chest and bed behaviour unchanged; no exit trigger or seal logic added |
+
+### Ticket 7 sign-off
+
+- [ ] Both rest stations read distinctly from one approach in standard light with `vhs_off`.
+- [ ] The pool edging never blocks the north walkway.
+- [ ] The temple dais is empty and its reserve is untouched.
+- [ ] No deferred seal block appears anywhere in the world.

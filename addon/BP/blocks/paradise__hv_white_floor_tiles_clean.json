@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "paradise:hv_white_floor_tiles_clean"
+    },
+    "components": {
+      "minecraft:tags": [
+        "paradise:static_decor"
+      ],
+      "minecraft:collision_box": true,
+      "minecraft:geometry": "geometry.paradise.hv_white_floor_tiles_clean",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "paradise__hv_white_floor_tiles_clean",
+          "render_method": "opaque",
+          "ambient_occlusion": 1.0
+        }
+      }
+    }
+  }
+}
