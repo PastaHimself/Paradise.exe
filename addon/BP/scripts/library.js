@@ -25,6 +25,7 @@ import {
 } from "./dimension_horror_rules.js";
 import { getCachedPlayers } from "./paradise_tick_cache.js";
 import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
+import { applyLibraryDressing } from "./library_decor.js";
 
 export const LIBRARY_DIMENSION_ID = "library:the_library";
 const LEGACY_ENTER_COMMAND_ID = "p:library";
@@ -520,6 +521,7 @@ function generateLibraryChunk(dim, cx, cz) {
   fillSafe(dim, { x: ox, y: FLOOR_Y + 1, z: oz + 7 }, { x: ox + 15, y: FLOOR_Y + 1, z: oz + 8 }, "minecraft:brown_carpet");
 
   scheduleLibraryChunkArt(dim, cx, cz);
+  applyLibraryDressing(dim, ox, oz, variant);
 }
 
 function generateLibraryRooms() {

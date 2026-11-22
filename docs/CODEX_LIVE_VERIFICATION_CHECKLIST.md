@@ -308,3 +308,50 @@ motif runs inside `generatePatchMaze` and is rejected whenever it would disconne
 - [ ] Two consecutive patches show the right-angle motif (no straight sightline entry → far opening).
 - [ ] All four `.mcstructure` patches resolve: `ceiling_failure` shows missing panel / exposed grid / dark cavity and the missing-tube split; `service_recess` wallpaper; `maintenance_nook` vent and plate with x3..4 clear; `dead_end_landmark` sign and boxes on the outer strips.
 - [ ] Standard lighting shows every fixture state distinctly, `vhs_off` active.
+
+---
+
+## Ticket 2 · Library (`feat/v2-static-2-library`)
+
+**Package.** `/tmp/Paradise-static-2.mcaddon`
+
+**What shipped.** 37 library block definitions (46 emitted IDs): worn parquet, carpet runner,
+dark wood paneling, water-damaged baseboard, cracked plaster, full/sparse/empty shelves and
+endcaps, study carrel, tables, chairs, carts, ladder, index-card cabinet, book return, locked
+document cabinet, desk lamp and the two-state aisle light. `lib_archive_desk` and
+`lib_card_reader_terminal` stay deferred and their alcove stays empty.
+
+**Velocity benchmark (20 families).** start `2026-11-22T13:58:26Z` (epoch 1795355906), end
+`2026-11-22T13:58:27Z` (epoch 1795355907), elapsed **1 s**, 21 blocks / 89 files, 18 first-pass
+accepted with 2 repairs (the cell-sized staged copies for `fallen_shelf` and
+`tall_library_ladder`), **72,000 assets/hour** by `20 × 3600 / elapsed_seconds`.
+
+### Viewpoints (visit-chunk coordinates; spawn is `1000v+0.5,65,0.5`)
+
+```text
+/execute in library:the_library run tp @s 1000.5 65 0.5
+/execute in library:the_library run tp @s 2000.5 65 0.5
+/execute in library:the_library run tp @s 2000.5 65 1000.5
+/execute in library:the_library run tp @s 3000.5 65 1000.5
+```
+
+### Checks
+
+| Check | Expectation |
+| --- | --- |
+| Crossroads | Floor Y64 with the runner on the `x=7..8 ∪ z=7..8` cross; full traverse stays two blocks wide |
+| Shelves | Rows at x3 and x11 (variant 2 adds x2 and x6 for a three-block aisle); tiers at Y65/67/69, never above Y71; endcaps at z0 and z15 |
+| Sampling | Full at local z mod 6 ∈ {0,1,4}, sparse at {2,3}, empty at 5 |
+| Vanilla anchors | `minecraft:bookshelf` remains at `(3,65,2)`, `(11,65,2)` and `(11,65,9)` in the arrival chunk |
+| Paneling | Dark wood band Y65–71, baseboard Y65, cracked plaster on one in eight non-door panels Y68–70 |
+| Lighting | Two-block aisle lights above x4..5 and x10..11 at z4 and z11, mounted at Y72 with glowstone at Y73; lit anchors `(4,73,4)`, `(11,73,11)`, `(10,73,13)`; restricted room alternates unlit |
+| Restricted bay | `[10..13,65..68,12..14]` empty behind a lit frame, flat plinth at Y64, approach `[11..12,65..67,9..11]` clear, RESTRICTED at `(11,69,10)` |
+| Structures | `reading_alcove` carrel/table/lamp with x2..3 clear; `archive_frame` trim at (1,3,2)/(5,3,2) and plate at (3,5,2) with Z0..1 untouched; `central_monument` and `upper_balcony` accents |
+| Travel | Yellow Halls → Library through the `yellow-archive` pad at anchor offset `(−10,0,0)` on standard settings |
+
+### Ticket 2 sign-off
+
+- [ ] Walk the full cross in both directions without a collision or dead end.
+- [ ] Both light states read distinctly in standard light with `vhs_off`.
+- [ ] The restricted alcove is empty and its frame reads as a sealed archive bay.
+- [ ] Archive desk and card-reader terminal are absent; no read/card checks exist.
