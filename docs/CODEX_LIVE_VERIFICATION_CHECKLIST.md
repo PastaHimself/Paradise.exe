@@ -355,3 +355,74 @@ accepted with 2 repairs (the cell-sized staged copies for `fallen_shelf` and
 - [ ] Both light states read distinctly in standard light with `vhs_off`.
 - [ ] The restricted alcove is empty and its frame reads as a sealed archive bay.
 - [ ] Archive desk and card-reader terminal are absent; no read/card checks exist.
+
+## Ticket 8 · Atmosphere, fog, particles & release prep (`feat/v2-static-8-atmosphere-release`)
+
+**Artifact:** `/tmp/Paradise-static-8.mcaddon` (21,850,031 bytes, built with
+`python3 tools/ai/cli.py package --output /tmp/Paradise-static-8.mcaddon --apply --json`).
+
+**No new static geometry.** This stage is runtime atmosphere and release plumbing, so the
+viewpoints below re-check existing rooms with the new fog/particle budget behaviour. Spawn is
+`1000v+0.5,65,0.5` per dimension unless a dimension's own section in this file states otherwise.
+
+### Viewpoints (one per dimension, in the arrival chunk)
+
+```text
+/execute in paradise:yellow_halls run tp @s 1000.5 65 0.5
+/execute in library:the_library run tp @s 1000.5 65 0.5
+/execute in paradise:flat_flower run tp @s 1000.5 65 0.5
+/execute in paradise:endless_staircase run tp @s 1000.5 65 0.5
+/execute in paradise:burning_highway run tp @s 1000.5 65 0.5
+/execute in catacombs:catacomb_mazes run tp @s 1000.5 65 0.5
+/execute in heaven:the_heaven run tp @s 1000.5 65 0.5
+```
+
+### Fog per dimension (component first, command fallback)
+
+| Dimension ID | Fog identifier | Particle |
+| --- | --- | --- |
+| `paradise:yellow_halls` | `paradise:yellow_halls_fog` | `paradise:dust_mote` |
+| `library:the_library` | `paradise:library_fog` | `paradise:dust_mote` |
+| `paradise:flat_flower` | `paradise:flat_flower_fog` | `paradise:pollen_mote` |
+| `paradise:endless_staircase` | `paradise:endless_staircase_fog` | `paradise:dust_mote` |
+| `paradise:burning_highway` | `paradise:burning_highway_fog` | `paradise:ash_fleck` |
+| `catacombs:catacomb_mazes` | `paradise:catacombs_fog` | `paradise:dust_mote` |
+| `heaven:the_heaven` | `paradise:heaven_fog` | `paradise:celestial_mote` |
+
+`applyFogLayer` now calls `player.fogSettings.remove(tag)` then `push(fogId, tag)` **first**; `/fog`
+runs only when the component is missing or throws. `applyDimensionAtmosphere` still applies the
+dimension layer first and `applyFogConfig` second, so the `paradise_config_fog_override` layer stays
+on top of dimension fog on repeated loads and world reloads. No global `setStack` or `pop` is used,
+so other packs' layers are untouched.
+
+### Checks
+
+| Check | Expectation |
+| --- | --- |
+| Fog component path | Walking between two dimensions swaps the fog with no stacking haze and no `/fog` command in the log (`getFogRuntimeStats().commandApplied` stays flat) |
+| Fog fallback | On a runtime without `fogSettings`, the same transitions still apply fog through `/fog`; failures only increment `failures` |
+| Config override | Toggling config fog off (`clear` layer) survives a dimension change and a world reload; turning it back on restores dimension fog beneath it |
+| Global default fog | `addon/RP/biomes_client.json` keeps `minecraft:default` → `paradise:dark_fog`, and the file loads with no missing-identifier log line |
+| Particles | All four (`ash_fleck`, `celestial_mote`, `dust_mote`, `pollen_mote`) resolve; the correct one spawns per dimension and none appear through walls at bay viewpoints |
+| Low-tier budget | A Low memory tier device shows no ambient burst (burst 0) and no leaf pass; Mid and above still pulse |
+| Y clamp | Ambient motes never appear below Y−63 or above Y318, including while standing at a `Y=−64` catacomb floor or a `Y=319` staircase top |
+| Subpacks | `vhs_off` is last in `addon/RP/manifest.json` subpacks, so a fresh install lands on `vhs_off` and the VHS overlay stays off until opted in |
+
+### Release gate evidence (local, headless)
+
+```text
+validate --json                exit 0, errors 0
+audit --check dimensions       errors [], 7 canonical registration advisories only
+preflight --json               exit 0, ok true
+structures (7 dimensions)      exit 0, 28 structures, 0 unknown blocks / 0 invalid palettes
+unit + JS regression           38 Python + 18 toolkit + 63 JS tests, all pass
+package --dry-run / --apply    exit 0, 21,850,031-byte archive
+```
+
+### Ticket 8 sign-off
+
+- [ ] Every one of the seven dimensions still enters with its own fog and particle, in standard lighting with `vhs_off`.
+- [ ] Dimension changes never stack fog and never disturb another pack's layers.
+- [ ] The config fog toggle keeps its override above dimension fog across a reload.
+- [ ] `vhs_off` is the default subpack after installing the `.mcaddon` fresh.
+- [ ] No particle or decorative write lands outside `Y = −64..319`.

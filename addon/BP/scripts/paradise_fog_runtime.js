@@ -11,6 +11,12 @@ function rememberFailure(path, error) {
   lastFailure = `${path}: ${raw}`.slice(0, 192);
 }
 
+function commandPushed(result) {
+  const count = result?.successCount;
+  if (typeof count !== "number") return true;
+  return count > 0;
+}
+
 function tryCommandFog(player, fogId, tag) {
   if (!player) return false;
 
@@ -22,7 +28,10 @@ function tryCommandFog(player, fogId, tag) {
     const target = `@a[name=${JSON.stringify(player.name)}]`;
     try {
       dimension.runCommand(`fog ${target} remove ${tag}`);
-      if (fogId) dimension.runCommand(`fog ${target} push ${fogId} ${tag}`);
+      if (fogId && !commandPushed(dimension.runCommand(`fog ${target} push ${fogId} ${tag}`))) {
+        rememberFailure("dimension-command", "fog push reported no affected player");
+        return false;
+      }
       fogRuntimeStats.commandApplied += 1;
       lastFailure = "";
       return true;
@@ -36,7 +45,10 @@ function tryCommandFog(player, fogId, tag) {
   if (typeof player.runCommand !== "function") return false;
   try {
     player.runCommand(`fog @s remove ${tag}`);
-    if (fogId) player.runCommand(`fog @s push ${fogId} ${tag}`);
+    if (fogId && !commandPushed(player.runCommand(`fog @s push ${fogId} ${tag}`))) {
+      rememberFailure("entity-command", "fog push reported no affected entity");
+      return false;
+    }
     fogRuntimeStats.commandApplied += 1;
     lastFailure = "";
     return true;
@@ -66,9 +78,9 @@ function tryFogSettings(player, fogId, tag) {
 /**
  * Applies one tagged fog layer.
  *
- * The command path is intentionally first because /fog is available at the
- * add-on's declared 1.26.20 engine floor. Player.fogSettings is only used as
- * an optional capability fallback on newer runtimes where it exists.
+ * `Player.fogSettings` is the primary path at the 1.26.50 floor: remove the tag
+ * first so a re-applied layer never stacks, then push the layer. `/fog` stays as
+ * the fallback for runtimes where the component is unavailable or throws.
  */
 export function applyFogLayer(player, fogId, tag) {
   if (!player || typeof tag !== "string" || tag.length === 0) {
@@ -77,8 +89,8 @@ export function applyFogLayer(player, fogId, tag) {
     return false;
   }
 
-  if (tryCommandFog(player, fogId, tag)) return true;
   if (tryFogSettings(player, fogId, tag)) return true;
+  if (tryCommandFog(player, fogId, tag)) return true;
 
   fogRuntimeStats.failures += 1;
   if (!lastFailure) rememberFailure("capability", "no supported fog application path");
