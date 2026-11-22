@@ -529,3 +529,47 @@ slice lifecycle. The primary guard is `L+1`, the shaft void is `L+2..L+7`, the r
 - [ ] The bridge at `z=96` is visible from the walk but unreachable and unsupported by the treads.
 - [ ] Restart and clear/rebuild with two players in separate lanes leaves each lane intact.
 - [ ] The existing exit at `z=−28` still works and the fall threshold behaviour is unchanged.
+
+## Ticket 5 · Catacombs (`feat/v2-static-5-catacombs`)
+
+**Artifact:** `/tmp/Paradise-static-5.mcaddon` (see `package --apply` byte count in the PR).
+
+**Dress.** Core `(0,64,0)`, cell base `B=(5cx,64,5cz)`, interior `B+1..3`, floor Y64, open Y65..68,
+ceiling Y69. Walls use `wallBlock` (76% clean, 14% cracked, 10% damp); floors use `floorBlock`
+(84% tiles, 12% uneven, 4% standing water), and the cell centre stays the functional slot. Lights
+cycle lit 9 / unlit 0 / sconce 10 / rusted cage 8 by cell index. Burial objects sit behind a closed
+wall only in dead ends. The sealed doorway is resolved by `selectJunction` and installed as an
+optical plane W(1,0,65..67), clue W(0,0,66), sconce W(2,0,67), warning W(0,0,67) with flat floor
+W(1..2,0,64) and approach W(1,1,65)/W(2,1,65) cleared. Both wall layers and the adjacent cell side
+stay solid; nothing triggers the doorway.
+
+### Viewpoints (spawn chunk at `1000v+0.5,65,0.5`)
+
+```text
+/execute in catacombs:catacomb_mazes run tp @s 1000.5 65 0.5
+/execute in catacombs:catacomb_mazes run tp @s 1005.5 65 5.5
+/execute in catacombs:catacomb_mazes run tp @s 1010.5 65 10.5
+/execute in catacombs:catacomb_mazes run tp @s 1015.5 65 15.5
+/execute in catacombs:catacomb_mazes run tp @s 1020.5 65 20.5
+```
+
+### Checks
+
+| Check | Expectation |
+| --- | --- |
+| Surfaces | Clean masonry dominates with occasional cracked and damp patches; damp only pools near the floor line |
+| Floors | Uneven tiles and standing water appear as isolated patches, never across a whole cell |
+| Lights | All four states appear: lit cluster (9), unlit cluster (0), wall sconce (10), rusted cage (8); a dead station still reads next to a lit neighbour |
+| Burial | Bone shelves, coffin boards, sarcophagi, urns and niches appear only behind closed walls or on the outer lane of dead ends |
+| Arches | Straight and low arches sit overhead at Y68 with supports on the wall plane, never across a portal mouth |
+| Sealed junction | A sealed stone doorway with a cracked clue panel, sconce and warning reads as a closed blocking; the two approach cells are clear and both wall layers plus the adjacent cell side remain solid |
+| Reserved future opening | W(1..2,0,65..67) and the adjacent side W(1..2,−1,65..67) are backed solid; the flat floor W(1..2,0,64) is present |
+| Protected systems | Exit door lock, timers, maze seeds and shortcut behaviour are unchanged; no shortcut script trips the doorway |
+| Structures | `tomb_shrine` and `ossuary_panel` recessed planes, `collapsed_crypt` and `memorial_chamber` cleared cores; no functional slot or explicit light removed |
+
+### Ticket 5 sign-off
+
+- [ ] Walk a full corridor loop; every turned corner shows dressed wall surfaces and no floating prop.
+- [ ] A dead end shows one burial object behind a closed wall with the middle lane clear.
+- [ ] The sealed doorway reads closed from both sides and its clue panel is legible.
+- [ ] Chest/loot/light positions and the exit lock behave exactly as before.

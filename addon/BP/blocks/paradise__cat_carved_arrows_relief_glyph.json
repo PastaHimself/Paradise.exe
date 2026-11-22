@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "paradise:cat_carved_arrows_relief_glyph"
+    },
+    "components": {
+      "minecraft:tags": [
+        "paradise:static_decor"
+      ],
+      "minecraft:collision_box": false,
+      "minecraft:geometry": "geometry.paradise.cat_carved_arrows_relief_glyph",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "paradise__cat_carved_arrows_relief_glyph",
+          "render_method": "opaque",
+          "ambient_occlusion": 1.0
+        }
+      }
+    }
+  }
+}

@@ -10,6 +10,17 @@ import { maybePlayCatacombAudio } from "./horror_audio.js";
 import { getCachedPlayers } from "./paradise_tick_cache.js";
 import { scheduleStructurePlacement } from "./paradise_visual_jobs.js";
 import {
+  DRESS,
+  archFor,
+  burialFor,
+  cellRoll,
+  floorBlock,
+  lampFor,
+  sealedDoorwayPlan,
+  selectJunction,
+  wallBlock,
+} from "./catacombs_scene.js";
+import {
   VHS_TIER,
   canTrigger,
   clearRuleState,
@@ -1947,6 +1958,71 @@ function decorateCorridorCell(dim, cell, rng) {
   }
 }
 
+
+function dressCatacombCell(dim, cell, index) {
+  const interior = getCellInterior(cell);
+  const centerX = Math.floor((interior.minX + interior.maxX) / 2);
+  const centerZ = Math.floor((interior.minZ + interior.maxZ) / 2);
+
+  for (let x = interior.minX; x <= interior.maxX; x++) {
+    for (let z = interior.minZ; z <= interior.maxZ; z++) {
+      if (x === centerX && z === centerZ) continue; // keep the functional slot
+      setBlock(dim, x, MAZE.originY, z, floorBlock(x, z));
+    }
+  }
+
+  const closed = getClosedSides(cell);
+  for (const side of closed) {
+    const run = getWallRun(cell, side);
+    for (const point of run) {
+      for (let y = MAZE.originY + 1; y <= MAZE.originY + 3; y++) {
+        setBlock(dim, point.x, y, point.z, wallBlock(point.x, point.z));
+      }
+    }
+  }
+
+  if (closed.length > 0) {
+    const lamp = lampFor(index);
+    setBlock(dim, centerX, MAZE.ceilingY - 1, centerZ, lamp.block);
+    const arch = archFor(index);
+    if (arch) {
+      const wall = getWallCenter(cell, closed[0]);
+      setBlock(dim, wall.x, MAZE.ceilingY - 1, wall.z, arch);
+    }
+  }
+
+  if (cell.deadEnd && closed.length > 0) {
+    const wall = getWallRun(cell, closed[0])[1];
+    setBlock(dim, wall.x, MAZE.originY + 1, wall.z, burialFor(cellRoll(cell.x, cell.z, 0xb001)));
+  }
+}
+
+function placeSealedJunction(dim, plan) {
+  const cells = plan.cellsFlat
+    .filter((cell) => cell.role === "corridor" || cell.role === "deadEnd")
+    .map((cell) => ({
+      x: cell.x,
+      z: cell.z,
+      role: cell.role,
+      pathIndex: plan.path ? plan.path.indexOf(cell) : -1,
+      closedSides: getClosedSides(cell),
+      degree: cell.links ? cell.links.size : 0,
+    }))
+    .filter((cell) => cell.pathIndex >= 0);
+  const choice = selectJunction(cells, plan.path ? plan.path.length : 0);
+  if (!choice) return null;
+
+  const base = getCellBase(choice.cell);
+  const doorway = sealedDoorwayPlan(base, choice.side);
+  for (const point of doorway.plane) setBlock(dim, point.x, point.y, point.z, DRESS.sealedDoorway);
+  setBlock(dim, doorway.clue.x, doorway.clue.y, doorway.clue.z, DRESS.cluePanel);
+  setBlock(dim, doorway.sconce.x, doorway.sconce.y, doorway.sconce.z, DRESS.lampSconce);
+  setBlock(dim, doorway.warning.x, doorway.warning.y, doorway.warning.z, DRESS.warning);
+  for (const point of doorway.flatFloor) setBlock(dim, point.x, point.y, point.z, DRESS.floorBase);
+  for (const point of doorway.approach) setBlock(dim, point.x, point.y, point.z, "minecraft:air");
+  return { cell: choice.cell, side: choice.side, base, reserved: doorway.futureOpening };
+}
+
 function paintFloorCell(dim, cell, permutation) {
   const interior = getCellInterior(cell);
   for (let x = interior.minX; x <= interior.maxX; x++) {
@@ -1998,6 +2074,11 @@ function* buildMazeJob(plan) {
   for (const cell of plan.cellsFlat) {
     yield* carveCellInterior(dim, cell);
   }
+
+  for (let index = 0; index < plan.cellsFlat.length; index++) {
+    dressCatacombCell(dim, plan.cellsFlat[index], index);
+  }
+  placeSealedJunction(dim, plan);
 
   // Open the carved links between cells.
   for (const cell of plan.cellsFlat) {
