@@ -6,7 +6,7 @@ import {
   buildAmbientSoundOptions,
   getAmbientPlaybackCapabilities,
   selectAmbientPlaybackMode,
-} from "../addon/Genshin X Craft BP/scripts/paradise_audio_playback_model.js";
+} from "../addon/BP/scripts/paradise_audio_playback_model.js";
 
 test("playback mode prefers the retained SoundInstance loop contract", () => {
   assert.equal(

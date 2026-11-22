@@ -34,7 +34,8 @@
   "api_flags": [
     { "match": "event", "name": "world.beforeEvents.worldInitialize", "severity": "error", "reason": "worldInitialize before-event was removed in @minecraft/server 2.0.0; check the stable 2.10.0 changelog for the supported replacement" },
     { "match": "event", "name": "world.afterEvents.worldInitialize", "severity": "error", "reason": "WorldInitializeAfterEvent was removed in @minecraft/server 2.0.0; check the stable 2.10.0 changelog for the supported replacement" },
-    { "match": "kind", "name": "dimension", "severity": "warning", "reason": "Script-registered custom dimension (DimensionRegistry.registerCustomDimension). At 1.26.50 custom dimension JSON is stable: prefer BP/dimensions/<id>.json with minecraft:dimension_height and remove the startup registration." }
+    { "match": "event", "name": "world.beforeEvents.chatSend", "severity": "warning", "since": "1.26.50", "reason": "Absent from the stable @minecraft/server 2.10.0 typings; available in beta" },
+    { "match": "kind", "name": "dimension", "severity": "warning", "reason": "Script-registered custom dimension (DimensionRegistry.registerCustomDimension, stable since 2.8.0). At 1.26.50 custom dimension JSON is also stable: prefer BP/dimensions/<id>.json with minecraft:dimension_height and remove the startup registration." }
   ],
   "known_rp_capabilities": ["pbr"]
 }

@@ -6,9 +6,9 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const TEST_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(TEST_DIR, "..");
-const BP_SCRIPTS = path.join(ROOT, "addon", "Genshin X Craft BP", "scripts");
-const RP_FOGS = path.join(ROOT, "addon", "Genshin X Craft RP", "fogs");
-const RP_PARTICLES = path.join(ROOT, "addon", "Genshin X Craft RP", "particles");
+const BP_SCRIPTS = path.join(ROOT, "addon", "BP", "scripts");
+const RP_FOGS = path.join(ROOT, "addon", "RP", "fogs");
+const RP_PARTICLES = path.join(ROOT, "addon", "RP", "particles");
 
 const EXPECTED_DIMENSIONS = [
   "paradise:yellow_halls",

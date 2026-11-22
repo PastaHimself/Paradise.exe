@@ -12,8 +12,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_BP = ROOT / "addon" / "Genshin X Craft BP"
-DEFAULT_RP = ROOT / "addon" / "Genshin X Craft RP"
+DEFAULT_BP = ROOT / "addon" / "BP"
+DEFAULT_RP = ROOT / "addon" / "RP"
 DEFAULT_OUTPUT = ROOT / "artifacts" / "Paradise.exe.mcaddon"
 
 

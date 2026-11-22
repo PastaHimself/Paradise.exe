@@ -6,7 +6,7 @@ import {
   createAudioBudgetState,
   requestAudioCue,
   releaseAudioCue,
-} from "../addon/Genshin X Craft BP/scripts/paradise_audio_arbiter.js";
+} from "../addon/BP/scripts/paradise_audio_arbiter.js";
 
 test("audio arbiter allows ambient cues during relief but denies a new peak", () => {
   const initial = createAudioBudgetState();

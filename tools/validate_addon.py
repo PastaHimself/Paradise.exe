@@ -12,8 +12,8 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-BP_NAME = "Genshin X Craft BP"
-RP_NAME = "Genshin X Craft RP"
+BP_NAME = "BP"
+RP_NAME = "RP"
 IMPORT_RE = re.compile(
     r"(?:import\s+(?:[^;]*?\s+from\s+)?|export\s+[^;]*?\s+from\s+)[\"']([^\"']+)[\"']"
 )

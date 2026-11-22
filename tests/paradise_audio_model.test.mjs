@@ -5,21 +5,21 @@ import {
   AUDIO_SCENE_PROFILES,
   PARADISE_AUDIO_DIMENSION_IDS,
   getAudioSceneProfile,
-} from "../addon/Genshin X Craft BP/scripts/paradise_audio_scene_profiles.js";
+} from "../addon/BP/scripts/paradise_audio_scene_profiles.js";
 import {
   getAmbientProfile,
   getPhaseVolume,
   getPlayerAudioPhase,
   shouldRestartFiniteAmbient,
   shouldRestartAmbient,
-} from "../addon/Genshin X Craft BP/scripts/paradise_ambient_audio_model.js";
-import { HORROR_PHASE } from "../addon/Genshin X Craft BP/scripts/horror_director.js";
+} from "../addon/BP/scripts/paradise_ambient_audio_model.js";
+import { HORROR_PHASE } from "../addon/BP/scripts/horror_director.js";
 import {
   AUDIO_SOUND_REGISTRY,
   HORROR_SOUND,
   getPlayableSoundId,
-} from "../addon/Genshin X Craft BP/scripts/paradise_audio_registry.js";
-import { HORROR_EVENT_CATALOG } from "../addon/Genshin X Craft BP/scripts/horror_event_catalog_v2.js";
+} from "../addon/BP/scripts/paradise_audio_registry.js";
+import { HORROR_EVENT_CATALOG } from "../addon/BP/scripts/horror_event_catalog_v2.js";
 
 const EXPECTED_DIMENSIONS = [
   "paradise:yellow_halls",

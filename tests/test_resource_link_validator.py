@@ -20,7 +20,7 @@ def load_validator():
 
 class ResourceLinkValidatorTests(unittest.TestCase):
     def make_resource_pack(self, root: Path) -> Path:
-        rp = root / "addon" / "Genshin X Craft RP"
+        rp = root / "addon" / "RP"
         (rp / "entity").mkdir(parents=True)
         (rp / "models" / "entity").mkdir(parents=True)
         (rp / "animations").mkdir(parents=True)
@@ -147,7 +147,7 @@ class ResourceLinkValidatorTests(unittest.TestCase):
     def test_vanilla_client_entity_links_can_use_base_pack(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
-            rp = root / "addon" / "Genshin X Craft RP"
+            rp = root / "addon" / "RP"
             (rp / "entity").mkdir(parents=True)
             (rp / "entity" / "cat.entity.json").write_text(json.dumps({
                 "format_version": "1.10.0",

@@ -391,6 +391,8 @@ def check_scripts(root, target, tparts, findings, index):
     schedules = Counter(row["name"] for row in index["rows"] if row["kind"] == "schedule")
     info["schedules"] = dict(sorted(schedules.items()))
     for flag in TARGET["api_flags"]:
+        if "since" in flag and tparts < version_tuple(flag["since"]):
+            continue
         if flag["match"] == "event":
             rows = [row for row in index["rows"] if row["kind"] == "event" and row["name"] == flag["name"]]
         elif flag["match"] == "kind":

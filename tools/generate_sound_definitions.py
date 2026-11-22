@@ -17,8 +17,8 @@ except ModuleNotFoundError:  # Direct ``python tools/<script>.py`` invocation.
     from validate_audio_manifest import asset_output_paths, load_manifest, validate_manifest
 
 
-RESOURCE_PACK_PREFIX = "addon/Genshin X Craft RP/"
-DEFAULT_RUNTIME_REGISTRY = Path("addon/Genshin X Craft BP/scripts/paradise_generated_audio_registry.js")
+RESOURCE_PACK_PREFIX = "addon/RP/"
+DEFAULT_RUNTIME_REGISTRY = Path("addon/BP/scripts/paradise_generated_audio_registry.js")
 
 
 def _sound_name(output_path: str) -> str:
@@ -160,7 +160,7 @@ def main() -> int:
     parser.add_argument(
         "--sound-definitions",
         type=Path,
-        default=Path("addon/Genshin X Craft RP/sounds/sound_definitions.json"),
+        default=Path("addon/RP/sounds/sound_definitions.json"),
     )
     parser.add_argument("--runtime-registry", type=Path, default=DEFAULT_RUNTIME_REGISTRY)
     parser.add_argument("--project-root", type=Path, default=Path("."))

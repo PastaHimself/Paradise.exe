@@ -5,7 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const WATCHER_PATH = path.join(ROOT, "addon", "Genshin X Craft BP", "scripts", "watcher_stalker.js");
+const WATCHER_PATH = path.join(ROOT, "addon", "BP", "scripts", "watcher_stalker.js");
 
 test("watcher targeted cues use the per-player audio adapter", () => {
   const source = fs.readFileSync(WATCHER_PATH, "utf8");

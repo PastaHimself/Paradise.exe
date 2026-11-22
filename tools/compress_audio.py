@@ -108,7 +108,7 @@ def validate_license(asset: dict[str, Any]) -> None:
 
 def output_paths_for(asset: dict[str, Any], project_root: Path) -> list[Path]:
     paths: list[Path] = []
-    resource_pack_root = (project_root / "addon" / "Genshin X Craft RP").resolve()
+    resource_pack_root = (project_root / "addon" / "RP").resolve()
     for raw_path in asset_output_paths(asset):
         path = (project_root / raw_path).resolve()
         try:

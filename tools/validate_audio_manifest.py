@@ -159,7 +159,7 @@ def validate_manifest(
     ffprobe: str = "ffprobe",
 ) -> dict[str, Any]:
     project_root = project_root.resolve()
-    resource_pack_root = (project_root / "addon" / "Genshin X Craft RP").resolve()
+    resource_pack_root = (project_root / "addon" / "RP").resolve()
     errors: list[str] = []
     warnings: list[str] = []
     packs = manifest.get("packs")

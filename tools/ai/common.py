@@ -5,8 +5,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[2]
-BP = Path("addon/Genshin X Craft BP")
-RP = Path("addon/Genshin X Craft RP")
+BP = Path("addon/BP")
+RP = Path("addon/RP")
 IMAGE_SUFFIXES = (".png", ".tga", ".jpg", ".jpeg", ".dds")
 
 

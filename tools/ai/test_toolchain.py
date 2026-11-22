@@ -45,22 +45,26 @@ class ToolchainTests(unittest.TestCase):
             "minecraft:geometry": [{"description": {"identifier": "geometry.tile"}, "bones": []}],
         }), encoding="utf-8")
         texture = self.root / "tile.png"
-        texture.write_bytes((self.root / RP / "textures/items/flashlight_off.png").read_bytes())
+        texture.write_bytes((self.root / RP / "textures/blocks/quartz_bricks.png").read_bytes())
         self.assertEqual(self.call_cli("catalog", "--directory", ".", "--query", "geometry.tile")["total"], 1)
 
-        row = {"id": "paradise:tile", "model": "tile.geo.json", "geometry": "geometry.tile", "texture": "tile.png"}
-        variant = {**row, "id": "paradise:tile_variant"}
-        self.write_spec({"blocks": [row, variant], "dimensions": [{"id": "paradise:test_void"}]})
+        row = {"id": "paradise:tile", "model": "tile.geo.json", "geometry": "geometry.tile", "texture": "tile.png",
+               "provenance": [{"vanilla_path": "resource_pack/textures/blocks/quartz_bricks.png"}]}
+        variant = {**row, "id": "paradise:tile_variant", "geometry_owner": "paradise:tile"}
+        vanilla = self.root / "resource_pack/textures/blocks/quartz_bricks.png"
+        vanilla.parent.mkdir(parents=True)
+        vanilla.write_bytes(texture.read_bytes())
+        self.write_spec({"vanilla_root": ".", "blocks": [row, variant], "dimensions": [{"id": "paradise:test_void"}]})
         arguments = ("scaffold", "--spec", str(self.spec))
         preview = self.call_cli(*arguments)
-        self.assertEqual(preview["total"], 7)
+        self.assertEqual(preview["total"], 8)
         self.assertFalse((self.root / BP / "blocks").exists())
         self.assertEqual(self.call_cli(*arguments, "--apply")["items"], preview["items"])
         second = self.call_cli(*arguments, "--apply")
         self.assertEqual({item["action"] for item in second["items"]}, {"unchanged"})
         self.assertEqual(self.call_cli("validate", "--skip-typecheck")["checks"]["cross_links"]["errors"], 0)
 
-        texture.write_bytes(texture.read_bytes() + b"changed")
+        texture.write_bytes((self.root / RP / "textures/blocks/concrete_gray.png").read_bytes())
         self.call_cli(*arguments, "--apply", status=1)
         (self.root / RP / "textures/blocks/paradise__tile.png").unlink()
         report = self.call_cli("validate", "--skip-typecheck", status=1)

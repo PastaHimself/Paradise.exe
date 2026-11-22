@@ -8,8 +8,8 @@ from tools.validate_addon import AddonValidator
 
 class AddonValidatorTests(unittest.TestCase):
     def make_pack_pair(self, root: Path) -> tuple[Path, Path]:
-        bp = root / "addon" / "Genshin X Craft BP"
-        rp = root / "addon" / "Genshin X Craft RP"
+        bp = root / "addon" / "BP"
+        rp = root / "addon" / "RP"
         (bp / "scripts").mkdir(parents=True)
         (bp / "structures" / "paradise" / "demo").mkdir(parents=True)
         (rp / "textures" / "particle" / "paradise").mkdir(parents=True)

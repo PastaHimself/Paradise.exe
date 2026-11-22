@@ -71,8 +71,14 @@ class WorkflowTests(unittest.TestCase):
         })
         args = ("scaffold", "--from-directory", "exports", "--namespace", "decor")
         self.assertEqual(self.call_cli(*args, status=1)["paired_blocks"], 0)
-        texture = ROOT / RP / "textures/items/flashlight_off.png"
+        texture = ROOT / RP / "textures/blocks/quartz_bricks.png"
         (self.root / "exports/tile.png").write_bytes(texture.read_bytes())
+        vanilla = self.root / "resource_pack/textures/blocks/quartz_bricks.png"
+        vanilla.parent.mkdir(parents=True)
+        vanilla.write_bytes(texture.read_bytes())
+        self.write_json("exports/tile.png.provenance.json", {
+            "vanilla_root": ".", "provenance": [{"vanilla_path": "resource_pack/textures/blocks/quartz_bricks.png"}],
+        })
         self.assertEqual(self.call_cli(*args)["paired_blocks"], 1)
         self.assertFalse((self.root / BP / "blocks").exists())
         self.call_cli(*args, "--apply")

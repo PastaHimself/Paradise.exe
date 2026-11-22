@@ -139,7 +139,7 @@ function vanillaFallbackReason(diagnostic) {
     const spawnEgg = VANILLA_SPAWN_EGG_BY_ENTITY.get(fileName);
     if (
       spawnEgg &&
-      file.includes('/Genshin X Craft RP/entity/') &&
+      file.includes('/RP/entity/') &&
       message.includes(`"${spawnEgg}"`)
     ) {
       return `vanilla spawn-egg texture alias ${spawnEgg}`;
@@ -150,7 +150,7 @@ function vanillaFallbackReason(diagnostic) {
     const animation = VANILLA_ANIMATION_BY_ENTITY.get(fileName);
     if (
       animation &&
-      file.includes('/Genshin X Craft RP/entity/') &&
+      file.includes('/RP/entity/') &&
       message.includes(animation)
     ) {
       return `vanilla client animation ${animation}`;
@@ -159,7 +159,7 @@ function vanillaFallbackReason(diagnostic) {
 
   if (
     code === 'resourcepack.texture.missing' &&
-    file.endsWith('/Genshin X Craft RP/textures/terrain_texture.json')
+    file.endsWith('/RP/textures/terrain_texture.json')
   ) {
     for (const texture of VANILLA_TERRAIN_TEXTURES) {
       if (message.includes(texture)) {

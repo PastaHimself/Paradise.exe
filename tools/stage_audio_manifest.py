@@ -86,7 +86,7 @@ def encoded_outputs(
 ) -> tuple[list[str], list[float]]:
     if not cleared:
         return [], []
-    base = f"addon/Genshin X Craft RP/sounds/paradise_audio/{pack_id}/{asset_id}"
+    base = f"addon/RP/sounds/paradise_audio/{pack_id}/{asset_id}"
     max_segment = float(compression.get("max_bed_segment_seconds") or 0)
     if role != "looping_bed" or not duration_seconds or max_segment <= 0:
         return [f"{base}.ogg"], [duration_seconds] if duration_seconds else []

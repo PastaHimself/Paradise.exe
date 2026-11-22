@@ -122,7 +122,7 @@ class MCStructureValidatorTests(unittest.TestCase):
     def test_structure_tree_reports_every_mcstructure(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)
-            structures = root / "addon" / "Genshin X Craft BP" / "structures" / "paradise" / "test"
+            structures = root / "addon" / "BP" / "structures" / "paradise" / "test"
             structures.mkdir(parents=True)
             (structures / "one.mcstructure").write_bytes(build_mcstructure())
             (structures / "two.mcstructure").write_bytes(build_mcstructure(size=(2, 1, 1)))

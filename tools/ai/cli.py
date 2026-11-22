@@ -73,7 +73,34 @@ def options():
     scan.add_argument("--directory", type=Path, required=True, help="Model export directory, repo-relative or absolute")
     scan.add_argument("--texture-dir", type=Path, help="Optional separate texture directory")
     scan.add_argument("--query", default="", help="Case-insensitive substring of model path or geometry ID")
-    scaffold = commands.add_parser("scaffold", help="Plan a JSON batch of blocks and dimensions", allow_abbrev=False)
+    scaffold = commands.add_parser(
+        "scaffold", help="Plan a JSON batch of blocks and dimensions", allow_abbrev=False,
+        formatter_class=argparse.RawDescriptionHelpFormatter, epilog="""Verified block spec example:
+{
+  "vanilla_root": "/path/to/Mojang-bedrock-samples-v1.26.50.4",
+  "blocks": [{
+    "id": "paradise:sample", "model": "/path/to/sample.geo.json",
+    "texture": "/path/to/sample.png", "batch": "shared",
+    "geometry_mode": "S", "rotation": "C", "rotation_offset": 0.0,
+    "collision_box": false, "sound": "stone",
+    "provenance": [{"vanilla_path": "resource_pack/textures/blocks/quartz_bricks.png"}],
+    "index": {"ticket": 0, "asset": "sample", "state": "base"}
+  }]
+}
+Source/atlas rectangles are [x, y, width, height]; omit them for whole images.
+For the known Preview-only calcite tile set the provenance tile's "fallback"
+to "resource_pack/textures/blocks/quartz_bricks.png" to stage those pixels.
+Use "source_geometry" to select one geometry from a multi-geometry export.
+Reuse identical staged shapes through "geometry_owner": "paradise:sample".
+Geometry mode is "1" (one cell, default) or "S" (numbered cell segments).
+Read placements.items[].segments for generated IDs and rotated XYZ offsets.
+Rotation is fixed ("F", default) or cardinal ("C"). For collision, use booleans,
+origin/size, or min/max arrays. "allow_tall_collision": true enables 24 units.
+"texture_path" reuses an existing RP bitmap with stable source bytes or proof.
+Directory imports read these options from <texture>.provenance.json, with
+provenance and vanilla_root required. New PNG atlas checks require Pillow.
+""",
+    )
     source = scaffold.add_mutually_exclusive_group(required=True)
     source.add_argument("--spec", type=Path, help="Path to a batch JSON file")
     source.add_argument("--from-directory", type=Path, help="Batch-import geometry exports with unique same-stem textures")
@@ -267,7 +294,7 @@ def filter_spec(spec, args):
     ids = {part.strip() for part in args.ids.split(",") if part.strip()} if args.ids else None
     if ids is None and args.batch is None:
         return spec
-    filtered = {}
+    filtered = dict(spec)
     for key in ("blocks", "dimensions"):
         rows = spec.get(key, [])
         kept = [row for row in rows
@@ -352,7 +379,8 @@ def run(args):
                 if errors:
                     return True, {"mode": mode, "paired_blocks": len(spec["blocks"]), "diagnostics": page(errors, args)}
             plan, warnings = build_plan(root, spec, lambda: script_index(root))
-            report = {"mode": mode, "warnings": warnings, **page(plan.summary(), args)}
+            report = {"mode": mode, "warnings": warnings, "placements": page(plan.placements, args),
+                      **page(plan.summary(), args)}
             if args.from_directory:
                 report["paired_blocks"] = len(spec["blocks"])
             if args.apply:

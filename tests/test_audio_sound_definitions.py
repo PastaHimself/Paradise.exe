@@ -17,8 +17,8 @@ class SoundDefinitionGenerationTests(unittest.TestCase):
                     "pack": "wind",
                     "license_status": "cleared",
                     "output_paths": [
-                        "addon/Genshin X Craft RP/sounds/paradise_audio/wind/wind_001_segment_001.ogg",
-                        "addon/Genshin X Craft RP/sounds/paradise_audio/wind/wind_001_segment_002.ogg",
+                        "addon/RP/sounds/paradise_audio/wind/wind_001_segment_001.ogg",
+                        "addon/RP/sounds/paradise_audio/wind/wind_001_segment_002.ogg",
                     ],
                 }
             ],

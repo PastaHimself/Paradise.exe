@@ -15,9 +15,9 @@ class AudioStagingTests(unittest.TestCase):
         )
 
         self.assertEqual(outputs, [
-            "addon/Genshin X Craft RP/sounds/paradise_audio/old_locations/old_locations_001_halls_segment_001.ogg",
-            "addon/Genshin X Craft RP/sounds/paradise_audio/old_locations/old_locations_001_halls_segment_002.ogg",
-            "addon/Genshin X Craft RP/sounds/paradise_audio/old_locations/old_locations_001_halls_segment_003.ogg",
+            "addon/RP/sounds/paradise_audio/old_locations/old_locations_001_halls_segment_001.ogg",
+            "addon/RP/sounds/paradise_audio/old_locations/old_locations_001_halls_segment_002.ogg",
+            "addon/RP/sounds/paradise_audio/old_locations/old_locations_001_halls_segment_003.ogg",
         ])
         self.assertEqual(durations, [8, 8, 1])
 

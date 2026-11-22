@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-RP_NAME = "Genshin X Craft RP"
+RP_NAME = "RP"
 BASE_RENDER_CONTROLLERS = frozenset({"controller.render.item_default"})
 
 

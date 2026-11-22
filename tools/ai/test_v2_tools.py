@@ -62,11 +62,18 @@ class V2ToolTests(unittest.TestCase):
         self.assertTrue(all(row["name"] == "@minecraft/server.system.runInterval" for row in api["items"]))
 
     def test_audit_flags_beta_pins_engine_and_script_dimensions(self):
+        # Exercise the below-target warning independently of HEAD's actual engine floor.
+        manifest = read_json(self.root / BP / "manifest.json")
+        manifest["header"]["min_engine_version"] = [1, 26, 20]
+        self.write_json(BP / "manifest.json", manifest)
         report = self.call_cli("audit", "--limit", "500", status=1)
         manifest_messages = [finding["message"] for finding in report["checks"]["manifest"]["warnings"]]
         self.assertTrue(any("@minecraft/server" in message and "beta" in message for message in manifest_messages))
         self.assertTrue(any("@minecraft/server-ui" in message and "beta" in message for message in manifest_messages))
         self.assertTrue(any("min_engine_version" in message and "1.26.50" in message for message in manifest_messages))
+        stable_gap = next(finding for finding in report["checks"]["scripts"]["warnings"]
+                          if "world.beforeEvents.chatSend" in finding["message"])
+        self.assertEqual(stable_gap["count"], 7)
         dimensions = report["checks"]["dimensions"]
         self.assertEqual(dimensions["info"]["script_registered"], 7)
         self.assertEqual(len(dimensions["warnings"]), 7)
@@ -152,8 +159,8 @@ class V2ToolTests(unittest.TestCase):
             "format_version": "1.12.0",
             "minecraft:geometry": [{"description": {"identifier": "geometry.tile"}, "bones": []}],
         })
-        (self.root / "tile.png").write_bytes((self.root / RP / "textures/items/flashlight_off.png").read_bytes())
-        base = {"model": "tile.geo.json", "geometry": "geometry.tile", "texture": "tile.png"}
+        base = {"model": "tile.geo.json", "geometry": "geometry.tile",
+                "texture_path": "textures/blocks/quartz_bricks"}
         spec = {"blocks": [
             {**base, "id": "paradise:tile_a", "batch": "kit_a", "collision_box": {"width": 0.5, "height": 1.0},
              "selection_box": True, "light_emission": 14, "friction": 0.6, "sound": "stone",
@@ -169,8 +176,8 @@ class V2ToolTests(unittest.TestCase):
         self.assertFalse((self.root / BP / "blocks").exists())
         self.call_cli("scaffold", "--spec", str(spec_path), "--batch", "kit_a", "--apply")
         block = read_json(self.root / BP / "blocks/paradise__tile_a.json")["minecraft:block"]["components"]
-        self.assertEqual(block["minecraft:collision_box"], {"width": 0.5, "height": 1.0})
-        self.assertEqual(block["minecraft:selection_box"], {"width": 1.0, "height": 1.0})
+        self.assertEqual(block["minecraft:collision_box"], {"origin": [-0.25, 0, -0.25], "size": [0.5, 1.0, 0.5]})
+        self.assertIs(block["minecraft:selection_box"], True)
         self.assertEqual(block["minecraft:light_emission"], 14)
         self.assertEqual(block["minecraft:friction"], 0.6)
         self.assertEqual(block["minecraft:sound"], "stone")

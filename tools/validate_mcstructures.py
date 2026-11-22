@@ -328,7 +328,7 @@ def validate_mcstructure_file(path: Path, *, include_blocks: bool = False) -> di
 
 def validate_structure_tree(root: Path) -> dict[str, Any]:
     root = root.resolve()
-    structure_root = root / "addon" / "Genshin X Craft BP" / "structures"
+    structure_root = root / "addon" / "BP" / "structures"
     errors: list[str] = []
     warnings: list[str] = []
     structures: list[dict[str, Any]] = []
