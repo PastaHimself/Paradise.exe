@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "paradise:cat_seal_warn_incised_seal"
+    },
+    "components": {
+      "minecraft:tags": [
+        "paradise:static_decor"
+      ],
+      "minecraft:collision_box": false,
+      "minecraft:geometry": "geometry.paradise.cat_seal_warn_incised_seal",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "paradise__cat_seal_warn_incised_seal",
+          "render_method": "opaque",
+          "ambient_occlusion": 1.0
+        }
+      }
+    }
+  }
+}
