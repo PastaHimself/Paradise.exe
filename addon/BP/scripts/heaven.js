@@ -23,6 +23,11 @@ import {
 } from "./dimension_horror_rules.js";
 import { getCachedPlayers } from "./paradise_tick_cache.js";
 import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
+import {
+  exitFrames,
+  restStationPlan,
+  restStations,
+} from "./heaven_scene.js";
 import { playersIntersectStructureBounds } from "./paradise_visual_geometry.js";
 
 export const HEAVEN_DIMENSION_ID = "heaven:the_heaven";
@@ -314,9 +319,24 @@ function placeHeavenRestStation(dim, spawn, playerId = undefined) {
     }
   } catch (_error) {}
 
+  stageRestTwin(dim, x, z);
+
+  for (const frame of exitFrames(x, z + 2)) {
+    setBlockTypeSafe(dim, { x: frame.x, y: frame.y, z: frame.z }, frame.block);
+  }
+
   if (playerId) {
     const ruleState = getHeavenTrustState(playerId);
     ruleState.restLocation = center;
+  }
+}
+
+function stageRestTwin(dim, x, z) {
+  for (const station of restStations(x, z)) {
+    const disturbed = station.id === "disturbed";
+    for (const entry of restStationPlan(station.offsetX + x, station.z, station.blocks, disturbed)) {
+      setBlockTypeSafe(dim, { x: entry.x, y: entry.y, z: entry.z }, entry.block);
+    }
   }
 }
 

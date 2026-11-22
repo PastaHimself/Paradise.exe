@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "paradise:hv_smooth_white_wall_panel_ve"
+    },
+    "components": {
+      "minecraft:tags": [
+        "paradise:static_decor"
+      ],
+      "minecraft:collision_box": true,
+      "minecraft:geometry": "geometry.paradise.hv_smooth_white_wall_panel_ve",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "paradise__hv_smooth_white_wall_panel_ve",
+          "render_method": "opaque",
+          "ambient_occlusion": 1.0
+        }
+      }
+    }
+  }
+}
