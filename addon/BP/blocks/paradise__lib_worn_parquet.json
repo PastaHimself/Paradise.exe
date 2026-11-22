@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "paradise:lib_worn_parquet"
+    },
+    "components": {
+      "minecraft:tags": [
+        "paradise:static_decor"
+      ],
+      "minecraft:collision_box": false,
+      "minecraft:geometry": "geometry.paradise.lib_worn_parquet",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "paradise__lib_worn_parquet",
+          "render_method": "opaque",
+          "ambient_occlusion": 1.0
+        }
+      }
+    }
+  }
+}
