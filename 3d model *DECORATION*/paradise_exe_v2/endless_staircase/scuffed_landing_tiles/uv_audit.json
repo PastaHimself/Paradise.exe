@@ -1,0 +1,650 @@
+[
+  {
+    "uuid": "2e7b194b-2395-8459-b150-85d1f1273f18",
+    "name": "tile_0_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          16,
+          1
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          16,
+          1
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "0a8cd964-a745-40d1-808f-e7f6bfbebbd7",
+    "name": "tile_0_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          16,
+          1
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          16,
+          1
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "64b2901c-5fa5-4a47-b1c6-cca8a05aefd8",
+    "name": "tile_1_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          16,
+          1
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          16,
+          1
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "cae26101-3449-0d27-b59e-bd11135aa706",
+    "name": "tile_1_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          16,
+          1
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          16,
+          1
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          16,
+          16
+        ],
+        "rotation": 0,
+        "texture": "1e02e425-aafe-a410-a009-6da815da5ee9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1e02e425-aafe-a410-a009-6da815da5ee9",
+          "name": "scuffed_landing_tiles"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          16,
+          16
+        ],
+        "frame_size": [
+          16,
+          16
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

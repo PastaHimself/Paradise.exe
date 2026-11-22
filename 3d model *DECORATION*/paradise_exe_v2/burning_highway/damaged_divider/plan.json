@@ -1,0 +1,38 @@
+{
+  "reference": "https://online-pdh.com/concrete-barrier-impact-damage-spalling-rebar/",
+  "used": "severe vehicle crash impact damage on highway concrete Jersey barrier with massive front spalling cavity, fractured inner aggregate, exposed bent rebar grid, pavement spall rubble, and sheared connection pin",
+  "limitations": [
+    "modular 16-unit length damaged median divider segment with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_gray, stonebrick_cracked, raw_iron_block, and iron_block pixels unchanged; static damage geometry; no vehicle collision physics"
+  ],
+  "materials": {
+    "concrete": [
+      0,
+      0,
+      "concrete_gray.png",
+      32,
+      32
+    ],
+    "cracked_concrete": [
+      32,
+      0,
+      "stonebrick_cracked.png",
+      16,
+      16
+    ],
+    "rebar": [
+      48,
+      0,
+      "raw_iron_block.png",
+      16,
+      16
+    ],
+    "steel": [
+      32,
+      16,
+      "iron_block.png",
+      16,
+      16
+    ]
+  }
+}

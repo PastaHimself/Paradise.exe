@@ -1,0 +1,47 @@
+{
+  "target": "Bedrock Block; low-end mobile; static; one thin poster cube",
+  "geometry": "16 x 28 x .125 model units; flat mounting back z=8; <=12 triangles",
+  "shading": "opaque vanilla image atlas; no PBR",
+  "density": "1 px/unit; 32x32 atlas",
+  "reference": "https://www.mackinac.org/9070",
+  "reference_image": "../../references/corridor_poster.jpg",
+  "reference_notes": "portrait-format office corridor display, flat wall mounting; artwork is not copied from the photograph",
+  "vanilla_sources": [
+    "painting/kz.png",
+    "blocks/quartz_block_side.png"
+  ],
+  "states": {
+    "normal": {
+      "crop": [
+        0,
+        64,
+        16,
+        96
+      ],
+      "uv_rotation": 0
+    },
+    "upside_down": {
+      "crop": [
+        0,
+        64,
+        16,
+        96
+      ],
+      "uv_rotation": 180
+    },
+    "altered": {
+      "crop": [
+        16,
+        64,
+        32,
+        96
+      ],
+      "uv_rotation": 0
+    }
+  },
+  "limitations": [
+    "vanilla painting portraits substitute for printed notices",
+    "no custom slogans, labels, new pixels or recolor",
+    "upside-down state uses native face UV rotation, PNG pixels unchanged"
+  ]
+}

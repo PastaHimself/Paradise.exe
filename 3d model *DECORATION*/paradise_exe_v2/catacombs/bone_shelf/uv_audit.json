@@ -1,0 +1,3242 @@
+[
+  {
+    "uuid": "2a267abb-9b36-ca06-701e-e34cb41ae195",
+    "name": "base_wall",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          4.5,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          4.5,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          4.5,
+          2
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          4.5,
+          2
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e5f2c712-3a52-5225-ab8a-cf2390d0fa2e",
+    "name": "shelf_slab",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          8.75,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          6.125,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          8.75,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          6.125,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          8.75,
+          2.125
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          8.75,
+          2.125
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "11151f55-694d-7af4-4045-81956e267a9f",
+    "name": "pier_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          2,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          2,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          2
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          2
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "3d5357c1-6f15-0774-e129-d99ad4ad6c40",
+    "name": "pier_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          2,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          2,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          2
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          2
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "60c1bcb2-5c0a-60ae-a750-600f2fc9754d",
+    "name": "back_wall",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          7.5,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          7.5,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          7.5,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          7.5,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "38db8ae2-5d81-1b0d-155c-c01ed1bae88b",
+    "name": "top_lintel",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          4.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          4.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          4.75,
+          2
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          4.75,
+          2
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6bde242e-c895-4f67-0dff-c044339d082a",
+    "name": "tier1_bones",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          0.925
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          9.425,
+          0.925
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          0.925
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          9.425,
+          0.925
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a46e4398-15e8-bbe9-e737-00f38f645c82",
+    "name": "mid_shelf",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          7.5,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          5.525,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          7.5,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          5.525,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          7.5,
+          1.525
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          7.5,
+          1.525
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "bbc2dc88-c49f-878f-db11-bc25ffa02133",
+    "name": "skull_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.7499999999999998
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.7499999999999998
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.7499999999999998
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.7499999999999998
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6b88158a-d936-4b15-587e-1383a836f73b",
+    "name": "skull_mid",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.8
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.8
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.8
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.8
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e1256e58-6556-7d49-f5c0-ab054f7148e4",
+    "name": "skull_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.7499999999999998
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.7499999999999998
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.7499999999999998
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.7499999999999998
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "56e09654-c75b-28c8-386d-bc9ffe32c217",
+    "name": "back_filler",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          0.825
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.825
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          0.825
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.825
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b7a12cf0-7757-fc24-e41e-232f8043d614",
+    "name": "infill_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "4a9585c6-9008-6df1-fab2-bf5bbe813dfb",
+    "name": "infill_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e417f5b4-266d-966f-54ee-6ac7126e1ddf",
+    "name": "infill_outer_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.45,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.45,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.45,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.45,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e5c4fa7a-bc97-503a-831d-1e4489b52d89",
+    "name": "infill_outer_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.45,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.45,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.6500000000000001
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.45,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.45,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "63bc0b08-d140-409e-030d-717862a648b0",
+    "name": "tier4_bones",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          1
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          9.425,
+          1
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          1
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          9.425,
+          1
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          11.5,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "25082a6e-aee7-cf10-6872-69398758c774",
+    "name": "tier5_skulls",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          11.4,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          9.3,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          11.4,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          9.3,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          11.4,
+          1.3
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          11.4,
+          1.3
+        ],
+        "rotation": 0,
+        "texture": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "7c572c4d-63ad-37a5-2d2d-857c5c35cb7f",
+          "name": "bone_shelf"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

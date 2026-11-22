@@ -1,0 +1,2450 @@
+[
+  {
+    "uuid": "91b91cc4-6b86-3e97-c6dd-7186b599b8d2",
+    "name": "base_center",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          5.375,
+          0.15
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          5.375,
+          0.15
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.75,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "03462035-a251-ea1c-5a71-cbf85663934d",
+    "name": "base_north",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5.375,
+          0.15
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.1875,
+          0.15
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.1875,
+          0.15
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c945a9f7-cf7a-281c-a8a2-e6d4c6da6309",
+    "name": "base_south",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.1875,
+          0.15
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          5.375,
+          0.15
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.1875,
+          0.15
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b41c6970-1a60-9cec-ad2f-efc73cbb5624",
+    "name": "base_boss",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1efc664b-9280-a685-2657-d3ddc5d3fd72",
+    "name": "cone_tier1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.1,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1.1,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1.1,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1.1,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.1,
+          1.1
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "fb356423-afdd-7414-8d2a-a65b8cd4e52a",
+    "name": "cone_tier2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.925,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.925,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.925,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.925,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.925,
+          0.925
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "bc34eb87-be58-f7b1-b245-e518bf109486",
+    "name": "cone_collar_lo",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.775,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.775,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.775,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.775,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.775,
+          0.775
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "3e61fbc8-6581-6981-5901-efe3fa4e7d05",
+    "name": "cone_mid_spacer",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.65,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.65,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.65,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.65,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.65,
+          0.65
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "927b3b4a-4dfb-880f-fba0-cb79f428a776",
+    "name": "cone_collar_hi",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.525,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.525,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.525,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.525,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.525,
+          0.525
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "57b12c6b-8e72-2533-0222-43ee9b398e9b",
+    "name": "cone_stem",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.4,
+          0.5625
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.4,
+          0.5625
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.4,
+          0.5625
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.4,
+          0.5625
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "00ff07fb-914b-3259-c2fe-6fcc275da5bf",
+    "name": "top_hole_floor",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.225,
+          0.225
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "fe6a32ab-eaf2-dbb4-bda1-49f6c06379fb",
+    "name": "rim_n",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.475,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.12499999999999999,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.12499999999999999,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.475,
+          0.12499999999999999
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.475,
+          0.12499999999999999
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6f95869b-0364-c8c0-b4ec-97a45732c6bc",
+    "name": "rim_s",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.12499999999999999,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.475,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.12499999999999999,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.475,
+          0.12499999999999999
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.475,
+          0.12499999999999999
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b31b3a38-fe2b-7d03-8dcc-baef0dedd42b",
+    "name": "rim_w",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.225,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.12499999999999999,
+          0.225
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.12499999999999999,
+          0.225
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1bf33dd4-a3d0-9d77-8109-93b37e77c760",
+    "name": "rim_e",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.225,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.12499999999999999,
+          0.225
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.12499999999999999,
+          0.225
+        ],
+        "rotation": 0,
+        "texture": "36080909-6099-12bc-3c62-139f4e1d8f32",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "36080909-6099-12bc-3c62-139f4e1d8f32",
+          "name": "traffic_cone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

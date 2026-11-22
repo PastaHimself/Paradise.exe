@@ -1,0 +1,26 @@
+{
+  "reference": "https://www.nackabyggnadsvard.se/p/el-belysning/bordslampor/bankirlampa-massing-med-gron-skarm-bestallningsvara.html",
+  "used": "wide green downward shade, brass support and broad weighted base",
+  "limitations": [
+    "straight stem and squared shade simplify curved reference",
+    "lit/unlit appearance uses glowstone/concrete_gray pixels; runtime emitted light belongs to pack integration",
+    "state difference is visible under shade; pack lighting is not exported"
+  ],
+  "materials": {
+    "brass": [
+      0,
+      0,
+      "gold_block.png"
+    ],
+    "green": [
+      16,
+      0,
+      "concrete_green.png"
+    ],
+    "light": [
+      0,
+      16,
+      "glowstone.png"
+    ]
+  }
+}

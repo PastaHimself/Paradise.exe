@@ -1,0 +1,2162 @@
+[
+  {
+    "uuid": "447e204a-4cd8-b690-316d-94dfed89358d",
+    "name": "concrete_chunk_main",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.125,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1.125,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.125,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1.125,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e9ca86c6-fbc0-a14e-b460-f65f1c6713a0",
+    "name": "concrete_facet_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.575,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.575,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.575
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.575
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "dccb9237-c1c7-d627-4a03-d700fbc3581f",
+    "name": "bent_metal_plate_flat",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.825,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.875,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.825,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.875,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.825,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.825,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "920118ac-7239-ddc8-c5cf-0766c647a81b",
+    "name": "bent_metal_lip_up",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.2,
+          0.525
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.525
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.2,
+          0.525
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.525
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.2,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.2,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2b8a0250-46f5-ba32-780e-685aa39c2adb",
+    "name": "masonry_brick_shard",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.825,
+          0.55
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.7,
+          0.55
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.825,
+          0.55
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.7,
+          0.55
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.825,
+          0.7
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.825,
+          0.7
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "591d995b-940c-262f-a5f2-7b2817c5e4f1",
+    "name": "gravel_pebble_3",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          4,
+          4.375,
+          4.225
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.375,
+          4.225
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          4,
+          4.375,
+          4.225
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          4,
+          4.375,
+          4.225
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          4.375,
+          4.375
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          4,
+          4.375,
+          4.375
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e159bd24-5c66-c2e4-7555-5bd41099a327",
+    "name": "discarded_can_body",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.5,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.625,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.5,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.625,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.5,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.5,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "81be38c0-e8cc-335b-cc53-9371085b9efa",
+    "name": "discarded_can_rim",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.35000000000000003
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.525,
+          0.35000000000000003
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.35000000000000003
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.525,
+          0.35000000000000003
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.5249999999999999
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.5249999999999999
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "09adbea8-b8c0-f9a0-c2e8-11a6b014e6bc",
+    "name": "plaster_flake_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.75,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.575,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.75,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.575,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.75,
+          4.575
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.75,
+          4.575
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5db6494a-a623-2324-b4f8-e05664595d02",
+    "name": "plaster_flake_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.625,
+          4.5
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.625,
+          4.5
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "7b94982b-8cb7-50ba-d4c3-7a04be4cf8f1",
+    "name": "gravel_pebble_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          4,
+          4.45,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.375,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          4,
+          4.45,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          4,
+          4.375,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          4.45,
+          4.375
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          4,
+          4.45,
+          4.375
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5ca80e84-9d0d-6cbe-debc-7964fb0f46c6",
+    "name": "gravel_pebble_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          4,
+          4.425,
+          4.25
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.5,
+          4.25
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          4,
+          4.425,
+          4.25
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          4,
+          4.5,
+          4.25
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          4.425,
+          4.5
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          4,
+          4.425,
+          4.5
+        ],
+        "rotation": 0,
+        "texture": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c5098ac-8301-5635-da98-4aa83c5e37a1",
+          "name": "small_debris"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

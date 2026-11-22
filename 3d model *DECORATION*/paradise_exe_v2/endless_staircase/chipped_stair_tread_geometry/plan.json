@@ -1,0 +1,32 @@
+{
+  "reference": "https://mass-concrete.com/commercial-precast-concrete-stairs/",
+  "used": "commercial concrete emergency stair tread with fractured leading edge, broken nosing and fallen spall chunk",
+  "limitations": [
+    "16-unit width, 7.5-unit rise, 10-unit run modular stair tread with a 4-unit physical spalled cavity",
+    "culled internal contact planes with zero coplanar z-fighting and zero volume overlaps",
+    "original concrete_gray, concrete_yellow, and stonebrick_cracked pixels unchanged; no physics or pack integration"
+  ],
+  "materials": {
+    "concrete": [
+      0,
+      0,
+      "concrete_gray.png",
+      16,
+      16
+    ],
+    "nosing": [
+      16,
+      0,
+      "concrete_yellow.png",
+      16,
+      16
+    ],
+    "chipped_core": [
+      32,
+      0,
+      "stonebrick_cracked.png",
+      16,
+      16
+    ]
+  }
+}

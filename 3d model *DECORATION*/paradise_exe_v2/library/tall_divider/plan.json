@@ -1,0 +1,53 @@
+{
+  "target": "Bedrock Block; static; balanced <=6 cubes; low-end mobile",
+  "shading": "one opaque vanilla atlas; no PBR",
+  "texel_density": "1 px/unit; 64x64 atlas",
+  "references": [
+    {
+      "url": "https://www.ateliertamplarie.ro/",
+      "image": "../../references/full_bookshelf/joinery.jpg",
+      "used": "bookcase end panel, joined crown/base trim, vertical grain"
+    },
+    {
+      "url": "https://hbasalon.com.au/products/oak-partition-wall-divider-large-80w-x-40d-x-180h-cm",
+      "image": "../../references/library_divider.jpg",
+      "used": "full-height solid panels and transverse supporting feet; simplified to one panel and straight metal feet"
+    }
+  ],
+  "variant": "tall_divider",
+  "materials": [
+    [
+      0,
+      0,
+      32,
+      32,
+      "planks_spruce.png"
+    ],
+    [
+      32,
+      0,
+      32,
+      32,
+      "planks_oak.png"
+    ],
+    [
+      0,
+      32,
+      32,
+      32,
+      "netherite_block.png"
+    ],
+    [
+      32,
+      32,
+      32,
+      32,
+      "iron_block.png"
+    ]
+  ],
+  "limitations": [
+    "static construction only; placement/binding excluded",
+    "straight cuboid metal feet replace curved wood feet"
+  ],
+  "dimensions": "24 x 30 x 6 units; feet remain inside stated footprint"
+}

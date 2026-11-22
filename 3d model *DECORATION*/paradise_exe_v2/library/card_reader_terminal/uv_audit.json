@@ -1,0 +1,3260 @@
+[
+  {
+    "uuid": "749c3c04-2261-fab5-7193-f5ffe748e0b0",
+    "name": "base",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "21db1cf5-adc2-379c-75bf-ad680eb039fe",
+    "name": "display_housing",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.35
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.5,
+          0.35
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.35
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.5,
+          0.35
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b306946c-a10d-7a9b-f922-4ae583115960",
+    "name": "display",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.8,
+          4.0125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.3125,
+          4.0125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.8,
+          4.0125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.3125,
+          4.0125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.8,
+          4.3125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c8b2fd0f-8f72-9f8d-cfef-d7454e642df6",
+    "name": "key_0_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c64e3ed0-7532-f1bd-d4a7-45fa52b627ae",
+    "name": "key_0_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "7df4ea85-28d5-dbcb-8a42-0ba831134adc",
+    "name": "key_0_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "90ee677f-c29f-f00b-428e-e1b8ddb43514",
+    "name": "key_1_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "bd09fc5c-0b82-154d-f1b1-a43acf012515",
+    "name": "key_1_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "3391a95d-1117-ecc8-59ae-2690def103d7",
+    "name": "key_1_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "bc9d2cc4-436f-d5d0-e14c-710536099999",
+    "name": "key_2_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "3ad2aab4-7227-1488-7720-001ea6039be8",
+    "name": "key_2_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "bce585a6-5fd4-5deb-b8d7-9a17ff581495",
+    "name": "key_2_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e59ad892-f733-430a-7ae7-18aa7da28209",
+    "name": "key_3_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          4,
+          4.175,
+          4.03
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.03
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          4,
+          4.175,
+          4.03
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.03
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          4.175,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a8b65abd-410f-a841-2fb2-00e571d44c43",
+    "name": "key_3_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "f32855c7-3b8c-7040-b25b-2fce1ed6fea3",
+    "name": "key_3_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.030000000000000027
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "f1102086-343b-7eb4-0bad-9e973d501762",
+    "name": "slot_lower",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.075
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.05,
+          0.075
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.05,
+          0.075
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.050000000000000044
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.050000000000000044
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "829d71e7-34cb-033f-0916-5c8cd6949b9a",
+    "name": "slot_upper",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.07500000000000001
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.05,
+          0.07500000000000001
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.05,
+          0.07500000000000001
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.050000000000000044
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.050000000000000044
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "85ed6e4a-3746-b972-2763-e7239158b000",
+    "name": "slot_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.09999999999999999
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.05,
+          0.09999999999999999
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.05,
+          0.09999999999999999
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.050000000000000044
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.050000000000000044
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "7f98b31c-f44a-f331-3ffe-1e1262990203",
+    "name": "slot_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.09999999999999999
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.05,
+          0.09999999999999999
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.05,
+          0.09999999999999999
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.050000000000000044
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.050000000000000044
+        ],
+        "rotation": 0,
+        "texture": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f9539bf2-3679-3f2e-0761-05f10eb37dce",
+          "name": "card_reader_terminal"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

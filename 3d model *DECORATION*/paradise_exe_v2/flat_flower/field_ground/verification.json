@@ -1,0 +1,27 @@
+{
+  "outputs_sha256": {
+    "short_grass": "8d109d7f46dc9fe22d32c4375da4707aa7a80c14336a0f158e7e68fe519ad8fc",
+    "flattened_grass_moss_proxy": "d42269319e529043472f214e1a7a76ff5ddbe578ed4ac81864f0a7ed6f7b4812",
+    "dry_grass_straw_proxy": "76c7e0d0ca02643d3fd99874b6cf1157413948d37b6278a027f1c490667d7636",
+    "bare_soil": "34bf03b346c0e86214a32117e3f892529da6b76ca8096347cbb6be3da313deab",
+    "worn_footpath": "4b4ff8a891c707fcdb01129b844b7c87b4d0fe0141da08351be650ee37fac34d"
+  },
+  "native_source_files_byte_identical": true,
+  "embedded_pixels_match": true,
+  "density": "1 original pixel/model unit",
+  "UV_bounds": true,
+  "checker_removed": true,
+  "supported": [
+    "short_grass",
+    "bare_soil",
+    "worn_footpath"
+  ],
+  "blocked_exact": [
+    "flattened grass: no matching trampled-grass surface in local sources",
+    "dry grass ground: no exact dry-grass ground tile in local sources; original hay top supplied as straw proxy"
+  ],
+  "native_save": {
+    "saved": true,
+    "path": "/home/pasta/Downloads/blockbench/paradise_exe_v2/flat_flower/field_ground/flat_flower_field_ground_preview.bbmodel"
+  }
+}

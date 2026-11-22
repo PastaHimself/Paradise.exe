@@ -1,0 +1,24 @@
+{
+  "reference": "https://osha.gov/",
+  "used": "damaged industrial catwalk steel bar grating panel with severe structural rupture, fractured bearing bars, downward bent dangle stub, missing crossbars creating a hazardous fall-through breach, and sheared saddle clips",
+  "limitations": [
+    "modular 16x16 walkway grating with 0 volume overlaps and 0 coplanar z-fighting",
+    "original iron_block and netherite_block pixels unchanged; static damage geometry; no dynamic deformation physics"
+  ],
+  "materials": {
+    "metal": [
+      0,
+      0,
+      "iron_block.png",
+      32,
+      32
+    ],
+    "dark_metal": [
+      32,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

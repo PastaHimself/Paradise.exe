@@ -1,0 +1,54 @@
+{
+  "id": "burning_highway_striped_roadwork_barricade",
+  "reference": "https://mutcd.fhwa.dot.gov/",
+  "used": "MUTCD Type III highway roadwork barricade with square galvanized steel posts, pavement skid runners, riser sockets, three retroreflective orange-and-white 45-degree diagonal striped boards, carriage bolt fasteners, ballast sandbags, and top amber warning flasher",
+  "notes": [
+    "modular 16-unit roadwork barricade with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_orange, concrete_white, iron_block, netherite_block, sand, and gold_block pixels unchanged",
+    "static prop; no physics simulation"
+  ],
+  "materials": {
+    "orange": [
+      0,
+      0,
+      "concrete_orange.png",
+      16,
+      16
+    ],
+    "white": [
+      16,
+      0,
+      "concrete_white.png",
+      16,
+      16
+    ],
+    "galvanized": [
+      32,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      48,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ],
+    "sandbag": [
+      0,
+      16,
+      "sand.png",
+      16,
+      16
+    ],
+    "amber": [
+      16,
+      16,
+      "gold_block.png",
+      16,
+      16
+    ]
+  }
+}

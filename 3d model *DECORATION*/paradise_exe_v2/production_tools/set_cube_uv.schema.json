@@ -1,0 +1,298 @@
+{
+  "name": "set_cube_uv",
+  "title": "Set Cube UV",
+  "description": "Edit box UV offsets/mirroring or per-face rectangles, rotation and texture references in one reversible edit. Preserves untargeted faces and selection. Validates UV mode, texture references and rotation support. Hytale rectangles must retain geometry-linked extents and Auto UV; texture assignments use the project/attachment collection, and quads cannot use box UV. Does not pack islands or repaint textures.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Cube UUID or unique name. Does not use or change selection."
+      },
+      "box_uv": {
+        "type": "boolean",
+        "description": "Explicitly convert UV mode using the native cube operation. Requires optional_box_uv to change mode. Conversion can reset rotations and enable disabled faces."
+      },
+      "uv_offset": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2,
+        "description": "Box UV net offset [u, v]; requires box UV mode."
+      },
+      "mirror_uv": {
+        "type": "boolean",
+        "description": "Mirror the box UV net; requires box UV mode. For per-face mirroring, reverse rectangle endpoints."
+      },
+      "faces": {
+        "type": "object",
+        "properties": {
+          "north": {
+            "type": "object",
+            "properties": {
+              "uv": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[u1, v1, u2, v2] in logical UV units, not necessarily bitmap pixels. Reversed and out-of-bounds rectangles are preserved. Hytale requires extents matching cube face dimensions, swapped for 90/270-degree rotation; offsets and mirroring are supported."
+              },
+              "rotation": {
+                "type": "number",
+                "enum": [
+                  0,
+                  90,
+                  180,
+                  270
+                ],
+                "description": "UV rotation in degrees; nonzero rotation requires format uv_rotation support."
+              },
+              "texture": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "boolean",
+                    "const": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Texture UUID, ID or unique name; false unassigns, null disables the face. Omit to preserve."
+              }
+            },
+            "additionalProperties": false
+          },
+          "east": {
+            "type": "object",
+            "properties": {
+              "uv": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[u1, v1, u2, v2] in logical UV units, not necessarily bitmap pixels. Reversed and out-of-bounds rectangles are preserved. Hytale requires extents matching cube face dimensions, swapped for 90/270-degree rotation; offsets and mirroring are supported."
+              },
+              "rotation": {
+                "type": "number",
+                "enum": [
+                  0,
+                  90,
+                  180,
+                  270
+                ],
+                "description": "UV rotation in degrees; nonzero rotation requires format uv_rotation support."
+              },
+              "texture": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "boolean",
+                    "const": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Texture UUID, ID or unique name; false unassigns, null disables the face. Omit to preserve."
+              }
+            },
+            "additionalProperties": false
+          },
+          "south": {
+            "type": "object",
+            "properties": {
+              "uv": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[u1, v1, u2, v2] in logical UV units, not necessarily bitmap pixels. Reversed and out-of-bounds rectangles are preserved. Hytale requires extents matching cube face dimensions, swapped for 90/270-degree rotation; offsets and mirroring are supported."
+              },
+              "rotation": {
+                "type": "number",
+                "enum": [
+                  0,
+                  90,
+                  180,
+                  270
+                ],
+                "description": "UV rotation in degrees; nonzero rotation requires format uv_rotation support."
+              },
+              "texture": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "boolean",
+                    "const": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Texture UUID, ID or unique name; false unassigns, null disables the face. Omit to preserve."
+              }
+            },
+            "additionalProperties": false
+          },
+          "west": {
+            "type": "object",
+            "properties": {
+              "uv": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[u1, v1, u2, v2] in logical UV units, not necessarily bitmap pixels. Reversed and out-of-bounds rectangles are preserved. Hytale requires extents matching cube face dimensions, swapped for 90/270-degree rotation; offsets and mirroring are supported."
+              },
+              "rotation": {
+                "type": "number",
+                "enum": [
+                  0,
+                  90,
+                  180,
+                  270
+                ],
+                "description": "UV rotation in degrees; nonzero rotation requires format uv_rotation support."
+              },
+              "texture": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "boolean",
+                    "const": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Texture UUID, ID or unique name; false unassigns, null disables the face. Omit to preserve."
+              }
+            },
+            "additionalProperties": false
+          },
+          "up": {
+            "type": "object",
+            "properties": {
+              "uv": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[u1, v1, u2, v2] in logical UV units, not necessarily bitmap pixels. Reversed and out-of-bounds rectangles are preserved. Hytale requires extents matching cube face dimensions, swapped for 90/270-degree rotation; offsets and mirroring are supported."
+              },
+              "rotation": {
+                "type": "number",
+                "enum": [
+                  0,
+                  90,
+                  180,
+                  270
+                ],
+                "description": "UV rotation in degrees; nonzero rotation requires format uv_rotation support."
+              },
+              "texture": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "boolean",
+                    "const": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Texture UUID, ID or unique name; false unassigns, null disables the face. Omit to preserve."
+              }
+            },
+            "additionalProperties": false
+          },
+          "down": {
+            "type": "object",
+            "properties": {
+              "uv": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[u1, v1, u2, v2] in logical UV units, not necessarily bitmap pixels. Reversed and out-of-bounds rectangles are preserved. Hytale requires extents matching cube face dimensions, swapped for 90/270-degree rotation; offsets and mirroring are supported."
+              },
+              "rotation": {
+                "type": "number",
+                "enum": [
+                  0,
+                  90,
+                  180,
+                  270
+                ],
+                "description": "UV rotation in degrees; nonzero rotation requires format uv_rotation support."
+              },
+              "texture": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "boolean",
+                    "const": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "Texture UUID, ID or unique name; false unassigns, null disables the face. Omit to preserve."
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false,
+        "description": "Patch only these faces in per-face UV mode. Other faces are preserved. Explicit rectangles disable automatic UV remapping except in Hytale, where dimension-linked UVs retain native Auto UV. Hytale textures resolve through the project/attachment collection, so only null is accepted as an explicit face texture."
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "additionalProperties": false,
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
+  },
+  "annotations": {
+    "title": "Set Cube UV",
+    "destructiveHint": true,
+    "openWorldHint": false
+  },
+  "execution": {
+    "taskSupport": "forbidden"
+  }
+}

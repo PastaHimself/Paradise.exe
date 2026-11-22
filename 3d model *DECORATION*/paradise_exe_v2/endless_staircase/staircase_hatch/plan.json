@@ -1,0 +1,45 @@
+{
+  "reference": "https://bilco.com/",
+  "used": "commercial industrial companionway floor and deck access hatch with heavy curb, overhanging lid with drip lip, counterbalance spring operator cylinder, strap hinges, recessed lift handle, and slam latch hasp",
+  "limitations": [
+    "modular 16x16 floor hatch fitting standard block opening with 0 volume overlaps and 0 coplanar z-fighting",
+    "original iron_block, cauldron_side, netherite_block, and concrete_black pixels unchanged; static closed hatch; no dynamic opening physics"
+  ],
+  "materials": {
+    "curb": [
+      0,
+      0,
+      "iron_block.png",
+      32,
+      32
+    ],
+    "lid": [
+      32,
+      0,
+      "cauldron_side.png",
+      32,
+      32
+    ],
+    "dark_metal": [
+      0,
+      32,
+      "netherite_block.png",
+      16,
+      16
+    ],
+    "metal": [
+      16,
+      32,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "void": [
+      32,
+      32,
+      "concrete_black.png",
+      16,
+      16
+    ]
+  }
+}

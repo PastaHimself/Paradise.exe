@@ -1,0 +1,52 @@
+{
+  "reference": "https://www.istockphoto.com/search/2/image?phrase=damaged+vehicle+door+accident+wreckage, https://www.dreamstime.com/photos-images/car-crash-wreckage-highway-debris.html",
+  "used": "freeway detached automotive vehicle door with stamped exterior sheet metal skin, beltline contour, recessed interior door card with molded armrest, chrome exterior pull handle, window frame pillars and header, shattered safety glass residue in window run, upper and lower hinge mounts with sheared hinge pins, and latch striker assembly",
+  "limitations": [
+    "modular detached door prop fitting within 30x30x30 bounding box with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_gray, blackstone_top, coal_block, iron_block, raw_iron_block, glass pixels unchanged; static damage geometry; normal and burned variants"
+  ],
+  "materials": {
+    "painted_metal": [
+      0,
+      0,
+      "concrete_gray.png",
+      16,
+      16
+    ],
+    "interior_trim": [
+      16,
+      0,
+      "blackstone_top.png",
+      16,
+      16
+    ],
+    "rubber_seal": [
+      32,
+      0,
+      "coal_block.png",
+      16,
+      16
+    ],
+    "chrome_hardware": [
+      48,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "iron_hardware": [
+      0,
+      16,
+      "raw_iron_block.png",
+      16,
+      16
+    ],
+    "shattered_glass": [
+      16,
+      16,
+      "glass.png",
+      16,
+      16
+    ]
+  }
+}

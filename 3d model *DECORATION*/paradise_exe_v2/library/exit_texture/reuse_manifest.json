@@ -1,0 +1,42 @@
+{
+  "shared_source": "../../yellow_halls/exit_sign_normal/yellow_halls_exit_sign_normal.bbmodel",
+  "shared_geometry": "../../yellow_halls/exit_sign_normal/yellow_halls_exit_sign_normal.geo.json",
+  "reference": "https://www.combicraft.nl/aluminium-deurbordje-archive.html",
+  "materials": [
+    [
+      0,
+      0,
+      32,
+      32,
+      "concrete_green.png"
+    ],
+    [
+      32,
+      0,
+      32,
+      32,
+      "quartz_block_side.png"
+    ],
+    [
+      0,
+      32,
+      32,
+      32,
+      "iron_block.png"
+    ],
+    [
+      32,
+      32,
+      32,
+      32,
+      "concrete_gray.png"
+    ]
+  ],
+  "outputs_sha256": {
+    "library_exit.png": "da18482ed5b780d8acb605196ccf7e5f2c3e919a3b65e3751bcc7b26442a23fb",
+    "preview.png": "097eed294d30390a46779c332d1ee116aac0769449b93c3eaaf6b6599925c3ed",
+    "three_quarter.png": "2da177bf03bb7ecfefd8087184f018fc950538280e34748202ba922f63ca22cd"
+  },
+  "method": "Byte-identical reuse of verified EXIT atlas and actual Blockbench viewport previews; same geometry and UV mapping",
+  "project_tab": "No preview project needed; completed shared source remains closed"
+}

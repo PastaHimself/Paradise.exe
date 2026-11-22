@@ -1,0 +1,2342 @@
+[
+  {
+    "uuid": "5b698213-aec7-de25-16b0-5fd02ede7d36",
+    "name": "base_plinth",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          5.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.25,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          5.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.25,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          5.75,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          5.75,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "435bf64a-fc8d-c03f-a0a6-0576dcd1561f",
+    "name": "chest_body",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          5.5,
+          2
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3,
+          2
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          5.5,
+          2
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3,
+          2
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          5.5,
+          3
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          5.5,
+          3
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5cf411d0-b8b2-e04f-8391-89b2aa29eafe",
+    "name": "frieze_front",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          12.75,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          12.75,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          12.75,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          12.75,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "39000603-6c2a-17f9-e08c-a86994bb0487",
+    "name": "frieze_back",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          12.75,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          12.75,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          12.75,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          12.75,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2e45dd33-c71c-98b0-7015-97a59bd527c4",
+    "name": "frieze_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          10.25,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          10.25,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "48a4cdd5-bb55-fa93-39a6-898cbc00b3c9",
+    "name": "frieze_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          10.25,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          10.25,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9f80285e-aa4b-2087-b191-a98c20957294",
+    "name": "lid_cornice",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          5.9,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.4,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          5.9,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.4,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          5.9,
+          3.4
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          5.9,
+          3.4
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "381dbb33-be02-2862-45eb-86b789466c4e",
+    "name": "lid_mid_tier",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          9.2,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          6.7,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          9.2,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          6.7,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          9.2,
+          2.7
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          9.2,
+          2.7
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6f426710-5c13-ade2-5ce7-c741fde6e973",
+    "name": "lid_ridge",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          4.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          4.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          4.75,
+          2
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          4.75,
+          2
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a135e5c2-6cbc-cfe0-ebe7-6b83b49a287e",
+    "name": "acroterion_nw",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6b61428c-3e4a-0066-8055-647da0908aec",
+    "name": "acroterion_ne",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9e4249e1-c122-ba2b-5b88-0cf22f3ff467",
+    "name": "acroterion_sw",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "13531260-7263-934f-fef0-dab689389e4b",
+    "name": "acroterion_se",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cad671c5-dc20-b906-eb73-41435724c008",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cad671c5-dc20-b906-eb73-41435724c008",
+          "name": "closed_sarcophagus"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

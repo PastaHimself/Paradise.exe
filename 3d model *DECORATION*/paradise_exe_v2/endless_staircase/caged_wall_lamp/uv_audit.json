@@ -1,0 +1,3305 @@
+[
+  {
+    "uuid": "6dd97695-40a0-c70c-76bf-add9315cf022",
+    "name": "backplate",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          2
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          2
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "340e46a4-fff5-3b93-02a1-f780019174cb",
+    "name": "conduit_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "4fec7405-6f4a-b76f-3c05-7c5d4cecc5a6",
+    "name": "conduit_bottom",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1a3e1548-200c-9238-297f-37eb827be36e",
+    "name": "screw_tl",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.0625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          4,
+          4.0625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.0625
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.0625
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d19a947f-8432-7639-b372-5c117c2aee37",
+    "name": "screw_tr",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.0625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          4,
+          4.0625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.0625
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.0625
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "99b19b22-e684-6aa2-cffe-e1d00053cb7c",
+    "name": "screw_bl",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.0625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          4,
+          4.0625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.0625
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.0625
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "8d7c7a01-7cc1-3442-2621-02d4ea8d26e2",
+    "name": "screw_br",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.0625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          4,
+          4.0625,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.0625
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          4,
+          4.125,
+          4.0625
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "174e8bce-fcf9-f9a9-3976-b044509b15ce",
+    "name": "socket_collar",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.375,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.375,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1.375,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c907c366-5b8f-bde1-9156-0b523a473d61",
+    "name": "lamp_globe",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5,
+          1
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          1
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          1
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a7b4b2a0-c131-a26c-911a-51d8337a4dd0",
+    "name": "cage_rib_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.9375,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.9375,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.9375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.9375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "15d8e8ec-bcf5-3474-a717-91969b322e9c",
+    "name": "cage_rib_bottom",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.9375,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.9375,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.9375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.9375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2e58d75f-d467-de96-3de1-785690ff7d16",
+    "name": "cage_rib_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.9375,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.9375,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.9375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.9375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a51260ae-dac8-ee9b-7f5f-2174ed58cbfa",
+    "name": "cage_rib_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.9375,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.9375,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.9375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.9375
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1f50087e-fce6-a0d6-ad8a-656a1c13d006",
+    "name": "cage_front_vert",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          5.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          5.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          5.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          5.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1fd3e359-8401-02ae-cbdf-659769b207ef",
+    "name": "cage_front_horiz_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "8882a292-2ddf-6f7e-e33b-d0fb27707e66",
+    "name": "cage_front_horiz_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.5,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "17e50574-2ecb-18a2-566c-55528b4a18c9",
+    "name": "cage_front_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "fbd4c019-25c3-c9fe-28ec-59f9a4bdc13d",
+    "name": "cage_front_bottom",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "58e2b11d-add2-a257-e93d-d26203de2974",
+    "name": "cage_front_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "86286743-72a8-0d7e-f46b-2f6d1e1826cb",
+    "name": "cage_front_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a026c5fb-ae6d-feaf-74a2-9a0023058db9",
+          "name": "caged_wall_lamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

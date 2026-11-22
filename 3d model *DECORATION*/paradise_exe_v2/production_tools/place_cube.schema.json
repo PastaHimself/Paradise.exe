@@ -1,0 +1,210 @@
+{
+  "name": "place_cube",
+  "title": "Place Cube",
+  "description": "Creates cubes in one reversible edit. Texture and group are optional, allowing untextured blockouts. Explicit face targets never use the current UV selection; partial/custom faces require per-face UV support. Elements accept inflate, plus uv_offset and mirror_uv for box UV cubes; unknown element fields are rejected. Cubes the format's size limiter rejects (for example Java Block elements outside -16…32) are refused and nothing is created, unless Blockbench's Deactivate Size Limit setting is on.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "elements": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "origin": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Pivot point of the cube.",
+              "default": [
+                0,
+                0,
+                0
+              ]
+            },
+            "from": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Starting point of the cube.",
+              "default": [
+                0,
+                0,
+                0
+              ]
+            },
+            "to": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Ending point of the cube.",
+              "default": [
+                1,
+                1,
+                1
+              ]
+            },
+            "rotation": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Rotation of the cube.",
+              "default": [
+                0,
+                0,
+                0
+              ]
+            },
+            "inflate": {
+              "type": "number",
+              "description": "Grows the cube by this amount on every side without changing from/to."
+            },
+            "uv_offset": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "description": "Box UV net offset [u, v]. Requires box UV."
+            },
+            "mirror_uv": {
+              "type": "boolean",
+              "description": "Mirror the box UV net. Requires box UV; for per-face mirroring, reverse the face rectangle endpoints."
+            },
+            "shade": {
+              "type": "boolean",
+              "description": "Whether to apply shading to the cube. Java 26.3+ projects ignore this flag; shade=false is mapped to shade_direction_override 'up' there, matching Blockbench's own import."
+            },
+            "shade_direction_override": {
+              "type": "string",
+              "enum": [
+                "",
+                "north",
+                "south",
+                "west",
+                "east",
+                "up",
+                "down"
+              ],
+              "description": "Java Edition 26.3+ shade direction override: the face direction whose lighting shade is applied to every face. '' removes the override. Replaces the boolean shade flag in formats with java_cube_shade_direction_override (new Java Block projects default to 26.3)."
+            },
+            "light_emission": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 15,
+              "description": "Block light emitted by the cube (0-15). Exported by Java Block formats."
+            }
+          },
+          "required": [
+            "name"
+          ],
+          "additionalProperties": false
+        },
+        "minItems": 1,
+        "description": "Array of cubes to place, with optional Java shading fields."
+      },
+      "texture": {
+        "type": "string",
+        "description": "Texture UUID, ID or name. When omitted, uses the default texture if one exists; otherwise creates untextured cubes."
+      },
+      "group": {
+        "type": "string",
+        "description": "Parent group UUID or unique name, or root (default). Missing or ambiguous names are rejected."
+      },
+      "faces": {
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "north",
+                "south",
+                "east",
+                "west",
+                "up",
+                "down"
+              ]
+            },
+            "description": "Array of faces to apply the texture to."
+          },
+          {
+            "anyOf": [
+              {
+                "not": {}
+              },
+              {
+                "type": "boolean"
+              }
+            ],
+            "description": "true applies texture to all faces with Auto UV; false skips texture assignment and disables Auto UV except in Hytale, which requires Auto UV 1."
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "face": {
+                  "type": "string",
+                  "enum": [
+                    "north",
+                    "south",
+                    "east",
+                    "west",
+                    "up",
+                    "down"
+                  ],
+                  "description": "Face to apply the texture to."
+                },
+                "uv": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 4,
+                  "maxItems": 4,
+                  "description": "Custom UV rectangle. Hytale requires absolute width/height to match the cube's face dimensions: north/south XY, east/west ZY, up/down XZ."
+                }
+              },
+              "required": [
+                "face",
+                "uv"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Array of faces with custom UV mapping."
+          }
+        ],
+        "default": true,
+        "description": "true applies texture to all faces with Auto UV; false skips texture assignment. Named faces use Auto UV; false/custom rectangles disable Auto UV outside Hytale. Hytale always retains Auto UV 1 and custom rectangles must match the geometry's face dimensions. Partial/custom faces require per-face UV support. Single-texture formats may still display the project texture."
+      }
+    },
+    "required": [
+      "elements"
+    ],
+    "additionalProperties": false,
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
+  },
+  "annotations": {
+    "title": "Place Cube",
+    "destructiveHint": true
+  },
+  "execution": {
+    "taskSupport": "forbidden"
+  }
+}

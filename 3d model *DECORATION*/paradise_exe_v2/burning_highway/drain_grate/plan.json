@@ -1,0 +1,31 @@
+{
+  "reference": "https://www.shutterstock.com/search/roadside-storm-drain-grate, https://www.alamy.com/stock-photo/linear-cast-iron-storm-drain-grate-embedded-in-asphalt.html",
+  "used": "freeway roadway storm drain curb inlet with cast concrete gutter apron, raised curb back wall, recessed sewer sump basin pit, ductile cast iron perimeter frame rim, parallel longitudinal drainage vane bars, and transverse reinforcing tie-rod bars",
+  "limitations": [
+    "modular 16x16-unit roadway curb drainage inlet fitting strictly within 30x30x30 bounding box with 0 volume overlaps and 0 coplanar z-fighting",
+    "original stone_slab_top, blackstone_top, cauldron_side pixels unchanged; clean and scorched/clogged variants"
+  ],
+  "materials": {
+    "concrete_gutter": [
+      0,
+      0,
+      "stone_slab_top.png",
+      16,
+      16
+    ],
+    "dark_sump": [
+      16,
+      0,
+      "blackstone_top.png",
+      16,
+      16
+    ],
+    "cast_iron": [
+      32,
+      0,
+      "cauldron_side.png",
+      16,
+      16
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "reference": "https://www.safesitefacilities.co.uk/knowledge-base/guidelines-for-staircase-handrails",
+  "used": "commercial industrial stairwell 45-degree sloped tubular guardrail with twin stanchions mounted to lower and upper stair treads, swivel collar fittings, continuous safety yellow handrail, and bolted flanges",
+  "limitations": [
+    "16x16 modular sloped railing unit with 45-degree pitch matching 16-unit Minecraft stair rise and run",
+    "swivel collar joints conceal angled stanchion intersections with 0 coplanar z-fighting",
+    "original iron_block, concrete_yellow, and netherite_block pixels unchanged; no physics or pack integration"
+  ],
+  "materials": {
+    "steel": [
+      0,
+      0,
+      "iron_block.png",
+      32,
+      16
+    ],
+    "yellow": [
+      32,
+      0,
+      "concrete_yellow.png",
+      32,
+      16
+    ],
+    "dark_metal": [
+      0,
+      16,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

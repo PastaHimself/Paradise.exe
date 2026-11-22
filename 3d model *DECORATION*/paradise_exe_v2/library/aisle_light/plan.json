@@ -1,0 +1,30 @@
+{
+  "reference": "https://www.cooperlighting.com/global/brands/ametrix/134898/arrowlinear-fl-pendant-1-way-and-2-way",
+  "used": "two parallel linear housings, connecting arms, two pendant stems and ceiling plates",
+  "limitations": [
+    "rectangular cuboids simplify curved housings",
+    "lit/unlit sea_lantern/concrete_gray diffuse appearance; emitted light belongs to pack integration",
+    "sea_lantern.png is 16x80; native first 16x16 animation frame used for diffuser UVs"
+  ],
+  "materials": {
+    "metal": [
+      0,
+      0,
+      "iron_block.png",
+      32,
+      16
+    ],
+    "stem": [
+      32,
+      0,
+      "concrete_silver.png"
+    ],
+    "light": [
+      0,
+      32,
+      "sea_lantern.png",
+      32,
+      16
+    ]
+  }
+}

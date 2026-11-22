@@ -1,0 +1,3422 @@
+[
+  {
+    "uuid": "eb8d0625-8ccb-8f1b-cb69-b5cc8f6759e6",
+    "name": "backing_plate",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          3,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.17500000000000004,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          3,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.17500000000000004,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          3,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          3,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "76759d84-d998-9c51-91a0-fda9eb2cc0e2",
+    "name": "frame_top_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5.75,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          5.75,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b19334c0-2392-cdbe-600b-c09ae6223bcc",
+    "name": "frame_top_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5.925,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          5.925,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.925,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5.925,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "f18f2473-08a3-8aeb-9158-f135bdec53bd",
+    "name": "frame_bottom_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          6.125,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          6.125,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          6.125,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          6.125,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "78b330e9-6fee-d13d-57ba-7f8459cbdd15",
+    "name": "frame_bottom_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5.55,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          5.55,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.55,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5.55,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "338d02a4-8477-9dff-f36c-4b3fff4c7bd9",
+    "name": "frame_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5072d72e-66c2-fa5e-8e96-b489ebdf89b9",
+    "name": "frame_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          3
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6b8fde36-0ad4-300a-d71e-de83f72b6466",
+    "name": "ear_l_base",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "352f6d89-ff88-8b6c-c8ee-f6e172a1dc2b",
+    "name": "ear_l_wing_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "90e19693-e621-41f0-6e74-2d1c5becacba",
+    "name": "ear_l_wing_bot",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "42310b1b-a9fa-e5f6-2342-a5452b9bbb28",
+    "name": "ear_r_base",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          1
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          1
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "767f8e23-e414-93a3-2b1a-6cfca4b4f833",
+    "name": "ear_r_wing_bot",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e53d5ca5-f582-7d0b-eb6c-936b20ce0beb",
+    "name": "field_fragment_lower_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.625,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.10000000000000009,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1.625,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.10000000000000009,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.625,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1.625,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "669fea96-0dfe-5292-3527-45b29202625f",
+    "name": "field_fragment_lower_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          13.3,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.1,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          13.3,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.1,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          13.3,
+          0.09999999999999987
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          13.3,
+          0.09999999999999987
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1ee5fee7-c2f1-d836-a154-7fef551709b8",
+    "name": "field_fragment_upper_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          13.25,
+          1.5750000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.1,
+          1.5750000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          13.25,
+          1.5750000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.1,
+          1.5750000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          13.25,
+          0.09999999999999987
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          13.25,
+          0.09999999999999987
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ba581ace-fbff-d6ec-a94a-7099e10122d4",
+    "name": "field_fragment_upper_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.675,
+          1.5750000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.09999999999999987,
+          1.5750000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1.675,
+          1.5750000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.09999999999999987,
+          1.5750000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.675,
+          0.09999999999999987
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1.675,
+          0.09999999999999987
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "f427da6d-8d58-9ae7-d189-78a33cfa654c",
+    "name": "crest_pediment",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          10.25,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          10.25,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.325,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          10.25,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          10.25,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ad1358ac-88a7-37bb-3ec6-9da9c97e2de7",
+    "name": "crest_apex",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.275,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.275,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.2749999999999999
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.75,
+          0.2749999999999999
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "30c7c431-f118-29c2-9dcb-1c672c331fbd",
+    "name": "fallen_shard",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          13,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          13,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          13,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          13,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "dc3fd693-c853-23b4-80f4-d03ce54dee64",
+          "name": "cracked_plaque"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

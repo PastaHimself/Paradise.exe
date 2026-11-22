@@ -1,0 +1,31 @@
+{
+  "target": "Bedrock Block, static, low-end mobile; balanced geometry",
+  "scale": "16 units/block",
+  "bounds": "8 x 24 x 14.7 units",
+  "budget": "18 cubes, at most 216 triangles",
+  "shading": "opaque color-only vanilla atlas",
+  "density": "1 image pixel / model unit",
+  "atlas": {
+    "size": [
+      64,
+      64
+    ],
+    "quadrants": [
+      "iron_block.png",
+      "concrete_gray.png",
+      "netherite_block.png",
+      "quartz_block_side.png"
+    ]
+  },
+  "references": [
+    {
+      "url": "https://www.1stdibs.com/furniture/storage-case-pieces/cabinets/1940s-steelcase-file-cabinet-deco-hardware/id-f_19463742/",
+      "image": "../../references/filing_cabinet_steelcase.jpg",
+      "used": "narrow vertical case; four drawer fronts, label holders above pull handles; plinth"
+    }
+  ],
+  "limitations": [
+    "blank labels; no invented text pixels",
+    "static closed drawers; no gameplay integration"
+  ]
+}

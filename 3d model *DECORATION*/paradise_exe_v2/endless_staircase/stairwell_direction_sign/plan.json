@@ -1,0 +1,32 @@
+{
+  "reference": "https://etsy.com/listing/commercial-stairwell-direction-wayfinding-sign",
+  "used": "commercial stairwell enamel wayfinding plaque with STAIRS tactile lettering, directional navigation arrow, and corner standoff screws",
+  "limitations": [
+    "modular 14x11 wall wayfinding plaque mounted at Z=8 with direction variants (up, down, right)",
+    "culled contact planes with 0 volume overlaps and 0 coplanar z-fighting",
+    "original quartz_block_side, iron_block, and concrete_black pixels unchanged; static signage; no dynamic pathfinding logic"
+  ],
+  "materials": {
+    "plate": [
+      0,
+      0,
+      "quartz_block_side.png",
+      16,
+      16
+    ],
+    "metal": [
+      16,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "ink": [
+      32,
+      0,
+      "concrete_black.png",
+      16,
+      16
+    ]
+  }
+}

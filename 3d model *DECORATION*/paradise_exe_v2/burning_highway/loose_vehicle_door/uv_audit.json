@@ -1,0 +1,2477 @@
+[
+  {
+    "uuid": "cafdf979-1b87-f15a-8de1-aba61bbe1f6c",
+    "name": "outer_skin_bot",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.2,
+          1
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          3.25,
+          1
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.2,
+          1
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ca7f7df5-aaad-4b5d-21db-58c0d456a2de",
+    "name": "outer_skin_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          3.25,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          3.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "44c1e21b-893a-0aad-e939-10d6257f9caf",
+    "name": "inner_card",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          7.25,
+          1.75
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          1.75
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          1.75
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9b47d644-9f0a-118c-5844-378e7c37f170",
+    "name": "inner_armrest",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.09999999999999998
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.09999999999999998
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "3302cae7-71ad-4e64-3571-f23dca562409",
+    "name": "handle_bar",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.1499999999999999
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.65,
+          0.1499999999999999
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.1499999999999999
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.65,
+          0.07500000000000001
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.65,
+          0.07500000000000001
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9f8a6cfe-d991-65bd-0ed7-75e4f50baf94",
+    "name": "sill_weatherstrip",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          11.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          11.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          11.25,
+          0.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "072afaed-62d1-6ae2-8648-17212855860e",
+    "name": "frame_front",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.2,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c7f48d58-0645-a212-d719-8e1d53e8e596",
+    "name": "frame_rear",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.2,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          1.425
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e414dd6c-d6a7-7bd5-9fdd-8903e7de4fbb",
+    "name": "frame_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          2.75,
+          0.20000000000000018
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          2.75,
+          0.20000000000000018
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          2.75,
+          0.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          2.75,
+          0.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "0d3796b2-6813-749d-20c0-4a3092db7567",
+    "name": "glass_shards",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          4,
+          6.75,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.05,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          4,
+          6.75,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          4,
+          4.05,
+          4.125
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          6.75,
+          4.05
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "4ae7c519-1426-33c8-e158-bdb5d46c5e55",
+    "name": "hinge_upper",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.2,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "96e45b58-6f9f-c063-5d20-053f3ba3901f",
+    "name": "hinge_pin_upper",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.07499999999999996,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.07499999999999996,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.1,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.07499999999999996,
+          4.1
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.07499999999999996,
+          4.1
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9a7411ca-9abc-a389-42bc-1066ccd61390",
+    "name": "hinge_lower",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.2,
+          4.3
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e8f12749-e439-07e3-f768-4bcc5be05940",
+    "name": "hinge_pin_lower",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.07499999999999996,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.07499999999999996,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.1,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.07499999999999996,
+          4.1
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.07499999999999996,
+          4.1
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "febf2c93-7a1c-80a5-e08f-60638857499a",
+    "name": "latch_catch",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.25
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.2,
+          4.25
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.25
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          4,
+          0.125,
+          4.2
+        ],
+        "rotation": 0,
+        "texture": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "40cd70b7-1b31-542c-e865-33ee570e90cc",
+          "name": "loose_vehicle_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

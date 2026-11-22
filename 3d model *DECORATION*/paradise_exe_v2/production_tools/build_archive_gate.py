@@ -1,0 +1,20 @@
+from pipeline import *
+from checker import checker
+cs=[];a={}
+def c(n,lo,hi,m='steel',off=[]):cs.append({'name':n,'from':lo,'to':hi});a[n]=(m,off,False)
+c('left_frame',[-8,0,-1],[-7,28,1],'frame')
+c('right_frame',[7,0,-1],[8,28,1],'frame')
+c('head_frame',[-7,27,-1],[7,28,1],'frame',['east','west'])
+c('left_stile',[-6.5,1,-.5],[-5.75,26,.5])
+c('right_stile',[5.75,1,-.5],[6.5,26,.5])
+c('lower_rail',[-5.75,1,-.5],[5.75,2,.5],'steel',['east','west'])
+c('upper_rail',[-5.75,25,-.5],[5.75,26,.5],'steel',['east','west'])
+for x in [-4.5,-2.25,0,2.25,4.5]:c('bar_'+str(x),[x-.1875,2,-.1875],[x+.1875,25,.1875],'steel',['up','down'])
+for y in [6,21]:c('hinge_'+str(y),[-7,y,-.5],[-6.5,y+1,.5],'bright',['east','west'])
+c('hasp',[5.5,13,-1.125],[7.25,13.5,-1],'bright')
+c('lock_body',[6,11.75,-1.4],[7,12.75,-1],'brass')
+c('shackle_left',[6.15,12.75,-1.25],[6.3,13.5,-1.1],'bright',['down','up'])
+c('shackle_right',[6.7,12.75,-1.25],[6.85,13.5,-1.1],'bright',['down','up'])
+c('shackle_top',[6.15,13.5,-1.25],[6.85,13.65,-1.1],'bright')
+D=build('restricted_archive_gate',cs,a,{'frame':(0,0,'concrete_gray.png',32,32),'steel':(32,0,'concrete_silver.png',32,32),'bright':(0,32,'iron_block.png'),'brass':(16,32,'gold_block.png')},{'reference':'https://www.rennieproperty.co.za/buildings/absa-building---wynberg.html','used':'barred corridor security gate, structural frame, hinges and padlock at latch side','limitations':['single static closed leaf','no collision, locking logic, animations or text']})
+checker(D,[0,14,0],[30,27,-47]);views(D,[0,14,0],{'front':[0,22,-53],'three_quarter':[30,27,-47],'back':[-30,25,47],'gameplay_scale':[48,35,-76]});print('Archive gate ready')

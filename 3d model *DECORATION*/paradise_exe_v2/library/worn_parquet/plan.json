@@ -1,0 +1,18 @@
+{
+  "target": "Bedrock texture-only asset; Generic Model is a tiled inspection preview, not a runtime model",
+  "device": "low-end mobile; color-only; no animation",
+  "scale": "16 model units/block; 1 pixel/unit",
+  "shading": "one opaque original vanilla PNG, nearest filtering",
+  "budget": "<=4 preview cuboids; runtime texture only",
+  "reference": "https://www.22places.de/lost-places/",
+  "reference_image": "../../references/abandoned_desk.jpg",
+  "reference_notes": "aged wood flooring; native mosaic is a base-pattern substitute, not a worn texture",
+  "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/bamboo_mosaic.png",
+  "png": "worn_parquet_base_proxy.png",
+  "kind": "floor",
+  "blocked_exact_wear": true,
+  "limitations": [
+    "original vanilla material substitute only; no painted detail",
+    "exact worn parquet damage unavailable in compatible original pixels; only clean mosaic proxy delivered"
+  ]
+}

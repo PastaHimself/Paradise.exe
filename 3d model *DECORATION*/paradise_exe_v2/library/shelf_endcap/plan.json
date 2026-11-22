@@ -1,0 +1,47 @@
+{
+  "target": "Bedrock Block; static; balanced <=6 cubes; low-end mobile",
+  "shading": "one opaque vanilla atlas; no PBR",
+  "texel_density": "1 px/unit; 64x64 atlas",
+  "references": [
+    {
+      "url": "https://www.ateliertamplarie.ro/",
+      "image": "../../references/full_bookshelf/joinery.jpg",
+      "used": "bookcase end panel, joined crown/base trim, vertical grain"
+    }
+  ],
+  "variant": "shelf_endcap",
+  "materials": [
+    [
+      0,
+      0,
+      32,
+      32,
+      "planks_spruce.png"
+    ],
+    [
+      32,
+      0,
+      32,
+      32,
+      "planks_oak.png"
+    ],
+    [
+      0,
+      32,
+      32,
+      32,
+      "netherite_block.png"
+    ],
+    [
+      32,
+      32,
+      32,
+      32,
+      "iron_block.png"
+    ]
+  ],
+  "limitations": [
+    "static construction only; placement/binding excluded"
+  ],
+  "dimensions": "2.5 x 30 x 6.5 units incl. quarter-unit crown/base overhang"
+}

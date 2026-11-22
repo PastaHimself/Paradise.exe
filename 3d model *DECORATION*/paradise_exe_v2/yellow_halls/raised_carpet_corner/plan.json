@@ -1,0 +1,58 @@
+{
+  "elements": [
+    {
+      "name": "flat_main",
+      "from": [
+        -8,
+        0,
+        -8
+      ],
+      "to": [
+        4,
+        0.125,
+        8
+      ]
+    },
+    {
+      "name": "flat_side",
+      "from": [
+        4,
+        0,
+        -4
+      ],
+      "to": [
+        8,
+        0.125,
+        8
+      ]
+    },
+    {
+      "name": "lifted_corner",
+      "from": [
+        4,
+        0,
+        -8
+      ],
+      "to": [
+        8,
+        0.125,
+        -4
+      ],
+      "origin": [
+        6,
+        0,
+        -4
+      ],
+      "rotation": [
+        30,
+        0,
+        0
+      ]
+    }
+  ],
+  "states": {
+    "base": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/wool_colored_white.png",
+    "worn": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/wool_colored_silver.png",
+    "dark": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/wool_colored_brown.png"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "burning_highway_detour_sign",
+  "reference": "https://mutcd.fhwa.dot.gov/",
+  "used": "MUTCD standard M4-9 / M4-10 highway DETOUR sign with 14x8 orange retroreflective faceplate, perimeter black border, embossed DETOUR lettering, directional arrow pointing right, two U-channel steel mounting posts, and mounting bolts; includes normal and scorched variants",
+  "notes": [
+    "modular roadway warning sign with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_orange, concrete_black, iron_block, and netherite_block pixels unchanged",
+    "static prop; no physics simulation"
+  ],
+  "materials": {
+    "orange": [
+      0,
+      0,
+      "concrete_orange.png",
+      16,
+      16
+    ],
+    "ink": [
+      16,
+      0,
+      "concrete_black.png",
+      16,
+      16
+    ],
+    "steel": [
+      32,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      48,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

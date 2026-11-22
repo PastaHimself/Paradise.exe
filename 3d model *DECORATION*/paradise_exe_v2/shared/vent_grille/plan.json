@@ -1,0 +1,294 @@
+{
+  "elements": [
+    {
+      "name": "rim_left",
+      "from": [
+        -8,
+        2,
+        6.25
+      ],
+      "to": [
+        -7,
+        14,
+        8
+      ]
+    },
+    {
+      "name": "rim_right",
+      "from": [
+        7,
+        2,
+        6.25
+      ],
+      "to": [
+        8,
+        14,
+        8
+      ]
+    },
+    {
+      "name": "rim_top",
+      "from": [
+        -7,
+        13,
+        6.25
+      ],
+      "to": [
+        7,
+        14,
+        8
+      ]
+    },
+    {
+      "name": "rim_bottom",
+      "from": [
+        -7,
+        2,
+        6.25
+      ],
+      "to": [
+        7,
+        3,
+        8
+      ]
+    },
+    {
+      "name": "duct_back",
+      "from": [
+        -7,
+        3,
+        7.875
+      ],
+      "to": [
+        7,
+        13,
+        8
+      ]
+    },
+    {
+      "name": "louver_0",
+      "from": [
+        -7,
+        3.5,
+        6.5
+      ],
+      "to": [
+        7,
+        4.5,
+        7.5
+      ],
+      "origin": [
+        0,
+        4.0,
+        7
+      ],
+      "rotation": [
+        22.5,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "louver_1",
+      "from": [
+        -7,
+        5.5,
+        6.5
+      ],
+      "to": [
+        7,
+        6.5,
+        7.5
+      ],
+      "origin": [
+        0,
+        6.0,
+        7
+      ],
+      "rotation": [
+        22.5,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "louver_2",
+      "from": [
+        -7,
+        7.5,
+        6.5
+      ],
+      "to": [
+        7,
+        8.5,
+        7.5
+      ],
+      "origin": [
+        0,
+        8.0,
+        7
+      ],
+      "rotation": [
+        22.5,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "louver_3",
+      "from": [
+        -7,
+        9.5,
+        6.5
+      ],
+      "to": [
+        7,
+        10.5,
+        7.5
+      ],
+      "origin": [
+        0,
+        10.0,
+        7
+      ],
+      "rotation": [
+        22.5,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "louver_4",
+      "from": [
+        -7,
+        11.5,
+        6.5
+      ],
+      "to": [
+        7,
+        12.5,
+        7.5
+      ],
+      "origin": [
+        0,
+        12.0,
+        7
+      ],
+      "rotation": [
+        22.5,
+        0,
+        0
+      ]
+    }
+  ],
+  "states": {
+    "iron": {
+      "tiles": [
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/iron_block.png",
+          "atlas_origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/iron_block.png",
+          "atlas_origin": [
+            16,
+            0
+          ]
+        },
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/iron_block.png",
+          "atlas_origin": [
+            0,
+            16
+          ]
+        },
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/concrete_black.png",
+          "atlas_origin": [
+            16,
+            16
+          ]
+        }
+      ],
+      "png": "/home/pasta/Downloads/blockbench/paradise_exe_v2/shared/vent_grille/iron.png"
+    },
+    "dark": {
+      "tiles": [
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/netherite_block.png",
+          "atlas_origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/netherite_block.png",
+          "atlas_origin": [
+            16,
+            0
+          ]
+        },
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/netherite_block.png",
+          "atlas_origin": [
+            0,
+            16
+          ]
+        },
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/concrete_black.png",
+          "atlas_origin": [
+            16,
+            16
+          ]
+        }
+      ],
+      "png": "/home/pasta/Downloads/blockbench/paradise_exe_v2/shared/vent_grille/dark.png"
+    },
+    "copper": {
+      "tiles": [
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/exposed_copper.png",
+          "atlas_origin": [
+            0,
+            0
+          ]
+        },
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/exposed_copper.png",
+          "atlas_origin": [
+            16,
+            0
+          ]
+        },
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/exposed_copper.png",
+          "atlas_origin": [
+            0,
+            16
+          ]
+        },
+        {
+          "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/concrete_black.png",
+          "atlas_origin": [
+            16,
+            16
+          ]
+        }
+      ],
+      "png": "/home/pasta/Downloads/blockbench/paradise_exe_v2/shared/vent_grille/copper.png"
+    }
+  },
+  "dimensions": [
+    16,
+    12,
+    1.75
+  ],
+  "references": [
+    "https://www.ebay.de/itm/334689976069",
+    "https://rsvr.nu/blog/vagledning-om-ventilation"
+  ]
+}

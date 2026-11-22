@@ -1,0 +1,42 @@
+{
+  "target": "Bedrock Block; low-end mobile; static; balanced <=12 cubes",
+  "shading": "one opaque color-only 32x32 atlas",
+  "texel_density": "1 px/unit",
+  "reference": "https://www.hitechalbums.com/en/shipping-boxes/",
+  "reference_notes": "inspected three closed boxes: two lower cartons supporting a third, centered sealing tape down top/front/back",
+  "materials": [
+    [
+      0,
+      0,
+      16,
+      16,
+      "hardened_clay_stained_yellow.png"
+    ],
+    [
+      16,
+      0,
+      16,
+      16,
+      "sandstone_top.png"
+    ],
+    [
+      0,
+      16,
+      16,
+      16,
+      "hardened_clay.png"
+    ],
+    [
+      16,
+      16,
+      16,
+      16,
+      "quartz_block_side.png"
+    ]
+  ],
+  "limitations": [
+    "unchanged terracotta tiles substitute for kraft cardboard",
+    "sandstone strip substitutes for packing tape",
+    "no shipping labels or printed marks"
+  ]
+}

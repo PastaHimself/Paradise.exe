@@ -1,0 +1,46 @@
+{
+  "reference": "https://dortechardware.com/",
+  "used": "commercial hollow metal fire exit door with heavy steel frame, crash push bar, vision lite fire slit, overhead hydraulic closer, and exterior pull trim",
+  "limitations": [
+    "modular 16-unit width, 30-unit height emergency egress door fitting Bedrock block standards",
+    "culled contact planes with 0 volume overlaps and 0 coplanar z-fighting",
+    "original iron_block, concrete_gray, netherite_block, concrete_red, and tinted_glass pixels unchanged; static closed door; no physics or swing animation"
+  ],
+  "materials": {
+    "frame": [
+      0,
+      0,
+      "iron_block.png",
+      32,
+      32
+    ],
+    "leaf": [
+      32,
+      0,
+      "concrete_gray.png",
+      32,
+      32
+    ],
+    "dark_metal": [
+      0,
+      32,
+      "netherite_block.png",
+      16,
+      16
+    ],
+    "panic_red": [
+      16,
+      32,
+      "concrete_red.png",
+      16,
+      16
+    ],
+    "glass": [
+      32,
+      32,
+      "tinted_glass.png",
+      16,
+      16
+    ]
+  }
+}

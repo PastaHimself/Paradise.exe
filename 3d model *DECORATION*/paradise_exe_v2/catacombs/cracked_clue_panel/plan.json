@@ -1,0 +1,38 @@
+{
+  "reference": "https://www.shutterstock.com/search/ancient-stone-inscription-catacomb-tablet, https://www.alamy.com/stock-photo/crypt-carved-relief-panel.html",
+  "used": "ancient subterranean catacombs cracked clue panel monumental framed wall relief tablet fractured across its inscription field into offset slabs, featuring dim unlit carved relief in default state and high-contrast illuminated torchlight-readable runes in active variant",
+  "limitations": [
+    "modular 18-unit wide cracked clue tablet fitting strictly within 30x30x30 bounding box with 0 volume overlaps and 0 coplanar z-fighting",
+    "100% full face coverage (every face textured, 0 untextured faces); original stonebrick, stonebrick_cracked, stonebrick_carved, gilded_blackstone pixels unchanged; unlit, torchlight readable, and damp/mossy variants"
+  ],
+  "materials": {
+    "ashlar_stone": [
+      0,
+      0,
+      "stonebrick.png",
+      16,
+      16
+    ],
+    "cracked_stone": [
+      16,
+      0,
+      "stonebrick_cracked.png",
+      16,
+      16
+    ],
+    "carved_stone": [
+      32,
+      0,
+      "stonebrick_carved.png",
+      16,
+      16
+    ],
+    "carved_relief": [
+      48,
+      0,
+      "stonebrick_carved.png",
+      16,
+      16
+    ]
+  }
+}

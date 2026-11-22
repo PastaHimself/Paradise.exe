@@ -1,0 +1,32 @@
+{
+  "reference": "https://apolodorltd.co.uk/concrete-spalling-and-rebar-corrosion/",
+  "used": "structural concrete stairwell wall spall cavity exposing corroded reinforcing steel grid with bent severed stub",
+  "limitations": [
+    "16x16 modular wall panel with 8x9 spalled cavity and 0.75-unit rebar grid",
+    "culled contact planes with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_gray, stonebrick_cracked, and raw_iron_block pixels unchanged; no physics or pack integration"
+  ],
+  "materials": {
+    "concrete": [
+      0,
+      0,
+      "concrete_gray.png",
+      16,
+      16
+    ],
+    "cracked": [
+      16,
+      0,
+      "stonebrick_cracked.png",
+      16,
+      16
+    ],
+    "rebar": [
+      32,
+      0,
+      "raw_iron_block.png",
+      16,
+      16
+    ]
+  }
+}

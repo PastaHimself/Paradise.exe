@@ -1,0 +1,31 @@
+{
+  "reference": "https://highwayguardrail.org/",
+  "used": "highway corrugated galvanized W-beam steel guardrail deformed and bowed outward by high-speed vehicle impact, with deflected support post, compressed blockout, button-head splice bolts, and valley delineator reflector",
+  "limitations": [
+    "modular 16-unit roadway guardrail segment with 0 volume overlaps and 0 coplanar z-fighting",
+    "original iron_block, netherite_block, and concrete_yellow pixels unchanged; static damage geometry; no vehicle impact physics"
+  ],
+  "materials": {
+    "steel": [
+      0,
+      0,
+      "iron_block.png",
+      32,
+      32
+    ],
+    "dark_metal": [
+      32,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ],
+    "reflector_yellow": [
+      48,
+      0,
+      "concrete_yellow.png",
+      16,
+      16
+    ]
+  }
+}
