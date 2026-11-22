@@ -648,9 +648,9 @@ of `V/quartz_bricks.png` because the calcite tile is Preview-only.
 | Rest pair | `R` reads clean and intact; `R'` nine blocks east reads disturbed with footprints, a damaged bench, lamp and sign; both keep the bed, chest and approach slots |
 | Exit frames | `hv_open_exit_frame` west and `hv_final_door_frame` east of the arrival pad, both static and unpowered |
 | Pool | Garden edging wraps the rim with the two-wide north pedestrian opening and planters on the four corners; cyan glass interior untouched |
-| Dais reserve | `[10..13,3..6,10..13]` inside the temple stays empty; no seal pedestal, face or floor inlay is registered or placed |
+| Dais reserve | The temple podium and dais rim read as static architecture while `[10..13,3..6,10..13]` holds no seal pedestal, face, floor inlay or interactive block |
 | Materials | `hv_dark_tile_seams_calcite_brick_seams` reads as quartz bricks (stable substitute); other seams use their pinned sources |
-| Structure patches | `reflection_pool` rim at Y0, `celestial_arch` top ring, `distant_temple` floor; colonnade had no perimeter solids and is unchanged |
+| Structure patches | `reflection_pool` rim at Y0, `colonnade` capitals as quartz pillars, `celestial_arch` top ring, `distant_temple` floor and dais rim; the `[10..13,3..6,10..13]` core keeps only its original podium palette |
 | Gameplay | Rest chest and bed behaviour unchanged; no exit trigger or seal logic added |
 
 ### Ticket 7 sign-off
