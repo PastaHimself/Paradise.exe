@@ -37,8 +37,9 @@ const VANILLA_SPAWN_EGG_BY_ENTITY = new Map([
 ]);
 
 const VANILLA_ANIMATION_BY_ENTITY = new Map([
-  ['camel.entity.json', 'animation.camel.look_at_target'],
-  ['fox.entity.json', 'animation.fox.baby_transform'],
+  ['camel.entity.json', ['animation.camel.look_at_target']],
+  ['fox.entity.json', ['animation.fox.baby_transform']],
+  ['sheep.entity.json', ['animation.sheep.setup.v2', 'animation.sheep.baby_transform']],
 ]);
 
 const VANILLA_TERRAIN_TEXTURES = new Set([
@@ -147,7 +148,8 @@ function vanillaFallbackReason(diagnostic) {
   }
 
   if (code === 'resourcepack.anim_or_controller.missing') {
-    const animation = VANILLA_ANIMATION_BY_ENTITY.get(fileName);
+    const animations = VANILLA_ANIMATION_BY_ENTITY.get(fileName) ?? [];
+    const animation = animations.find((name) => message.includes(name));
     if (
       animation &&
       file.includes('/RP/entity/') &&
