@@ -1,4 +1,5 @@
 import {
+  BlockPermutation,
   BlockVolume,
   CommandPermissionLevel,
   CustomCommandStatus,
@@ -24,6 +25,7 @@ import {
 import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
 import { shouldRebuildGeneratedPatch } from "./paradise_visual_geometry.js";
 import {
+  SCENE_GARDEN_PROPS,
   SCENE_LANDMARKS,
   SCENE_MARKERS,
   landmarkInPatch,
@@ -261,7 +263,21 @@ function placeSceneAnchors(dimension, minX, minZ, maxX, maxZ) {
 
   for (const marker of SCENE_MARKERS) {
     if (!landmarkInPatch(marker, minX, minZ, maxX, maxZ)) continue;
-    setBlockSafe(dimension, { x: marker.x, y: FLOWER_Y, z: marker.z }, marker.block);
+    marker.segments.forEach((segment, index) => {
+      setBlockSafe(dimension, { x: marker.x, y: FLOWER_Y + index, z: marker.z }, segment);
+    });
+  }
+
+  // Garden remnants dress the gazebo lawn without touching the footpaths.
+  for (const prop of SCENE_GARDEN_PROPS) {
+    if (!landmarkInPatch(prop, minX, minZ, maxX, maxZ)) continue;
+    const block = dimension.getBlock({ x: prop.x, y: FLOWER_Y, z: prop.z });
+    if (!block) continue;
+    try {
+      block.setPermutation(BlockPermutation.resolve(prop.block, {
+        "minecraft:cardinal_direction": prop.facing,
+      }));
+    } catch (error) {}
   }
 }
 

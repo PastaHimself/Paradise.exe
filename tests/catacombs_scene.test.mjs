@@ -1,8 +1,12 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
   DRESS,
+  PIECE_SEGMENTS,
   SIDE_ORDER,
   archFor,
   burialFor,
@@ -11,11 +15,14 @@ import {
   floorBlock,
   lampFor,
   sealedDoorwayPlan,
+  segmentsFor,
   selectJunction,
   sideInset,
   wallBlock,
   wallRunOffsets,
 } from "../addon/BP/scripts/catacombs_scene.js";
+
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 
 test("wall surfaces follow the 76/14/10 split", () => {
   const counts = { clean: 0, cracked: 0, damp: 0 };
@@ -133,4 +140,29 @@ test("cell hashing is deterministic and bounded", () => {
       assert.ok(roll >= 0 && roll < 100);
     }
   }
+});
+
+test("every dress id and staged segment exists in the behavior pack", () => {
+  const ids = new Set();
+  for (const value of Object.values(DRESS)) ids.add(value);
+  for (const segments of Object.values(PIECE_SEGMENTS)) {
+    for (const [, , , id] of segments) ids.add(id);
+  }
+  const missing = [...ids].filter((id) => !existsSync(
+    path.join(ROOT, "addon/BP/blocks", `paradise__${id.replace("paradise:", "")}.json`),
+  ));
+  assert.deepEqual(missing, []);
+});
+
+test("multi-cell pieces expose every segment including the top", () => {
+  for (const key of ["arch", "sealedDoorway", "cluePanel", "boneShelf", "passageFrame"]) {
+    const segments = segmentsFor(DRESS[key]);
+    assert.equal(segments.length, 4, key);
+    assert.deepEqual(segments.map(([dx, dy]) => [dx, dy]), [[0, 0], [0, 1], [1, 0], [1, 1]], key);
+    assert.equal(segments[0][3], DRESS[key]);
+  }
+  for (const key of ["lampLit", "lampOut", "lampRusted", "lampSconce", "cornerPier", "pillar"]) {
+    assert.equal(segmentsFor(DRESS[key]).length, 2, key);
+  }
+  assert.deepEqual(segmentsFor(DRESS.niche), [[0, 0, 0, DRESS.niche]]);
 });

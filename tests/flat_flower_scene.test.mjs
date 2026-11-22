@@ -1,9 +1,13 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
   SCENE_BOUNDS,
   SCENE_FLOWERS,
+  SCENE_GARDEN_PROPS,
   SCENE_GROUND,
   SCENE_LANDMARKS,
   SCENE_MARKERS,
@@ -13,10 +17,13 @@ import {
   inScene,
   isScenePath,
   landmarkInPatch,
+  markerTopY,
   sceneFlower,
   sceneGround,
   sceneRoll,
 } from "../addon/BP/scripts/flat_flower_scene.js";
+
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 
 test("every scene path keeps a two-block clear walk", () => {
   for (const rect of SCENE_PATHS) {
@@ -134,7 +141,7 @@ test("one true marker and two equal-post decoys, each in its own patch", () => {
     SCENE_MARKERS.map((marker) => [marker.x, marker.z]),
     [[38, 22], [18, 43], [55, 42]],
   );
-  assert.equal(new Set(SCENE_MARKERS.map((marker) => marker.block)).size, 3);
+  assert.equal(new Set(SCENE_MARKERS.map((marker) => marker.segments[1])).size, 3);
 
   const patchOf = (value) => Math.floor(value / 32);
   const patches = SCENE_MARKERS.map((marker) => [patchOf(marker.x), patchOf(marker.z)]);
@@ -153,5 +160,28 @@ test("scene landmarks are placed by the patch that owns each anchor", () => {
     const patchZ = Math.floor(landmark.z / 32) * 32;
     assert.equal(landmarkInPatch(landmark, patchX, patchZ, patchX + 31, patchZ + 31), true);
     assert.equal(landmarkInPatch(landmark, patchX + 32, patchZ, patchX + 63, patchZ + 31), false);
+  }
+});
+
+test("one true route marker and two equal-height decoys use both segments", () => {
+  assert.equal(SCENE_MARKERS.length, 3);
+  assert.equal(SCENE_MARKERS.filter((marker) => marker.trueRoute).length, 1);
+  for (const marker of SCENE_MARKERS) {
+    assert.equal(marker.segments.length, 2);
+    assert.equal(markerTopY(65), 66);
+    for (const id of marker.segments) {
+      assert.ok(existsSync(path.join(ROOT, "addon/BP/blocks", `paradise__${id.replace("paradise:", "")}.json`)), id);
+    }
+  }
+  const heads = new Set(SCENE_MARKERS.map((marker) => marker.segments[1]));
+  assert.equal(heads.size, 3, "each marker owns a distinct head silhouette");
+});
+
+test("garden remnants sit off the two-block footpaths and exist as blocks", () => {
+  assert.ok(SCENE_GARDEN_PROPS.length >= 8);
+  for (const prop of SCENE_GARDEN_PROPS) {
+    assert.equal(isScenePath(prop.x, prop.z), false, `${prop.block} blocks a path at ${prop.x},${prop.z}`);
+    assert.equal(inScene(prop.x, prop.z), true);
+    assert.ok(existsSync(path.join(ROOT, "addon/BP/blocks", `paradise__${prop.block.replace("paradise:", "")}.json`)), prop.block);
   }
 });

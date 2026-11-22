@@ -465,6 +465,49 @@ cleanup pass. Arrival chunk is `(62,0)` for spawn `1000.5,65,0.5`, so world X = 
 - [ ] Confirm the restricted bay is empty and the partition doorway is two blocks wide.
 - [ ] Capture BEFORE/AFTER frames once a disposable world exists.
 
+### Rework · Flat Flower meadow dressing (`rework/v2-dimensions-layout-mcp`)
+
+- Route markers now place both staged segments (post + distinct head) at `Y65..66`; the true
+  marker is `(38,22)` and the decoys `(18,43)` and `(55,42)`, all off the two-block footpaths.
+- Ten garden remnants dress the gazebo lawn at `(6..18, 13..22)`: standalone gate, bench, broken
+  picket fence, collapsed trellis, overturned planter, watering can, empty flowerbed, low stone
+  border, loose paving and a sun-bleached notice. None touches a `SCENE_PATHS` rectangle.
+- Probes: `tp @s 38.5 66 22.5` (true marker), `tp @s 12.5 66 18.5` (gazebo), `tp @s 18.5 66 18.5`
+  (trellis), `tp @s 55.5 66 42.5` (east decoy).
+
+### Rework · Catacombs masonry and sealed bay (`rework/v2-dimensions-layout-mcp`)
+
+- 18 of 28 `DRESS` ids did not exist (lamps, candles, bone shelf, sarcophagus, arches, piers,
+  sealed doorway, clue panel). All now point at real staged segments and a new `PIECE_SEGMENTS`
+  map expands every two- and four-cell piece (`setPiece`), so arches, niches, lamps, the sealed
+  doorway and the clue panel render whole instead of as half models.
+- The sealed junction keeps its optical plane, clue, sconce, warning, flat floor and the reserved
+  future opening; maze links and the deferred shortcut interaction are unchanged.
+- Probes: `tp @s 1000.5 65 0.5` (arrival), `tp @s 1008.5 65 8.5` (arch/niche run), and the
+  junction returned by `selectJunction` for the run seed.
+
+### Rework · Burning Highway turnout and wreck (`rework/v2-dimensions-layout-mcp`)
+
+- Fixed six missing ids (cracked asphalt, heat edge, concrete/damaged dividers, sheltered turnout,
+  broken bumper) and made dividers, the turnout shelter and the bumper expand every segment.
+- The four-part shell and its fittings now sit on the road shoulder at lane `X+1..+2`
+  (`wreckOrigin = laneOffset − 1`), so the documented `X−3..−1` walking strips stay clear; the
+  separate floating wreck structure was removed. A supported `2×2` `bh_sheltered_turnout` sits at
+  `Z118` on the right shoulder inside `Z96..127`. `buildServiceDetour` stays dormant.
+- Probes: `tp @s 1000.5 65 100.5` (turnout divider), `tp @s 1002.5 66 118.5` (shelter),
+  `tp @s 1001.5 65 292.5` (wreck shell) using the run's wreck Z.
+
+### Rework · Heaven rest pair and frames (`rework/v2-dimensions-layout-mcp`)
+
+- 16 rest/pool/exit ids were missing (clean bench/lamp/sign/chest/plaque, disturbed twins, pool
+  rim, planters, hedges, exit frames). They now resolve to real primaries and `PIECE_SEGMENTS`
+  expands benches, lamps, signs, plaques, chests, pool rims, planters, hedges and both exit frames.
+- The rest pair keeps the vanilla bed/chest/sign slots and the `[10..13,3..6,10..13]` altar dais
+  stays reserved; `REST / YOU ARE SAFE` reads on the clean station and its disturbed twin nine
+  blocks east.
+- Probes: `tp @s 1000.5 65 0.5` (arrival), `tp @s 1000.5 65 5.5` (clean rest),
+  `tp @s 1009.5 65 5.5` (disturbed twin), `tp @s 1012.5 65 2.5` (exit frames).
+
 ## Ticket 8 · Atmosphere, fog, particles & release prep (`feat/v2-static-8-atmosphere-release`)
 
 **Artifact:** `/tmp/Paradise-static-8.mcaddon` (21,850,031 bytes, built with

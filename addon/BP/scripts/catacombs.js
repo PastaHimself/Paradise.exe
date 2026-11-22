@@ -17,6 +17,7 @@ import {
   floorBlock,
   lampFor,
   sealedDoorwayPlan,
+  segmentsFor,
   selectJunction,
   wallBlock,
 } from "./catacombs_scene.js";
@@ -1983,17 +1984,17 @@ function dressCatacombCell(dim, cell, index) {
 
   if (closed.length > 0) {
     const lamp = lampFor(index);
-    setBlock(dim, centerX, MAZE.ceilingY - 1, centerZ, lamp.block);
+    setPiece(dim, centerX, MAZE.ceilingY - 1, centerZ, lamp.block);
     const arch = archFor(index);
     if (arch) {
       const wall = getWallCenter(cell, closed[0]);
-      setBlock(dim, wall.x, MAZE.ceilingY - 1, wall.z, arch);
+      setPiece(dim, wall.x, MAZE.ceilingY - 1, wall.z, arch);
     }
   }
 
   if (cell.deadEnd && closed.length > 0) {
     const wall = getWallRun(cell, closed[0])[1];
-    setBlock(dim, wall.x, MAZE.originY + 1, wall.z, burialFor(cellRoll(cell.x, cell.z, 0xb001)));
+    setPiece(dim, wall.x, MAZE.originY + 1, wall.z, burialFor(cellRoll(cell.x, cell.z, 0xb001)));
   }
 }
 
@@ -2014,13 +2015,20 @@ function placeSealedJunction(dim, plan) {
 
   const base = getCellBase(choice.cell);
   const doorway = sealedDoorwayPlan(base, choice.side);
-  for (const point of doorway.plane) setBlock(dim, point.x, point.y, point.z, DRESS.sealedDoorway);
-  setBlock(dim, doorway.clue.x, doorway.clue.y, doorway.clue.z, DRESS.cluePanel);
-  setBlock(dim, doorway.sconce.x, doorway.sconce.y, doorway.sconce.z, DRESS.lampSconce);
+  for (const point of doorway.plane) setPiece(dim, point.x, point.y, point.z, DRESS.sealedDoorway);
+  setPiece(dim, doorway.clue.x, doorway.clue.y, doorway.clue.z, DRESS.cluePanel);
+  setPiece(dim, doorway.sconce.x, doorway.sconce.y, doorway.sconce.z, DRESS.lampSconce);
   setBlock(dim, doorway.warning.x, doorway.warning.y, doorway.warning.z, DRESS.warning);
   for (const point of doorway.flatFloor) setBlock(dim, point.x, point.y, point.z, DRESS.floorBase);
   for (const point of doorway.approach) setBlock(dim, point.x, point.y, point.z, "minecraft:air");
   return { cell: choice.cell, side: choice.side, base, reserved: doorway.futureOpening };
+}
+
+/** Place every staged segment of a multi-cell piece at an anchor cell. */
+function setPiece(dim, x, y, z, block) {
+  for (const [dx, dy, dz, id] of segmentsFor(block)) {
+    setBlock(dim, x + dx, y + dy, z + dz, id);
+  }
 }
 
 function paintFloorCell(dim, cell, permutation) {

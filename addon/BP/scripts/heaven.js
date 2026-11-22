@@ -26,6 +26,7 @@ import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./pa
 import {
   exitFrames,
   restStationPlan,
+  segmentsFor,
   restStations,
 } from "./heaven_scene.js";
 import { playersIntersectStructureBounds } from "./paradise_visual_geometry.js";
@@ -322,7 +323,7 @@ function placeHeavenRestStation(dim, spawn, playerId = undefined) {
   stageRestTwin(dim, x, z);
 
   for (const frame of exitFrames(x, z + 2)) {
-    setBlockTypeSafe(dim, { x: frame.x, y: frame.y, z: frame.z }, frame.block);
+    setPiece(dim, frame.x, frame.y, frame.z, frame.block);
   }
 
   if (playerId) {
@@ -331,11 +332,18 @@ function placeHeavenRestStation(dim, spawn, playerId = undefined) {
   }
 }
 
+/** Place every staged segment of a multi-cell Heaven piece. */
+function setPiece(dim, x, y, z, block) {
+  for (const [dx, dy, dz, id] of segmentsFor(block)) {
+    setBlockTypeSafe(dim, { x: x + dx, y: y + dy, z: z + dz }, id);
+  }
+}
+
 function stageRestTwin(dim, x, z) {
   for (const station of restStations(x, z)) {
     const disturbed = station.id === "disturbed";
     for (const entry of restStationPlan(station.offsetX + x, station.z, station.blocks, disturbed)) {
-      setBlockTypeSafe(dim, { x: entry.x, y: entry.y, z: entry.z }, entry.block);
+      setPiece(dim, entry.x, entry.y, entry.z, entry.block);
     }
   }
 }
