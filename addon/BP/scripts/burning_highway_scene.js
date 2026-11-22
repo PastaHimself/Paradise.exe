@@ -98,3 +98,32 @@ export const WRECK_FITTINGS = Object.freeze([
 export function isRoadOverlaySafe(y) {
   return y >= ROAD_Y && y <= OVERLAY_Y;
 }
+
+/**
+ * Four-part burned shell: the S-mode split pieces land in the wreck cluster's
+ * local cells (2,1,2), (3,1,2), (2,1,3), (3,1,3) at world origin + cell.
+ */
+export const WRECK_SHELL_SEGMENTS = Object.freeze([
+  { cell: [2, 1, 2], block: "paradise:bh_burned_out_vehicle_shell_x0_y0_z0" },
+  { cell: [3, 1, 2], block: "paradise:bh_burned_out_vehicle_shell_x1_y0_z0" },
+  { cell: [2, 1, 3], block: "paradise:bh_burned_out_vehicle_shell_x0_y0_z1" },
+  { cell: [3, 1, 3], block: "paradise:bh_burned_out_vehicle_shell_x1_y0_z1" },
+]);
+
+export function wreckSegmentPlacements(origin) {
+  return WRECK_SHELL_SEGMENTS.map((segment) => ({
+    x: origin.x + segment.cell[0],
+    y: origin.y + segment.cell[1],
+    z: origin.z + segment.cell[2],
+    block: segment.block,
+  }));
+}
+
+export function wreckFittingPlacements(origin) {
+  return WRECK_FITTINGS.map((fitting) => ({
+    x: origin.x + fitting.cell[0],
+    y: origin.y + fitting.cell[1],
+    z: origin.z + fitting.cell[2],
+    block: fitting.block,
+  }));
+}

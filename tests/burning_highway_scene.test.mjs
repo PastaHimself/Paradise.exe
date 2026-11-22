@@ -12,6 +12,9 @@ import {
   TURNOUT_START,
   WRECK_CELLS,
   WRECK_FITTINGS,
+  WRECK_SHELL_SEGMENTS,
+  wreckFittingPlacements,
+  wreckSegmentPlacements,
   dividerBlock,
   isRoadOverlaySafe,
   isTurnoutEntry,
@@ -77,6 +80,21 @@ test("wreck origin stays on the service side and inside the lane", () => {
   assert.ok(origin.z >= 286);
   for (const [x] of WRECK_CELLS) assert.ok(x >= 2);
   for (const fitting of WRECK_FITTINGS) assert.ok(fitting.block.startsWith("paradise:bh_"));
+});
+
+test("the four shell segments land in the wreck cluster cells", () => {
+  const origin = { x: 2009, y: 64, z: 290 };
+  const placements = wreckSegmentPlacements(origin);
+  assert.deepEqual(WRECK_SHELL_SEGMENTS.map((s) => s.cell), [[2, 1, 2], [3, 1, 2], [2, 1, 3], [3, 1, 3]]);
+  assert.deepEqual(placements.map((p) => [p.x, p.y, p.z]), [
+    [2011, 65, 292],
+    [2012, 65, 292],
+    [2011, 65, 293],
+    [2012, 65, 293],
+  ]);
+  assert.equal(new Set(placements.map((p) => p.block)).size, 4);
+  const fittings = wreckFittingPlacements(origin);
+  assert.deepEqual(fittings.map((p) => [p.x, p.z]), [[2010, 293], [2013, 293], [2014, 292], [2015, 294]]);
 });
 
 test("overlays never leave the road-to-lip band", () => {

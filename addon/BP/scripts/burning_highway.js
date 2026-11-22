@@ -16,10 +16,12 @@ import {
   verifiedPlayerTeleport,
 } from "./dimension_horror_rules.js";
 import { getCachedPlayerById } from "./paradise_tick_cache.js";
-import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
+import { hashCoords as visualHashCoords, scheduleStructurePlacement, scheduleVisualJob } from "./paradise_visual_jobs.js";
 import {
   OVERLAY_Y,
   SURFACE,
+  wreckFittingPlacements,
+  wreckSegmentPlacements,
   dividerBlock,
   isTurnoutEntry,
   ribRows,
@@ -371,6 +373,26 @@ function scheduleHighwayScenery(dimension, laneOffset, finishDistance) {
       { x: placement.x, y: ROAD_Y, z: placement.z },
     );
   }
+
+  // Four-part shell and fittings sit in the wreck cluster cells after the
+  // structure job runs, so the segments always land on supported floor.
+  const wreck = placements[2];
+  if (!(wreck.z <= SAFE_START_PAD_LENGTH + 24 || wreck.z >= finishDistance - 18)) {
+    const origin = { x: wreck.x, y: ROAD_Y, z: wreck.z };
+    scheduleVisualPlacements(dimension, [
+      ...wreckSegmentPlacements(origin),
+      ...wreckFittingPlacements(origin),
+    ]);
+  }
+}
+
+function scheduleVisualPlacements(dimension, placements) {
+  scheduleVisualJob(`highway-wreck-detail:${placements[0]?.x ?? 0}:${placements[0]?.z ?? 0}`, function* () {
+    for (const entry of placements) {
+      setBlockSafe(dimension, { x: entry.x, y: entry.y, z: entry.z }, entry.block);
+    }
+    yield;
+  });
 }
 
 async function generateHighwayLane(dimension, laneOffset, finishDistance = HIGHWAY_LENGTH) {
