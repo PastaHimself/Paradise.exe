@@ -206,3 +206,105 @@ Wear overlays (`y=65`, `z=11`) and debris:
 - [ ] Standard lighting shows every state distinctly (lit / unlit / damaged / dim).
 - [ ] `vhs_off` reads cleanly with no VHS overlay.
 - [ ] No interactive element exists in the build (switch plates and phone silhouettes are passive).
+
+---
+
+## Ticket 1 · Yellow Halls (`feat/v2-static-1-yellow-halls`)
+
+**Package.** `/tmp/Paradise-static-1.mcaddon`
+
+**What shipped.** 46 Yellow Halls block definitions (75 emitted IDs after the splitter) in four
+families: wallpapers `clean/stained/peeling/water_damaged`, beige carpet
+`base/worn_path/dark_stain`, acoustic ceiling `intact/cracked`, the multi-state fluorescent
+fixtures (`lit` 13, `dim` 7, `burned_out` 0, `missing_tube` 6), eight authored scenery bays, the
+service conduit chain, the reserved breaker mount and the wall/floor clutter lanes. The corridor
+motif runs inside `generatePatchMaze` and is rejected whenever it would disconnect a patch.
+
+**Where.** The authored bay set lives in patch `(1,0)`, which is world **X 32..63, Z 0..31** in
+`paradise:yellow_halls`. Enter with `!enter_yellow_halls`, then walk east from the arrival pad.
+
+### Viewpoints
+
+```text
+/execute in paradise:yellow_halls run tp @s 0 66 0
+/execute in paradise:yellow_halls run tp @s 35 66 4
+/execute in paradise:yellow_halls run tp @s 43 66 4
+/execute in paradise:yellow_halls run tp @s 51 66 4
+/execute in paradise:yellow_halls run tp @s 59 66 4
+/execute in paradise:yellow_halls run tp @s 35 66 19
+/execute in paradise:yellow_halls run tp @s 43 66 19
+/execute in paradise:yellow_halls run tp @s 51 66 19
+/execute in paradise:yellow_halls run tp @s 59 66 19
+/execute in paradise:yellow_halls run tp @s 58 66 4
+/execute in paradise:yellow_halls run tp @s 54 66 20
+```
+
+### Eight scenery bays
+
+| Bay | Anchor (world) | Expected |
+| --- | --- | --- |
+| 1 | `35 66 7` | Closed office door, frame on x2/x5 of the cell, wallpaper behind |
+| 2 | `43 66 7` | Bricked-up door, mortar lines readable, no gap to the corridor |
+| 3 | `51 66 7` | Closed office door plus the STAIRWELL sign at `52 67 6` |
+| 4 | `59 66 7` | Maintenance hatch recess and the MAINTENANCE plate at `60 67 6` |
+| 5 | `35 66 16` | Bricked-up door on the south row |
+| 6 | `43 66 16` | Closed office door with the return-air vent at `44 67 17` |
+| 7 | `51 66 16` | ARCHIVE blind alcove: frame at x50/x53, arrow at `49 67 17`, sign at `51 67 17` |
+| 8 | `59 66 16` | Closed door and EXIT wayfinding at `60 67 17` |
+
+| Check | Expectation |
+| --- | --- |
+| Fake doors | Every bay reads as a shut door; no bay opens into a wall block or a live portal |
+| Portal fallback | A bay whose face is a live portal moved one block inward and one block in +X |
+| Signage | STAIRWELL / MAINTENANCE / ARCHIVE / EXIT glyphs are legible at 4 blocks, arrows point the right way |
+| ARCHIVE mount | The alcove front volume `54 65 17` → `54 67 18` is empty; no prop was registered |
+
+### Breaker reservation (must stay empty)
+
+```text
+/execute in paradise:yellow_halls run tp @s 54 66 20
+```
+
+| Check | Expectation |
+| --- | --- |
+| Back plane | `54..55 66..67 16` is a solid flat wallpaper plane |
+| Front volume | `54..55 65..67 17..18` is air; no breaker prop, lever or interactive block exists |
+| No wiring | `paradise_loop.js` is absent and nothing reacts to the reserved cells |
+
+### Surfaces and lighting
+
+| Check | Expectation |
+| --- | --- |
+| Wallpaper | Clean / stained / peeling / water-damaged mix; peeling only at corners or under a vent; water damage only near vents or corners |
+| Carpet | Beige base with a worn path along the route columns and dark stains only on the shoulder |
+| Acoustic ceiling | Intact with occasional cracked tiles; missing panels only inside the ceiling-failure module |
+| Fixtures | Recessed two-block housings every four blocks along each leg; turn-adjacent fixture is dim; burned-out units have lit neighbours within four blocks |
+| Path | Two-block clear walkable path with two blocks of headroom through every corridor and bay turnout |
+| Flush mounting | No floating cuboid; every prop is flush to a wall, floor or ceiling |
+
+### Service conduit
+
+```text
+/execute in paradise:yellow_halls run tp @s 58 66 4
+```
+
+| Check | Expectation |
+| --- | --- |
+| Run | Straight `57 67 6` → elbow `58 67 6` → junction `59 67 6` → end cap `61 67 6` reads as one conduit |
+| Fuse cabinet | `paradise:yh_fuse_cabinet` sits at `58 65 6` and stays clear of the elbow above it |
+| Vent | Return-air vent at `44 67 17` is flush with the wall and does not sit in a door column |
+
+### Clutter lanes
+
+| Check | Expectation |
+| --- | --- |
+| Floor props | Desk `57 65 20`, filing cabinet `33 65 5`, water cooler `45 65 5`, chair `42 65 20`, wastebasket `41 65 18`, boxes `61 65 19`, debris `34 65 20` and `35 65 9` all sit in wall lanes with their frontage clear |
+| Poster | Corridor poster at `41 65 6` is a two-block portrait, mounting back flush at Z7 |
+| Escape room | The existing button, reversed sign and approach are untouched; the static exit sign sits at `C.x+5, 67, C.z+6` |
+
+### Ticket 1 sign-off
+
+- [ ] Solve the arrival → exit route normally; the existing exit button still works.
+- [ ] Two consecutive patches show the right-angle motif (no straight sightline entry → far opening).
+- [ ] All four `.mcstructure` patches resolve: `ceiling_failure` shows missing panel / exposed grid / dark cavity and the missing-tube split; `service_recess` wallpaper; `maintenance_nook` vent and plate with x3..4 clear; `dead_end_landmark` sign and boxes on the outer strips.
+- [ ] Standard lighting shows every fixture state distinctly, `vhs_off` active.

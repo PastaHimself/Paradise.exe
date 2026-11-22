@@ -1,0 +1,96 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.paradise.yh_poster_altered_x0_y0_z0",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 3.5,
+        "visible_bounds_offset": [
+          0,
+          1.25,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "asset",
+          "pivot": [
+            0,
+            -1,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                0,
+                7.875
+              ],
+              "size": [
+                16,
+                16,
+                0.125
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    0.0,
+                    7.0
+                  ],
+                  "uv_size": [
+                    8.0,
+                    8.0
+                  ]
+                },
+                "east": {
+                  "uv": [
+                    8.0,
+                    6.0
+                  ],
+                  "uv_size": [
+                    0.0625,
+                    8.0
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    8.0,
+                    6.0
+                  ],
+                  "uv_size": [
+                    8.0,
+                    8.0
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    8.0,
+                    6.0
+                  ],
+                  "uv_size": [
+                    0.0625,
+                    8.0
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    16.0,
+                    0.0625
+                  ],
+                  "uv_size": [
+                    -8.0,
+                    -0.0625
+                  ]
+                }
+              },
+              "inflate": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

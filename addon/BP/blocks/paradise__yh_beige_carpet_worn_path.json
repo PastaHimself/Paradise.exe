@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "paradise:yh_beige_carpet_worn_path"
+    },
+    "components": {
+      "minecraft:tags": [
+        "paradise:static_decor"
+      ],
+      "minecraft:collision_box": true,
+      "minecraft:geometry": "geometry.paradise.yh_beige_carpet_worn_path",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "paradise__yh_beige_carpet_worn_path",
+          "render_method": "opaque",
+          "ambient_occlusion": 1.0
+        }
+      }
+    }
+  }
+}
