@@ -607,7 +607,7 @@ stop before the finish area. The wreck cluster sits at `W=(L+9,64,min(D−30,286
 | Turnout | Z96..127 plain asphalt, X−2..2 clear at both ends, divider on X0 alternating clean 99..105, damaged 106..107, clean 108..117, bent guardrail 118..122, end cap 123..124, merge chevron at (L+1,65,125) |
 | Shelter | Turnout geometry at X3/Y65..67/Z105..116 with roof support at X3/Y67, X1..2 clear through Y65..66 |
 | Ribs | Tunnel ribs at Z48,176,304 only (`48+64n`, skipping the turnout), bearing columns intact, clear opening x2..8 at y1..3, signs at local (2,5,1)/(8,5,1) |
-| Wreck | Four shell segments in `wreck_cluster` cells (2,1,2),(3,1,2),(2,1,3),(3,1,3) with detached wheel (1,1,3), broken bumper (4,1,3), loose door (5,1,2), scrap (6,1,4); walking strips X−3..−1 clear |
+| Wreck | Four shell segments `bh_burned_out_vehicle_shell_x{0,1}_y0_z{0,1}` placed at `W+(2,1,2)`, `W+(3,1,2)`, `W+(2,1,3)`, `W+(3,1,3)`; detached wheel `W+(1,1,3)`, broken bumper `W+(4,1,3)`, loose door `W+(5,1,2)`, scrap `W+(6,1,4)`; walking strips X−3..−1 clear |
 | Overpass and lavafall | Overpass deck weathered off-road at X≥L+10; lavafall crust on its perimeter only, lava channel preserved |
 | Hazards | Lava, collapse, geyser and chase behaviour unchanged; overlays never sit above a gap and clear with their row |
 | Finish | Z≥D−24 stays free of new props; both routes rejoin at Y64 |
