@@ -17,6 +17,14 @@ import {
 } from "./dimension_horror_rules.js";
 import { getCachedPlayerById } from "./paradise_tick_cache.js";
 import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
+import {
+  OVERLAY_Y,
+  SURFACE,
+  dividerBlock,
+  isTurnoutEntry,
+  ribRows,
+  surfaceOverlay,
+} from "./burning_highway_scene.js";
 
 const DIMENSION_ID = "paradise:burning_highway";
 const ENTER_COMMAND_ID = "p:enter_burning_highway";
@@ -337,7 +345,7 @@ async function withTickingArea(dimension, areaId, from, to, work) {
 function scheduleHighwayScenery(dimension, laneOffset, finishDistance) {
   // Static authored art is requested only during lane generation. Nothing in
   // the collapse/geyser hot path performs structure work.
-  for (let z = 48; z < finishDistance - 24; z += 64) {
+  for (const z of ribRows(finishDistance)) {
     scheduleStructurePlacement(
       `highway-rib:${laneOffset}:${z}`,
       HIGHWAY_SCENERY.tunnelRib,
@@ -431,6 +439,31 @@ async function generateHighwayLane(dimension, laneOffset, finishDistance = HIGHW
 
         }
       }
+
+      // Static road wear overlays: one block above the road, only on air.
+      for (let z = START_Z; z <= finishDistance; z++) {
+        for (let laneX = -3; laneX <= 3; laneX++) {
+          const overlay = surfaceOverlay(laneX, z, finishDistance);
+          if (!overlay) continue;
+          const x = laneOffset + laneX;
+          try {
+            const above = dimension.getBlock({ x, y: OVERLAY_Y, z });
+            if (above && above.typeId === "minecraft:air") {
+              setBlockSafe(dimension, { x, y: OVERLAY_Y, z }, overlay);
+            }
+          } catch (_error) {}
+        }
+      }
+
+      // Turnout divider, end caps and merge arrow.
+      for (let z = 96; z <= 127; z++) {
+        if (isTurnoutEntry(z)) continue;
+        const divider = dividerBlock(z);
+        if (divider) {
+          setBlockSafe(dimension, { x: laneOffset, y: OVERLAY_Y, z }, divider);
+        }
+      }
+      setBlockSafe(dimension, { x: laneOffset + 1, y: OVERLAY_Y, z: 125 }, SURFACE.mergeArrow);
 
       // Build side walls and ceiling with a deterministic structural rhythm.
       // This changes the material selected by existing writes rather than adding

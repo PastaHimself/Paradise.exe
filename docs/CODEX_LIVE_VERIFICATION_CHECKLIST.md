@@ -573,3 +573,48 @@ stay solid; nothing triggers the doorway.
 - [ ] A dead end shows one burial object behind a closed wall with the middle lane clear.
 - [ ] The sealed doorway reads closed from both sides and its clue panel is legible.
 - [ ] Chest/loot/light positions and the exit lock behave exactly as before.
+
+## Ticket 6 · Burning Highway (`feat/v2-static-6-burning-highway`)
+
+**Artifact:** `/tmp/Paradise-static-6.mcaddon` (22,970,824 bytes, built with
+`python3 tools/ai/cli.py package --output /tmp/Paradise-static-6.mcaddon --apply --json`).
+
+**Envelope.** Road `X=L−3..L+3` at Y64, lava Y63, walls `X=L±4` to Y67, ceiling Y68..70. Overlays are
+one block high at Y65 and only replace air. `buildServiceDetour` stays dormant. Ribs skip Z94..128 and
+stop before the finish area. The wreck cluster sits at `W=(L+9,64,min(D−30,286+((seed>>>10)%23)))`.
+
+### Viewpoints (lane 2000, live D=300 for this seed family)
+
+```text
+/execute in paradise:burning_highway run tp @s 2000.5 66 4.5
+/execute in paradise:burning_highway run tp @s 2000.5 66 20.5
+/execute in paradise:burning_highway run tp @s 2000.5 66 97.5
+/execute in paradise:burning_highway run tp @s 2002.5 66 105.5
+/execute in paradise:burning_highway run tp @s 2000.5 66 110.5
+/execute in paradise:burning_highway run tp @s 2000.5 66 120.5
+/execute in paradise:burning_highway run tp @s 2001.5 66 125.5
+/execute in paradise:burning_highway run tp @s 1999.5 66 138.5
+/execute in paradise:burning_highway run tp @s 2009.5 66 290.5
+```
+
+### Checks
+
+| Check | Expectation |
+| --- | --- |
+| Lane line | Dashed stripe on X−2 only where z%8 is 0..3, between Z11 and D−25 |
+| Shoulders | Outer stripes on X−3 and X3 in the same window; turnout shoulder stays at X3 |
+| Wear | Skids only at X−1/Z136..141, cracks at X3 where z%17=0, heat damage at X−3 where z%23=0 |
+| Turnout | Z96..127 plain asphalt, X−2..2 clear at both ends, divider on X0 alternating clean 99..105, damaged 106..107, clean 108..117, bent guardrail 118..122, end cap 123..124, merge chevron at (L+1,65,125) |
+| Shelter | Turnout geometry at X3/Y65..67/Z105..116 with roof support at X3/Y67, X1..2 clear through Y65..66 |
+| Ribs | Tunnel ribs at Z48,176,304 only (`48+64n`, skipping the turnout), bearing columns intact, clear opening x2..8 at y1..3, signs at local (2,5,1)/(8,5,1) |
+| Wreck | Four shell segments in `wreck_cluster` cells (2,1,2),(3,1,2),(2,1,3),(3,1,3) with detached wheel (1,1,3), broken bumper (4,1,3), loose door (5,1,2), scrap (6,1,4); walking strips X−3..−1 clear |
+| Overpass and lavafall | Overpass deck weathered off-road at X≥L+10; lavafall crust on its perimeter only, lava channel preserved |
+| Hazards | Lava, collapse, geyser and chase behaviour unchanged; overlays never sit above a gap and clear with their row |
+| Finish | Z≥D−24 stays free of new props; both routes rejoin at Y64 |
+
+### Ticket 6 sign-off
+
+- [ ] Run the lane at D=260, 380 and 400; no overlay floats over lava after a collapse.
+- [ ] Shelter camping follows baseline lava/collapse behaviour.
+- [ ] `buildServiceDetour` never runs and the main road is never burned by it.
+- [ ] The phone box and emergency exit boards stay static and unpowered.

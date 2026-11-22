@@ -1,0 +1,96 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.paradise.bh_streetlamp_burned_x0_y1_z1",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 3.5,
+        "visible_bounds_offset": [
+          0,
+          1.25,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "bb_main",
+          "pivot": [
+            0,
+            -16,
+            -22
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1.2,
+                12,
+                -8
+              ],
+              "size": [
+                2.4,
+                1.3,
+                0.2
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    0.0,
+                    4.0
+                  ],
+                  "uv_size": [
+                    0.05,
+                    0.325
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0.0,
+                    4.0
+                  ],
+                  "uv_size": [
+                    0.6,
+                    0.325
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0.625,
+                    4.0
+                  ],
+                  "uv_size": [
+                    0.05,
+                    0.325
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0.6,
+                    4.675
+                  ],
+                  "uv_size": [
+                    -0.6,
+                    -0.05
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0.6,
+                    4.05
+                  ],
+                  "uv_size": [
+                    -0.6,
+                    -0.05
+                  ]
+                }
+              },
+              "inflate": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
