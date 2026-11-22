@@ -1,0 +1,2702 @@
+[
+  {
+    "uuid": "3d761de3-640d-e1b3-3990-35c84c3f9f76",
+    "name": "deck_slab",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          8,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          7,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          8,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          7,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          8,
+          3
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          8,
+          3
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ce4a4bf1-91f9-412a-8710-c93399d7a395",
+    "name": "stringer",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "cfadafa2-1bb0-25fa-22f5-63393e816497",
+    "name": "curb_west",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.75,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1.75,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.75,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1.75,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "fa8aaaf6-1656-6b60-8e92-ebcf991f1d68",
+    "name": "curb_east",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1.125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1.125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d2341750-7472-9d18-d76c-99c24a10c210",
+    "name": "baluster_w1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "f52f25e8-fb20-99ef-a64e-75ed5cba3be9",
+    "name": "baluster_w2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "812fbcda-dc67-11ee-24db-d0f0d11e2d72",
+    "name": "stump_w3",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.3,
+          0.55
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.55
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.3,
+          0.55
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.55
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.3,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.3,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ecae5d4e-67bb-3f03-1360-1fe82f664b33",
+    "name": "baluster_e4",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "986c330b-3bb9-d271-15c4-c7d8cd0f1419",
+    "name": "stump_e5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "494fa987-a5bf-ecac-e05f-764b7b588d04",
+    "name": "handrail_w",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.45,
+          0.4249999999999998
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.6000000000000001,
+          0.4249999999999998
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1.45,
+          0.4249999999999998
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.6000000000000001,
+          0.4249999999999998
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.45,
+          0.6000000000000001
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1.45,
+          0.6000000000000001
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9772c3bc-986e-b59b-f5e4-4d420034136b",
+    "name": "fracture_w",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.425,
+          0.27500000000000036
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.4,
+          0.27500000000000036
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.425,
+          0.27500000000000036
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.4,
+          0.27500000000000036
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.425,
+          0.4
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.425,
+          0.4
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "05820a4d-3307-7b87-3f83-df3eb1b58693",
+    "name": "handrail_e",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.4249999999999998
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.6000000000000001,
+          0.4249999999999998
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.4249999999999998
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.6000000000000001,
+          0.4249999999999998
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.6000000000000001
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.6000000000000001
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c4af66e7-27b3-a235-0fb2-3d90fc221ece",
+    "name": "debris_baluster",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.7,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d146a4be-dad2-259c-d246-e65764023d7c",
+    "name": "debris_rail",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.45,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.45,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.45,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.45,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.45,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.45,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "800f2b4f-cb24-0a75-5f56-fc5c4a65b933",
+    "name": "debris_chip",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.35,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.35,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.25,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.35,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.35,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "9b203295-be39-99a5-be31-f2181d9c7576",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9b203295-be39-99a5-be31-f2181d9c7576",
+          "name": "damaged_bridge_edge"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

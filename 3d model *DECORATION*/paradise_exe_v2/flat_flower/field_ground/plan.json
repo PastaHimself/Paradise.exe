@@ -1,0 +1,28 @@
+{
+  "reference": "https://www.wildbienen.info/artenschutz/nisthilfen_06.php",
+  "image": "../../references/field_ground.jpg",
+  "used": "exposed compacted footpath through short grass; contrast between green, dry material and bare soil",
+  "texture_order_left_to_right": [
+    "worn_footpath",
+    "bare_soil",
+    "dry_grass_straw_proxy",
+    "flattened_grass_moss_proxy",
+    "short_grass"
+  ],
+  "sources": {
+    "short_grass": "grass_carried.png",
+    "flattened_grass_moss_proxy": "pale_moss_block.png",
+    "dry_grass_straw_proxy": "hay_block_top.png",
+    "bare_soil": "dirt.png",
+    "worn_footpath": "grass_path_top.png"
+  },
+  "blocked_exact": [
+    "flattened grass: no matching trampled-grass surface in local sources",
+    "dry grass ground: no exact dry-grass ground tile in local sources; original hay top supplied as straw proxy"
+  ],
+  "limitations": [
+    "native precolored grass_carried.png avoids custom tint",
+    "pale moss and hay proxies are labelled explicitly; exact damaged grass states remain blocked",
+    "texture-only outputs; Generic Model is a tiled preview, no runtime geometry or pack integration"
+  ]
+}

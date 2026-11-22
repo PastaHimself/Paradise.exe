@@ -1,0 +1,147 @@
+{
+  "target": "Bedrock Block; static; low-end mobile; balanced <=16 cubes",
+  "shading": "single opaque vanilla atlas from completed full bookshelf",
+  "texel_density": "1 px/unit; same 64x64 atlas and source UVs; no remapping/resampling",
+  "references": [
+    {
+      "url": "https://www.pinterest.com/pin/69805862951213722/",
+      "image": "../../references/fallen_bookshelf.jpg",
+      "used": "case resting on its side, formerly vertical compartments crossing a horizontal silhouette"
+    },
+    {
+      "url": "https://www.ateliertamplarie.ro/",
+      "image": "../../references/full_bookshelf/joinery.jpg",
+      "used": "reuse existing full bookshelf joinery and proportions"
+    }
+  ],
+  "materials": [
+    [
+      0,
+      0,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      0,
+      16,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      0,
+      32,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      0,
+      48,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      16,
+      0,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      16,
+      16,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      16,
+      32,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      16,
+      48,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      32,
+      0,
+      16,
+      16,
+      "bookshelf.png"
+    ],
+    [
+      32,
+      16,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      32,
+      32,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      32,
+      48,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      48,
+      0,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      48,
+      16,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      48,
+      32,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      48,
+      48,
+      16,
+      16,
+      "planks_spruce.png"
+    ]
+  ],
+  "geometry": "completed 12-cube full bookshelf reproduced through live tools, then rigidly tipped onto its left side; 30-degree ground diagonal",
+  "group_origin": [
+    0,
+    8,
+    0
+  ],
+  "group_rotation": [
+    30,
+    0,
+    90
+  ],
+  "limitations": [
+    "static toppled case; no physics or falling animation",
+    "books remain wedged in compartments; no extra clutter",
+    "world transformed bounds checked separately because dedicated bounds inspector ignores rotation"
+  ]
+}

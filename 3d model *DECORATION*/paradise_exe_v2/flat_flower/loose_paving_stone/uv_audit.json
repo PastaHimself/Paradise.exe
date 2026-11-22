@@ -1,0 +1,1046 @@
+[
+  {
+    "uuid": "f91e426c-76d2-e0bb-5ac2-3b39650156c1",
+    "name": "subbase_mortar_bed",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          8,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          8,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          8,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          8,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          8,
+          4
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          8,
+          4
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "27fd7c41-9f8d-a9e0-01df-cf73d4203ccc",
+    "name": "intact_adjacent_slab",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.75,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1.75,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.75,
+          4
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e05f6f2f-5751-c927-84a6-fdf67adcfe37",
+    "name": "crumbled_mortar_recess",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5.625,
+          0.0875
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          7.375,
+          0.0875
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          5.625,
+          0.0875
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          7.375,
+          0.0875
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.625,
+          3.375
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "fce09aff-5e7a-8d98-8ff6-5a3659e32bfd",
+    "name": "loose_slab_lower",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.875,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.875,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.875,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5586e27f-8784-6e80-f18f-f670e313e8b0",
+    "name": "loose_slab_raised_lip",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.25,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.25,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "bf250a4f-0159-4824-16ef-b84d0a5a011c",
+    "name": "broken_corner_chip",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "3562ae07-8c6c-58f4-cd70-29ed6feaadcc",
+          "name": "loose_paving_stone"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

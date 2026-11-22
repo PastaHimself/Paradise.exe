@@ -1,0 +1,43 @@
+{
+  "target": "Bedrock Block; static; low-end mobile; balanced <=10 cubes",
+  "geometry": "9 cuboids; hollow rectangular shell; open mouth; rolled rim; overturned 87.85 degrees about Z so base and rim contact floor",
+  "scale": "16 units/block",
+  "shading": "opaque color-only 32x32 atlas",
+  "density": "1 pixel/unit",
+  "reference": "https://www.webstaurantstore.com/continental-2818bk-28-qt-7-gallon-black-rectangular-wastebasket-trash-can/2742818BK.html",
+  "reference_notes": "rectangular mouth, deep hollow body, thicker rolled rim; taper and rounded corners simplified",
+  "tiles": [
+    [
+      0,
+      0,
+      16,
+      16,
+      "concrete_black.png"
+    ],
+    [
+      16,
+      0,
+      16,
+      16,
+      "concrete_gray.png"
+    ],
+    [
+      0,
+      16,
+      16,
+      16,
+      "netherite_block.png"
+    ],
+    [
+      16,
+      16,
+      16,
+      16,
+      "iron_block.png"
+    ]
+  ],
+  "limitations": [
+    "square shell rather than taper/radius",
+    "no invented dirt, papers or damage"
+  ]
+}

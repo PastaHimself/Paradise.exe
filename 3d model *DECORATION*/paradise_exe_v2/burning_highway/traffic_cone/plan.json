@@ -1,0 +1,40 @@
+{
+  "id": "burning_highway_traffic_cone",
+  "reference": "https://mutcd.fhwa.dot.gov/",
+  "used": "MUTCD 28/36-inch freeway traffic cone with beveled square black rubber base, stepped orange conical body, dual retroreflective white collars (6-inch and 4-inch bands), and hollow recessed top grip",
+  "notes": [
+    "freeway safety traffic cone with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_orange, concrete_black, and concrete_white pixels unchanged",
+    "static prop; no physics simulation"
+  ],
+  "materials": {
+    "orange": [
+      0,
+      0,
+      "concrete_orange.png",
+      16,
+      16
+    ],
+    "rubber": [
+      16,
+      0,
+      "concrete_black.png",
+      16,
+      16
+    ],
+    "white_collar": [
+      32,
+      0,
+      "concrete_white.png",
+      16,
+      16
+    ],
+    "dark_inner": [
+      48,
+      0,
+      "concrete_black.png",
+      16,
+      16
+    ]
+  }
+}

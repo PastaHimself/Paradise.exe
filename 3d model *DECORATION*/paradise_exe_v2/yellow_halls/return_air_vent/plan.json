@@ -1,0 +1,99 @@
+{
+  "asset": "Yellow Halls return-air vent",
+  "format": "bedrock_block",
+  "units_per_block": 16,
+  "bounds": {
+    "min": [
+      -8,
+      2,
+      5.8
+    ],
+    "max": [
+      8,
+      14,
+      8
+    ],
+    "size": [
+      16,
+      12,
+      2.2
+    ]
+  },
+  "geometry": [
+    {
+      "name": "outer_frame",
+      "parts": [
+        "outer_left_frame",
+        "outer_right_frame",
+        "outer_top_frame",
+        "outer_bottom_frame"
+      ]
+    },
+    {
+      "name": "double_inner_lip",
+      "parts": [
+        "inner_left_lip",
+        "inner_right_lip",
+        "inner_top_lip",
+        "inner_bottom_lip"
+      ]
+    },
+    {
+      "name": "split_louver_face",
+      "parts": [
+        "left_louver_0..4",
+        "right_louver_0..4",
+        "center_mullion"
+      ]
+    },
+    {
+      "name": "recessed_duct_back",
+      "parts": [
+        "recessed_duct_back"
+      ]
+    },
+    {
+      "name": "perimeter_fasteners",
+      "parts": [
+        "fastener_top_left",
+        "fastener_top_right",
+        "fastener_bottom_left",
+        "fastener_bottom_right"
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "variant": "iron",
+      "output": "return_air_vent_iron.png",
+      "source": "/home/pasta/Downloads/blockbench/paradise_exe_v2/shared/vent_grille/iron.png",
+      "original_vanilla_sources": [
+        "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/iron_block.png",
+        "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/concrete_black.png"
+      ],
+      "pixel_policy": "unchanged original pixels copied from the completed shared vent grille atlas"
+    }
+  ],
+  "references": [
+    "https://www.plumbersstock.com/shoemaker-1050-16x20-16inx20-return-air-grille-white.html",
+    "https://www.rpsar.com.br/grelhas-de-ventilacao/grelha-veneziana-retorno-de-ar-portadivisoria-branca40x40cm-branca",
+    "https://www.ebay.com/itm/256919074772",
+    "https://www.floorregisters-n-vents.com/wall-return-grills/basic-return-air-grilles/"
+  ],
+  "verification": {
+    "native_front_view": "inspected",
+    "native_three_quarter_view": "inspected",
+    "native_back_view": "inspected",
+    "native_side_view": "inspected",
+    "bedrock_bounds": "valid; fits one 16x16 block cell",
+    "uv_audit": "144 faces assigned to embedded texture; UV rectangles valid and remain within 0\u201314.5 project UV units",
+    "screenshots_saved_to_disk": true,
+    "pack_integration": "not in scope; geometry identifier remains geometry.unknown",
+    "final_screenshot": {
+      "path": "three_quarter.png",
+      "width": 640,
+      "height": 480,
+      "sha256": "f5a02ba67b598715ca66305f8714e4afbce415df2bd6cd5e9c36b0045d9b0627"
+    }
+  }
+}

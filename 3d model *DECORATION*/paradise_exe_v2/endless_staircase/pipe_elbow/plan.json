@@ -1,0 +1,32 @@
+{
+  "reference": "https://www.pipingmart.com/industrial-pipe-fittings/90-degree-elbow",
+  "used": "commercial stairwell schedule 40 industrial steel pipe 90-degree elbow turn with bolted flange collars and wall mounting saddle",
+  "limitations": [
+    "modular 4x4 pipe turning from horizontal West (X=-8) to vertical Up (Y=16) with wall anchor at Z=8.0",
+    "culled contact planes with 0 volume overlaps and 0 coplanar z-fighting",
+    "original iron_block, cauldron_side, and netherite_block pixels unchanged; no physics or pack integration"
+  ],
+  "materials": {
+    "pipe": [
+      0,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "flange": [
+      16,
+      0,
+      "cauldron_side.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      32,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

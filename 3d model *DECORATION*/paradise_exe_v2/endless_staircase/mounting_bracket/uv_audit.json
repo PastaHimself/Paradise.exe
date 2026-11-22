@@ -1,0 +1,2396 @@
+[
+  {
+    "uuid": "c126ebd7-e887-e5ae-be8d-9f9bf764d075",
+    "name": "backplate",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          3
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6412ac56-3171-28cd-6208-a4afbeb161a7",
+    "name": "cantilever_arm",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          1.375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b6c57a76-abfb-7733-4034-31759f4d83fa",
+    "name": "brace_lower",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5fc81bba-889d-e768-934e-d45fac873f22",
+    "name": "brace_mid",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c8331902-597a-28a3-9b09-8db5a9490e2a",
+    "name": "brace_upper",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.4375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5eb6f9b6-fb2b-2d39-5c0e-73d27e367632",
+    "name": "cradle_base",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ea7dd926-4681-009c-dc91-11b7f6995217",
+    "name": "cradle_lip_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "74763ccd-6dfc-203e-9eca-20a6ef9ecdce",
+    "name": "cradle_lip_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d1020a9e-529e-14da-ba13-3101a753ec05",
+    "name": "bolt_wall_-2.0_3.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "493c2509-f96d-8969-d02d-9835028ccb94",
+    "name": "bolt_wall_-2.0_12.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "db858338-bb1e-940a-8ac8-3a4c08058ffa",
+    "name": "bolt_wall_2.0_3.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c3402d78-23a4-ba8d-af94-cac2f0250a11",
+    "name": "bolt_wall_2.0_12.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "225a2dbf-d6c9-7a91-d932-2396c5b3573d",
+    "name": "clamp_bolt_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.09375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.09375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.09375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.09375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ab59bf9f-82ad-97be-4c56-610937450fca",
+    "name": "clamp_bolt_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.09375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.09375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.09375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.09375
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "9836504b-9bb1-d08d-d8a1-62220b9ac8b4",
+          "name": "mounting_bracket"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

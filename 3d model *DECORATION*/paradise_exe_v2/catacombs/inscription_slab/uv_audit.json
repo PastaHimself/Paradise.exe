@@ -1,0 +1,1802 @@
+[
+  {
+    "uuid": "f8a857f2-f922-b8d5-b030-ebd16a6bc743",
+    "name": "base_plinth",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          3.75,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          3.75,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          3.75,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          3.75,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "588aaf9b-53e7-5dcb-08c9-a536c5cb2f62",
+    "name": "pedestal_bed",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          7.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          5.1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          7.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          5.1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          7.25,
+          1.1
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          7.25,
+          1.1
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "7b74f2d1-d5e0-fb95-ff8a-3bcab8a85877",
+    "name": "main_tablet",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          10.75,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.6,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          10.75,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.6,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          10.75,
+          0.6
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          10.75,
+          0.6
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "3d6741d7-80c8-ac96-2a15-42afece83456",
+    "name": "frame_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c5d062c8-111a-3fd3-87d4-7a45d153f65a",
+    "name": "frame_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          3.25
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "0d0f60a4-5aac-a18a-810a-1424264f7636",
+    "name": "pediment_lower",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          10.75,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.6,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          10.75,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.6,
+          0.3250000000000002
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          10.75,
+          0.6
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          10.75,
+          0.6
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ad1ab511-bb16-5577-a360-3d3e72460c3b",
+    "name": "pediment_apex",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          9.75,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.6,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          9.75,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.6,
+          0.2999999999999998
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          9.75,
+          0.6
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          9.75,
+          0.6
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d5be26df-62fe-7a22-a128-63e1e7308897",
+    "name": "chipped_corner",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.45,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.45,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.45,
+          0.15000000000000002
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.45,
+          0.15000000000000002
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "f96cdeb6-f85f-54f9-d207-b30bf2dbaf8b",
+    "name": "fallen_fragment",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.625,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.625,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.32499999999999996
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.625,
+          0.25000000000000006
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.625,
+          0.25000000000000006
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b1446ceb-1142-7d3f-5f41-bb838b27d60c",
+    "name": "mortar_crumb",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.325,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.325,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.17500000000000004
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.325,
+          0.2
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.325,
+          0.2
+        ],
+        "rotation": 0,
+        "texture": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "cb159dd2-128e-8cb7-171e-d372d8aa4b49",
+          "name": "inscription_slab"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

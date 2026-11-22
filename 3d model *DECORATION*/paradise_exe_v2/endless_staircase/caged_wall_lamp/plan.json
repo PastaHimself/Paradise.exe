@@ -1,0 +1,54 @@
+{
+  "reference": "https://www.industrial-lighting.co.uk/vapour-tight-bulkhead-caged-wall-lights/",
+  "used": "commercial stairwell vapor-tight caged bulkhead wall lamp with heavy junction backplate, dual conduit hubs, glass globe, and protective steel wire cage",
+  "limitations": [
+    "modular wall fixture mounted at Z=8 with 0.25-unit cage clearance around globe",
+    "variants: normal (shroomlight), red (redstone_block), and dead (redstone_lamp_off)",
+    "culled contact planes with 0 volume overlaps and 0 coplanar z-fighting",
+    "original cauldron_side, shroomlight, redstone_block, redstone_lamp_off, iron_block, and netherite_block pixels unchanged; no light-emitting dynamic physics or pack integration"
+  ],
+  "materials": {
+    "metal": [
+      0,
+      0,
+      "cauldron_side.png",
+      16,
+      16
+    ],
+    "globe": [
+      16,
+      0,
+      "shroomlight.png",
+      16,
+      16
+    ],
+    "globe_red": [
+      32,
+      0,
+      "redstone_block.png",
+      16,
+      16
+    ],
+    "globe_dead": [
+      48,
+      0,
+      "redstone_lamp_off.png",
+      16,
+      16
+    ],
+    "cage": [
+      0,
+      16,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      16,
+      16,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

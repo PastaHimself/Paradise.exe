@@ -1,0 +1,2819 @@
+[
+  {
+    "uuid": "40a5a77e-af07-89d4-6dc0-17e71dc416cf",
+    "name": "footing_stub",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a68fccb1-bca8-6739-dfcd-62499cc5972c",
+    "name": "sheared_baseplate",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.8,
+          0.12499999999999994
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.8,
+          0.12499999999999994
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.8,
+          0.12499999999999994
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.8,
+          0.12499999999999994
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.8,
+          0.8
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "535f1718-4d42-14c4-0c89-6456c8f01a1c",
+    "name": "stud_nw",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "74e18c7a-dd94-c858-ff60-5979edf2e153",
+    "name": "stud_ne",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9991f633-89da-5242-3800-348a156464f9",
+    "name": "stud_sw",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "85d5d9b1-8ab0-e3ce-7797-b5d922220947",
+    "name": "stud_se",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.1
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c072ab19-bb49-620d-55a7-a613fde02e13",
+    "name": "conduit_stub",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          4,
+          0.15000000000000036,
+          4.1
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          4,
+          0.15,
+          4.1
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          4,
+          0.15000000000000036,
+          4.1
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          4,
+          0.15,
+          4.1
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          4,
+          0.15000000000000036,
+          4.15
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "8e295e34-a1f8-93eb-936c-eb91079efc8b",
+    "name": "fallen_pole_lower",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          14.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          14.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.5,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          14.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "4f71612e-d00f-86e6-42ab-6bec67dae235",
+    "name": "torn_pole_base",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.075,
+          0.525
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.075,
+          0.525
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.55,
+          0.525
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.075,
+          0.55
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "4462eb35-cc7b-6f1e-4550-7e528b145fa2",
+    "name": "open_handhole_door",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.625,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.3,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.625,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.3,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.625,
+          0.3
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5b2239d7-54a7-9482-d552-c70e39851d54",
+    "name": "dent_crease",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.5,
+          0.4
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.5,
+          0.4
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.5,
+          0.45
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "bcbbdb49-c745-7dbd-47ed-d1768cc2d7e3",
+    "name": "fallen_pole_upper",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          13.875,
+          0.4
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.4,
+          0.4
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          13.875,
+          0.4
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          13.875,
+          0.4
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "28e42da8-956d-4410-4187-5dcda74691ed",
+    "name": "fallen_collar",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.425
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.4,
+          0.425
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.425
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.175,
+          0.39999999999999997
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "4fe061eb-03e9-6827-51d3-6a57e6fdfe08",
+    "name": "crumpled_arm",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.45,
+          0.3
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.675,
+          0.3
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.45,
+          0.3
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.45,
+          0.675
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "518101e4-0aea-545e-9530-52682fb7b7ef",
+    "name": "smashed_housing",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          4,
+          4,
+          4.575,
+          4.25
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          4,
+          4.4,
+          4.25
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          4,
+          4,
+          4.4,
+          4.575
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "fc604952-d0c0-d395-44a6-63ea5daa7304",
+    "name": "scattered_lens_shards",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          4,
+          8.45,
+          4.05
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          8,
+          4,
+          8.45,
+          4.05
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          4,
+          8.575,
+          4.05
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          4,
+          8.45,
+          4.575
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "3c2bcae0-fba2-9e53-7a34-78cb48e6eb44",
+    "name": "crushed_photocell",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.07500000000000001
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.07500000000000001
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.07500000000000001
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.07500000000000001
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.15,
+          0.1499999999999999
+        ],
+        "rotation": 0,
+        "texture": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "b947bd69-7fb3-a268-0fe0-fd003ab79ba7",
+          "name": "fallen_streetlamp"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

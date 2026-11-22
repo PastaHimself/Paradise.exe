@@ -1,0 +1,1 @@
+Acoustic ceiling vanilla substitutes: concrete_powder_white intact; stonebrick_cracked cracked. Original 16×16 source pixels unchanged. Generic Model tiled preview only; no runtime geometry needed. All materials shown below 2×2 preview blocks and inspected. Source paths in vanilla_sources.json; no in-game verification.

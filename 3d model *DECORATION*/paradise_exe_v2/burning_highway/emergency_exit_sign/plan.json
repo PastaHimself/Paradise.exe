@@ -1,0 +1,40 @@
+{
+  "id": "burning_highway_emergency_exit_sign",
+  "reference": "https://mutcd.fhwa.dot.gov/",
+  "used": "MUTCD standard E5-1 highway EMERGENCY EXIT sign with 16x9 green retroreflective faceplate, perimeter white border, embossed EMERGENCY EXIT lettering, directional egress arrow pointing right, dual U-channel steel mounting posts with backing channels, and hardware bolts; includes normal and scorched variants",
+  "notes": [
+    "highway egress guide sign with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_green, concrete_white, iron_block, and netherite_block pixels unchanged",
+    "static prop; no physics simulation"
+  ],
+  "materials": {
+    "green": [
+      0,
+      0,
+      "concrete_green.png",
+      16,
+      16
+    ],
+    "white": [
+      16,
+      0,
+      "concrete_white.png",
+      16,
+      16
+    ],
+    "steel": [
+      32,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      48,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

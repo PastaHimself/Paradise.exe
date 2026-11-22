@@ -1,0 +1,47 @@
+{
+  "id": "burning_highway_guardrail_end",
+  "reference": "https://roadsidepooledfund.org/",
+  "used": "highway extruded impact head W-beam guardrail end treatment (MSKT / ET-Plus) with cable anchor terminal, ground strut, breakaway post in foundation sleeve, impact extruder chute, buffer striker cap, and yellow/black chevron hazard stripes",
+  "notes": [
+    "modular 16-unit roadway guardrail terminal segment with 0 volume overlaps and 0 coplanar z-fighting",
+    "original iron_block, netherite_block, cauldron_side, concrete_yellow, and concrete_black pixels unchanged",
+    "static terminal geometry; no vehicle impact physics"
+  ],
+  "materials": {
+    "steel": [
+      0,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      16,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ],
+    "plate": [
+      32,
+      0,
+      "cauldron_side.png",
+      16,
+      16
+    ],
+    "hazard_yellow": [
+      48,
+      0,
+      "concrete_yellow.png",
+      16,
+      16
+    ],
+    "hazard_black": [
+      0,
+      16,
+      "concrete_black.png",
+      16,
+      16
+    ]
+  }
+}

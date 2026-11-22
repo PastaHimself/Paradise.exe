@@ -1,0 +1,3188 @@
+[
+  {
+    "uuid": "6394edc3-9f75-b535-9b4e-5814248d28fd",
+    "name": "flange_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5cbb8de4-b0b4-1584-5d9a-91588083269b",
+    "name": "post_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          4
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          4
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          4
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          4
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "719872ea-0786-ba33-bb51-725e281e8471",
+    "name": "top_rail_straight",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5.5,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          5.5,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.5,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5.5,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d051d348-ca2b-4d6e-a8de-13407d1e617a",
+    "name": "bent_rail_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.75,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.75,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.75,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "8ab7241f-b0ce-f234-6775-575b7bf546d3",
+    "name": "bent_rail_apex",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ea61a8b9-3d1f-c3df-0ed1-04f6c9ccac39",
+    "name": "bent_rail_return",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.625,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.875,
+          0.625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1663de9d-fecc-10fb-c78f-eb263b47c4f5",
+    "name": "mid_rail_straight",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "4dec5e46-52b0-7a01-3440-ea2af6039107",
+    "name": "mid_rail_span1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.9375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.9375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.9375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.9375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9593e81e-fd77-dfd5-f96c-889f4b14e5a8",
+    "name": "mid_rail_bent1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b6eb8d76-63c9-eb37-dafc-30f6422a260b",
+    "name": "mid_rail_bent2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.6875,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.6875,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.6875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.6875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1e0e42e1-a2dc-8f02-9342-aa0e48849665",
+    "name": "mid_rail_return",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "76596507-28f8-7b1a-9bd3-c52e27d39586",
+    "name": "flange_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d2a949a5-96f2-121a-f608-4b5fd37fef14",
+    "name": "post_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          3.9375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          3.9375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          3.9375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.375,
+          3.9375
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "bca62e6d-8732-b837-91e4-b6cd3403d00d",
+    "name": "bolt_left_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "39a906be-34b4-cdc1-1e6c-93c6015ca495",
+    "name": "bolt_left_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "10129205-75b3-4b33-77a9-aff14ee543ed",
+    "name": "bolt_left_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "dd96c252-459f-c3bf-b85b-80e65059d5f7",
+    "name": "bolt_left_3",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "456ed888-a285-e4b2-d274-9b601898f7ab",
+    "name": "bolt_right_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "e543785f-aa9f-5004-c2dc-9904743525fd",
+    "name": "bolt_right_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "f498107f-a29d-9ba2-e335-e2ac31710ef9",
+          "name": "bent_rail"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

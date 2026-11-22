@@ -1,0 +1,110 @@
+{
+  "name": "create_texture",
+  "title": "Create Texture",
+  "description": "Creates a new texture with the given name and size.",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "width": {
+        "type": "number",
+        "minimum": 16,
+        "maximum": 4096,
+        "default": 16
+      },
+      "height": {
+        "type": "number",
+        "minimum": 16,
+        "maximum": 4096,
+        "default": 16
+      },
+      "uv_width": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": "Logical UV width for formats with per_texture_uv_size. Supply uv_height too. Independent of bitmap width; omit both to preserve native defaults."
+      },
+      "uv_height": {
+        "type": "number",
+        "exclusiveMinimum": 0,
+        "description": "Logical UV height for formats with per_texture_uv_size. Supply uv_width too. Independent of bitmap height."
+      },
+      "data": {
+        "type": "string",
+        "description": "Image data URL, or an absolute path or file:// URL of an image file (desktop only, read with Blockbench's file permission)."
+      },
+      "group": {
+        "type": "string"
+      },
+      "fill_color": {
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "RGBA [R, G, B, A]"
+          },
+          {
+            "type": "string",
+            "pattern": "^(?:#(?:[A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})|[a-z]{3,20})$"
+          }
+        ],
+        "description": "RGBA color to fill the texture, as tuple or HEX string."
+      },
+      "layer_name": {
+        "type": "string",
+        "description": "Deprecated and ignored: textures are created without layers. Use texture_layer_management create_layer to add a named layer."
+      },
+      "pbr_channel": {
+        "type": "string",
+        "enum": [
+          "color",
+          "normal",
+          "height",
+          "mer"
+        ],
+        "description": "PBR channel to use for the texture. Color, normal, height, or Metalness/Emissive/Roughness (MER) map."
+      },
+      "render_mode": {
+        "type": "string",
+        "enum": [
+          "default",
+          "emissive",
+          "additive",
+          "layered"
+        ],
+        "default": "default",
+        "description": "Render mode for the texture. Default, emissive, additive, or layered."
+      },
+      "render_sides": {
+        "type": "string",
+        "enum": [
+          "auto",
+          "front",
+          "double"
+        ],
+        "default": "auto",
+        "description": "Render sides for the texture. Auto, front, or double."
+      }
+    },
+    "required": [
+      "name"
+    ],
+    "additionalProperties": false,
+    "$schema": "https://json-schema.org/draft/2020-12/schema"
+  },
+  "annotations": {
+    "title": "Create Texture",
+    "destructiveHint": true,
+    "openWorldHint": true
+  },
+  "execution": {
+    "taskSupport": "forbidden"
+  }
+}

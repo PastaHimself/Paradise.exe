@@ -1,0 +1,5537 @@
+[
+  {
+    "uuid": "c387a0e8-661d-245c-068d-db28ef3d6ca2",
+    "name": "band_north",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "0e612285-9e9c-b902-1b9e-7ef7aee574f1",
+    "name": "band_south",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1b4956a1-21d0-5a99-2866-4cf6d444138e",
+    "name": "band_west",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          3.625
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b5ec93d2-bf4c-3b77-7b4b-1e8a22bc041d",
+    "name": "band_east",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          3.625
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "15a7e02f-2cf6-f53d-ef2c-67bf8538cf4a",
+    "name": "bb1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3.625
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2265bda8-8d26-930e-d9eb-96b2a3581ac2",
+    "name": "bb2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3.625
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ccf86c8d-7aae-a3be-31bc-5bd68e8c6df0",
+    "name": "bb3",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          3.625
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "89d429d9-4931-5c33-8b6c-7f8cf4344c3f",
+    "name": "bb4",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3.625
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5320676c-5de4-75a7-62c4-349a867b76ed",
+    "name": "bb5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          3.625,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.125,
+          3.625
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2233e30f-6fc8-14b0-c313-0f81874ec722",
+    "name": "cross_0_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c80dd9de-7aa2-9568-687c-b4ef39eafc52",
+    "name": "cross_0_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "bb85e424-e2aa-088b-8e0a-29d72940d355",
+    "name": "cross_0_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "615b099f-d874-bd57-ec58-1fb8dec7b382",
+    "name": "cross_0_3",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "cb852a90-f501-308c-cc13-01aff42f3f59",
+    "name": "cross_0_4",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d00cbb3a-2d77-65b8-3a86-dae9c430f6ea",
+    "name": "cross_0_5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "8570d20f-6c13-3c65-e742-25c62420224a",
+    "name": "cross_1_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "828318f1-7168-8ec1-36e5-3fe8bf75ae3a",
+    "name": "cross_1_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "26815aec-786e-324b-af44-67c22c1b88c5",
+    "name": "cross_1_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c0f29f1e-c448-3aac-0918-7ef531e8b3f2",
+    "name": "cross_1_3",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "60b581ee-b581-6df1-20c5-2240171a278e",
+    "name": "cross_1_4",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "65b4f73b-1b3a-c643-aa45-bca3dc2a4ad0",
+    "name": "cross_1_5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1a6c63d9-7d24-095e-d703-6485c4042c57",
+    "name": "cross_2_0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "52f4c3f2-0989-9dec-be3b-b3e77da44045",
+    "name": "cross_2_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "13291191-dfc3-a4dc-fb75-29b783614567",
+    "name": "cross_2_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "4831b3fd-701a-d191-945b-7dc4edeebc83",
+    "name": "cross_2_3",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "7888cfd9-ba93-029d-e738-2c9dae75f1e2",
+    "name": "cross_2_4",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "cdee2ee8-3ace-16fc-f2f2-1ce5c52640ff",
+    "name": "cross_2_5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.4375,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2e26d26f-167b-58df-2282-65deefae10c0",
+    "name": "clip_nw",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c1faf378-b6c4-a3f4-fdbb-12c49b3bc3cb",
+    "name": "clip_nw_bolt",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000018
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a3ffa3db-b24c-4353-a727-c380878ea229",
+    "name": "clip_ne",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "7f15ef9b-5f61-6355-8271-c7327ed939f8",
+    "name": "clip_ne_bolt",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000018
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "297eb750-de99-6f81-ba7e-3d365aac0cd2",
+    "name": "clip_sw",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "acf3895e-91d4-83bd-54cc-2d177993cdcb",
+    "name": "clip_sw_bolt",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000018
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "82e47953-b6cc-4a89-a29c-586111263641",
+    "name": "clip_se",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.175,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "602f0a6c-5d76-02fd-918e-b8475d4a18fd",
+    "name": "clip_se_bolt",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000007
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.075,
+          0.07500000000000018
+        ],
+        "rotation": 0,
+        "texture": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "1cd27897-b40d-80ef-218a-0c1a3714f85b",
+          "name": "metal_grating"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

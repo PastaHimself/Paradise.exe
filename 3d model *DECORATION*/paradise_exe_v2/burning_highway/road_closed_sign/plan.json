@@ -1,0 +1,40 @@
+{
+  "id": "burning_highway_road_closed_sign",
+  "reference": "https://mutcd.fhwa.dot.gov/",
+  "used": "MUTCD standard R11-2 highway ROAD CLOSED sign with 16x10 retroreflective faceplate, perimeter black border, embossed two-line ROAD CLOSED lettering, dual U-channel steel mounting posts with horizontal backing stringers, and bolt hardware; includes normal and scorched variants",
+  "notes": [
+    "regulatory roadway warning sign with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_white, concrete_black, iron_block, and netherite_block pixels unchanged",
+    "static prop; no physics simulation"
+  ],
+  "materials": {
+    "white": [
+      0,
+      0,
+      "concrete_white.png",
+      16,
+      16
+    ],
+    "ink": [
+      16,
+      0,
+      "concrete_black.png",
+      16,
+      16
+    ],
+    "steel": [
+      32,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      48,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

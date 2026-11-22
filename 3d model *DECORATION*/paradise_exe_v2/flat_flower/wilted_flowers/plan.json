@@ -1,0 +1,19 @@
+{
+  "reference": "https://www.shutterbug.com/content/narrow-your-focus-how-use-lines-patterns-colors-textures-create-eye-catching-images",
+  "used": "arched slender stem and drooping flower head; bend is a single readable joint",
+  "limitations": [
+    "original cutout pixels split at source row 10; geometry rotation supplies bend without repaint",
+    "native wither-rose pixels substitute for species-specific wilted daisy pixels",
+    "requires alpha-test material binding during pack integration",
+    "no animation or gameplay behavior",
+    "0.02-unit card thickness separates opposite faces to avoid coplanar flicker",
+    "head moved 0.25 units forward to separate folded head and lower-leaf planes"
+  ],
+  "materials": {
+    "flower": [
+      0,
+      0,
+      "flower_wither_rose.png"
+    ]
+  }
+}

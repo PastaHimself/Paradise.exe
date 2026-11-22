@@ -1,0 +1,53 @@
+{
+  "target": "Bedrock Block; static; low-end mobile; balanced <=16 cubes; corridor/library copies",
+  "shading": "one opaque color-only vanilla atlas",
+  "texel_density": "1 image pixel/model unit; 64x64 atlas",
+  "dimensions": "16 x 30 x 6 units; matches completed full bookshelf frame",
+  "references": [
+    {
+      "url": "https://www.ateliertamplarie.ro/",
+      "image": "../../references/full_bookshelf/joinery.jpg",
+      "used": "side/back joinery, regularly supported boards and tall case proportions"
+    },
+    {
+      "url": "https://forward.com/culture/484974/a-thriller-from-mexico-and-a-debut-detective-novel-the-jewish-books-you/",
+      "image": "../../references/full_bookshelf/full_shelves.jpg",
+      "used": "book group spacing and empty pockets between books"
+    }
+  ],
+  "variant": "sparse_shelf",
+  "materials": [
+    [
+      0,
+      0,
+      32,
+      32,
+      "planks_spruce.png"
+    ],
+    [
+      0,
+      32,
+      32,
+      32,
+      "bookshelf.png"
+    ],
+    [
+      32,
+      32,
+      32,
+      32,
+      "quartz_block_side.png"
+    ],
+    [
+      32,
+      0,
+      32,
+      32,
+      "planks_oak.png"
+    ]
+  ],
+  "limitations": [
+    "vanilla bookshelf spine crops; no unique titles",
+    "static only; pack integration excluded"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "burning_highway_bent_road_closed_sign",
+  "reference": "https://mutcd.fhwa.dot.gov/",
+  "used": "vehicle crash-damaged highway ROAD CLOSED sign with crumpled V-fold buckled 16x10 faceplate, folded two-line ROAD CLOSED lettering, buckled U-channel impact post, sheared mounting bolt hardware, and twisted backing stringers; includes normal and scorched variants",
+  "notes": [
+    "damaged roadway warning sign with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_white, concrete_black, iron_block, and netherite_block pixels unchanged",
+    "static prop; no physics simulation"
+  ],
+  "materials": {
+    "white": [
+      0,
+      0,
+      "concrete_white.png",
+      16,
+      16
+    ],
+    "ink": [
+      16,
+      0,
+      "concrete_black.png",
+      16,
+      16
+    ],
+    "steel": [
+      32,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      48,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

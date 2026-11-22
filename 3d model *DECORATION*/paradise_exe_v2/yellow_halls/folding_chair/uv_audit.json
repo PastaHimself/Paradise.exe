@@ -1,0 +1,1442 @@
+[
+  {
+    "uuid": "fc85fdc0-da5c-1ef5-2f7b-0f6677187e25",
+    "name": "seat",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          8,
+          11.8,
+          8.35
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          8,
+          11,
+          8.35
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          8,
+          11.8,
+          8.35
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          8,
+          11,
+          8.35
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          8,
+          11.8,
+          11
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          8,
+          11.8,
+          11
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c021a1e3-194b-b422-d8d4-a820e6651ca6",
+    "name": "backrest",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          8,
+          11.25,
+          9.45
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          8,
+          8.35,
+          9.45
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          8,
+          11.25,
+          9.45
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          8,
+          8.35,
+          9.45
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          8,
+          11.25,
+          8.35
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          8,
+          11.25,
+          8.35
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "50c2d753-9d86-1e97-bf8f-4721ff27f73f",
+    "name": "left_main_rail",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          6.9
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          6.9
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          6.9
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          6.9
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9721a9d2-c11b-8915-91bf-38e755606266",
+    "name": "left_rear_leg",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          4.050000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          4.050000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          4.050000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          4.050000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "8a4cdf5c-3a99-1e6e-39f4-198333209963",
+    "name": "right_main_rail",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.34999999999999987,
+          6.9
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          6.9
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.34999999999999987,
+          6.9
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          6.9
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.34999999999999987,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.34999999999999987,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "7f6777cb-bb2e-7c1d-ef97-e987e13973fc",
+    "name": "right_rear_leg",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.34999999999999987,
+          4.050000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          4.050000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.34999999999999987,
+          4.050000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          4.050000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.34999999999999987,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.34999999999999987,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9cba4949-9e6a-8654-27b2-6cd4de216906",
+    "name": "front_crossbrace",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          3.1,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          3.1,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          3.1,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          3.1,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "f1e5e1ac-3cd2-0352-5b76-5e44b1272d40",
+    "name": "rear_crossbrace",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          3.1,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          3.1,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.3500000000000001,
+          0.30000000000000004
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          3.1,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          3.1,
+          0.3500000000000001
+        ],
+        "rotation": 0,
+        "texture": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a9354215-e9f8-dfba-5fbc-508959b72dba",
+          "name": "folding_chair"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          32,
+          32
+        ],
+        "frame_size": [
+          32,
+          32
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

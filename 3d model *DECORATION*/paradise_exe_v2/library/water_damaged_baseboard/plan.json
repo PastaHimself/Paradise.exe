@@ -1,0 +1,47 @@
+{
+  "target": "Bedrock Block; static; low-end mobile; balanced <=6 cubes",
+  "dimensions": "16 units long, 2 units tall; main mounting back z=8; loose right end bends outward 4 degrees",
+  "shading": "one opaque original-pixel atlas, 32x32; color-only",
+  "texel_density": "1 pixel/unit; no repaint or resample",
+  "references": [
+    {
+      "url": "https://www.mobile01.com/topicdetail.php?f=335&t=1021741",
+      "image": "../../references/water_damaged_baseboard.jpg",
+      "used": "white coating missing in broad patches, exposed dark wood and uneven loose finish"
+    }
+  ],
+  "materials": [
+    [
+      0,
+      0,
+      16,
+      16,
+      "planks_spruce.png"
+    ],
+    [
+      16,
+      0,
+      16,
+      16,
+      "planks_big_oak.png"
+    ],
+    [
+      0,
+      16,
+      16,
+      16,
+      "quartz_block_side.png"
+    ],
+    [
+      16,
+      16,
+      16,
+      16,
+      "netherite_block.png"
+    ]
+  ],
+  "limitations": [
+    "water damage indicated by dark original wood, missing finish and warped geometry; no custom mold/stain pixels",
+    "no dynamic deformation or pack integration"
+  ]
+}

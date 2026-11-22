@@ -1,0 +1,40 @@
+{
+  "id": "burning_highway_bent_overhead_direction_sign",
+  "reference": "https://mutcd.fhwa.dot.gov/",
+  "used": "vehicle crash-damaged freeway overhead guide sign with crumpled V-fold buckled 22x11 green faceplate, folded WEST and EAST destination lettering, directional arrows, buckled structural steel struts, twisted gantry clamp brackets, backing rails, and hardware bolts; includes normal and scorched variants",
+  "notes": [
+    "damaged overhead freeway guide sign with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_green, concrete_white, iron_block, and netherite_block pixels unchanged",
+    "static prop; no physics simulation"
+  ],
+  "materials": {
+    "green": [
+      0,
+      0,
+      "concrete_green.png",
+      16,
+      16
+    ],
+    "white": [
+      16,
+      0,
+      "concrete_white.png",
+      16,
+      16
+    ],
+    "steel": [
+      32,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      48,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

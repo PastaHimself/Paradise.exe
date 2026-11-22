@@ -1,0 +1,24 @@
+{
+  "reference": "https://xtdsteel.com/",
+  "used": "heavy industrial wide-flange structural steel I-beam spanning shaft walls with welded transverse web stiffeners, wall bearing endplates with high-strength structural bolts, and lower gusset connection plate",
+  "limitations": [
+    "modular 16-unit width structural support beam spanning between wall faces with 0 volume overlaps and 0 coplanar z-fighting",
+    "original cauldron_side and netherite_block pixels unchanged; static structural element; no dynamic load deflection physics"
+  ],
+  "materials": {
+    "steel": [
+      0,
+      0,
+      "cauldron_side.png",
+      32,
+      32
+    ],
+    "dark_metal": [
+      32,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

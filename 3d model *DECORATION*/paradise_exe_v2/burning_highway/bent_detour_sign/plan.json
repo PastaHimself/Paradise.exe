@@ -1,0 +1,40 @@
+{
+  "id": "burning_highway_bent_detour_sign",
+  "reference": "https://mutcd.fhwa.dot.gov/",
+  "used": "vehicle crash-damaged highway DETOUR sign with crumpled dual-plane buckled faceplate, kinked directional arrow, buckled U-channel impact post, sheared mounting hardware, and tilted upright; includes normal and scorched variants",
+  "notes": [
+    "damaged roadway warning sign with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_orange, concrete_black, iron_block, and netherite_block pixels unchanged",
+    "static prop; no physics simulation"
+  ],
+  "materials": {
+    "orange": [
+      0,
+      0,
+      "concrete_orange.png",
+      16,
+      16
+    ],
+    "ink": [
+      16,
+      0,
+      "concrete_black.png",
+      16,
+      16
+    ],
+    "steel": [
+      32,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      48,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

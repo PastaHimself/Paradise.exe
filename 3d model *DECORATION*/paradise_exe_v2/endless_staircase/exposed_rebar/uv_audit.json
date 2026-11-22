@@ -1,0 +1,2135 @@
+[
+  {
+    "uuid": "c754f9b7-47bb-e44a-e1b5-aa865a5062bb",
+    "name": "frame_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          4
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          4
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          4
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c2c3cf28-6d5d-80a6-dfd3-bc2996d5beae",
+    "name": "frame_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          4
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          4
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.5,
+          4
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "22fc65cb-588e-cd79-b8ad-cbfd0b026707",
+    "name": "frame_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          2,
+          1
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "95e98eb3-0bc0-f062-b3b8-685b8d2481a5",
+    "name": "frame_bottom",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          2,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b0982f08-a0f7-aea4-a063-60ff69c6bd92",
+    "name": "spall_back",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          6,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "152ff178-3b64-19af-72a9-6177f66b3ee9",
+    "name": "spall_ledge_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.4375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.4375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "79ab87a3-8cff-9981-ec56-4e92f9dc9be1",
+    "name": "spall_ledge_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.4375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.4375,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9778212e-fe3d-a992-9032-cbbdbbb50ccd",
+    "name": "rebar_v1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "83834af7-a76d-2240-319b-62a5fd9f3350",
+    "name": "rebar_v2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          2.25
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "58318fcf-9399-1f0a-374d-d91fdbac3015",
+    "name": "rebar_h1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          9.875,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          9.875,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          9.875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          9.875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "24b88c14-6097-abce-0d55-3b72bec8289f",
+    "name": "rebar_h2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          9.875,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          9.875,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          9.875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          9.875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1a728e36-d637-c292-1119-2bfe6ffaf72c",
+    "name": "rebar_bent_stub",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "0b503210-cd80-30e2-e44f-0543a2255653",
+    "name": "fallen_spall_chunk",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.3125,
+          0.21875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.21875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.3125,
+          0.21875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.21875
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.3125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "6043632e-e1d7-166e-871a-124952247450",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "6043632e-e1d7-166e-871a-124952247450",
+          "name": "exposed_rebar"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

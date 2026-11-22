@@ -1,0 +1,38 @@
+{
+  "reference": "https://wa.gov/design/standards/precast-concrete-barrier-type-f",
+  "used": "highway precast concrete median barrier (Jersey / F-shape profile) with scupper stormwater drainage slot, upper sloped batter, top chamfer cap, pin-and-loop modular connection hardware, and safety reflector delineator",
+  "limitations": [
+    "modular 16-unit length median divider segment with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_gray, iron_block, netherite_block, and concrete_yellow pixels unchanged; static roadway divider; no vehicle impact physics"
+  ],
+  "materials": {
+    "concrete": [
+      0,
+      0,
+      "concrete_gray.png",
+      32,
+      32
+    ],
+    "steel": [
+      32,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      48,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ],
+    "reflector_yellow": [
+      32,
+      16,
+      "concrete_yellow.png",
+      16,
+      16
+    ]
+  }
+}

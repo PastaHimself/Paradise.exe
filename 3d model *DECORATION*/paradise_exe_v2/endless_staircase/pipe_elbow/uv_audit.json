@@ -1,0 +1,3557 @@
+[
+  {
+    "uuid": "b549a215-7029-d90f-aa65-7219008d3a6a",
+    "name": "pipe_horizontal",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1.5,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "28b3bc4b-1f77-bdef-403b-ca4ce2000f96",
+    "name": "pipe_elbow_corner",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2801787b-6c58-baf6-5612-57e1171ba128",
+    "name": "pipe_vertical",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1.5
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "766da4ed-ed81-b935-a265-dce51fb057d2",
+    "name": "flange_h_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "65a63a7f-2081-0102-2624-7aae73d786bf",
+    "name": "flange_h_bottom",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "0f3341eb-ae52-acaa-4fd3-a77155df3b54",
+    "name": "flange_h_front",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "29aa1f35-3742-9b23-5b39-e82fe453dcd7",
+    "name": "flange_h_back",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.25,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ca32e0f8-bb3a-f58f-19c3-a956057288cc",
+    "name": "flange_v_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c02fb0b3-72e1-3bda-46ac-84f87a244086",
+    "name": "flange_v_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          5.25,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          1.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6b1afe55-d894-19b4-6d57-f33de82523bf",
+    "name": "flange_v_front",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b10f672c-d246-8071-d2a4-60d5cc9a9f59",
+    "name": "flange_v_back",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5baae08e-ba9b-bda9-c8b4-4e813a42827c",
+    "name": "wall_strut",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.1875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.1875,
+          0.5
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.75,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.75,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1c2789b6-8d02-7585-7586-50259a645e83",
+    "name": "wall_plate",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.0625,
+          1
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          5.5,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          5.5,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "331936ff-6102-e666-c179-b39d6c76248b",
+    "name": "bolt_wall_-2.25_6.75",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "79d0f967-57be-0c45-988a-ff42f9a93b1f",
+    "name": "bolt_wall_-2.25_9.25",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "25ce7c47-ab4f-39b6-b880-9c5ad8117077",
+    "name": "bolt_wall_2.25_6.75",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a19beb3c-7fbb-02e1-f855-2f87975c06ad",
+    "name": "bolt_wall_2.25_9.25",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.125,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b97f89b0-6847-d65a-aaa1-2594dfed8628",
+    "name": "bolt_fh_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ffa8a167-1039-817c-ffac-806f0028941f",
+    "name": "bolt_fh_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "3e4034e9-3277-015d-4eb5-b5aa6b8739bf",
+    "name": "bolt_fv_1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d8e93bb2-f458-28b7-2c44-9c121b75adba",
+    "name": "bolt_fv_2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.125
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.0625,
+          0.0625
+        ],
+        "rotation": 0,
+        "texture": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "2c2fa4fc-fdd6-0c1a-7007-1364e87a5d23",
+          "name": "pipe_elbow"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

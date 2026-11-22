@@ -1,0 +1,25 @@
+{
+  "reference": "https://pavingandslabs.co.uk/blogs/guides/how-to-fix-a-loose-paving-slab",
+  "used": "garden path flagstone displaced and tilted upward from crumbled mortar bedding with broken corner chip",
+  "limitations": [
+    "16x16 footprint pathway tile with 3.1-unit raised tilted slab edge creating trip hazard",
+    "subbase mortar bed exposed beneath shifted stone; flush joins and zero z-fighting on coplanar interfaces",
+    "original stone_slab_top and coarse_dirt pixels unchanged; no physics or pack integration"
+  ],
+  "materials": {
+    "stone": [
+      0,
+      0,
+      "stone_slab_top.png",
+      16,
+      16
+    ],
+    "soil": [
+      16,
+      0,
+      "coarse_dirt.png",
+      16,
+      16
+    ]
+  }
+}

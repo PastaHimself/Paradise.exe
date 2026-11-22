@@ -1,0 +1,42 @@
+{
+  "target": "Bedrock Block, static, balanced <=18 cubes; low-end mobile",
+  "shading": "one opaque color-only vanilla atlas",
+  "texture": "64x64; 1 px/model unit; no pixel editing",
+  "dimensions": "24 x 12.3 x 13.6 model units incl. pulled drawer",
+  "reference": "https://www.22places.de/lost-places/",
+  "reference_notes": "inspected abandoned wood office desk: thick top, pedestal storage, open underdesk space and missing storage fronts; interpret as single pedestal with missing top drawer and partly withdrawn middle drawer",
+  "materials": [
+    [
+      0,
+      0,
+      32,
+      32,
+      "planks_oak.png"
+    ],
+    [
+      32,
+      0,
+      32,
+      32,
+      "planks_spruce.png"
+    ],
+    [
+      0,
+      32,
+      32,
+      32,
+      "iron_block.png"
+    ],
+    [
+      32,
+      32,
+      32,
+      32,
+      "concrete_black.png"
+    ]
+  ],
+  "limitations": [
+    "no custom dust/damage texture",
+    "no labels, paper clutter or gameplay"
+  ]
+}

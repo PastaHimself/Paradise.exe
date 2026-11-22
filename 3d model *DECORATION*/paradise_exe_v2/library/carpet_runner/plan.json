@@ -1,0 +1,17 @@
+{
+  "target": "Bedrock texture-only asset; Generic Model is a tiled inspection preview, not a runtime model",
+  "device": "low-end mobile; color-only; no animation",
+  "scale": "16 model units/block; 1 pixel/unit",
+  "shading": "one opaque original vanilla PNG, nearest filtering",
+  "budget": "<=4 preview cuboids; runtime texture only",
+  "reference": "https://business.walmart.com/ip/Ottomanson-Machine-Washable-Non-Slip-Rubberback-Modern-Solid-3x12-Indoor-Runner-Rug-2-7-x-12-Red/52240623",
+  "reference_image": "../../references/carpet_runner.jpg",
+  "reference_notes": "long narrow plain red runner on wood floor and low-pile edge",
+  "source": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/wool_colored_red.png",
+  "png": "carpet_runner.png",
+  "kind": "runner",
+  "blocked_exact_wear": false,
+  "limitations": [
+    "original vanilla material substitute only; no painted detail"
+  ]
+}

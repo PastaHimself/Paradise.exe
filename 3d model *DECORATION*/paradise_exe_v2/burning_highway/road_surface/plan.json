@@ -1,0 +1,18 @@
+{
+  "reference": "https://mutcd.fhwa.dot.gov/services/publications/fhwaop02090/",
+  "used": "commercial and interstate highway pavement marking and asphalt surface textures with full variant kit (plain asphalt, lane stripe, shoulder stripe, merge arrow, skid marks, cracked asphalt, heat-damaged edges)",
+  "variants": {
+    "plain_asphalt": "standard asphalt pavement aggregate surface",
+    "lane_stripe": "yellow highway centerline lane boundary stripe",
+    "shoulder_stripe": "white highway shoulder edge fog line",
+    "merge_arrow": "highway lane merge directional navigation arrow",
+    "skid_marks": "heavy braking emergency skid burn tire marks",
+    "cracked_asphalt": "heavy axle thermal load fatigue alligator cracking",
+    "heat_damaged_edges": "scorched heat-damaged highway pavement shoulder ravelling"
+  },
+  "limitations": [
+    "original vanilla PNG pixels copied byte-identically without painting or recoloring",
+    "2x2 modular preview platform in free format at 1 px/unit scale",
+    "texture-only output; runtime geometry not required; no vehicle physics"
+  ]
+}

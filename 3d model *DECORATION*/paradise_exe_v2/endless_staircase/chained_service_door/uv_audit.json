@@ -1,0 +1,4304 @@
+[
+  {
+    "uuid": "7a97a0cc-44ad-6245-8b7c-4fcf0be2aaa8",
+    "name": "frame_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          7.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          7.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          7.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          7.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "d633bfb1-6d39-1524-a6b1-ca6e9fde5ec6",
+    "name": "frame_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          7.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          7.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          7.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.75,
+          7.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.3125,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ff4c313f-f814-ffeb-d39d-c3cf2eaa7005",
+    "name": "frame_head",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          3.375,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          3.375,
+          0.3125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          3.375,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          3.375,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "9e7eb119-d13f-9856-ad33-7862ab167ea3",
+    "name": "frame_threshold",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          3.375,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          8,
+          3.375,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          3.375,
+          8.75
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          3.375,
+          8.75
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "05f4d60a-7a7d-44fb-9ac2-7cfa840ce1a3",
+    "name": "door_leaf",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          11.3125,
+          7.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          7.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          11.3125,
+          7.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.25,
+          7.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          11.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          11.3125,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a3ad07c5-d11d-1b1b-cc9a-8de3f44a5b11",
+    "name": "vent_frame_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          2.25,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          8,
+          0.03750000000000009,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          8,
+          0.03750000000000009,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          2.25,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "619f1b6c-194f-6b6a-84de-758613191b6d",
+    "name": "vent_frame_bot",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          2.25,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          8,
+          0.03750000000000009,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          8,
+          0.03750000000000009,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          2.25,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "89da562a-38f9-6c86-4508-627afd7340f8",
+    "name": "vent_frame_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          0.125,
+          9.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          8,
+          0.03750000000000009,
+          9.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          0.125,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          0.125,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "afc74067-9dae-ffde-0d0c-7f4cb7040d23",
+    "name": "vent_frame_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          0.125,
+          9.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          8,
+          0.03750000000000009,
+          9.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          0.125,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          0.125,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "41a78538-1504-39d1-f577-b4f97e38b8c1",
+    "name": "vent_slat1",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          2,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          2,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          2,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ac1d3241-3ddd-eaa4-ed2c-7fd8409be33b",
+    "name": "vent_slat2",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          2,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          2,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          2,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "cf4e1a8b-7ca7-37c3-a4d7-6a0fb8ac0173",
+    "name": "vent_slat3",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          2,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          2,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          2,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5a509584-e40e-320b-f91e-f617b1cb19e1",
+    "name": "handle_plate",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          0.3125,
+          9.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          8,
+          0.03750000000000009,
+          9.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          8,
+          0.03750000000000009,
+          9.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          0.3125,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          0.3125,
+          8.0375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "98cf37ab-ed08-9917-1c30-79c85bdd4330",
+    "name": "handle_top_post",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.1875,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.1875,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "87c5bbab-cf40-493a-7f95-220defe61acc",
+    "name": "handle_bot_post",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.1875,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.1875,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "43d8c9aa-3e08-c9bf-9e51-96317bc4b799",
+    "name": "handle_bar",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1c8076ca-a5c2-26ca-be17-ce93f1a27246",
+    "name": "jamb_staple",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          0.1875,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          8,
+          0.2250000000000001,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          8,
+          0.2250000000000001,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          0.1875,
+          8.225
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          0.1875,
+          8.225
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6e966050-168d-a480-eb11-2c2192760ee3",
+    "name": "chain_span",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.5375,
+          8.175
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          4,
+          8,
+          4.5375,
+          8.175
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.5375,
+          8.15
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.5375,
+          8.15
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "b02803e6-af18-6806-6532-6c073044c385",
+    "name": "chain_wrap_front",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.25,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          4,
+          8,
+          4.25,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.15,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.25,
+          8.15
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.25,
+          8.15
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "aff5e17c-ac2d-65bf-3951-25efaca41ab7",
+    "name": "chain_wrap_side",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.2,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.2,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.2
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.2
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "864b8f43-020f-de03-8217-266181bfff04",
+    "name": "chain_dangle",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.1625,
+          8.5625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.15,
+          8.5625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          8,
+          4.1625,
+          8.5625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.15,
+          8.5625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "5a285935-2d2f-d4ea-778e-9c3522e67c0d",
+    "name": "padlock_shackle",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.1,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          8,
+          4.1375,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.1,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "8c240962-7ee1-7c8b-abda-e635281122c5",
+    "name": "padlock_body",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          8,
+          8.25,
+          8.4375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          8,
+          8.225,
+          8.4375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          8,
+          8.25,
+          8.4375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          8,
+          8.225,
+          8.4375
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "down": {
+        "uv": [
+          8,
+          8,
+          8.25,
+          8.225
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "8525fd68-38cd-843d-c032-3a9e795c5fe5",
+    "name": "hinge_4.0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          0.08749999999999991,
+          8.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          8,
+          0.0625,
+          8.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          0.08749999999999991,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          0.08749999999999991,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2b91463f-c6cf-8e0f-3efd-78c548f2ea5f",
+    "name": "hinge_15.0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          0.08749999999999991,
+          8.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          8,
+          0.0625,
+          8.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          0.08749999999999991,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          0.08749999999999991,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "56c40601-cb02-66b7-d1a4-701fae0f4969",
+    "name": "hinge_26.0",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          0.08749999999999991,
+          8.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          8,
+          0.0625,
+          8.5
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          0.08749999999999991,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          0.08749999999999991,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "a417a8ef-4d01-5ec7-3f94-a48b60a44256",
+          "name": "chained_service_door"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

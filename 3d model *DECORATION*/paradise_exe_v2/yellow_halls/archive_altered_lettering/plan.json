@@ -1,0 +1,31 @@
+{
+  "target": "Bedrock Block; static; balanced existing sign convention; low-end mobile",
+  "budget": "<=36 cubes",
+  "shading": "opaque color-only vanilla iron/black-concrete atlas",
+  "texture": "32x32; 1px/unit proportional UVs; original pixels only",
+  "reference": "https://www.combicraft.nl/aluminium-deurbordje-archive.html",
+  "reference_image": "../../references/archive_sign/flat_plaque.jpg",
+  "reference_notes": "reuse flat metal plaque, dark ARCHIVE text; source plaque lettering retained as shallow solids; compact layout reserves right-hand direction area",
+  "variant": "altered_lettering",
+  "geometry": "R mirrored in place",
+  "materials": [
+    [
+      0,
+      0,
+      32,
+      16,
+      "iron_block.png"
+    ],
+    [
+      0,
+      16,
+      32,
+      16,
+      "concrete_black.png"
+    ]
+  ],
+  "limitations": [
+    "shallow solid lettering costs geometry",
+    "no custom label pixels, posters or symbols"
+  ]
+}

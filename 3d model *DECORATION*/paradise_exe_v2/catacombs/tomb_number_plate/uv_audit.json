@@ -1,0 +1,2342 @@
+[
+  {
+    "uuid": "85b6562a-eceb-d57f-6eb5-4ac2f6e42819",
+    "name": "wall_block",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          2.5,
+          2.5
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          2.5
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          2.5,
+          2.5
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          2.5
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          2.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          2.5,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1e077d0a-aa3a-a1b8-2f68-acab1ab643df",
+    "name": "plate_base",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          6,
+          2
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          2
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          6,
+          2
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          2
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "0d717019-63b5-7541-57b5-428976080406",
+    "name": "rim_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.20000000000000018
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.1,
+          0.20000000000000018
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.20000000000000018
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.1,
+          0.20000000000000018
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "dfac8c23-01d2-80a8-0c96-3bbdb9434a4b",
+    "name": "rim_bot",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.1,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.1,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          6,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "f7dc10a7-0317-f1dd-d104-40c99f03977f",
+    "name": "rim_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          1.5999999999999999
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.1,
+          1.5999999999999999
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          1.5999999999999999
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.1,
+          1.5999999999999999
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "80d771c8-ca18-a9f3-ea7d-5a2179dd8989",
+    "name": "rim_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          1.5999999999999999
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          0,
+          4.1,
+          1.5999999999999999
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          1.5999999999999999
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          4,
+          0,
+          4.1,
+          1.5999999999999999
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          0,
+          4.2,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "f7b9b484-b7e9-d6fd-18d2-c489876ffa37",
+    "name": "rivet_nw",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.19999999999999973
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.19999999999999973
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.19999999999999973
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.19999999999999973
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "963c5e19-b98c-712c-3035-a89799bc5255",
+    "name": "rivet_ne",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.19999999999999973
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.19999999999999973
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.19999999999999973
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.19999999999999973
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6d13ba93-79a0-ac2a-8620-06164041c8ff",
+    "name": "rivet_sw",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "4abe281a-d016-2779-625f-99dc476eb269",
+    "name": "rivet_se",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          12,
+          0,
+          12.075,
+          0.19999999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          12,
+          0,
+          12.2,
+          0.07499999999999996
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "99a0880c-4b06-720d-cf52-d8c3acd3149b",
+    "name": "numeral_stem",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.4,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.4,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.4,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.4,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ac850e9f-c2a7-0a31-c330-037ab95b8b3f",
+    "name": "numeral_top_bar",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.9,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.9,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.9,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.9,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ebab3a16-832c-a23d-d119-432906967d46",
+    "name": "numeral_bot_bar",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.9,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          8,
+          0,
+          8.9,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.9,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.9,
+          0.10000000000000009
+        ],
+        "rotation": 0,
+        "texture": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "e8794664-3178-b9bc-da9f-4516c50e0c17",
+          "name": "tomb_number_plate"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

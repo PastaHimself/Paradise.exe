@@ -1,0 +1,20 @@
+{
+  "target": "Bedrock Block; low-end mobile; static; balanced <=12 cubes",
+  "copies": "ordinary corridor seating",
+  "shading": "one opaque vanilla atlas, color-only",
+  "geometry": "8 cubes; X side frames; horizontal steel seat; tilted solid backrest; two transverse braces",
+  "texel_density": "1 px/unit, 32x32 atlas",
+  "source_files": [
+    "iron_block.png",
+    "concrete_gray.png",
+    "netherite_block.png",
+    "concrete_silver.png"
+  ],
+  "reference": "https://www.lowes.com/pd/Cosco-Indoor-Gray-Metal-Solid-Standard-Folding-Chair/1000638137",
+  "reference_notes": "inspected side photograph: diagonal front rails continue into tilted back frame; crossing rear legs; solid seat and back, no arms",
+  "limitations": [
+    "static open position",
+    "square cuboid tubes simplify tubular construction",
+    "no custom wear or labels"
+  ]
+}

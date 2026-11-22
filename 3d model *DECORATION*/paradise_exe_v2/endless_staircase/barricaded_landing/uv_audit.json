@@ -1,0 +1,3899 @@
+[
+  {
+    "uuid": "dcc927fe-a951-f755-1e53-5a7d111021cb",
+    "name": "cleat_left",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          5
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          5
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ee7a2e8c-3c33-4fd0-2330-57376b8805da",
+    "name": "cleat_right",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          5
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          5
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.375
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c4992db1-4ca1-dbbc-4768-38370a8d35d1",
+    "name": "beam_bottom",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.75
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "25350303-962e-f4c7-b861-e3e8d2918f4e",
+    "name": "beam_mid",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "85ee9bc6-4665-9e4c-f3cf-db910574113b",
+    "name": "beam_top",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.25,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          4,
+          0.25
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6ceca867-2657-8cdc-c521-04750f48d158",
+    "name": "vertical_slat_l",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2bb4024b-4ac4-848b-9743-a29e11921290",
+    "name": "vertical_slat_r",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          0,
+          8.1875,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          0,
+          8.375,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "3b70cb05-7e5a-5f59-021b-8b071439d15c",
+    "name": "brace_lower",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "dd75a227-2ca1-847b-4f60-97f01e56236a",
+    "name": "brace_upper",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          0,
+          0.1875,
+          0.875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          0.625,
+          0.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6d8680a1-f0de-a9de-10f7-2da9bd99e5a3",
+    "name": "metal_plate",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          0,
+          8,
+          1.25,
+          10.625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          0,
+          8,
+          0.125,
+          10.625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          0,
+          8,
+          0.125,
+          10.625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          0,
+          8,
+          1.25,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          8,
+          1.25,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "c7a55238-bd47-00d1-4bc0-082f4c0cb1dd",
+    "name": "plate_bolt_tl",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "40a60375-d5b5-d216-2ad3-d8509a0716dd",
+    "name": "plate_bolt_tr",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "ce3a5668-1f16-527c-b1c9-21d467a57910",
+    "name": "plate_bolt_bl",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "1c67b260-030d-98f4-9a86-bcc7151ce2f5",
+    "name": "plate_bolt_br",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "10ee83e8-e07e-edef-232c-71e831755209",
+    "name": "hazard_tag",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          8,
+          8,
+          8.875,
+          8.625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          8,
+          8,
+          8.0625,
+          8.625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          8,
+          8,
+          8.0625,
+          8.625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          8,
+          8,
+          8.875,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          8,
+          8,
+          8.875,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "a2ebc158-a34d-4146-a375-38e659628864",
+    "name": "rubble_main",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          8,
+          12.75,
+          8.375
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          8,
+          12.5,
+          8.375
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          12,
+          8,
+          12.5,
+          8.375
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          8,
+          12.75,
+          8.5
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "39b06b65-4479-538f-2f7a-74bd5dcc849f",
+    "name": "rubble_chip",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          12,
+          8,
+          12.4375,
+          8.2125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          12,
+          8,
+          12.25,
+          8.2125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          12,
+          8,
+          12.25,
+          8.2125
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          12,
+          8,
+          12.4375,
+          8.25
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "deaa2a55-3a4a-7d45-c68b-6630928a9e9b",
+    "name": "lag_bolt_l_2.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "2bf7723e-eefd-6615-58e6-e62a412a040d",
+    "name": "lag_bolt_r_2.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "22d44830-0755-db5e-ae36-e069ba741c8e",
+    "name": "lag_bolt_l_9.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "653e34e8-73d3-4b97-5364-80189c900be6",
+    "name": "lag_bolt_r_9.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "67def53c-e430-15a3-ec7d-2d2af2af080c",
+    "name": "lag_bolt_l_16.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  },
+  {
+    "uuid": "6dfb2d3f-b647-ace9-aa2a-7f0ee175e755",
+    "name": "lag_bolt_r_16.5",
+    "box_uv": false,
+    "autouv": 0,
+    "uv_offset": [
+      0,
+      0
+    ],
+    "mirror_uv": false,
+    "faces": {
+      "north": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "east": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "south": {
+        "uv": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "rotation": 0,
+        "texture": null,
+        "texture_status": "disabled",
+        "effective_texture": null,
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": null,
+        "frame_size": null
+      },
+      "west": {
+        "uv": [
+          4,
+          8,
+          4.0625,
+          8.1875
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "up": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      },
+      "down": {
+        "uv": [
+          4,
+          8,
+          4.125,
+          8.0625
+        ],
+        "rotation": 0,
+        "texture": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+        "texture_status": "resolved",
+        "effective_texture": {
+          "uuid": "da9e71ac-063f-a2b5-4929-ef51d19ce386",
+          "name": "barricaded_landing"
+        },
+        "uv_size": [
+          16,
+          16
+        ],
+        "bitmap_size": [
+          64,
+          64
+        ],
+        "frame_size": [
+          64,
+          64
+        ]
+      }
+    },
+    "notes": [
+      "UV rectangles use logical UV units. Convert to pixels within the active frame using frame_size / uv_size on each axis. bitmap_size includes all animation frames.",
+      "Box UV face rectangles are the host's current generated net; edit uv_offset/mirror_uv or explicitly convert mode before editing individual rectangles.",
+      "Effective textures follow native format rules, including single_texture and per_group_texture. Stored face references may differ."
+    ]
+  }
+]

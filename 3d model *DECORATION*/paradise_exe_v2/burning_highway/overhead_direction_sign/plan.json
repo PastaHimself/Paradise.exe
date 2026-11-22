@@ -1,0 +1,40 @@
+{
+  "id": "burning_highway_overhead_direction_sign",
+  "reference": "https://mutcd.fhwa.dot.gov/",
+  "used": "MUTCD standard Chapter 2E freeway overhead guide sign with 22x11 green retroreflective faceplate, perimeter white border, vertical lane divider, WEST mainline destination with vertical through arrow, EAST diverge destination with diagonal exit arrow, dual structural steel struts with overhead gantry clamp brackets, backing stiffeners, and hardware bolts; includes directional and scorched variants",
+  "notes": [
+    "overhead highway guide sign with 0 volume overlaps and 0 coplanar z-fighting",
+    "original concrete_green, concrete_white, iron_block, and netherite_block pixels unchanged",
+    "static prop; no physics simulation"
+  ],
+  "materials": {
+    "green": [
+      0,
+      0,
+      "concrete_green.png",
+      16,
+      16
+    ],
+    "white": [
+      16,
+      0,
+      "concrete_white.png",
+      16,
+      16
+    ],
+    "steel": [
+      32,
+      0,
+      "iron_block.png",
+      16,
+      16
+    ],
+    "dark_metal": [
+      48,
+      0,
+      "netherite_block.png",
+      16,
+      16
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "elements": [
+    {
+      "name": "casing",
+      "from": [
+        -3,
+        5,
+        6
+      ],
+      "to": [
+        3,
+        11,
+        8
+      ]
+    },
+    {
+      "name": "lid",
+      "from": [
+        -2.5,
+        5.5,
+        5.5
+      ],
+      "to": [
+        2.5,
+        10.5,
+        6
+      ]
+    },
+    {
+      "name": "entry_upper",
+      "from": [
+        -1,
+        11,
+        6
+      ],
+      "to": [
+        1,
+        12,
+        8
+      ]
+    },
+    {
+      "name": "entry_lower",
+      "from": [
+        -1,
+        4,
+        6
+      ],
+      "to": [
+        1,
+        5,
+        8
+      ]
+    }
+  ],
+  "states": {
+    "iron": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/iron_block.png",
+    "dark": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/netherite_block.png",
+    "copper": "/home/pasta/Downloads/blockbench/bedrock-samples-v1.26.70.23-preview-full/textures/blocks/exposed_copper.png"
+  },
+  "references": [
+    "https://facileds.com/fr/canaux-metalliques/1210-boite-de-jonction-galvanisee-en-surface-100x100mm.html",
+    "https://www.homedepot.com/p/324472708"
+  ],
+  "dimension_materials": {
+    "Yellow Halls": "iron",
+    "Endless Staircase": "iron",
+    "Library": "dark",
+    "Burning Highway": "copper"
+  }
+}

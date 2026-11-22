@@ -1,0 +1,63 @@
+{
+  "target": "Bedrock Block; static; low-end mobile; balanced <=16 cubes",
+  "scale": "16 units/block",
+  "shading": "single opaque atlas; no PBR",
+  "density": "1 px/unit; 64x64",
+  "reference": "https://huntoffice.co.uk/cpd-water-cooler-dispenser-floor-standing-white-ref-kdb21-780255.html",
+  "reference_notes": "inverted top bottle, narrow white case, twin taps and a projecting drip tray; simplified square construction",
+  "textures": [
+    [
+      0,
+      0,
+      32,
+      32,
+      "quartz_block_side.png"
+    ],
+    [
+      32,
+      0,
+      32,
+      32,
+      "concrete_gray.png"
+    ],
+    [
+      0,
+      32,
+      32,
+      32,
+      "blue_ice.png"
+    ],
+    [
+      32,
+      32,
+      16,
+      16,
+      "redstone_block.png"
+    ],
+    [
+      48,
+      32,
+      16,
+      16,
+      "lapis_block.png"
+    ],
+    [
+      32,
+      48,
+      16,
+      16,
+      "iron_block.png"
+    ],
+    [
+      48,
+      48,
+      16,
+      16,
+      "netherite_block.png"
+    ]
+  ],
+  "limitations": [
+    "blue_ice is opaque bottle substitute, not transparent water",
+    "no logo, lettering, scripted taps or lighting"
+  ]
+}

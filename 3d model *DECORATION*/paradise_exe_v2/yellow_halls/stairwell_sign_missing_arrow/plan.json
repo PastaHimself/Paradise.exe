@@ -1,0 +1,46 @@
+{
+  "target": "Bedrock Block; static; low-end mobile; balanced shallow-letter sign precedent",
+  "budget": "<=55 cubes; geometry lettering replaces unavailable custom label pixels",
+  "shading": "opaque vanilla atlas; color-only",
+  "density": "1 px/unit; 64x64 native pixel atlas",
+  "reference": "https://www.combicraft.nl/aluminium-deurbordje-archive.html",
+  "reference_image": "../../references/archive_sign/flat_plaque.jpg",
+  "reference_notes": "reuse flat rectangular plaque and wall-mount plane; directional arrow below the long word",
+  "word": "STAIRWELL",
+  "state": "missing_arrow",
+  "materials": [
+    [
+      0,
+      0,
+      32,
+      32,
+      "iron_block.png"
+    ],
+    [
+      32,
+      0,
+      32,
+      32,
+      "concrete_black.png"
+    ],
+    [
+      0,
+      32,
+      32,
+      32,
+      "iron_block.png"
+    ],
+    [
+      32,
+      32,
+      32,
+      32,
+      "concrete_gray.png"
+    ]
+  ],
+  "limitations": [
+    "lettering is raised cuboid geometry",
+    "no custom print or texture recolor",
+    "runtime emission and pack binding excluded"
+  ]
+}
