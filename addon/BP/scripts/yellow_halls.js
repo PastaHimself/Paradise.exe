@@ -11,6 +11,8 @@ import {
 import { maybePlayYellowHallsAudio } from "./horror_audio.js";
 import { getCachedPlayers } from "./paradise_tick_cache.js";
 import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
+import { applyYellowHallsDressing } from "./yellow_halls_decor.js";
+import { applyCorridorMotif } from "./yellow_halls_decor_model.js";
 import {
   selectVisualModuleIndex,
   shouldRebuildGeneratedPatch,
@@ -380,7 +382,10 @@ function generatePatchMaze(patchX, patchZ) {
     }
   }
 
-  return cells;
+  // Recurring right-angle motif. The motif only replaces the graph when every
+  // cell stays reachable from the arrival doorway, so patch joins survive.
+  const motif = applyCorridorMotif(cells, size, patchX, patchZ);
+  return motif.applied ? motif.cells : cells;
 }
 
 function countConnections(cell) {
@@ -483,7 +488,7 @@ function isEscapeCellForAnyPlayer(patchX, patchZ, cx, cz) {
   return false;
 }
 
-function placeDecorations(dimension, patchX, patchZ, maze, patchMinX, patchMinZ) {
+function placeDecorations(dimension, patchX, patchZ, maze, patchMinX, patchMinZ, staticDressing = false) {
   for (let cx = 0; cx < CELLS_PER_SIDE; cx++) {
     for (let cz = 0; cz < CELLS_PER_SIDE; cz++) {
       if (isEscapeCellForAnyPlayer(patchX, patchZ, cx, cz)) continue;
@@ -505,7 +510,7 @@ function placeDecorations(dimension, patchX, patchZ, maze, patchMinX, patchMinZ)
       }
 
       // Carpet
-      if (rng() < 0.15) {
+      if (!staticDressing && rng() < 0.15) {
         const carpetType = rng() < 0.5 ? BLOCK.yellowCarpet : BLOCK.whiteCarpet;
         const carpetX = cellMinX + 2 + Math.floor(rng() * 4);
         const carpetZ = cellMinZ + 2 + Math.floor(rng() * 4);
@@ -513,7 +518,7 @@ function placeDecorations(dimension, patchX, patchZ, maze, patchMinX, patchMinZ)
       }
 
       // Cracked floor tiles
-      if (rng() < 0.2) {
+      if (!staticDressing && rng() < 0.2) {
         const crackX = cellMinX + 1 + Math.floor(rng() * 6);
         const crackZ = cellMinZ + 1 + Math.floor(rng() * 6);
         setBlockSafe(dimension, { x: crackX, y: GROUND_Y, z: crackZ }, BLOCK.yellowTerracotta);
@@ -521,7 +526,7 @@ function placeDecorations(dimension, patchX, patchZ, maze, patchMinX, patchMinZ)
 
       // Surface-only decay: at most one wall swap and one ceiling accent per cell.
       // This stays under 32 additional single-block writes per 32x32 patch.
-      if (rng() < 0.72) {
+      if (!staticDressing && rng() < 0.72) {
         const cell = maze[cx][cz];
         const closed = [];
         if (!cell.north) closed.push("north");
@@ -541,7 +546,7 @@ function placeDecorations(dimension, patchX, patchZ, maze, patchMinX, patchMinZ)
         }
       }
 
-      if (rng() < 0.36) {
+      if (!staticDressing && rng() < 0.36) {
         const panelX = cellMinX + 2 + Math.floor(rng() * 4);
         const panelZ = cellMinZ + 2 + Math.floor(rng() * 4);
         setBlockSafe(
@@ -732,9 +737,17 @@ function paintPatch(dimension, patchX, patchZ, options = {}) {
       }
     }
 
+    // Static renovation pass: wallpapers, carpet, acoustic ceiling, the
+    // multi-state fixture chain, the eight authored bays, the service conduit
+    // run and the reserved breaker mount.
+    applyYellowHallsDressing(dimension, patchX, patchZ, maze, minX, minZ, {
+      groundY: GROUND_Y,
+      ceilingY: CEILING_Y,
+    });
+
     // Lights, decorations, hazards, chests
     placePatchLights(dimension, patchX, patchZ, maze, minX, minZ);
-    placeDecorations(dimension, patchX, patchZ, maze, minX, minZ);
+    placeDecorations(dimension, patchX, patchZ, maze, minX, minZ, true);
     placeHazards(dimension, patchX, patchZ, maze, minX, minZ);
     placeChests(dimension, patchX, patchZ, maze, minX, minZ);
     scheduleYellowHallsModule(dimension, patchX, patchZ, maze, minX, minZ);
@@ -845,6 +858,20 @@ function buildEscapeRoom(dimension, escape) {
     if (setBlockPermutationSafe(block, perm)) {
       escape.buttonLocation = buttonPos;
     }
+  }
+
+  // Static exit wayfinding on the right wall. It is paint and shell only: the
+  // button, the reversed sign and their approach keep priority.
+  const exitSignX = hallRightX;
+  const exitSignZ = cellMinZ + 6;
+  const exitSegments = [{ dx: 0, key: "x0_y0_z0" }, { dx: 1, key: "x1_y0_z0" }];
+  for (const segment of exitSegments) {
+    const exitBlock = dimension.getBlock(toBlockPos({ x: exitSignX + segment.dx, y: WALL_TOP_Y, z: exitSignZ }));
+    if (!exitBlock) continue;
+    const permutation = resolvePermutation(`paradise:yh_exit_sign_normal_${segment.key}`, {
+      "minecraft:cardinal_direction": "west",
+    });
+    setBlockPermutationSafe(exitBlock, permutation);
   }
 
   // Reversed sign near the door
