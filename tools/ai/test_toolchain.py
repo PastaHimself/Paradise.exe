@@ -58,7 +58,9 @@ class ToolchainTests(unittest.TestCase):
         arguments = ("scaffold", "--spec", str(self.spec))
         preview = self.call_cli(*arguments)
         self.assertEqual(preview["total"], 8)
-        self.assertFalse((self.root / BP / "blocks").exists())
+        # The shipped pack now contains dressings of its own, so assert on the
+        # batch's own files instead of the whole blocks directory.
+        self.assertFalse((self.root / BP / "blocks/paradise__tile.json").exists())
         self.assertEqual(self.call_cli(*arguments, "--apply")["items"], preview["items"])
         second = self.call_cli(*arguments, "--apply")
         self.assertEqual({item["action"] for item in second["items"]}, {"unchanged"})

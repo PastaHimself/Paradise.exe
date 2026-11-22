@@ -81,7 +81,9 @@ class V2ToolTests(unittest.TestCase):
         formats = report["checks"]["formats"]
         self.assertEqual(formats["info"]["classes"]["content"]["1.10.0"], 23)
         self.assertEqual(formats["info"]["classes"]["content"]["1.16.100"], 9)
-        self.assertEqual(formats["info"]["geometry_files"], 3)
+        # The pack ships block geometry, so the count grows with every accepted
+        # batch. Keep the contract assertion instead of a frozen total.
+        self.assertGreaterEqual(formats["info"]["geometry_files"], 3)
         only = self.call_cli("audit", "--check", "dimensions", "--limit", "500", status=1)
         self.assertEqual(set(only["checks"]), {"dimensions"})
         self.call_cli("audit", "--check", "bogus", status=2)
@@ -173,7 +175,7 @@ class V2ToolTests(unittest.TestCase):
         paths = {row["path"] for row in planned["items"]}
         self.assertTrue(any("paradise__tile_a.json" in path for path in paths))
         self.assertFalse(any("paradise__tile_b.json" in path for path in paths))
-        self.assertFalse((self.root / BP / "blocks").exists())
+        self.assertFalse((self.root / BP / "blocks/paradise__tile_a.json").exists())
         self.call_cli("scaffold", "--spec", str(spec_path), "--batch", "kit_a", "--apply")
         block = read_json(self.root / BP / "blocks/paradise__tile_a.json")["minecraft:block"]["components"]
         self.assertEqual(block["minecraft:collision_box"], {"origin": [-0.25, 0, -0.25], "size": [0.5, 1.0, 0.5]})
