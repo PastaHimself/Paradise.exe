@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "paradise:es_caged_wall_lamp_dead"
+    },
+    "components": {
+      "minecraft:tags": [
+        "paradise:static_decor"
+      ],
+      "minecraft:collision_box": false,
+      "minecraft:geometry": "geometry.paradise.es_caged_wall_lamp_dead",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "paradise__es_caged_wall_lamp_dead",
+          "render_method": "opaque",
+          "ambient_occlusion": 1.0
+        }
+      }
+    }
+  }
+}

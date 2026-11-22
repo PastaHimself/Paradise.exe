@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "paradise:es_chipped_stair_tread_geometry"
+    },
+    "components": {
+      "minecraft:tags": [
+        "paradise:static_decor"
+      ],
+      "minecraft:collision_box": true,
+      "minecraft:geometry": "geometry.paradise.es_chipped_stair_tread_geometry",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "paradise__es_chipped_stair_tread_geometry",
+          "render_method": "opaque",
+          "ambient_occlusion": 1.0
+        }
+      }
+    }
+  }
+}

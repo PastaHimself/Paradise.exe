@@ -482,3 +482,50 @@ anchor, and the three route markers are static blocks at Y65.
 - [ ] No active flower trigger, golden-flower check or consequence changed.
 - [ ] Both original landmarks survive a patch rebuild at the same coordinates.
 - [ ] Eight light anchors per ordinary patch are still present at Y68.
+
+## Ticket 4 · Endless Staircase (`feat/v2-static-4-endless-staircase`)
+
+**Artifact:** `/tmp/Paradise-static-4.mcaddon` (22,064,917 bytes, built with
+`python3 tools/ai/cli.py package --output /tmp/Paradise-static-4.mcaddon --apply --json`).
+
+**Envelope.** Scene starts in the per-player lane at `X = L = getLaneOffsetForPlayer(id)` (first player
+`L=1000`) with treads at `y = 64 + z`, `z` ascending. Both walk columns `L−1..L` share the row and the
+slice lifecycle. The primary guard is `L+1`, the shaft void is `L+2..L+7`, the remote ledge is
+`L+8..L+10`. Rows above `z=255` (`y>319`) are no longer written.
+
+### Viewpoints (lane 1000)
+
+```text
+/execute in paradise:endless_staircase run tp @s 1000.5 66 0.5
+/execute in paradise:endless_staircase run tp @s 1000.5 78 12.5
+/execute in paradise:endless_staircase run tp @s 1000.5 90 24.5
+/execute in paradise:endless_staircase run tp @s 1000.5 162 96.5
+/execute in paradise:endless_staircase run tp @s 1010.5 165 96.5
+/execute in paradise:endless_staircase run tp @s 1000.5 258 192.5
+/execute in paradise:endless_staircase run tp @s 1008.5 260 192.5
+/execute in paradise:endless_staircase run tp @s 1000.5 322 255.5
+/execute in paradise:endless_staircase run tp @s 1000.5 66 -28.5
+```
+
+### Checks
+
+| Check | Expectation |
+| --- | --- |
+| Paired treads | Every row `z≥0` has a walkable tread at both `L` and `L−1`; climbing either column keeps the same rise and headroom |
+| Guard | Continuous `paradise:es_straight_railing` at `L+1` with end posts every fourth row; the guard is never broken or removed |
+| Chipped rows | Every `z%11=7` leans chipped tread stock against the `L−3` wall; the walking profile stays continuous |
+| Landings | At each `k=floor(z/12)`: scuffed tiles on `L−5..L−3` at `y` and `z=t..t+1`, number plate at `(L−5,y+2,t+1)`, caged lamp at `(L−3,y+2,t+1)`, step light at `(L+1,y,t−1)` |
+| Lamp states | k%4 0/1 normal (11), 2 red (7), 3 dead (0); the dead station still reads next to a lit pool and the small step light at emission 6 |
+| Plates | k<4 numbered, 4..7 peeling, 8..11 blank, k≥12 repeated |
+| Signs and doors | Direction signs on every third landing at `(L−3,y+2,t−2)`; service doors on the thirds alternate chained and emergency and stay at `L−4` or further back; hatches at `L−4` |
+| Bridge | `distant_bridge` appears only at `z=96` and `z=192`, east of the void at `X≥L+10`, never touching the walk columns and never at the old 24-step row `z=288` |
+| Remote ledge | Grating, broken grating, bent rail, broken railing gap and hanging cables live only at `L+8..L+10` |
+| Ceiling clamp | No décor or tread is written for `z>255`; decoration stops cleanly and the exit at `z=−28` keeps its full clearance |
+| Cleanup | Walking 48 steps and back removes both tread columns and all fittings behind the cleanup bound with no remnant collision |
+
+### Ticket 4 sign-off
+
+- [ ] Ascend 48 steps through at least four authored 12-step phases without a gap or collision.
+- [ ] The bridge at `z=96` is visible from the walk but unreachable and unsupported by the treads.
+- [ ] Restart and clear/rebuild with two players in separate lanes leaves each lane intact.
+- [ ] The existing exit at `z=−28` still works and the fall threshold behaviour is unchanged.

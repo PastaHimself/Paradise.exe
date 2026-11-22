@@ -24,6 +24,12 @@ import { enterHeaven } from "./heaven.js";
 import { enterLibrary } from "./library.js";
 import { enterYellowHalls } from "./yellow_halls.js";
 import { scheduleStructurePlacement } from "./paradise_visual_jobs.js";
+import {
+  isLegalRow,
+  remotePlacements,
+  scenePlacements,
+  sceneryFor,
+} from "./endless_staircase_scene.js";
 
 const DIMENSION_ID = "paradise:endless_staircase";
 const ENTER_COMMAND_ID = "p:enter_endless_staircase";
@@ -157,6 +163,7 @@ function getStairY(z) {
 }
 
 function scheduleStairScenery(dimension, laneOffset, z) {
+  if (!isLegalRow(z)) return;
   if (z < START_Z || z % STAIR_SCENERY_INTERVAL !== 0) return;
   const key = `${laneOffset}:${z}`;
   if (generatedVisualSlices.has(key)) return;
@@ -168,9 +175,9 @@ function scheduleStairScenery(dimension, laneOffset, z) {
   let structureId = STAIR_SCENERY.support;
   let location = { x: laneOffset - 5, y: y - 1, z: z - 2 };
 
-  if (intervalIndex !== 0 && intervalIndex % 24 === 0) {
+  if (sceneryFor(z) === "bridge") {
     structureId = STAIR_SCENERY.bridge;
-    location = { x: laneOffset + 10, y: y + 4, z: z - 2 };
+    location = { x: laneOffset + 10, y: Math.min(318, y + 4), z: z - 2 };
   } else if (intervalIndex !== 0 && intervalIndex % 5 === 0) {
     structureId = STAIR_SCENERY.buttress;
     location = { x: laneOffset + 8, y: y - 1, z: z - 2 };
@@ -182,15 +189,27 @@ function scheduleStairScenery(dimension, laneOffset, z) {
   scheduleStructurePlacement(`endless-stair:${key}`, structureId, dimension, location);
 }
 
+function placeSceneBlocks(dimension, placements) {
+  for (const entry of placements) {
+    setBlockSafe(dimension, { x: entry.x, y: entry.y, z: entry.z }, entry.block);
+  }
+}
+
 function generateStairSlice(dimension, laneOffset, z) {
+  if (!isLegalRow(z)) return;
   const y = getStairY(z);
   setStairBlock(dimension, laneOffset, y, z);
+  setStairBlock(dimension, laneOffset - 1, y, z);
+  placeSceneBlocks(dimension, scenePlacements(laneOffset, z));
+  placeSceneBlocks(dimension, remotePlacements(laneOffset, z));
   scheduleStairScenery(dimension, laneOffset, z);
 }
 
 function clearStairSlice(dimension, laneOffset, z) {
+  if (!isLegalRow(z)) return;
   const y = getStairY(z);
   clearBlock(dimension, laneOffset, y, z);
+  clearBlock(dimension, laneOffset - 1, y, z);
   for (let dy = -2; dy <= 2; dy++) {
     for (let dx = -1; dx <= 1; dx++) {
       for (let dz = -1; dz <= 1; dz++) {
