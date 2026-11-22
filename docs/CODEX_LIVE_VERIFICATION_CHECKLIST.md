@@ -508,6 +508,44 @@ cleanup pass. Arrival chunk is `(62,0)` for spawn `1000.5,65,0.5`, so world X = 
 - Probes: `tp @s 1000.5 65 0.5` (arrival), `tp @s 1000.5 65 5.5` (clean rest),
   `tp @s 1009.5 65 5.5` (disturbed twin), `tp @s 1012.5 65 2.5` (exit frames).
 
+## Rework release gate (`rework/v2-dimensions-layout-mcp`)
+
+**Artifact.** `/tmp/Paradise-static-reworked.mcaddon` (23,585,315 bytes) built with
+`python3 tools/ai/cli.py package --output /tmp/Paradise-static-reworked.mcaddon --apply --json`
+after a reviewed `--dry-run`. The outer archive holds `Paradise_BP.mcpack` (982 entries) and
+`Paradise_RP.mcpack` (5,512 entries); `scripts/library_layout.js`, `flat_flower_scene.js`,
+`catacombs_scene.js`, `heaven_scene.js` and `library_decor.js` are present inside the BP pack.
+
+### Local gates (latest head)
+
+| Gate | Exit | Result |
+| --- | --- | --- |
+| `validate --json` | 0 | 0 errors; 8 known audio warnings |
+| `audit --check dimensions --json --limit 50` | 1 | `checks.dimensions.errors` empty; exactly the 7 canonical registration advisories |
+| `preflight --json` | 0 | 0 errors; beta pins and 1.26.50 floors preserved |
+| `structures --check-blocks` (7 dimensions) | 0 | 28 structures valid, 0 errors |
+| `npm test` | 0 | 135 tests pass |
+| `python3 -m unittest discover -s tests` | 0 | 38 tests pass |
+| package dry-run / apply | 0 | published 23,585,315 bytes |
+
+### Pass / Fail by dimension
+
+| Dimension | Layout / décor work | Static gate | Live proof |
+| --- | --- | --- | --- |
+| `library:the_library` | PASS — two-bank grand hall, four-lane cross, partition, furniture, signs, reserved bay | PASS | Blocked (no world) |
+| `paradise:endless_staircase` | PASS — shaft wall, L+1 guard, supported landings, chipped treads, bridge only at 96/192 | PASS | Blocked (no world) |
+| `paradise:yellow_halls` | PASS — bays at authored Y65/67, leg fixture rhythm, breaker volume reserved | PASS | Blocked (no world) |
+| `paradise:flat_flower` | PASS — two-segment markers, ten gazebo garden remnants off the paths | PASS | Blocked (no world) |
+| `catacombs:catacomb_mazes` | PASS — dress ids repaired, multi-cell arches/niches/sealed bay expanded | PASS | Blocked (no world) |
+| `paradise:burning_highway` | PASS — shoulder wreck cluster, segmented dividers, supported shelter | PASS | Blocked (no world) |
+| `heaven:the_heaven` | PASS — rest pair, plaques, pool pieces and exit frames expanded; dais reserved | PASS | Blocked (no world) |
+
+**Live proof is blocked, not skipped.** `bedrock-mcp` initializes and attaches, but `worlds_list`
+is empty, `world_open` reports `No world is named "ReworkV2"` and `ui_tree` fails
+(`UIScene has no RTTI`), so no `frame_capture` or `command_execute` can run. Codex must create a
+disposable 1.26.50 `vhs_off` world with cheats, install the artifact and walk the probes listed in
+each rework subsection. No screenshots are claimed.
+
 ## Ticket 8 · Atmosphere, fog, particles & release prep (`feat/v2-static-8-atmosphere-release`)
 
 **Artifact:** `/tmp/Paradise-static-8.mcaddon` (21,850,031 bytes, built with
