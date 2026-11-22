@@ -11,10 +11,12 @@ export const TREAD_COLUMN_OFFSETS = Object.freeze([0, -1]);
 export const STAIR_DECOR = Object.freeze({
   tread: "paradise:es_stair_tread",
   chippedTread: "paradise:es_chipped_stair_tread_geometry",
-  guard: "paradise:es_straight_railing",
+  guard: "paradise:es_straight_railing_x0_y0_z0",
+  guardTop: "paradise:es_straight_railing_x0_y1_z0",
   guardSloped: "paradise:es_sloped_railing",
-  guardPost: "paradise:es_railing_end_post",
-  guardCorner: "paradise:es_corner_railing",
+  guardPost: "paradise:es_railing_end_post_x0_y0_z0",
+  guardPostTop: "paradise:es_railing_end_post_x0_y1_z0",
+  guardCorner: "paradise:es_corner_railing_x0_y0_z0",
   landingTiles: "paradise:es_scuffed_landing_tiles",
   landingPlate: "paradise:es_landing_plate",
   landingPlatePeeling: "paradise:es_landing_plate_peeling",
@@ -24,15 +26,18 @@ export const STAIR_DECOR = Object.freeze({
   lampRed: "paradise:es_caged_wall_lamp_red",
   lampDead: "paradise:es_caged_wall_lamp_dead",
   stepLight: "paradise:es_small_step_light",
-  chainedDoor: "paradise:es_chained_service_door",
-  emergencyDoor: "paradise:es_emergency_door",
-  supportBeam: "paradise:es_support_beam",
+  chainedDoor: "paradise:es_chained_service_door_x0_y0_z0",
+  chainedDoorTop: "paradise:es_chained_service_door_x0_y1_z0",
+  emergencyDoor: "paradise:es_emergency_door_x0_y0_z0",
+  emergencyDoorTop: "paradise:es_emergency_door_x0_y1_z0",
+  supportBeam: "paradise:es_support_beam_x0_y0_z0",
   metalGrating: "paradise:es_metal_grating",
   crackedConcrete: "paradise:es_cracked_concrete",
   dampWall: "paradise:es_damp_wall_patches",
   rebar: "paradise:es_exposed_rebar",
   cable: "paradise:es_exposed_cable_bundle",
-  shaftCable: "paradise:es_hanging_shaft_cable",
+  shaftCable: "paradise:es_hanging_shaft_cable_x0_y0_z0",
+  shaftCableTop: "paradise:es_hanging_shaft_cable_x0_y1_z0",
   bracket: "paradise:es_mounting_bracket",
   pipeElbow: "paradise:es_pipe_elbow",
   hatch: "paradise:es_staircase_hatch",
@@ -109,77 +114,140 @@ export function signBlock(k) {
 /**
  * Guard, landing and fitting placements for one authored row. Coordinates are
  * world space; `lane` is the per-player lane offset.
+ *
+ * Columns, from west to east:
+ *   lane-2  solid shaft wall backing with the flush wall fixtures
+ *   lane-1  west tread (`TREAD_COLUMN_OFFSETS`)
+ *   lane    east tread
+ *   lane+1  guard line at tread-top height (L+1)
+ *   lane+2..lane+3  supported side landing at every station row
+ *   lane+3  landing guard line on the outer platform edge
  */
+export const WALL_OFFSET = -2;
+export const GUARD_OFFSET = 1;
+export const LANDING_INNER_OFFSET = 2;
+export const LANDING_OUTER_OFFSET = 3;
+export const LANDING_GUARD_OFFSET = 3;
+
+const WALL_BLOCKS = Object.freeze([
+  STAIR_DECOR.crackedConcrete,
+  STAIR_DECOR.dampWall,
+]);
+
+/** Solid wall backing so every fixture has a surface to mount on. */
+export function wallPlacements(lane, z) {
+  if (!isLegalRow(z)) return [];
+  const y = stairY(z);
+  const base = z % 9 === 0 || z % 17 === 0 ? WALL_BLOCKS[1] : WALL_BLOCKS[0];
+  const placements = [];
+  for (let dy = 0; dy <= 2; dy++) {
+    if (y + dy > WORLD_MAX_Y) continue;
+    placements.push({ x: lane + WALL_OFFSET, y: y + dy, z, block: base, role: "wall" });
+  }
+  return placements;
+}
+
+function landingPlatform(lane, z) {
+  const y = stairY(z);
+  const placements = [];
+  for (let x = lane + LANDING_INNER_OFFSET; x <= lane + LANDING_OUTER_OFFSET; x++) {
+    for (let dz = 0; dz <= 1; dz++) {
+      placements.push({ x, y, z: z + dz, block: STAIR_DECOR.landingTiles, role: "landing" });
+    }
+  }
+  // Two stacked support beams carry each landing back down the shaft.
+  for (let dy = 1; dy <= 2; dy++) {
+    placements.push({
+      x: lane + LANDING_OUTER_OFFSET,
+      y: y - dy,
+      z: z + 1,
+      block: STAIR_DECOR.supportBeam,
+      role: "support",
+    });
+  }
+  // Outer guard, two vertical segments at both landing depths.
+  for (let dz = 0; dz <= 1; dz++) {
+    placements.push({ x: lane + LANDING_GUARD_OFFSET, y: y + 1, z: z + dz, block: STAIR_DECOR.guard, role: "guard" });
+    placements.push({ x: lane + LANDING_GUARD_OFFSET, y: y + 2, z: z + dz, block: STAIR_DECOR.guardTop, role: "guard" });
+  }
+  placements.push({ x: lane + LANDING_GUARD_OFFSET, y: y + 1, z: z + 2, block: STAIR_DECOR.guardPost, role: "guard" });
+  placements.push({ x: lane + LANDING_GUARD_OFFSET, y: y + 2, z: z + 2, block: STAIR_DECOR.guardPostTop, role: "guard" });
+  return placements;
+}
+
 export function scenePlacements(lane, z) {
   if (!isLegalRow(z)) return [];
   const y = stairY(z);
   const k = stationIndex(z);
+  const atStation = z === stationZ(k);
   const placements = [];
 
-  placements.push({ x: lane + 1, y, z, block: STAIR_DECOR.guard });
-  if (z % 4 === 0) {
-    placements.push({ x: lane + 1, y: y + 1, z, block: STAIR_DECOR.guardPost });
+  // Wall backing first: fixtures below replace wall cells and stay flush.
+  placements.push(...wallPlacements(lane, z));
+
+  // Guard line at tread-top height, sloped with the rise; the station row
+  // opens onto the side landing instead.
+  if (!atStation) {
+    placements.push({ x: lane + GUARD_OFFSET, y: y + 1, z, block: STAIR_DECOR.guardSloped, role: "guard" });
   }
-  if (isChippedRow(z)) {
-    placements.push({ x: lane - 3, y, z, block: STAIR_DECOR.chippedTread });
+  if (z % 4 === 0 && !atStation) {
+    placements.push({ x: lane + GUARD_OFFSET, y: y + 1, z, block: STAIR_DECOR.guardPost, role: "guard" });
+    placements.push({ x: lane + GUARD_OFFSET, y: y + 2, z, block: STAIR_DECOR.guardPostTop, role: "guard" });
   }
 
-  if (z === stationZ(k)) {
+  // Chipped treads replace the east tread on the authored rows.
+  if (isChippedRow(z)) {
+    placements.push({ x: lane - 1, y, z, block: STAIR_DECOR.chippedTread, role: "tread" });
+  }
+
+  if (atStation) {
     const t = stationZ(k);
     const ly = stationY(k);
-    for (let x = lane - 5; x <= lane - 3; x++) {
-      for (let dz = 0; dz <= 1; dz++) {
-        placements.push({ x, y: ly, z: t + dz, block: STAIR_DECOR.landingTiles });
-      }
-    }
-    placements.push({ x: lane - 5, y: ly + 2, z: t + 1, block: plateBlock(k) });
-    placements.push({ x: lane - 3, y: ly + 2, z: t + 1, block: lampBlock(k) });
-    placements.push({ x: lane + 1, y: ly, z: t - 1, block: STAIR_DECOR.stepLight });
+    placements.push(...landingPlatform(lane, t));
+
+    // Flush wall fittings: plate, lamp and the occasional direction sign.
+    placements.push({ x: lane + WALL_OFFSET, y: ly + 2, z: t + 1, block: plateBlock(k), role: "wall" });
+    placements.push({ x: lane + WALL_OFFSET, y: ly + 2, z: t, block: lampBlock(k), role: "wall" });
     if (k % 3 === 0) {
-      placements.push({ x: lane - 3, y: ly + 2, z: t - 2, block: signBlock(k) });
+      placements.push({ x: lane + WALL_OFFSET, y: ly + 2, z: t - 1, block: signBlock(k), role: "wall" });
     }
     const door = serviceDoorBlock(k);
-    if (door) placements.push({ x: lane - 4, y: ly + 1, z: t + 1, block: door });
-    if (k % 4 === 1) {
-      placements.push({ x: lane - 4, y: ly + 1, z: t, block: STAIR_DECOR.hatch });
+    if (door) {
+      placements.push({ x: lane + WALL_OFFSET, y: ly + 1, z: t + 1, block: door, role: "wall" });
+      placements.push({
+        x: lane + WALL_OFFSET,
+        y: ly + 2,
+        z: t + 1,
+        block: door === STAIR_DECOR.chainedDoor ? STAIR_DECOR.chainedDoorTop : STAIR_DECOR.emergencyDoorTop,
+        role: "wall",
+      });
     }
+    placements.push({ x: lane + LANDING_INNER_OFFSET, y: ly + 1, z: t, block: STAIR_DECOR.stepLight, role: "landing" });
   }
 
-  if (z % 6 === 0) {
-    placements.push({ x: lane - 4, y: y + 1, z: z - 1, block: STAIR_DECOR.bracket });
-  }
+  // Surface wear stays on the wall face, never in the walking volume.
   if (z % 9 === 0) {
-    placements.push({ x: lane - 3, y: y + 1, z, block: STAIR_DECOR.dampWall });
-  }
-  if (z % 17 === 0) {
-    placements.push({ x: lane - 3, y, z, block: STAIR_DECOR.crackedConcrete });
+    placements.push({ x: lane + WALL_OFFSET, y: y + 1, z, block: STAIR_DECOR.dampWall, role: "wall" });
   }
   if (z % 13 === 0) {
-    placements.push({ x: lane - 3, y: y + 2, z, block: STAIR_DECOR.rebar });
+    placements.push({ x: lane + WALL_OFFSET, y: y + 2, z, block: STAIR_DECOR.rebar, role: "wall" });
   }
-
-  return placements;
+  if (z % 6 === 0 && !atStation) {
+    placements.push({ x: lane + WALL_OFFSET, y: y + 1, z: z - 1, block: STAIR_DECOR.bracket, role: "wall" });
+  }
+  // Nothing may be written above the world ceiling, even on the last legal row.
+  return placements.filter((entry) => entry.y <= WORLD_MAX_Y && entry.y >= -64);
 }
 
-/** Remote-ledge decor stays east of the shaft and never touches the walk columns. */
-export function remotePlacements(lane, z) {
-  if (!isLegalRow(z)) return [];
-  const y = stairY(z);
-  const placements = [];
-  placements.push({ x: lane + 8, y, z, block: STAIR_DECOR.metalGrating });
-  if (z % 10 === 0) {
-    placements.push({ x: lane + 8, y: y + 1, z, block: STAIR_DECOR.supportBeam });
-  }
-  if (z % 14 === 0) {
-    placements.push({ x: lane + 8, y: y + 1, z: z + 1, block: STAIR_DECOR.shaftCable });
-  }
-  if (z % 21 === 0) {
-    placements.push({ x: lane + 8, y, z: z + 1, block: STAIR_DECOR.pipeElbow });
-  }
-  return placements;
+/**
+ * The shaft is intentionally empty east of the guard line. Retained for
+ * callers and tests: no floating grating or cables are staged in the void.
+ */
+export function remotePlacements(_lane, _z) {
+  return [];
 }
 
-/** Scenery structure choice for an authored row; the bridge is row-locked. */
+/** Authoritative scenery structure choice for an authored row. */
 export function sceneryFor(z) {
   if (!isLegalRow(z)) return null;
   if (isBridgeRow(z)) return "bridge";

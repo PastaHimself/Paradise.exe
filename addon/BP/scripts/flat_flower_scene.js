@@ -55,10 +55,50 @@ export const SCENE_LANDMARKS = Object.freeze([
 
 /** One true route marker and two decoys of equal post height, distinct heads. */
 export const SCENE_MARKERS = Object.freeze([
-  { block: "paradise:ff_true_route_marker", x: 38, z: 22, trueRoute: true },
-  { block: "paradise:ff_decoy_marker_one", x: 18, z: 43, trueRoute: false },
-  { block: "paradise:ff_decoy_marker_two", x: 55, z: 42, trueRoute: false },
+  {
+    id: "true",
+    segments: Object.freeze(["paradise:ff_true_route_marker_x0_y0_z0", "paradise:ff_true_route_marker_x0_y1_z0"]),
+    x: 38,
+    z: 22,
+    trueRoute: true,
+  },
+  {
+    id: "decoy_one",
+    segments: Object.freeze(["paradise:ff_decoy_marker_one_x0_y0_z0", "paradise:ff_decoy_marker_one_x0_y1_z0"]),
+    x: 18,
+    z: 43,
+    trueRoute: false,
+  },
+  {
+    id: "decoy_two",
+    segments: Object.freeze(["paradise:ff_decoy_marker_two_x0_y0_z0", "paradise:ff_decoy_marker_two_x0_y1_z0"]),
+    x: 55,
+    z: 42,
+    trueRoute: false,
+  },
 ]);
+
+/**
+ * Garden remnants around the ruined gazebo. Every piece sits in a wall/lawn
+ * lane clear of the two-block footpaths and the gazebo footprint.
+ */
+export const SCENE_GARDEN_PROPS = Object.freeze([
+  { block: "paradise:ff_standalone_garden_gate", x: 9, z: 16, facing: "east" },
+  { block: "paradise:ff_abandoned_bench", x: 7, z: 19, facing: "east" },
+  { block: "paradise:ff_broken_picket_fence", x: 15, z: 21, facing: "north" },
+  { block: "paradise:ff_collapsed_trellis", x: 18, z: 18, facing: "west" },
+  { block: "paradise:ff_overturned_planter", x: 10, z: 21, facing: "north" },
+  { block: "paradise:ff_rusted_watering_can_x0_y0_z0", x: 6, z: 17, facing: "east" },
+  { block: "paradise:ff_empty_flowerbed", x: 6, z: 22, facing: "north" },
+  { block: "paradise:ff_low_stone_border", x: 13, z: 13, facing: "north" },
+  { block: "paradise:ff_loose_paving_stone", x: 9, z: 13, facing: "north" },
+  { block: "paradise:ff_sun_bleached_notice", x: 12, z: 13, facing: "north" },
+]);
+
+/** Gardener's route marker: exactly one true head and two equal-height decoys. */
+export function markerTopY(baseY) {
+  return baseY + 1;
+}
 
 export const SCENE_BOUNDS = Object.freeze({ minX: 0, maxX: 55, minZ: 2, maxZ: 53 });
 

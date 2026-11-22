@@ -1,10 +1,15 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import {
   DAIS_RESERVE,
   EXIT_FRAMES,
   FLOOR_Y,
+  PIECE_SEGMENTS,
+  POOL,
   REST,
   isDaisReserved,
   exitFrames,
@@ -12,7 +17,10 @@ import {
   poolPlanters,
   restStationPlan,
   restStations,
+  segmentsFor,
 } from "../addon/BP/scripts/heaven_scene.js";
+
+const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 
 test("the rest pair stages a clean station and a disturbed twin nine blocks east", () => {
   const stations = restStations(100, 50);
@@ -71,4 +79,33 @@ test("exit frames flank the arrival pad", () => {
   assert.equal(frames[0].block, EXIT_FRAMES.open);
   assert.equal(frames[1].block, EXIT_FRAMES.final);
   assert.ok(EXIT_FRAMES.open !== EXIT_FRAMES.final);
+});
+
+test("every rest, pool and exit piece resolves to existing block ids", () => {
+  const ids = new Set();
+  for (const station of Object.values(REST)) for (const id of Object.values(station)) ids.add(id);
+  for (const id of Object.values(POOL)) ids.add(id);
+  for (const id of Object.values(EXIT_FRAMES)) ids.add(id);
+  for (const segments of Object.values(PIECE_SEGMENTS)) for (const [, , , id] of segments) ids.add(id);
+  const missing = [...ids].filter((id) => !existsSync(
+    path.join(ROOT, "addon/BP/blocks", `paradise__${id.replace("paradise:", "")}.json`),
+  ));
+  assert.deepEqual(missing, []);
+});
+
+test("multi-cell rest pieces expand to their full segment set", () => {
+  assert.equal(segmentsFor(REST.clean.bench).length, 2);
+  assert.equal(segmentsFor(REST.clean.sign).length, 4);
+  assert.equal(segmentsFor(REST.disturbed.sign).length, 4);
+  assert.equal(segmentsFor(EXIT_FRAMES.open).length, 4);
+  assert.equal(segmentsFor(POOL.planter).length, 5);
+  assert.deepEqual(segmentsFor(REST.clean.table), [[0, 0, 0, REST.clean.table]]);
+});
+
+test("the altar dais stays reserved at [10..13,3..6,10..13]", () => {
+  assert.equal(isDaisReserved(10, 3, 10), true);
+  assert.equal(isDaisReserved(13, 6, 13), true);
+  assert.equal(isDaisReserved(9, 3, 10), false);
+  assert.equal(isDaisReserved(10, 7, 10), false);
+  assert.equal(isDaisReserved(10, 3, 14), false);
 });

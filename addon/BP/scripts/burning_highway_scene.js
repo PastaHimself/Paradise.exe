@@ -15,19 +15,35 @@ export const SURFACE = Object.freeze({
   lane: "paradise:bh_road_surface_lane_stripe",
   shoulder: "paradise:bh_road_surface_shoulder_strip",
   skid: "paradise:bh_road_surface_skid_marks",
-  cracked: "paradise:bh_road_surface_cracked_asphalt",
-  heat: "paradise:bh_road_surface_heat_damaged_edge",
+  cracked: "paradise:bh_road_surface_cracked_asphal",
+  heat: "paradise:bh_road_surface_heat_damaged_e",
   mergeArrow: "paradise:bh_road_surface_merge_arrow",
 });
 
 export const TURNOUT = Object.freeze({
-  clean: "paradise:bh_concrete_divider",
-  damaged: "paradise:bh_damaged_divider",
+  clean: "paradise:bh_concrete_divider_x0_y0_z0",
+  damaged: "paradise:bh_damaged_divider_x0_y0_z0",
   guard: "paradise:bh_bent_guardrail",
   endCap: "paradise:bh_guardrail_end",
-  shelter: "paradise:bh_sheltered_turnout",
+  shelter: "paradise:bh_sheltered_turnout_x0_y0_z0",
   arrow: "paradise:bh_road_surface_merge_arrow",
 });
+
+/** All staged segments for a divider or turnout piece, relative to the anchor. */
+export const PIECE_SEGMENTS = Object.freeze({
+  [TURNOUT.clean]: [[0, 0, 0, TURNOUT.clean], [1, 0, 0, "paradise:bh_concrete_divider_x1_y0_z0"]],
+  [TURNOUT.damaged]: [[0, 0, 0, TURNOUT.damaged], [1, 0, 0, "paradise:bh_damaged_divider_x1_y0_z0"]],
+  [TURNOUT.shelter]: [
+    [0, 0, 0, TURNOUT.shelter],
+    [0, 1, 0, "paradise:bh_sheltered_turnout_x0_y1_z0"],
+    [1, 0, 0, "paradise:bh_sheltered_turnout_x1_y0_z0"],
+    [1, 1, 0, "paradise:bh_sheltered_turnout_x1_y1_z0"],
+  ],
+});
+
+export function segmentsFor(block) {
+  return PIECE_SEGMENTS[block] ?? [[0, 0, 0, block]];
+}
 
 /** Road overlay block for a lane-relative x and z, or null for bare asphalt. */
 export function surfaceOverlay(laneX, z, finishDistance) {
@@ -73,8 +89,10 @@ export function ribRows(finishDistance) {
 }
 
 export function wreckOrigin(laneOffset, finishDistance, seed) {
+  // Cells +2/+3 then sit on the right shoulder of the road (X1..2 relative to
+  // the lane centre), keeping the documented X−3..−1 walking strips clear.
   return {
-    x: laneOffset + 9,
+    x: laneOffset - 1,
     y: ROAD_Y,
     z: Math.min(finishDistance - 30, 286 + ((seed >>> 10) % 23)),
   };
@@ -90,10 +108,33 @@ export const WRECK_CELLS = Object.freeze([
 
 export const WRECK_FITTINGS = Object.freeze([
   { cell: [1, 1, 3], block: "paradise:bh_detached_wheel" },
-  { cell: [4, 1, 3], block: "paradise:bh_broken_bumper" },
+  { cell: [4, 1, 3], block: "paradise:bh_broken_bumper_x0_y0_z0" },
   { cell: [5, 1, 2], block: "paradise:bh_loose_vehicle_door" },
   { cell: [6, 1, 4], block: "paradise:bh_scrap_pile" },
 ]);
+
+/** Bumper is a two-cell prop; every other fitting is single-cell. */
+const FITTING_SEGMENTS = Object.freeze({
+  "paradise:bh_broken_bumper_x0_y0_z0": [
+    [0, 0, 0, "paradise:bh_broken_bumper_x0_y0_z0"],
+    [1, 0, 0, "paradise:bh_broken_bumper_x1_y0_z0"],
+  ],
+});
+
+export function fittingSegments(block) {
+  return FITTING_SEGMENTS[block] ?? [[0, 0, 0, block]];
+}
+
+/** Sheltered turnout: two-by-two roof on the right shoulder inside Z96..127. */
+export function turnoutShelterPlacements(laneOffset) {
+  const origin = { x: laneOffset + 2, y: ROAD_Y + 1, z: 118 };
+  return segmentsFor(TURNOUT.shelter).map(([dx, dy, dz, block]) => ({
+    x: origin.x + dx,
+    y: origin.y + dy,
+    z: origin.z + dz,
+    block,
+  }));
+}
 
 export function isRoadOverlaySafe(y) {
   return y >= ROAD_Y && y <= OVERLAY_Y;
@@ -120,10 +161,10 @@ export function wreckSegmentPlacements(origin) {
 }
 
 export function wreckFittingPlacements(origin) {
-  return WRECK_FITTINGS.map((fitting) => ({
-    x: origin.x + fitting.cell[0],
-    y: origin.y + fitting.cell[1],
-    z: origin.z + fitting.cell[2],
-    block: fitting.block,
-  }));
+  return WRECK_FITTINGS.flatMap((fitting) => fittingSegments(fitting.block).map(([dx, dy, dz, block]) => ({
+    x: origin.x + fitting.cell[0] + dx,
+    y: origin.y + fitting.cell[1] + dy,
+    z: origin.z + fitting.cell[2] + dz,
+    block,
+  })));
 }

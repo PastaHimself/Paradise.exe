@@ -311,6 +311,44 @@ motif runs inside `generatePatchMaze` and is rejected whenever it would disconne
 
 ---
 
+### Rework · Yellow Halls corridor rhythm (`rework/v2-dimensions-layout-mcp`)
+
+**What changed.** The eight bays, floor props and wall signs were emitted at the patch floor
+(`Y64`) even though every authored anchor is `Y65`, so doors, frames, the archive bay and all
+clutter sat half-sunk in the carpet. The fixture chain also ignored the planned leg rhythm and
+placed a single random light per straight cell. The rework:
+
+- Places bay doors, archive frames, floor props and wall signs at their authored `Y` (`65` for
+  floor pieces, `67` for signs) so they sit flush on the wall/floor.
+- Drives ceiling fixtures from `planLegFixtures`: two recessed housings per straight leg, the
+  turn-adjacent one dim, one burned-out on every second leg, both halves kept inside cells 1..6.
+- Leaves every turn cell with a dim fixture so corners never read fully lit.
+- Keeps the breaker reservation `[22..23,66..67,16]` back plane and `[22..23,65..67,17..18]`
+  front volume empty, the conduit run at Y67 and the escape room/button untouched.
+
+### Rework probes (patch (1,0), world origin X32/Z0)
+
+```text
+/execute in paradise:yellow_halls run tp @s 35.5 65 7.5      # bay 1 door
+/execute in paradise:yellow_halls run tp @s 51.5 65 7.5      # bay 3 STAIRWELL
+/execute in paradise:yellow_halls run tp @s 51.5 65 16.5     # bay 7 ARCHIVE
+/execute in paradise:yellow_halls run tp @s 54.5 65 18.5     # breaker front volume (empty)
+/execute in paradise:yellow_halls run tp @s 32.5 65 0.5      # arrival west edge
+```
+
+| Check | Expectation |
+| --- | --- |
+| Bay anchors | Doors/frames sit at Y65 with their bases on the carpet, signs at Y67 |
+| Fixture chain | Two housings per straight leg, last dim, one burned-out on alternate legs |
+| Breaker mount | Back plane solid, front volume empty at Y65..67, nothing registered |
+| Walkability | Corridor cells stay 2 wide with 2 blocks of headroom; props stay in wall lanes |
+| Surfaces | Clean/stained/peeling/water-damaged wallpaper proportions hold; no floating panel |
+
+- [ ] Walk the arrival corridor: no door, desk, cooler or cabinet intrudes into the route.
+- [ ] Every bay reads as a closed/bricked door, hatch or sealed archive at eye height.
+- [ ] Fixtures alternate lit/dim/burned-out along one leg and the turn still reads dim.
+- [ ] The breaker volume stays empty and its back plane is flush.
+
 ## Ticket 2 · Library (`feat/v2-static-2-library`)
 
 **Package.** `/tmp/Paradise-static-2.mcaddon`
@@ -355,6 +393,158 @@ accepted with 2 repairs (the cell-sized staged copies for `fallen_shelf` and
 - [ ] Both light states read distinctly in standard light with `vhs_off`.
 - [ ] The restricted alcove is empty and its frame reads as a sealed archive bay.
 - [ ] Archive desk and card-reader terminal are absent; no read/card checks exist.
+
+## Rework · Library grand-aisle layout (`rework/v2-dimensions-layout-mcp`)
+
+**Scope.** Full spatial/décor rework of `library:the_library` on top of the merged Ticket 2
+pipeline. Block IDs, `terrain_texture.json`, `.geo.json` exports, dimension JSON, the 1.26.50
+pins and all four `.mcstructure` files are unchanged. `lib_archive_desk`,
+`lib_card_reader_terminal`, the chat/riddle, question chest and debt logic stay deferred.
+
+**Plan module.** `addon/BP/scripts/library_layout.js` (pure data) drives
+`addon/BP/scripts/library_decor.js`; `addon/BP/scripts/library.js` now only builds the base
+shell, clears the pre-rework shelf walls and hands off to the dressing pass.
+
+### Layout summary
+
+- Two flush shelf banks at local x=4 and x=11 facing the centre; tiers at Y65/67/69 with
+  full/sparse/empty states, ladder gaps at z=6 and z=10, and endcaps at z=1 and z=14.
+- Walk lanes: four-wide centre cross `x=7..8 ∪ z=7..8`, two-wide side aisles `x=2..3` and
+  `x=12..13`. No shelf or furniture footprint enters a lane.
+- Perimeter panelled walls with two-wide doorways at `x=7..8` and `z=7..8`; restricted-bay
+  partition at z=11 (x=9..15) with a two-wide doorway at x=12..13.
+- Reading zones: carrels and tables flush to the x=0 / x=15 walls, centre tables at x=5..6 and
+  x=9..10, carts at x=6/x=9 z=5, ladders in the bank gaps, desk lamps with ledgers/papers.
+- Lamps at local (5,72,4), (10,72,4), (5,72,11), (10,72,11); the low-power room keeps lit
+  anchors alternating with unlit. Signs: `READING ROOM` (1,66,7) east, `RETURNS` (14,66,7)
+  west, `EXIT` (14,66,13) west, `RESTRICTED` (10,66,11) south in the arrival chunk only.
+
+### Reserved bay (arrival chunk only)
+
+`[10..13,65..68,12..14]` chunk-local stays empty; protected vanilla `minecraft:bookshelf`
+anchors `(3,65,2)`, `(11,65,2)`, `(11,65,9)` are skipped by both the shelf plan and the
+cleanup pass. Arrival chunk is `(62,0)` for spawn `1000.5,65,0.5`, so world X = 992 + local X.
+
+### Viewpoints (arrival chunk, world coordinates)
+
+```text
+/execute in library:the_library run tp @s 1000.5 65 8.5      # centre cross
+/execute in library:the_library run tp @s 994.5 65 8.5       # west side aisle
+/execute in library:the_library run tp @s 1003.5 65 8.5      # east side aisle
+/execute in library:the_library run tp @s 1000.5 65 13.5     # south cross / exit sign
+/execute in library:the_library run tp @s 1002.5 65 13.5     # restricted bay approach
+/execute in library:the_library run tp @s 2000.5 65 0.5      # second visit, no bay
+```
+
+### Checks
+
+| Check | Expectation |
+| --- | --- |
+| Walkability | Both cross arms and both side aisles clear at 2 blocks wide and 2 blocks of headroom |
+| Shelves | Two banks at x4/x11 only, flush to the wall plane, no ceiling-stretched or floating tiers |
+| Anchors | Vanilla bookshelf anchors `(3,65,2)`, `(11,65,2)`, `(11,65,9)` still present in the arrival chunk |
+| Reserved bay | `[10..13,65..68,12..14]` empty; partition and doorway intact; no archive desk or card reader |
+| Furniture | Carrels/tables flush to walls, tabletop clutter rests on the table at Y67, nothing in a lane |
+| Lighting | Lit lamps read warm, low-power alternates read dim; no `minecraft:glowstone` seam visible |
+| Signs | `READING ROOM`, `RETURNS`, `EXIT`, `RESTRICTED` legible from 3 and 6 blocks at 70° FOV |
+| Travel | Yellow Halls → Library pad still lands on the cross; pressure plates/signs untouched |
+
+### BEFORE / AFTER captures
+
+- `docs/verification/library-rework-before.png` — **not captured**: the local MCP loop is
+  blocked. `worlds_list` returned `[]`, `world_open` reported `No world is named "ReworkV2"`,
+  and `ui_tree` fails on this build (`UIScene has no RTTI`), so `frame_capture` has no scene.
+  `game_launch` does attach (bedrock-mcp 0.3.0, 89 tools) and `pack_check` runs.
+- `docs/verification/library-rework-after.png` — same blocker; recapture after a disposable
+  `vhs_off` world with cheats exists.
+
+### Sign-off
+
+- [ ] Walk both cross arms and both side aisles end to end without a collision or dead end.
+- [ ] Confirm no shelf or furniture block floats, clips a wall, or blocks a lane.
+- [ ] Confirm the restricted bay is empty and the partition doorway is two blocks wide.
+- [ ] Capture BEFORE/AFTER frames once a disposable world exists.
+
+### Rework · Flat Flower meadow dressing (`rework/v2-dimensions-layout-mcp`)
+
+- Route markers now place both staged segments (post + distinct head) at `Y65..66`; the true
+  marker is `(38,22)` and the decoys `(18,43)` and `(55,42)`, all off the two-block footpaths.
+- Ten garden remnants dress the gazebo lawn at `(6..18, 13..22)`: standalone gate, bench, broken
+  picket fence, collapsed trellis, overturned planter, watering can, empty flowerbed, low stone
+  border, loose paving and a sun-bleached notice. None touches a `SCENE_PATHS` rectangle.
+- Probes: `tp @s 38.5 66 22.5` (true marker), `tp @s 12.5 66 18.5` (gazebo), `tp @s 18.5 66 18.5`
+  (trellis), `tp @s 55.5 66 42.5` (east decoy).
+
+### Rework · Catacombs masonry and sealed bay (`rework/v2-dimensions-layout-mcp`)
+
+- 18 of 28 `DRESS` ids did not exist (lamps, candles, bone shelf, sarcophagus, arches, piers,
+  sealed doorway, clue panel). All now point at real staged segments and a new `PIECE_SEGMENTS`
+  map expands every two- and four-cell piece (`setPiece`), so arches, niches, lamps, the sealed
+  doorway and the clue panel render whole instead of as half models.
+- The sealed junction keeps its optical plane, clue, sconce, warning, flat floor and the reserved
+  future opening; maze links and the deferred shortcut interaction are unchanged.
+- Probes: `tp @s 1000.5 65 0.5` (arrival), `tp @s 1008.5 65 8.5` (arch/niche run), and the
+  junction returned by `selectJunction` for the run seed.
+
+### Rework · Burning Highway turnout and wreck (`rework/v2-dimensions-layout-mcp`)
+
+- Fixed six missing ids (cracked asphalt, heat edge, concrete/damaged dividers, sheltered turnout,
+  broken bumper) and made dividers, the turnout shelter and the bumper expand every segment.
+- The four-part shell and its fittings now sit on the road shoulder at lane `X+1..+2`
+  (`wreckOrigin = laneOffset − 1`), so the documented `X−3..−1` walking strips stay clear; the
+  separate floating wreck structure was removed. A supported `2×2` `bh_sheltered_turnout` sits at
+  `Z118` on the right shoulder inside `Z96..127`. `buildServiceDetour` stays dormant.
+- Probes: `tp @s 1000.5 65 100.5` (turnout divider), `tp @s 1002.5 66 118.5` (shelter),
+  `tp @s 1001.5 65 292.5` (wreck shell) using the run's wreck Z.
+
+### Rework · Heaven rest pair and frames (`rework/v2-dimensions-layout-mcp`)
+
+- 16 rest/pool/exit ids were missing (clean bench/lamp/sign/chest/plaque, disturbed twins, pool
+  rim, planters, hedges, exit frames). They now resolve to real primaries and `PIECE_SEGMENTS`
+  expands benches, lamps, signs, plaques, chests, pool rims, planters, hedges and both exit frames.
+- The rest pair keeps the vanilla bed/chest/sign slots and the `[10..13,3..6,10..13]` altar dais
+  stays reserved; `REST / YOU ARE SAFE` reads on the clean station and its disturbed twin nine
+  blocks east.
+- Probes: `tp @s 1000.5 65 0.5` (arrival), `tp @s 1000.5 65 5.5` (clean rest),
+  `tp @s 1009.5 65 5.5` (disturbed twin), `tp @s 1012.5 65 2.5` (exit frames).
+
+## Rework release gate (`rework/v2-dimensions-layout-mcp`)
+
+**Artifact.** `/tmp/Paradise-static-reworked.mcaddon` (23,585,315 bytes) built with
+`python3 tools/ai/cli.py package --output /tmp/Paradise-static-reworked.mcaddon --apply --json`
+after a reviewed `--dry-run`. The outer archive holds `Paradise_BP.mcpack` (982 entries) and
+`Paradise_RP.mcpack` (5,512 entries); `scripts/library_layout.js`, `flat_flower_scene.js`,
+`catacombs_scene.js`, `heaven_scene.js` and `library_decor.js` are present inside the BP pack.
+
+### Local gates (latest head)
+
+| Gate | Exit | Result |
+| --- | --- | --- |
+| `validate --json` | 0 | 0 errors; 8 known audio warnings |
+| `audit --check dimensions --json --limit 50` | 1 | `checks.dimensions.errors` empty; exactly the 7 canonical registration advisories |
+| `preflight --json` | 0 | 0 errors; beta pins and 1.26.50 floors preserved |
+| `structures --check-blocks` (7 dimensions) | 0 | 28 structures valid, 0 errors |
+| `npm test` | 0 | 135 tests pass |
+| `python3 -m unittest discover -s tests` | 0 | 38 tests pass |
+| package dry-run / apply | 0 | published 23,585,315 bytes |
+
+### Pass / Fail by dimension
+
+| Dimension | Layout / décor work | Static gate | Live proof |
+| --- | --- | --- | --- |
+| `library:the_library` | PASS — two-bank grand hall, four-lane cross, partition, furniture, signs, reserved bay | PASS | Blocked (no world) |
+| `paradise:endless_staircase` | PASS — shaft wall, L+1 guard, supported landings, chipped treads, bridge only at 96/192 | PASS | Blocked (no world) |
+| `paradise:yellow_halls` | PASS — bays at authored Y65/67, leg fixture rhythm, breaker volume reserved | PASS | Blocked (no world) |
+| `paradise:flat_flower` | PASS — two-segment markers, ten gazebo garden remnants off the paths | PASS | Blocked (no world) |
+| `catacombs:catacomb_mazes` | PASS — dress ids repaired, multi-cell arches/niches/sealed bay expanded | PASS | Blocked (no world) |
+| `paradise:burning_highway` | PASS — shoulder wreck cluster, segmented dividers, supported shelter | PASS | Blocked (no world) |
+| `heaven:the_heaven` | PASS — rest pair, plaques, pool pieces and exit frames expanded; dais reserved | PASS | Blocked (no world) |
+
+**Live proof is blocked, not skipped.** `bedrock-mcp` initializes and attaches, but `worlds_list`
+is empty, `world_open` reports `No world is named "ReworkV2"` and `ui_tree` fails
+(`UIScene has no RTTI`), so no `frame_capture` or `command_execute` can run. Codex must create a
+disposable 1.26.50 `vhs_off` world with cheats, install the artifact and walk the probes listed in
+each rework subsection. No screenshots are claimed.
 
 ## Ticket 8 · Atmosphere, fog, particles & release prep (`feat/v2-static-8-atmosphere-release`)
 
@@ -529,6 +719,54 @@ slice lifecycle. The primary guard is `L+1`, the shaft void is `L+2..L+7`, the r
 - [ ] The bridge at `z=96` is visible from the walk but unreachable and unsupported by the treads.
 - [ ] Restart and clear/rebuild with two players in separate lanes leaves each lane intact.
 - [ ] The existing exit at `z=−28` still works and the fall threshold behaviour is unchanged.
+
+### Rework · Endless Staircase industrial shaft (`rework/v2-dimensions-layout-mcp`)
+
+**What changed.** The old scene hung railing, grating, cables and support arches unsupported in the
+void, and seven `STAIR_DECOR` ids did not exist (`es_straight_railing`, `es_railing_end_post`,
+`es_corner_railing`, `es_chained_service_door`, `es_emergency_door`, `es_support_beam`,
+`es_hanging_shaft_cable`), so those pieces silently never placed. The rework:
+
+- Adds a continuous solid shaft wall at `L−2` from the tread row to `+2`, in cracked/damp concrete.
+  Every wall fixture now replaces a wall cell and is flush: plates, lamps, signs, doors, rebar,
+  brackets and damp patches.
+- Moves the guard to the tread-top line at `L+1`, sloped on ordinary rows, with two-segment end
+  posts every fourth row. Station rows open onto the landing instead of carrying a post.
+- Replaces the floating `L−5..L−3` ledge with a supported `2×2` landing at `L+2..L+3`, carried by
+  two stacked `es_support_beam` cells at `L+3` and ringed by a two-segment guard on its outer edge.
+- Replaces the `L−3` floating chipped tread with a chipped tread in the west walk column.
+- Removes the east remote ledge (`L+8..L+10`) and the scheduled support/buttress/landing
+  structures; only `distant_bridge` remains, at `z=96` and `z=192`.
+- Clamps every emitted piece to `Y ≤ 319` (last legal row `z=255` keeps only the tread and one wall
+  cell) and extends `clearStairSlice` to remove the wall, guard, landing, support and old east ledge.
+
+### Rework probes (lane 1000; walker stands one above the tread)
+
+```text
+/execute in paradise:endless_staircase run tp @s 1000.5 66 0.5
+/execute in paradise:endless_staircase run tp @s 1000.5 78 12.5
+/execute in paradise:endless_staircase run tp @s 1000.5 90 24.5
+/execute in paradise:endless_staircase run tp @s 1002.5 90 24.5
+/execute in paradise:endless_staircase run tp @s 1000.5 162 96.5
+/execute in paradise:endless_staircase run tp @s 1000.5 318 254.5
+/execute in paradise:endless_staircase run tp @s 1000.5 66 -28.5
+```
+
+| Check | Expectation |
+| --- | --- |
+| Wall backing | Solid wall at `L−2` from every tread row to `+2`; no fixture floats in the shaft |
+| Guard | Sloped guard at `L+1` (tread top), two-segment posts every fourth row, open at stations |
+| Landing | `L+2..L+3` tiles at `z=t..t+1`, two support beams at `L+3`, outer guard at `L+3` top |
+| Chipped tread | Chipped tread replaces the west tread on `z%11=7`; both columns stay traversable |
+| Lamps/plates | Flush on the wall at `y+2`; k%4 normal/red/dead cycle and plate progression unchanged |
+| Void | Nothing east of the landing guard; `distant_bridge` only at `z=96/192` |
+| Clamp | `z=255` writes the tread plus at most one wall cell; nothing above `Y319` |
+| Cleanup | Walking 48 rows and back removes treads, wall, guard, landing and support together |
+
+- [ ] Ascend 48 rows: wall, guard and landings stay flush with no floating piece.
+- [ ] Both walk columns remain 2 blocks wide with 2 blocks of headroom.
+- [ ] Last legal row stops cleanly at `Y319`; nothing writes above the ceiling.
+- [ ] Exit at `z=−28` and fall/cleanup behaviour unchanged.
 
 ## Ticket 5 · Catacombs (`feat/v2-static-5-catacombs`)
 

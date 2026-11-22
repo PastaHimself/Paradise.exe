@@ -15,6 +15,8 @@ import {
   WRECK_SHELL_SEGMENTS,
   wreckFittingPlacements,
   wreckSegmentPlacements,
+  segmentsFor,
+  turnoutShelterPlacements,
   dividerBlock,
   isRoadOverlaySafe,
   isTurnoutEntry,
@@ -74,11 +76,17 @@ test("ribs skip the turnout and the finish area", () => {
 
 test("wreck origin stays on the service side and inside the lane", () => {
   const origin = wreckOrigin(2000, 380, 0);
-  assert.equal(origin.x, 2009);
+  assert.equal(origin.x, 1999);
   assert.equal(origin.y, ROAD_Y);
   assert.ok(origin.z <= 350);
   assert.ok(origin.z >= 286);
   for (const [x] of WRECK_CELLS) assert.ok(x >= 2);
+  // Cells +2/+3 relative to the origin sit at lane X+1..+2 on the right
+  // shoulder, so the documented X-3..-1 walking strips stay clear.
+  for (const [x, , z] of WRECK_CELLS) {
+    const laneX = origin.x + x - 2000;
+    assert.ok(laneX >= 1 && laneX <= 2, `shell cell at lane X${laneX} z${z}`);
+  }
   for (const fitting of WRECK_FITTINGS) assert.ok(fitting.block.startsWith("paradise:bh_"));
 });
 
@@ -94,7 +102,7 @@ test("the four shell segments land in the wreck cluster cells", () => {
   ]);
   assert.equal(new Set(placements.map((p) => p.block)).size, 4);
   const fittings = wreckFittingPlacements(origin);
-  assert.deepEqual(fittings.map((p) => [p.x, p.z]), [[2010, 293], [2013, 293], [2014, 292], [2015, 294]]);
+  assert.deepEqual(fittings.map((p) => [p.x, p.z]), [[2010, 293], [2013, 293], [2014, 293], [2014, 292], [2015, 294]]);
 });
 
 test("overlays never leave the road-to-lip band", () => {
@@ -102,4 +110,19 @@ test("overlays never leave the road-to-lip band", () => {
   assert.equal(isRoadOverlaySafe(OVERLAY_Y), true);
   assert.equal(isRoadOverlaySafe(63), false);
   assert.equal(isRoadOverlaySafe(67), false);
+});
+
+
+test("dividers, the turnout shelter and the bumper place every segment", () => {
+  assert.deepEqual(segmentsFor(TURNOUT.clean).map(([dx, dy, dz]) => [dx, dy, dz]), [[0, 0, 0], [1, 0, 0]]);
+  assert.deepEqual(segmentsFor(TURNOUT.damaged).map(([dx, dy, dz]) => [dx, dy, dz]), [[0, 0, 0], [1, 0, 0]]);
+  const shelter = turnoutShelterPlacements(0);
+  assert.equal(shelter.length, 4);
+  for (const piece of shelter) {
+    assert.ok(piece.z >= TURNOUT_START && piece.z <= TURNOUT_END);
+    assert.ok(piece.x >= 1 && piece.x <= 3, `shelter at x${piece.x}`);
+  }
+  const fittings = wreckFittingPlacements({ x: 0, y: 64, z: 0 });
+  assert.ok(fittings.some((piece) => piece.block.endsWith("bh_broken_bumper_x1_y0_z0")));
+  assert.ok(fittings.some((piece) => piece.block === "paradise:bh_detached_wheel"));
 });

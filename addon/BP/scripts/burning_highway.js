@@ -21,7 +21,10 @@ import {
   OVERLAY_Y,
   SURFACE,
   wreckFittingPlacements,
+  wreckOrigin,
   wreckSegmentPlacements,
+  segmentsFor,
+  turnoutShelterPlacements,
   dividerBlock,
   isTurnoutEntry,
   ribRows,
@@ -360,7 +363,7 @@ function scheduleHighwayScenery(dimension, laneOffset, finishDistance) {
   const placements = [
     { id: HIGHWAY_SCENERY.overpass, z: Math.min(finishDistance - 80, 104 + (sideSeed % 17)), x: laneOffset + HALF_WIDTH + 7 },
     { id: HIGHWAY_SCENERY.lavafall, z: Math.min(finishDistance - 54, 190 + ((sideSeed >>> 5) % 19)), x: laneOffset - HALF_WIDTH - 8 },
-    { id: HIGHWAY_SCENERY.wreck, z: Math.min(finishDistance - 30, 286 + ((sideSeed >>> 10) % 23)), x: laneOffset + HALF_WIDTH + 6 },
+
   ];
 
   for (let index = 0; index < placements.length; index++) {
@@ -374,11 +377,10 @@ function scheduleHighwayScenery(dimension, laneOffset, finishDistance) {
     );
   }
 
-  // Four-part shell and fittings sit in the wreck cluster cells after the
-  // structure job runs, so the segments always land on supported floor.
-  const wreck = placements[2];
-  if (!(wreck.z <= SAFE_START_PAD_LENGTH + 24 || wreck.z >= finishDistance - 18)) {
-    const origin = { x: wreck.x, y: ROAD_Y, z: wreck.z };
+  // Four-part shell and fittings ARE the wreck cluster; they sit on the road
+  // shoulder at X+1..+2 so the X−3..−1 walking strips stay clear.
+  const origin = wreckOrigin(laneOffset, finishDistance, sideSeed);
+  if (!(origin.z <= SAFE_START_PAD_LENGTH + 24 || origin.z >= finishDistance - 18)) {
     scheduleVisualPlacements(dimension, [
       ...wreckSegmentPlacements(origin),
       ...wreckFittingPlacements(origin),
@@ -477,15 +479,21 @@ async function generateHighwayLane(dimension, laneOffset, finishDistance = HIGHW
         }
       }
 
-      // Turnout divider, end caps and merge arrow.
+      // Turnout divider, end caps and merge arrow. Both divider cells are
+      // placed so no half-model hangs on the lane.
       for (let z = 96; z <= 127; z++) {
         if (isTurnoutEntry(z)) continue;
         const divider = dividerBlock(z);
         if (divider) {
-          setBlockSafe(dimension, { x: laneOffset, y: OVERLAY_Y, z }, divider);
+          for (const [dx, dy, dz, block] of segmentsFor(divider)) {
+            setBlockSafe(dimension, { x: laneOffset + dx, y: OVERLAY_Y + dy, z: z + dz }, block);
+          }
         }
       }
       setBlockSafe(dimension, { x: laneOffset + 1, y: OVERLAY_Y, z: 125 }, SURFACE.mergeArrow);
+      for (const shelter of turnoutShelterPlacements(laneOffset)) {
+        setBlockSafe(dimension, { x: shelter.x, y: shelter.y, z: shelter.z }, shelter.block);
+      }
 
       // Build side walls and ceiling with a deterministic structural rhythm.
       // This changes the material selected by existing writes rather than adding

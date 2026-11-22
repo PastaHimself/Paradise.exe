@@ -8,29 +8,89 @@ export const DRESS = Object.freeze({
   floorBase: "paradise:cat_uneven_floor_tiles",
   floorDamp: "paradise:cat_uneven_floor_tiles_damp",
   puddle: "paradise:cat_floor_puddles_standing_water",
-  lampLit: "paradise:cat_iron_lamp_cage",
-  lampSconce: "paradise:cat_wall_sconce",
-  lampOut: "paradise:cat_iron_lamp_cage_out",
-  lampRusted: "paradise:cat_iron_lamp_cage_rusted",
-  candleLit: "paradise:cat_candle_cluster",
-  candleOut: "paradise:cat_candle_cluster_out",
-  boneShelf: "paradise:cat_bone_shelf",
-  coffinBoard: "paradise:cat_broken_coffin_board",
-  sarcophagus: "paradise:cat_closed_sarcophagus",
+  lampLit: "paradise:cat_iron_lamp_cage_x0_y0_z0",
+  lampSconce: "paradise:cat_wall_sconce_x0_y0_z0",
+  lampOut: "paradise:cat_iron_lamp_cage_out_x0_y0_z0",
+  lampRusted: "paradise:cat_iron_lamp_cage_rusted_x0_y0_z0",
+  candleLit: "paradise:cat_candle_cluster_x0_y0_z0",
+  candleOut: "paradise:cat_candle_cluster_out_x0_y0_z0",
+  boneShelf: "paradise:cat_bone_shelf_x0_y0_z0",
+  coffinBoard: "paradise:cat_broken_coffin_board_x0_y0_z0",
+  sarcophagus: "paradise:cat_closed_sarcophagus_x0_y0_z0",
   urn: "paradise:cat_urn",
-  rubble: "paradise:cat_rubble_pile",
+  rubble: "paradise:cat_rubble_pile_x0_y0_z0",
   niche: "paradise:cat_empty_niche",
-  skullNiche: "paradise:cat_skull_niche",
-  sealedDoorway: "paradise:cat_sealed_stone_doorway",
-  cluePanel: "paradise:cat_cracked_clue_panel",
+  skullNiche: "paradise:cat_skull_niche_x0_y0_z0",
+  sealedDoorway: "paradise:cat_sealed_stone_doorway_x0_y0_z0",
+  cluePanel: "paradise:cat_cracked_clue_panel_x0_y0_z0",
   warning: "paradise:cat_seal_warn_incised_seal",
-  arch: "paradise:cat_straight_arch",
-  lowArch: "paradise:cat_low_archway",
-  cornerPier: "paradise:cat_corner_pier",
-  pillar: "paradise:cat_pillar",
-  passageFrame: "paradise:cat_open_passage_frame",
+  arch: "paradise:cat_straight_arch_x0_y0_z0",
+  lowArch: "paradise:cat_low_archway_x0_y0_z0",
+  cornerPier: "paradise:cat_corner_pier_x0_y0_z0",
+  pillar: "paradise:cat_pillar_x0_y0_z0",
+  passageFrame: "paradise:cat_open_passage_frame_x0_y0_z0",
   plate: "paradise:cat_tomb_number_plate",
 });
+
+/**
+ * Segment layout for every staged two-cell/four-cell piece. Offsets are
+ * relative to the anchor cell; the runtime writer expands each piece so no
+ * half-model is ever placed.
+ */
+export const PIECE_SEGMENTS = Object.freeze({
+  [DRESS.lampLit]: [[0, 0, 0, DRESS.lampLit], [0, 1, 0, "paradise:cat_iron_lamp_cage_x0_y1_z0"]],
+  [DRESS.lampOut]: [[0, 0, 0, DRESS.lampOut], [0, 1, 0, "paradise:cat_iron_lamp_cage_out_x0_y1_z0"]],
+  [DRESS.lampRusted]: [[0, 0, 0, DRESS.lampRusted], [0, 1, 0, "paradise:cat_iron_lamp_cage_rusted_x0_y1_z0"]],
+  [DRESS.lampSconce]: [[0, 0, 0, DRESS.lampSconce], [0, 1, 0, "paradise:cat_wall_sconce_x0_y1_z0"]],
+  [DRESS.candleLit]: [[0, 0, 0, DRESS.candleLit], [1, 0, 0, "paradise:cat_candle_cluster_x1_y0_z0"]],
+  [DRESS.candleOut]: [[0, 0, 0, DRESS.candleOut], [1, 0, 0, "paradise:cat_candle_cluster_out_x1_y0_z0"]],
+  [DRESS.boneShelf]: [
+    [0, 0, 0, DRESS.boneShelf],
+    [0, 1, 0, "paradise:cat_bone_shelf_x0_y1_z0"],
+    [1, 0, 0, "paradise:cat_bone_shelf_x1_y0_z0"],
+    [1, 1, 0, "paradise:cat_bone_shelf_x1_y1_z0"],
+  ],
+  [DRESS.coffinBoard]: [[0, 0, 0, DRESS.coffinBoard], [1, 0, 0, "paradise:cat_broken_coffin_board_x1_y0_z0"]],
+  [DRESS.sarcophagus]: [[0, 0, 0, DRESS.sarcophagus], [1, 0, 0, "paradise:cat_closed_sarcophagus_x1_y0_z0"]],
+  [DRESS.rubble]: [
+    [0, 0, 0, DRESS.rubble],
+    [0, 0, 1, "paradise:cat_rubble_pile_x0_y0_z1"],
+    [1, 0, 0, "paradise:cat_rubble_pile_x1_y0_z0"],
+  ],
+  [DRESS.skullNiche]: [[0, 0, 0, DRESS.skullNiche], [1, 0, 0, "paradise:cat_skull_niche_x1_y0_z0"]],
+  [DRESS.sealedDoorway]: [
+    [0, 0, 0, DRESS.sealedDoorway],
+    [0, 1, 0, "paradise:cat_sealed_stone_doorway_x0_y1_z0"],
+    [1, 0, 0, "paradise:cat_sealed_stone_doorway_x1_y0_z0"],
+    [1, 1, 0, "paradise:cat_sealed_stone_doorway_x1_y1_z0"],
+  ],
+  [DRESS.cluePanel]: [
+    [0, 0, 0, DRESS.cluePanel],
+    [0, 1, 0, "paradise:cat_cracked_clue_panel_x0_y1_z0"],
+    [1, 0, 0, "paradise:cat_cracked_clue_panel_x1_y0_z0"],
+    [1, 1, 0, "paradise:cat_cracked_clue_panel_x1_y1_z0"],
+  ],
+  [DRESS.arch]: [
+    [0, 0, 0, DRESS.arch],
+    [0, 1, 0, "paradise:cat_straight_arch_x0_y1_z0"],
+    [1, 0, 0, "paradise:cat_straight_arch_x1_y0_z0"],
+    [1, 1, 0, "paradise:cat_straight_arch_x1_y1_z0"],
+  ],
+  [DRESS.lowArch]: [[0, 0, 0, DRESS.lowArch], [1, 0, 0, "paradise:cat_low_archway_x1_y0_z0"]],
+  [DRESS.cornerPier]: [[0, 0, 0, DRESS.cornerPier], [0, 1, 0, "paradise:cat_corner_pier_x0_y1_z0"]],
+  [DRESS.pillar]: [[0, 0, 0, DRESS.pillar], [0, 1, 0, "paradise:cat_pillar_x0_y1_z0"]],
+  [DRESS.passageFrame]: [
+    [0, 0, 0, DRESS.passageFrame],
+    [0, 1, 0, "paradise:cat_open_passage_frame_x0_y1_z0"],
+    [1, 0, 0, "paradise:cat_open_passage_frame_x1_y0_z0"],
+    [1, 1, 0, "paradise:cat_open_passage_frame_x1_y1_z0"],
+  ],
+});
+
+/** Every cell a piece owns, including the anchor, as [dx, dy, dz, id]. */
+export function segmentsFor(block) {
+  return PIECE_SEGMENTS[block] ?? [[0, 0, 0, block]];
+}
 
 export const SIDE_ORDER = Object.freeze(["north", "east", "south", "west"]);
 

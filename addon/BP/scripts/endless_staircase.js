@@ -170,22 +170,14 @@ function scheduleStairScenery(dimension, laneOffset, z) {
   generatedVisualSlices.add(key);
 
   const y = getStairY(z);
-  const intervalIndex = Math.floor(z / STAIR_SCENERY_INTERVAL);
-  /** @type {string} */
-  let structureId = STAIR_SCENERY.support;
-  let location = { x: laneOffset - 5, y: y - 1, z: z - 2 };
 
-  if (sceneryFor(z) === "bridge") {
-    structureId = STAIR_SCENERY.bridge;
-    location = { x: laneOffset + 10, y: Math.min(318, y + 4), z: z - 2 };
-  } else if (intervalIndex !== 0 && intervalIndex % 5 === 0) {
-    structureId = STAIR_SCENERY.buttress;
-    location = { x: laneOffset + 8, y: y - 1, z: z - 2 };
-  } else if (intervalIndex !== 0 && intervalIndex % CHECKPOINT_INTERVAL === 0) {
-    structureId = STAIR_SCENERY.landing;
-    location = { x: laneOffset - 5, y: y - 1, z: z - 2 };
-  }
+  // The solid shaft wall now carries the structure the old support/landing
+  // structures used to float in the void. Only the authored distant bridge
+  // remains as a scheduled structure, at rows 96 and 192.
+  if (sceneryFor(z) !== "bridge") return;
 
+  const structureId = STAIR_SCENERY.bridge;
+  const location = { x: laneOffset + 10, y: Math.min(318, y + 4), z: z - 2 };
   scheduleStructurePlacement(`endless-stair:${key}`, structureId, dimension, location);
 }
 
@@ -208,14 +200,25 @@ function generateStairSlice(dimension, laneOffset, z) {
 function clearStairSlice(dimension, laneOffset, z) {
   if (!isLegalRow(z)) return;
   const y = getStairY(z);
-  clearBlock(dimension, laneOffset, y, z);
-  clearBlock(dimension, laneOffset - 1, y, z);
-  for (let dy = -2; dy <= 2; dy++) {
-    for (let dx = -1; dx <= 1; dx++) {
-      for (let dz = -1; dz <= 1; dz++) {
-        if (dx === 0 && dy === 0 && dz === 0) continue;
-        clearBlock(dimension, laneOffset + dx, y + dy, z + dz);
-      }
+  // Treads, wall backing, guard line and the old floating east ledge are all
+  // owned by this row, so cleanup removes every one of them together.
+  for (let dy = -2; dy <= 3; dy++) {
+    for (let dx = -2; dx <= 1; dx++) {
+      clearBlock(dimension, laneOffset + dx, y + dy, z);
+    }
+  }
+  for (let dx = 2; dx <= 4; dx++) {
+    for (let dy = 0; dy <= 2; dy++) {
+      clearBlock(dimension, laneOffset + dx, y + dy, z);
+      clearBlock(dimension, laneOffset + dx, y + dy, z + 1);
+    }
+  }
+  for (let dy = 1; dy <= 2; dy++) {
+    clearBlock(dimension, laneOffset + 3, y - dy, z + 1);
+  }
+  for (let dx = 6; dx <= 10; dx++) {
+    for (let dy = -1; dy <= 1; dy++) {
+      clearBlock(dimension, laneOffset + dx, y + dy, z);
     }
   }
 }
