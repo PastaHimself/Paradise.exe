@@ -26,6 +26,7 @@ import {
 import { getCachedPlayers } from "./paradise_tick_cache.js";
 import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
 import { applyLibraryDressing } from "./library_decor.js";
+import { isProtectedBookshelf } from "./library_layout.js";
 
 export const LIBRARY_DIMENSION_ID = "library:the_library";
 const LEGACY_ENTER_COMMAND_ID = "p:library";
@@ -478,50 +479,30 @@ function generateLibraryChunk(dim, cx, cz) {
   const oz = cz * CHUNK_SIZE;
   const variant = getLibraryRoomVariant(cx, cz);
 
+  // Base shell only; the dressing pass owns surfaces, shelves and furniture.
   fillSafe(dim, { x: ox, y: FLOOR_Y, z: oz }, { x: ox + 15, y: FLOOR_Y, z: oz + 15 }, "minecraft:oak_planks");
-  fillSafe(dim, { x: ox, y: CEILING_Y, z: oz }, { x: ox + 15, y: CEILING_Y, z: oz + 15 }, variant === 3 ? "minecraft:dark_oak_planks" : "minecraft:oak_planks");
+  fillSafe(dim, { x: ox, y: CEILING_Y, z: oz }, { x: ox + 15, y: CEILING_Y, z: oz + 15 }, "minecraft:oak_planks");
 
-  // Floor and ceiling bands create room-to-room identity without changing the
-  // protected x=7..8 / z=7..8 traversal cross.
-  if (variant === 1 || variant === 3) {
-    fillSafe(dim, { x: ox, y: FLOOR_Y, z: oz }, { x: ox + 15, y: FLOOR_Y, z: oz + 1 }, "minecraft:dark_oak_planks");
-    fillSafe(dim, { x: ox, y: CEILING_Y, z: oz + 5 }, { x: ox + 15, y: CEILING_Y, z: oz + 5 }, "minecraft:dark_oak_log");
-  } else {
-    fillSafe(dim, { x: ox, y: FLOOR_Y, z: oz + 14 }, { x: ox + 15, y: FLOOR_Y, z: oz + 15 }, "minecraft:spruce_planks");
-    fillSafe(dim, { x: ox + 5, y: CEILING_Y, z: oz }, { x: ox + 5, y: CEILING_Y, z: oz + 15 }, "minecraft:dark_oak_log");
+  // Remove the pre-rework shelf walls and stray light blocks, but never the
+  // protected vanilla anchors, travel pads, chests or beds.
+  for (let localX = 0; localX < 16; localX++) {
+    for (let localZ = 0; localZ < 16; localZ++) {
+      for (let y = ROOM_HEIGHT_MIN; y <= ROOM_HEIGHT_MAX; y++) {
+        try {
+          const block = dim.getBlock({ x: ox + localX, y, z: oz + localZ });
+          if (!block) continue;
+          if (block.typeId === "minecraft:bookshelf" && !isProtectedBookshelf(cx, cz, localX, localZ)) {
+            block.setType("minecraft:air");
+          } else if (block.typeId === "minecraft:glowstone") {
+            block.setType("minecraft:air");
+          }
+        } catch (_error) {}
+      }
+    }
   }
 
-  const leftShelfX = variant === 2 ? ox + 2 : ox + 3;
-  const rightShelfX = variant === 2 ? ox + 13 : ox + 12;
-  const leftTop = ROOM_HEIGHT_MIN + (variant === 1 ? 3 : 5);
-  const rightTop = ROOM_HEIGHT_MIN + (variant === 3 ? 3 : 5);
-
-  fillSafe(dim, { x: leftShelfX, y: ROOM_HEIGHT_MIN, z: oz }, { x: leftShelfX, y: leftTop, z: oz + 6 }, "minecraft:bookshelf");
-  fillSafe(dim, { x: leftShelfX, y: ROOM_HEIGHT_MIN, z: oz + 9 }, { x: leftShelfX, y: leftTop, z: oz + 15 }, "minecraft:bookshelf");
-  fillSafe(dim, { x: rightShelfX, y: ROOM_HEIGHT_MIN, z: oz }, { x: rightShelfX, y: rightTop, z: oz + 6 }, "minecraft:bookshelf");
-  fillSafe(dim, { x: rightShelfX, y: ROOM_HEIGHT_MIN, z: oz + 9 }, { x: rightShelfX, y: rightTop, z: oz + 15 }, "minecraft:bookshelf");
-
-  for (const x of [leftShelfX, rightShelfX]) {
-    fillSafe(dim, { x, y: ROOM_HEIGHT_MIN, z: oz }, { x, y: ROOM_HEIGHT_MAX, z: oz }, "minecraft:dark_oak_log");
-    fillSafe(dim, { x, y: ROOM_HEIGHT_MIN, z: oz + 15 }, { x, y: ROOM_HEIGHT_MAX, z: oz + 15 }, "minecraft:dark_oak_log");
-  }
-
-  // Two to four embedded ceiling luminaires; no unsupported hanging entities.
-  const lights = variant === 0
-    ? [[4, 4], [11, 4], [4, 11], [11, 11]]
-    : variant === 1
-      ? [[4, 4], [11, 11]]
-      : [[4, 4], [11, 4], [8, 11]];
-  for (const [lx, lz] of lights) {
-    fillSafe(dim, { x: ox + lx, y: CEILING_Y, z: oz + lz }, { x: ox + lx, y: CEILING_Y, z: oz + lz }, "minecraft:glowstone");
-  }
-
-  // Keep the gameplay traversal cross exactly as before.
-  fillSafe(dim, { x: ox + 7, y: FLOOR_Y + 1, z: oz }, { x: ox + 8, y: FLOOR_Y + 1, z: oz + 15 }, "minecraft:brown_carpet");
-  fillSafe(dim, { x: ox, y: FLOOR_Y + 1, z: oz + 7 }, { x: ox + 15, y: FLOOR_Y + 1, z: oz + 8 }, "minecraft:brown_carpet");
-
+  applyLibraryDressing(dim, ox, oz, variant, cx, cz);
   scheduleLibraryChunkArt(dim, cx, cz);
-  applyLibraryDressing(dim, ox, oz, variant);
 }
 
 function generateLibraryRooms() {

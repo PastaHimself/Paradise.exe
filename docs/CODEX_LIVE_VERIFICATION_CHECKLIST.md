@@ -356,6 +356,77 @@ accepted with 2 repairs (the cell-sized staged copies for `fallen_shelf` and
 - [ ] The restricted alcove is empty and its frame reads as a sealed archive bay.
 - [ ] Archive desk and card-reader terminal are absent; no read/card checks exist.
 
+## Rework · Library grand-aisle layout (`rework/v2-dimensions-layout-mcp`)
+
+**Scope.** Full spatial/décor rework of `library:the_library` on top of the merged Ticket 2
+pipeline. Block IDs, `terrain_texture.json`, `.geo.json` exports, dimension JSON, the 1.26.50
+pins and all four `.mcstructure` files are unchanged. `lib_archive_desk`,
+`lib_card_reader_terminal`, the chat/riddle, question chest and debt logic stay deferred.
+
+**Plan module.** `addon/BP/scripts/library_layout.js` (pure data) drives
+`addon/BP/scripts/library_decor.js`; `addon/BP/scripts/library.js` now only builds the base
+shell, clears the pre-rework shelf walls and hands off to the dressing pass.
+
+### Layout summary
+
+- Two flush shelf banks at local x=4 and x=11 facing the centre; tiers at Y65/67/69 with
+  full/sparse/empty states, ladder gaps at z=6 and z=10, and endcaps at z=1 and z=14.
+- Walk lanes: four-wide centre cross `x=7..8 ∪ z=7..8`, two-wide side aisles `x=2..3` and
+  `x=12..13`. No shelf or furniture footprint enters a lane.
+- Perimeter panelled walls with two-wide doorways at `x=7..8` and `z=7..8`; restricted-bay
+  partition at z=11 (x=9..15) with a two-wide doorway at x=12..13.
+- Reading zones: carrels and tables flush to the x=0 / x=15 walls, centre tables at x=5..6 and
+  x=9..10, carts at x=6/x=9 z=5, ladders in the bank gaps, desk lamps with ledgers/papers.
+- Lamps at local (5,72,4), (10,72,4), (5,72,11), (10,72,11); the low-power room keeps lit
+  anchors alternating with unlit. Signs: `READING ROOM` (1,66,7) east, `RETURNS` (14,66,7)
+  west, `EXIT` (14,66,13) west, `RESTRICTED` (10,66,11) south in the arrival chunk only.
+
+### Reserved bay (arrival chunk only)
+
+`[10..13,65..68,12..14]` chunk-local stays empty; protected vanilla `minecraft:bookshelf`
+anchors `(3,65,2)`, `(11,65,2)`, `(11,65,9)` are skipped by both the shelf plan and the
+cleanup pass. Arrival chunk is `(62,0)` for spawn `1000.5,65,0.5`, so world X = 992 + local X.
+
+### Viewpoints (arrival chunk, world coordinates)
+
+```text
+/execute in library:the_library run tp @s 1000.5 65 8.5      # centre cross
+/execute in library:the_library run tp @s 994.5 65 8.5       # west side aisle
+/execute in library:the_library run tp @s 1003.5 65 8.5      # east side aisle
+/execute in library:the_library run tp @s 1000.5 65 13.5     # south cross / exit sign
+/execute in library:the_library run tp @s 1002.5 65 13.5     # restricted bay approach
+/execute in library:the_library run tp @s 2000.5 65 0.5      # second visit, no bay
+```
+
+### Checks
+
+| Check | Expectation |
+| --- | --- |
+| Walkability | Both cross arms and both side aisles clear at 2 blocks wide and 2 blocks of headroom |
+| Shelves | Two banks at x4/x11 only, flush to the wall plane, no ceiling-stretched or floating tiers |
+| Anchors | Vanilla bookshelf anchors `(3,65,2)`, `(11,65,2)`, `(11,65,9)` still present in the arrival chunk |
+| Reserved bay | `[10..13,65..68,12..14]` empty; partition and doorway intact; no archive desk or card reader |
+| Furniture | Carrels/tables flush to walls, tabletop clutter rests on the table at Y67, nothing in a lane |
+| Lighting | Lit lamps read warm, low-power alternates read dim; no `minecraft:glowstone` seam visible |
+| Signs | `READING ROOM`, `RETURNS`, `EXIT`, `RESTRICTED` legible from 3 and 6 blocks at 70° FOV |
+| Travel | Yellow Halls → Library pad still lands on the cross; pressure plates/signs untouched |
+
+### BEFORE / AFTER captures
+
+- `docs/verification/library-rework-before.png` — **not captured**: the local MCP loop is
+  blocked. `worlds_list` returned `[]`, `world_open` reported `No world is named "ReworkV2"`,
+  and `ui_tree` fails on this build (`UIScene has no RTTI`), so `frame_capture` has no scene.
+  `game_launch` does attach (bedrock-mcp 0.3.0, 89 tools) and `pack_check` runs.
+- `docs/verification/library-rework-after.png` — same blocker; recapture after a disposable
+  `vhs_off` world with cheats exists.
+
+### Sign-off
+
+- [ ] Walk both cross arms and both side aisles end to end without a collision or dead end.
+- [ ] Confirm no shelf or furniture block floats, clips a wall, or blocks a lane.
+- [ ] Confirm the restricted bay is empty and the partition doorway is two blocks wide.
+- [ ] Capture BEFORE/AFTER frames once a disposable world exists.
+
 ## Ticket 8 · Atmosphere, fog, particles & release prep (`feat/v2-static-8-atmosphere-release`)
 
 **Artifact:** `/tmp/Paradise-static-8.mcaddon` (21,850,031 bytes, built with
