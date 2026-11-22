@@ -1,0 +1,100 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.paradise.ff_true_route_marker_x0_y0_z0",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 3.5,
+        "visible_bounds_offset": [
+          0,
+          1.25,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "bb_main",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -0.75,
+                0,
+                -0.75
+              ],
+              "size": [
+                1.5,
+                16,
+                1.5
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    1.0,
+                    0.0
+                  ],
+                  "uv_size": [
+                    4.0,
+                    0.375
+                  ],
+                  "uv_rotation": 90
+                },
+                "east": {
+                  "uv": [
+                    1.0,
+                    0.0
+                  ],
+                  "uv_size": [
+                    4.0,
+                    0.375
+                  ],
+                  "uv_rotation": 90
+                },
+                "south": {
+                  "uv": [
+                    1.0,
+                    0.0
+                  ],
+                  "uv_size": [
+                    4.0,
+                    0.375
+                  ],
+                  "uv_rotation": 90
+                },
+                "west": {
+                  "uv": [
+                    1.0,
+                    0.0
+                  ],
+                  "uv_size": [
+                    4.0,
+                    0.375
+                  ],
+                  "uv_rotation": 90
+                },
+                "down": {
+                  "uv": [
+                    0.375,
+                    0.375
+                  ],
+                  "uv_size": [
+                    -0.375,
+                    -0.375
+                  ]
+                }
+              },
+              "inflate": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

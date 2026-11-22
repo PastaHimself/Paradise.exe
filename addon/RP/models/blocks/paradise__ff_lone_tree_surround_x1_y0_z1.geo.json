@@ -1,0 +1,86 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.paradise.ff_lone_tree_surround_x1_y0_z1",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 1.5,
+        "visible_bounds_offset": [
+          0,
+          0.25,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "bb_main",
+          "pivot": [
+            -14,
+            0,
+            -14.5
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                0,
+                -8
+              ],
+              "size": [
+                2.0,
+                2.75,
+                1.5
+              ],
+              "uv": {
+                "south": {
+                  "uv": [
+                    0.0,
+                    0.0
+                  ],
+                  "uv_size": [
+                    0.5,
+                    0.6875
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0.5,
+                    0.0
+                  ],
+                  "uv_size": [
+                    0.375,
+                    0.6875
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0.5,
+                    0.875
+                  ],
+                  "uv_size": [
+                    -0.5,
+                    -0.375
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0.5,
+                    0.375
+                  ],
+                  "uv_size": [
+                    -0.5,
+                    -0.375
+                  ]
+                }
+              },
+              "inflate": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -426,3 +426,59 @@ package --dry-run / --apply    exit 0, 21,850,031-byte archive
 - [ ] The config fog toggle keeps its override above dimension fog across a reload.
 - [ ] `vhs_off` is the default subpack after installing the `.mcaddon` fresh.
 - [ ] No particle or decorative write lands outside `Y = −64..319`.
+
+## Ticket 3 · Flat Flower (`feat/v2-static-3-flat-flower`)
+
+**Artifact:** `/tmp/Paradise-static-3.mcaddon` (21,938,978 bytes, built with
+`python3 tools/ai/cli.py package --output /tmp/Paradise-static-3.mcaddon --apply --json`).
+
+**Scene.** World drawing origin `(0,64,0)`. Ground is Y64, flowers/debris Y65, light anchors Y68.
+`hashCoords(x,z,0x464c4154)%100` drives every zone roll. The authored scene spans X0..55 / Z2..53;
+generic noise flowers still fill the rest of each 32×32 patch. `paintSceneColumn` paints the ground
+and its zone flower, `placeSceneAnchors` places each landmark once from the patch that owns its
+anchor, and the three route markers are static blocks at Y65.
+
+### Viewpoints (spawn is `0.5,66,0.5`)
+
+```text
+/execute in paradise:flat_flower run tp @s 0.5 66 2.5
+/execute in paradise:flat_flower run tp @s 4.5 66 10.5
+/execute in paradise:flat_flower run tp @s 12.5 66 18.5
+/execute in paradise:flat_flower run tp @s 32.5 66 34.5
+/execute in paradise:flat_flower run tp @s 38.5 66 22.5
+/execute in paradise:flat_flower run tp @s 18.5 66 43.5
+/execute in paradise:flat_flower run tp @s 55.5 66 42.5
+/execute in paradise:flat_flower run tp @s 8.5 66 48.5
+/execute in paradise:flat_flower run tp @s 49.5 66 53.5
+/execute in paradise:flat_flower run tp @s 7.5 66 20.5
+/execute in paradise:flat_flower run tp @s 26.5 66 30.5
+/execute in paradise:flat_flower run tp @s 49.5 66 29.5
+/execute in paradise:flat_flower run tp @s 14.5 66 28.5
+/execute in paradise:flat_flower run tp @s 21.5 66 29.5
+/execute in paradise:flat_flower run tp @s 8.5 66 17.5
+```
+
+### Checks
+
+| Check | Expectation |
+| --- | --- |
+| Footpaths | X0..1/Z2..4 → X0..5/Z3..4 → X4..5/Z5..15 → X4..17/Z14..15 → X16..17/Z16..23 read as one continuous worn footpath, two blocks wide with two blocks of headroom |
+| Travel pad | The existing pad at X0/Z10 keeps at least three blocks of clear margin; no path or prop enters it |
+| Gazebo | `ruined_gazebo` at `(12,65,18)` stands with four spruce posts at local `(1,1)`, `(10,1)`, `(1,10)`, `(10,10)`, low spruce rails on z1/z10 at x2..3 and x8..9, deepslate-tile roof caps at Y6..7 over x1..2 and x9..10, and both interior strips open |
+| Lone tree | `lone_tree` at `(32,65,34)`, trunk and azalea canopy preserved, mossy-cobblestone ring on the perimeter with the two-wide west entrance at local z5..6, root footprint x4..6/z4..7 untouched |
+| True marker | `paradise:ff_true_route_marker` at `(38,65,22)` with its open diamond head, at the end of the north branch |
+| Decoys | `paradise:ff_decoy_marker_one` at `(18,65,43)` and `paradise:ff_decoy_marker_two` at `(55,65,42)`; all three posts read at the same height and differ only by head silhouette between 10 and 18 blocks |
+| Garden remnants | Bench `(14,65,28)` facing +X, watering can `(13,65,29)`, gate posts at x8/x11 z17 with x9..10 open, broken fence at x7 and x11 z18, trellis `(21,65,29)` with planter `(22,65,30)`, empty beds x12..13 z26 |
+| Dense plot | X3..11/Z20..39 near-70% dense clusters with bare-soil pockets |
+| Sparse plot | X22..30/Z27..34 reads sparse (~25%) with scattered bent (~10%) and wilted (~5%) stems |
+| Flower rows | X45..53 at z26/29/32 only, starting x45 every three blocks, empty soil between and a second ground band beyond z35 |
+| Landmarks | `flower_ring` at `(8,65,48)` and `distant_marker` at `(49,65,53)` remain recognizable, supported, and the distant marker keeps no arrow |
+| Structures | `structures --query flat_flower --palette --check-blocks` passes: gazebo palette gains spruce log/slab and deepslate tiles, tree ring gains mossy cobblestone, no air or void cells changed |
+
+### Ticket 3 sign-off
+
+- [ ] Walk all three branches end to end with no collision and no dead end.
+- [ ] The three marker silhouettes read distinctly under desaturated rendering while the ground path centre stays clear.
+- [ ] No active flower trigger, golden-flower check or consequence changed.
+- [ ] Both original landmarks survive a patch rebuild at the same coordinates.
+- [ ] Eight light anchors per ordinary patch are still present at Y68.

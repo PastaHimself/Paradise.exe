@@ -1,0 +1,22 @@
+{
+  "format_version": "1.26.50",
+  "minecraft:block": {
+    "description": {
+      "identifier": "paradise:ff_field_ground_bare_soil"
+    },
+    "components": {
+      "minecraft:tags": [
+        "paradise:static_decor"
+      ],
+      "minecraft:collision_box": false,
+      "minecraft:geometry": "geometry.paradise.ff_field_ground_bare_soil",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "paradise__ff_field_ground_bare_soil",
+          "render_method": "opaque",
+          "ambient_occlusion": 1.0
+        }
+      }
+    }
+  }
+}
