@@ -237,20 +237,32 @@ export function applyYellowHallsFixtures(dimension, patchX, patchZ, maze, minX, 
   const ceilingY = options.ceilingY ?? 68;
   const size = maze.length;
   const plan = [];
+  let legOrdinal = 0;
   for (let cx = 0; cx < size; cx++) {
     for (let cz = 0; cz < size; cz++) {
       const cell = maze[cx][cz];
+      const degree = [cell.north, cell.south, cell.east, cell.west].filter(Boolean).length;
       const straightZ = (cell.north || cell.south) && !cell.east && !cell.west;
       const straightX = (cell.east || cell.west) && !cell.north && !cell.south;
-      if (!straightZ && !straightX) continue;
-      const degree = model.hashCoords(cx, cz, 31) % 8;
-      let state = degree === 0 ? "burned_out" : "lit";
-      if (state === "burned_out" && model.hashCoords(cx, cz, 37) % 2 === 0) state = "lit";
       const cellMinX = minX + cx * 8;
       const cellMinZ = minZ + cz * 8;
-      const x = cellMinX + 3;
-      const z = cellMinZ + 3;
-      plan.push({ x, z, state, facing: straightZ ? "north" : "east" });
+      if (!straightZ && !straightX) {
+        // The turn-adjacent bay always reads as a low-power fixture.
+        if (degree >= 2) {
+          plan.push({ x: cellMinX + 3, z: cellMinZ + 3, state: "dim", facing: "north" });
+        }
+        continue;
+      }
+      const axis = straightZ ? "z" : "x";
+      const fixtures = model.planLegFixtures(8, legOrdinal, { axis });
+      legOrdinal += 1;
+      for (const fixture of fixtures) {
+        // Keep both halves inside the cell: cells 1..6 along the leg axis.
+        const base = Math.max(1, Math.min(5, fixture.offset - 1));
+        const x = axis === "x" ? cellMinX + base : cellMinX + 3;
+        const z = axis === "z" ? cellMinZ + base : cellMinZ + 3;
+        plan.push({ x, z, state: fixture.state, facing: axis === "z" ? "north" : "east" });
+      }
     }
   }
   let placed = 0;
@@ -277,24 +289,25 @@ export function applyYellowHallsScenery(dimension, patchX, patchZ, maze, minX, m
   if (patchX !== model.BREAKER_MOUNT.patchX || patchZ !== model.BREAKER_MOUNT.patchZ) {
     return { applied: false, placed: 0 };
   }
-  const groundY = options.groundY ?? 65;
   let placed = 0;
   const place = (entry, x, y, z, facing) => {
     placed += placeSegments(dimension, entry, { x, y, z }, facing);
   };
 
+  // Bay anchors carry absolute Y (65 = one above the Y64 floor), so the door,
+  // frame and sign all sit flush on the wall instead of sinking into the floor.
   for (const bay of model.BAYS) {
     const isPortal = model.bayFaceIsPortal(maze, bay);
     const anchor = model.bayDoorAnchor(bay, isPortal);
-    if (bay.prop) place(PAIR[bay.prop], minX + anchor.x, groundY, minZ + anchor.z, bay.facing);
+    if (bay.prop) place(PAIR[bay.prop], minX + anchor.x, anchor.y, minZ + anchor.z, bay.facing);
     if (bay.sign) {
       const entry = PAIR[`${bay.sign}_sign`];
-      if (entry) place(entry, minX + bay.signX, groundY + 2, minZ + bay.signZ, bay.facing);
+      if (entry) place(entry, minX + bay.signX, bay.y + 2, minZ + bay.signZ, bay.facing);
     }
     if (bay.archive) {
-      place(PAIR.door_frame, minX + 18, groundY, minZ + bay.z, bay.facing);
-      place(PAIR.door_frame, minX + 21, groundY, minZ + bay.z, bay.facing);
-      place(PAIR.archive_directional_arrow, minX + 17, groundY + 2, minZ + 17, bay.facing);
+      place(PAIR.door_frame, minX + 18, bay.y, minZ + bay.z, bay.facing);
+      place(PAIR.door_frame, minX + 21, bay.y, minZ + bay.z, bay.facing);
+      place(PAIR.archive_directional_arrow, minX + 17, bay.y + 2, minZ + 17, bay.facing);
     }
   }
 
@@ -304,7 +317,7 @@ export function applyYellowHallsScenery(dimension, patchX, patchZ, maze, minX, m
   }
 
   for (const prop of model.FLOOR_PROPS) {
-    place(PAIR[prop.id], minX + prop.x, groundY, minZ + prop.z, prop.facing);
+    place(PAIR[prop.id], minX + prop.x, prop.y, minZ + prop.z, prop.facing);
   }
   for (const prop of model.WALL_PROPS) {
     place(PAIR[prop.id], minX + prop.x, prop.y, minZ + prop.z, prop.facing);

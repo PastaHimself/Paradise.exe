@@ -311,6 +311,44 @@ motif runs inside `generatePatchMaze` and is rejected whenever it would disconne
 
 ---
 
+### Rework · Yellow Halls corridor rhythm (`rework/v2-dimensions-layout-mcp`)
+
+**What changed.** The eight bays, floor props and wall signs were emitted at the patch floor
+(`Y64`) even though every authored anchor is `Y65`, so doors, frames, the archive bay and all
+clutter sat half-sunk in the carpet. The fixture chain also ignored the planned leg rhythm and
+placed a single random light per straight cell. The rework:
+
+- Places bay doors, archive frames, floor props and wall signs at their authored `Y` (`65` for
+  floor pieces, `67` for signs) so they sit flush on the wall/floor.
+- Drives ceiling fixtures from `planLegFixtures`: two recessed housings per straight leg, the
+  turn-adjacent one dim, one burned-out on every second leg, both halves kept inside cells 1..6.
+- Leaves every turn cell with a dim fixture so corners never read fully lit.
+- Keeps the breaker reservation `[22..23,66..67,16]` back plane and `[22..23,65..67,17..18]`
+  front volume empty, the conduit run at Y67 and the escape room/button untouched.
+
+### Rework probes (patch (1,0), world origin X32/Z0)
+
+```text
+/execute in paradise:yellow_halls run tp @s 35.5 65 7.5      # bay 1 door
+/execute in paradise:yellow_halls run tp @s 51.5 65 7.5      # bay 3 STAIRWELL
+/execute in paradise:yellow_halls run tp @s 51.5 65 16.5     # bay 7 ARCHIVE
+/execute in paradise:yellow_halls run tp @s 54.5 65 18.5     # breaker front volume (empty)
+/execute in paradise:yellow_halls run tp @s 32.5 65 0.5      # arrival west edge
+```
+
+| Check | Expectation |
+| --- | --- |
+| Bay anchors | Doors/frames sit at Y65 with their bases on the carpet, signs at Y67 |
+| Fixture chain | Two housings per straight leg, last dim, one burned-out on alternate legs |
+| Breaker mount | Back plane solid, front volume empty at Y65..67, nothing registered |
+| Walkability | Corridor cells stay 2 wide with 2 blocks of headroom; props stay in wall lanes |
+| Surfaces | Clean/stained/peeling/water-damaged wallpaper proportions hold; no floating panel |
+
+- [ ] Walk the arrival corridor: no door, desk, cooler or cabinet intrudes into the route.
+- [ ] Every bay reads as a closed/bricked door, hatch or sealed archive at eye height.
+- [ ] Fixtures alternate lit/dim/burned-out along one leg and the turn still reads dim.
+- [ ] The breaker volume stays empty and its back plane is flush.
+
 ## Ticket 2 · Library (`feat/v2-static-2-library`)
 
 **Package.** `/tmp/Paradise-static-2.mcaddon`

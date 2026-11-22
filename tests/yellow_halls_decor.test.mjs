@@ -258,3 +258,39 @@ describe("yellow halls block registry", () => {
     assert.deepEqual(missing, []);
   });
 });
+
+describe("yellow halls dressing writer", () => {
+  const source = readFileSync(path.join(ROOT, "addon/BP/scripts/yellow_halls_decor.js"), "utf8");
+
+  it("uses the authored bay and prop Y instead of the patch floor", () => {
+    for (const bay of model.BAYS) assert.equal(bay.y, 65);
+    for (const prop of model.FLOOR_PROPS) assert.equal(prop.y, 65);
+    assert.match(source, /anchor\.y/);
+    assert.match(source, /prop\.y/);
+    assert.doesNotMatch(source, /groundY \+ 2/);
+  });
+
+  it("drives the ceiling chain from planLegFixtures", () => {
+    assert.match(source, /planLegFixtures/);
+    assert.match(source, /state: "dim"/);
+    const plan = model.planLegFixtures(8, 1, { axis: "z" });
+    assert.deepEqual(plan.map((entry) => [entry.offset, entry.state]), [[2, "lit"], [6, "dim"]]);
+  });
+
+  it("reserves the breaker back plane and clears its front volume", () => {
+    const mount = model.BREAKER_MOUNT;
+    assert.deepEqual(mount.backMin, [22, 66, 16]);
+    assert.deepEqual(mount.backMax, [23, 67, 16]);
+    assert.deepEqual(mount.frontMin, [22, 65, 17]);
+    assert.deepEqual(mount.frontMax, [23, 67, 18]);
+    assert.match(source, /WALLPAPER\.water_damaged/);
+  });
+
+  it("references only existing block ids from the writer", () => {
+    const ids = [...new Set(source.match(/paradise:[a-z0-9_]+/g) ?? [])];
+    const missing = ids.filter((id) => !existsSync(
+      path.join(ROOT, "addon/BP/blocks", `paradise__${id.replace("paradise:", "")}.json`),
+    ));
+    assert.deepEqual(missing, []);
+  });
+});
