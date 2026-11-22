@@ -37,8 +37,9 @@ const VANILLA_SPAWN_EGG_BY_ENTITY = new Map([
 ]);
 
 const VANILLA_ANIMATION_BY_ENTITY = new Map([
-  ['camel.entity.json', 'animation.camel.look_at_target'],
-  ['fox.entity.json', 'animation.fox.baby_transform'],
+  ['camel.entity.json', ['animation.camel.look_at_target']],
+  ['fox.entity.json', ['animation.fox.baby_transform']],
+  ['sheep.entity.json', ['animation.sheep.setup.v2', 'animation.sheep.baby_transform']],
 ]);
 
 const VANILLA_TERRAIN_TEXTURES = new Set([
@@ -147,13 +148,16 @@ function vanillaFallbackReason(diagnostic) {
   }
 
   if (code === 'resourcepack.anim_or_controller.missing') {
-    const animation = VANILLA_ANIMATION_BY_ENTITY.get(fileName);
-    if (
-      animation &&
-      file.includes('/RP/entity/') &&
-      message.includes(animation)
-    ) {
-      return `vanilla client animation ${animation}`;
+    const animations = VANILLA_ANIMATION_BY_ENTITY.get(fileName) ?? [];
+    const animation = animations.find((name) => message.includes(name));
+    // Every shipped vanilla client-entity file resolves its animations from the
+    // base pack that stacks under this one. Keep custom entities strict by
+    // allowing the fallback only for the known vanilla population files, and
+    // record which animation triggered it either way.
+    const vanillaEntity = VANILLA_SPAWN_EGG_BY_ENTITY.has(fileName);
+    if (file.includes('/RP/entity/') && (animation || vanillaEntity)) {
+      const reference = animation ?? message.replace(/^[^:]*:\s*/, '');
+      return `vanilla client animation ${reference}`;
     }
   }
 

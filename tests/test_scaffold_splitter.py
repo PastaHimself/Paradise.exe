@@ -30,11 +30,22 @@ class StaticScaffoldTests(unittest.TestCase):
         self.index = self.root / DECOR / "asset-index.csv"
         self.index.parent.mkdir(parents=True)
         self.index.write_bytes((ROOT / DECOR / "asset-index.csv").read_bytes())
+        # The committed index grows with every accepted batch, so assertions
+        # compare against the baseline carried into the scratch checkout.
+        self.baseline = self.status_counts()
         self.base = {
             "texture": "atlas.png",
             "provenance": [{"vanilla_path": QUARTZ}],
             "index": {"ticket": 0, "asset": "scaffold test"},
         }
+
+    def status_counts(self):
+        with self.index.open(newline="") as stream:
+            records = list(csv.DictReader(stream))
+        counts = {}
+        for row in records:
+            counts[row["status"]] = counts.get(row["status"], 0) + 1
+        return counts
 
     def call(self, rows, mode, status=0, *args):
         spec = self.root / "spec.json"
@@ -114,8 +125,10 @@ class StaticScaffoldTests(unittest.TestCase):
             self.assertEqual(self.block(segment["id"])["minecraft:block"]["components"]["minecraft:light_emission"], 0)
         with self.index.open(newline="") as stream:
             records = list(csv.DictReader(stream))
-        self.assertEqual(sum(row["status"] == "deferred" for row in records), 6)
-        self.assertEqual(sum(row["status"] == "verified" for row in records), 5)
+        deferred = sum(row["status"] == "deferred" for row in records)
+        verified = sum(row["status"] == "verified" for row in records)
+        self.assertEqual(deferred, self.baseline.get("deferred", 0))
+        self.assertEqual(verified, self.baseline.get("verified", 0) + 5)
         self.assertEqual({item["action"] for item in self.call(rows, "--apply")["items"]}, {"unchanged"})
         self.assertEqual([p.read_bytes() for p in (CONDUIT, FIXTURE)], originals)
         rp_blocks = json.loads((self.root / "addon/RP/blocks.json").read_text())
