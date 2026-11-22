@@ -601,6 +601,54 @@ slice lifecycle. The primary guard is `L+1`, the shaft void is `L+2..L+7`, the r
 - [ ] Restart and clear/rebuild with two players in separate lanes leaves each lane intact.
 - [ ] The existing exit at `z=−28` still works and the fall threshold behaviour is unchanged.
 
+### Rework · Endless Staircase industrial shaft (`rework/v2-dimensions-layout-mcp`)
+
+**What changed.** The old scene hung railing, grating, cables and support arches unsupported in the
+void, and seven `STAIR_DECOR` ids did not exist (`es_straight_railing`, `es_railing_end_post`,
+`es_corner_railing`, `es_chained_service_door`, `es_emergency_door`, `es_support_beam`,
+`es_hanging_shaft_cable`), so those pieces silently never placed. The rework:
+
+- Adds a continuous solid shaft wall at `L−2` from the tread row to `+2`, in cracked/damp concrete.
+  Every wall fixture now replaces a wall cell and is flush: plates, lamps, signs, doors, rebar,
+  brackets and damp patches.
+- Moves the guard to the tread-top line at `L+1`, sloped on ordinary rows, with two-segment end
+  posts every fourth row. Station rows open onto the landing instead of carrying a post.
+- Replaces the floating `L−5..L−3` ledge with a supported `2×2` landing at `L+2..L+3`, carried by
+  two stacked `es_support_beam` cells at `L+3` and ringed by a two-segment guard on its outer edge.
+- Replaces the `L−3` floating chipped tread with a chipped tread in the west walk column.
+- Removes the east remote ledge (`L+8..L+10`) and the scheduled support/buttress/landing
+  structures; only `distant_bridge` remains, at `z=96` and `z=192`.
+- Clamps every emitted piece to `Y ≤ 319` (last legal row `z=255` keeps only the tread and one wall
+  cell) and extends `clearStairSlice` to remove the wall, guard, landing, support and old east ledge.
+
+### Rework probes (lane 1000; walker stands one above the tread)
+
+```text
+/execute in paradise:endless_staircase run tp @s 1000.5 66 0.5
+/execute in paradise:endless_staircase run tp @s 1000.5 78 12.5
+/execute in paradise:endless_staircase run tp @s 1000.5 90 24.5
+/execute in paradise:endless_staircase run tp @s 1002.5 90 24.5
+/execute in paradise:endless_staircase run tp @s 1000.5 162 96.5
+/execute in paradise:endless_staircase run tp @s 1000.5 318 254.5
+/execute in paradise:endless_staircase run tp @s 1000.5 66 -28.5
+```
+
+| Check | Expectation |
+| --- | --- |
+| Wall backing | Solid wall at `L−2` from every tread row to `+2`; no fixture floats in the shaft |
+| Guard | Sloped guard at `L+1` (tread top), two-segment posts every fourth row, open at stations |
+| Landing | `L+2..L+3` tiles at `z=t..t+1`, two support beams at `L+3`, outer guard at `L+3` top |
+| Chipped tread | Chipped tread replaces the west tread on `z%11=7`; both columns stay traversable |
+| Lamps/plates | Flush on the wall at `y+2`; k%4 normal/red/dead cycle and plate progression unchanged |
+| Void | Nothing east of the landing guard; `distant_bridge` only at `z=96/192` |
+| Clamp | `z=255` writes the tread plus at most one wall cell; nothing above `Y319` |
+| Cleanup | Walking 48 rows and back removes treads, wall, guard, landing and support together |
+
+- [ ] Ascend 48 rows: wall, guard and landings stay flush with no floating piece.
+- [ ] Both walk columns remain 2 blocks wide with 2 blocks of headroom.
+- [ ] Last legal row stops cleanly at `Y319`; nothing writes above the ceiling.
+- [ ] Exit at `z=−28` and fall/cleanup behaviour unchanged.
+
 ## Ticket 5 · Catacombs (`feat/v2-static-5-catacombs`)
 
 **Artifact:** `/tmp/Paradise-static-5.mcaddon` (see `package --apply` byte count in the PR).
