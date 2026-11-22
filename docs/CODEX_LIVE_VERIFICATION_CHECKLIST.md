@@ -31,11 +31,15 @@ session that runs the deferred in-game verification.
 **Package.** `/tmp/Paradise-static-0.mcaddon`
 
 **What shipped.** 73 shared-kit block definitions (90 emitted IDs once the 16-unit splitter
-expanded `blank_sign_backing`, `door_frame_trim`, `freestanding_sign_post`, `fuse_box`,
-`hanging_directional_sign`, `conduit_end_cap` and the reusable fixture states) plus 4
-`minecraft:oak_wall_sign` native-substitute rows for `legible_pixel_alphabet`. All atlases
-are vanilla-pixel re-assemblies logged in
-`3d model *DECORATION*/paradise_exe_v2/asset-index.csv`.
+expanded `sign_backing`, `door_frame_trim`, `sign_post`, `fuse_box`, `hanging_sign`,
+`conduit_end_cap` and the reusable fixture states) plus 4 `minecraft:oak_wall_sign`
+native-substitute rows for `legible_pixel_alphabet`. All atlases are vanilla-pixel
+re-assemblies logged in `3d model *DECORATION*/paradise_exe_v2/asset-index.csv`.
+
+Bedrock caps a pack path segment at 59 characters, and the splitter appends
+`_x0_y0_z0` plus a `.geo.json`/`.json` suffix, so four families carry shortened IDs
+(`sh_sign_backing*`, `sh_sign_post*`, `sh_hanging_sign*`, `sh_fixture_*`). The ledger asset
+names are unchanged in `asset-index.csv`.
 
 ### Build the QA bay (flat disposable world, origin `0 64 0`)
 
@@ -104,14 +108,14 @@ Iron base `x=0`, dark base `x=16`, copper base `x=32`. Offsets are
 ### Fixture states (`y=70`, `z=9`)
 
 ```text
-/setblock 1 70 9 paradise:sh_reusable_fixture_texture_states_lit_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
-/setblock 1 70 10 paradise:sh_reusable_fixture_texture_states_lit_x0_y0_z1 ["minecraft:cardinal_direction"="north"]
-/setblock 5 70 9 paradise:sh_reusable_fixture_texture_states_unlit_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
-/setblock 5 70 10 paradise:sh_reusable_fixture_texture_states_unlit_x0_y0_z1 ["minecraft:cardinal_direction"="north"]
-/setblock 9 70 9 paradise:sh_reusable_fixture_texture_states_damaged_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
-/setblock 9 70 10 paradise:sh_reusable_fixture_texture_states_damaged_x0_y0_z1 ["minecraft:cardinal_direction"="north"]
-/setblock 13 70 9 paradise:sh_reusable_fixture_texture_states_dim_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
-/setblock 13 70 10 paradise:sh_reusable_fixture_texture_states_dim_x0_y0_z1 ["minecraft:cardinal_direction"="north"]
+/setblock 1 70 9 paradise:sh_fixture_lit_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
+/setblock 1 70 10 paradise:sh_fixture_lit_x0_y0_z1 ["minecraft:cardinal_direction"="north"]
+/setblock 5 70 9 paradise:sh_fixture_unlit_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
+/setblock 5 70 10 paradise:sh_fixture_unlit_x0_y0_z1 ["minecraft:cardinal_direction"="north"]
+/setblock 9 70 9 paradise:sh_fixture_damaged_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
+/setblock 9 70 10 paradise:sh_fixture_damaged_x0_y0_z1 ["minecraft:cardinal_direction"="north"]
+/setblock 13 70 9 paradise:sh_fixture_dim_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
+/setblock 13 70 10 paradise:sh_fixture_dim_x0_y0_z1 ["minecraft:cardinal_direction"="north"]
 ```
 
 ```text
@@ -131,16 +135,16 @@ Iron base `x=0`, dark base `x=16`, copper base `x=32`. Offsets are
 Signs (`y=66`, `z=11`):
 
 ```text
-/setblock 1 66 11 paradise:sh_blank_sign_backing_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
-/setblock 2 66 11 paradise:sh_blank_sign_backing_x1_y0_z0 ["minecraft:cardinal_direction"="north"]
+/setblock 1 66 11 paradise:sh_sign_backing_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
+/setblock 2 66 11 paradise:sh_sign_backing_x1_y0_z0 ["minecraft:cardinal_direction"="north"]
 /setblock 3 66 11 paradise:sh_small_wall_plate ["minecraft:cardinal_direction"="north"]
 /setblock 5 66 11 paradise:sh_arrow_sheet_magenta_arrow ["minecraft:cardinal_direction"="north"]
 /setblock 7 66 11 paradise:sh_arrow_sheet_chevron_arrow ["minecraft:cardinal_direction"="north"]
 /setblock 9 66 11 paradise:sh_arrow_sheet_cardinal_compass ["minecraft:cardinal_direction"="north"]
 /setblock 11 66 11 paradise:sh_arrow_sheet_focal_target ["minecraft:cardinal_direction"="north"]
 /setblock 13 66 11 minecraft:oak_wall_sign ["minecraft:cardinal_direction"="north"]
-/setblock 15 66 10 paradise:sh_freestanding_sign_post_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
-/setblock 15 67 10 paradise:sh_freestanding_sign_post_x0_y1_z0 ["minecraft:cardinal_direction"="north"]
+/setblock 15 66 10 paradise:sh_sign_post_x0_y0_z0 ["minecraft:cardinal_direction"="north"]
+/setblock 15 67 10 paradise:sh_sign_post_x0_y1_z0 ["minecraft:cardinal_direction"="north"]
 ```
 
 Wear overlays (`y=65`, `z=11`) and debris:
