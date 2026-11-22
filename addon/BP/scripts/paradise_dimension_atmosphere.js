@@ -1,7 +1,7 @@
 import { system, world } from "@minecraft/server";
 import { applyFogConfig } from "./player_config.js";
 import { applyFogLayer } from "./paradise_fog_runtime.js";
-import { getVisualBudget } from "./paradise_visual_budget.js";
+import { clampVisualY, getVisualBudget } from "./paradise_visual_budget.js";
 import { DIMENSION_VISUAL_PROFILES } from "./paradise_dimension_visual_profiles.js";
 
 const FOG_TAG = "paradise_dimension_atmosphere";
@@ -41,7 +41,7 @@ function pulseAmbientParticles() {
       const radius = 3 + Math.random() * Math.max(1, radiusMax - 3);
       const location = {
         x: player.location.x + Math.cos(angle) * radius,
-        y: player.location.y + profile.ambientY + (Math.random() - 0.5) * profile.verticalSpread,
+        y: clampVisualY(player.location.y + profile.ambientY + (Math.random() - 0.5) * profile.verticalSpread),
         z: player.location.z + Math.sin(angle) * radius,
       };
 
