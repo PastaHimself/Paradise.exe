@@ -1,0 +1,96 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.paradise.ff_ruined_gazebo_post_x1_y1_z0",
+        "texture_width": 16,
+        "texture_height": 16,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 3.5,
+        "visible_bounds_offset": [
+          0,
+          1.25,
+          0
+        ]
+      },
+      "bones": [
+        {
+          "name": "bb_main",
+          "pivot": [
+            -16,
+            -16,
+            -7
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                10,
+                -8
+              ],
+              "size": [
+                2,
+                2,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    3.5,
+                    0.0
+                  ],
+                  "uv_size": [
+                    0.5,
+                    0.5
+                  ]
+                },
+                "south": {
+                  "uv": [
+                    0.0,
+                    0.0
+                  ],
+                  "uv_size": [
+                    0.5,
+                    0.5
+                  ]
+                },
+                "west": {
+                  "uv": [
+                    0.0,
+                    0.0
+                  ],
+                  "uv_size": [
+                    0.5,
+                    0.5
+                  ]
+                },
+                "up": {
+                  "uv": [
+                    0.5,
+                    0.5
+                  ],
+                  "uv_size": [
+                    -0.5,
+                    -0.5
+                  ]
+                },
+                "down": {
+                  "uv": [
+                    0.5,
+                    0.5
+                  ],
+                  "uv_size": [
+                    -0.5,
+                    -0.5
+                  ]
+                }
+              },
+              "inflate": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -23,6 +23,13 @@ import {
 } from "./dimension_horror_rules.js";
 import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
 import { shouldRebuildGeneratedPatch } from "./paradise_visual_geometry.js";
+import {
+  SCENE_LANDMARKS,
+  SCENE_MARKERS,
+  landmarkInPatch,
+  sceneFlower,
+  sceneGround,
+} from "./flat_flower_scene.js";
 
 const DIMENSION_ID = "paradise:flat_flower";
 const ENTER_COMMAND_ID = "p:enter_flat_flower";
@@ -230,6 +237,34 @@ function scheduleFlatFlowerLandmark(dimension, patchX, patchZ, minX, minZ) {
   );
 }
 
+function paintSceneColumn(dimension, x, z) {
+  const ground = sceneGround(x, z);
+  if (!ground) return false;
+  setBlockSafe(dimension, { x, y: GROUND_Y, z }, ground);
+  const flower = sceneFlower(x, z);
+  if (flower) {
+    setBlockSafe(dimension, { x, y: FLOWER_Y, z }, flower);
+  }
+  return true;
+}
+
+function placeSceneAnchors(dimension, minX, minZ, maxX, maxZ) {
+  for (const landmark of SCENE_LANDMARKS) {
+    if (!landmarkInPatch(landmark, minX, minZ, maxX, maxZ)) continue;
+    scheduleStructurePlacement(
+      `flat-flower-scene:${state.runSeed}:${landmark.id}`,
+      landmark.id,
+      dimension,
+      { x: landmark.x, y: landmark.y, z: landmark.z },
+    );
+  }
+
+  for (const marker of SCENE_MARKERS) {
+    if (!landmarkInPatch(marker, minX, minZ, maxX, maxZ)) continue;
+    setBlockSafe(dimension, { x: marker.x, y: FLOWER_Y, z: marker.z }, marker.block);
+  }
+}
+
 function clearSpecialArea(dimension, center, radius) {
   const location = toBlockPos(center);
   const from = {
@@ -362,11 +397,14 @@ async function paintPatch(dimension, patchX, patchZ, options = {}) {
 
     for (let x = minX; x <= maxX; x++) {
       for (let z = minZ; z <= maxZ; z++) {
+        if (paintSceneColumn(dimension, x, z)) continue;
         if (shouldPlaceRedFlower(x, z)) {
           setBlockSafe(dimension, { x, y: FLOWER_Y, z }, getFieldFlowerBlock(x, z));
         }
       }
     }
+
+    placeSceneAnchors(dimension, minX, minZ, maxX, maxZ);
 
     if (options.suppressSpecialSites !== true) {
       applySpecialSitesForPatch(dimension, patchX, patchZ);
