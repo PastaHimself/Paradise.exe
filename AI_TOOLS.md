@@ -1,6 +1,6 @@
 # Paradise.exe developer tools
 
-Run from the repo root. Use Python 3.10+ and Node.js 22+ (the CI versions are Python 3.12 and Node.js 22). The toolkit uses the Python standard library and the repository’s existing TypeScript install. The audio checks use FFmpeg/ffprobe for encoded assets.
+Run from the repo root. Current packs are `addon/BP` and `addon/RP`. Use Python 3.10+ and Node.js 22+ (the CI versions are Python 3.12 and Node.js 22). The toolkit uses the Python standard library and the repository’s existing TypeScript install. The audio checks use FFmpeg/ffprobe for encoded assets.
 
 ```sh
 npm install --ignore-scripts --no-audit --no-fund --no-package-lock
@@ -11,6 +11,25 @@ Each invocation emits a single compact JSON object by default, including when yo
 
 Put `--root /path/to/checkout` before the subcommand to inspect another Paradise.exe checkout. The TypeScript parser is loaded from the toolkit’s checkout. Type-checking uses the target checkout’s compiler, configuration, and API typings. `scaffold`, `manifest`, `package`, and `prune` default to dry-run. Pass `--apply` to write after reviewing the plan. `slice`, `audit`, `inspect`, `refs`, `impact`, `structures`, `assets`, `catalog`, `profile`, `diagnostics`, and `preflight` are always read-only.
 
+Use [AGENTS.md](AGENTS.md) for the development workflow and [the tracker](docs/IMPLEMENTATION_TODO.md) for acceptance. The commands here support focused inspection and validation alongside Bedrock Live MCP testing.
+
+For the local VS Code workspace, check `.vscode/mcp.json` at the workspace root. It may live above this Git checkout. The current workspace starts Bedrock MCP over stdio from `~/.local/bin/bedrock-mcp`. If the agent or gateway does not list Bedrock MCP, check the workspace registration and query the configured server with an MCP client. Use the installed server's schemas for live operations.
+
+## Minecraft Creator Tools
+
+The local Mojang source checkout is `../minecraft-creator-tools-main` relative to this Git root. See its `app/jsnode/README.md` and `plugins/minecraft/skills/creator-tools-cli/references/commands.md` for command and source-build details. The published CLI is `mct` from `@minecraft/creator-tools` and requires Node.js 22+. Use `mct version` and command help to check the installed build. The published 0.21.0 CLI was available on this machine via `npx -y @minecraft/creator-tools@0.21.0`.
+
+| Task | Tool |
+| --- | --- |
+| Inspect a Bedrock file or look up a Creator Tools skill | Discover the Creator Tools MCP schemas for `validateFile` or `getSkill`, or use `mct skills`. |
+| Author a modular structure | Use MCP `designStructure` with a scratch project, or `mct buildstructure <input.json-or-js> <scratch-output.mcstructure>`. Inspect dimensions, palette, occupied cells and block states before integrating the result. For edits, also verify untouched cells, block entities and secondary layers. |
+| Preview geometry or a structure | Use `mct help render model` or `mct help render structure`, then write the PNG to a scratch path. Rendering requires a compatible headless browser. |
+| Check the paired packs | Use `mct validate addon -i "$PWD/addon" -o "$mct_review_dir"` where `mct_review_dir` is an existing scratch directory. This input discovers `BP` and `RP` together and scopes the scan away from bundled vanilla samples. |
+
+Creator Tools MCP uses stdio via `mct mcp -i <scratch-project>`. The 0.21.0 server also answered discovery with `mct --offline mcp -i <scratch-project>` for isolated startup. Offline mode skips vanilla resources. Discover the actual exposed schemas and check the project's required files before file operations.
+
+Creator Tools authoring and automatic fixes can write files and may use a different pack layout or target newer schemas. Stage writes in a scratch copy and review the exact files before applying them. Keep `addon/BP`, `addon/RP`, the Bedrock 1.26.50 target, beta Script API pins, current IDs and vanilla pixel provenance. Treat newer-schema advisories and previews as diagnostics. Use the repo toolkit for the project's validation gate and Bedrock Live MCP for actual gameplay, collision, lighting and screenshots.
+
 ## When to use which tool for V2 work
 
 | V2 task | Run |
@@ -18,11 +37,11 @@ Put `--root /path/to/checkout` before the subcommand to inspect another Paradise
 | Read one function out of a 200 KB script without dumping the file | `python3 tools/ai/cli.py slice --file watcher_stalker.js --symbol loadProfileMemory` |
 | Find where a symbol/store/schedule is declared, with end lines | `python3 tools/ai/cli.py inspect --kind symbol --query loadProfileMemory` (also `store`, `export`, `api`, `particle`, `entity`, `item`, `structure`) |
 | Audit the whole add-on for the 1.26.50 target (engine pin, beta API pins, format versions, dimension bounds, entity schema, script-registered dimensions) | `python3 tools/ai/cli.py audit` (exit `1` = findings; `--check dimensions` to scope) |
-| One gate that runs CI checks plus the V2 audit | `python3 tools/ai/cli.py preflight` (add `--require-v2` to fail on audit findings) |
+| Pack validation plus the V2 audit | `python3 tools/ai/cli.py preflight` (add `--require-v2` to fail on audit findings) |
 | Scaffold 200+ Blockbench décor blocks with boxes/light/lang/RP entries | `python3 tools/ai/cli.py scaffold --from-directory /path/to/exports --namespace decor --batch` filters; or `--spec batch.json --ids ... --batch ...` |
 | See what an unreferenced-asset cleanup would save, then apply safely | `python3 tools/ai/cli.py prune` (dry-run plan) then `prune --apply` |
 | Check cross-pack references (particles, spawned entities/items, structures, subpacks, lang) | `python3 tools/ai/cli.py validate` → `checks.integrity` (also inside `preflight` and `package`) |
-| Plan the version/engine bump to 1.26.50 and stable API pins | `python3 tools/ai/cli.py manifest --engine 1.26.50 --dry-run` + edit BP dependencies to `2.10.0` / `2.2.0` |
+| Inspect pack versions, engine floors and API pins | `python3 tools/ai/cli.py manifest --json` |
 | Package a clean .mcaddon after all gates pass | `python3 tools/ai/cli.py package --output artifacts/Paradise.exe.mcaddon --apply` |
 
 ## Choose a command
@@ -36,7 +55,7 @@ Put `--root /path/to/checkout` before the subcommand to inspect another Paradise
 | Find dynamic property reads and writes | `python3 tools/ai/cli.py inspect --kind state --query watcher_memory` |
 | Find Script API member usage for migration triage | `python3 tools/ai/cli.py inspect --kind api --query system.runInterval --limit 10` |
 | Audit V2 (1.26.50) readiness of the whole add-on | `python3 tools/ai/cli.py audit --limit 50` (exit 1 = findings) |
-| Run every gate plus the V2 audit in one report | `python3 tools/ai/cli.py preflight --skip-typecheck --limit 50` |
+| Run standard pack preflight at an integration checkpoint | `python3 tools/ai/cli.py preflight --limit 50` |
 | Plan/apply removal of unreferenced RP assets | `python3 tools/ai/cli.py prune --scope all --limit 20` then `prune --apply` |
 | Find dimension registration, fog references, or direct sound calls | `python3 tools/ai/cli.py inspect --kind dimension` or use `--kind fog` or `--kind sound` |
 | Find every literal occurrence before editing an ID or asset path | `python3 tools/ai/cli.py refs geometry.flashlight` |
@@ -68,17 +87,17 @@ python3 tools/ai/cli.py slice --file main.js --start 1 --end 19
 ```
 
 ```json
-{"command":"slice","status":0,"file":"addon/Genshin X Craft BP/scripts/watcher_stalker.js","symbol":"loadProfileMemory","start":1159,"end":1213,"total_lines":6613,"lines":[{"n":1159,"text":"function loadProfileMemory(player, profile) {"}]}
+{"command":"slice","status":0,"file":"addon/BP/scripts/watcher_stalker.js","symbol":"loadProfileMemory","start":1159,"end":1213,"total_lines":6613,"lines":[{"n":1159,"text":"function loadProfileMemory(player, profile) {"}]}
 ```
 
 `catalog` lists `*.geo.json` exports, geometry IDs, and textures with the same filename stem. Review multi-geometry exports and textures with alternate names before creating the batch. If needed, export raw `.bbmodel` files to Bedrock geometry first.
 
 ```sh
-python3 tools/ai/cli.py catalog --directory 'addon/Genshin X Craft RP/models' --texture-dir 'addon/Genshin X Craft RP/textures' --query flashlight
+python3 tools/ai/cli.py catalog --directory 'addon/RP/models' --texture-dir 'addon/RP/textures' --query flashlight
 ```
 
 ```json
-{"command":"catalog","status":0,"total":1,"items":[{"model":"addon/Genshin X Craft RP/models/blocks/flashlight.geo.json","geometries":["geometry.flashlight"],"textures":[]}]}
+{"command":"catalog","status":0,"total":1,"items":[{"model":"addon/RP/models/blocks/flashlight.geo.json","geometries":["geometry.flashlight"],"textures":[]}]}
 ```
 
 ## Trace changes before editing
@@ -102,7 +121,7 @@ python3 tools/ai/cli.py impact --base origin/main --limit 10
 ```
 
 ```json
-{"command":"impact","status":0,"reachable_scripts":44,"unreachable_scripts":3,"total":4,"items":[{"file":"addon/Genshin X Craft BP/scripts/main.js","depth":2,"entry_reachable":true,"exists":true}]}
+{"command":"impact","status":0,"reachable_scripts":44,"unreachable_scripts":3,"total":4,"items":[{"file":"addon/BP/scripts/main.js","depth":2,"entry_reachable":true,"exists":true}]}
 ```
 
 ## Inspect placed blocks
@@ -153,7 +172,7 @@ Block rows accept extra optional fields: `collision_box`/`selection_box` (`true`
 
 For new models in a JSON spec supply a `model` source path and a `geometry` ID exported by it. For each block supply either `texture` (a PNG/TGA/JPEG source path) or `texture_path` (an extensionless existing base-RP path). Source paths are absolute or relative to the repo root. The scaffold copies supplied assets, creates a BP block, and merges the `namespace__name` key into the terrain atlas. It uses one wildcard material and defaults to `opaque`. The supported `render_method` values follow the Bedrock material instance component. [Material instances](https://learn.microsoft.com/minecraft/creator/reference/content/blockreference/examples/blockcomponents/minecraftblock_material_instances?view=minecraft-bedrock-stable)
 
-Dimensions accept `id`, optional `min_y`, `height_range`, and a namespaced `biome`. The generated dimension starts as a void. Use this only for a Bedrock 1.26.50+ target. The current BP minimum is 1.26.20, so dimension previews surface an engine warning. Existing script-registered IDs are rejected. The scaffold leaves manifest versions and startup scripts to the caller. Review the block and dimension formats against the target version. [Custom blocks](https://learn.microsoft.com/minecraft/creator/documents/advancedcustomblocks?view=minecraft-bedrock-stable) · [Custom dimensions](https://learn.microsoft.com/minecraft/creator/documents/scripting/custom-dimension-api-tutorial?view=minecraft-bedrock-stable)
+Dimensions accept `id`, optional `min_y`, `height_range`, and a namespaced `biome`. The generated dimension starts as a void. Use this only for a Bedrock 1.26.50+ target. The current BP minimum is 1.26.50. Existing script-registered IDs are rejected and must be preserved. The scaffold leaves manifest versions and startup scripts to the caller. Review the block and dimension formats against the target version. [Custom blocks](https://learn.microsoft.com/minecraft/creator/documents/advancedcustomblocks?view=minecraft-bedrock-stable) · [Custom dimensions](https://learn.microsoft.com/minecraft/creator/documents/scripting/custom-dimension-api-tutorial?view=minecraft-bedrock-stable)
 
 ```sh
 python3 tools/ai/cli.py scaffold --spec /tmp/paradise-batch.json --dry-run
@@ -163,7 +182,7 @@ python3 tools/ai/cli.py validate
 ```
 
 ```json
-{"command":"scaffold","status":0,"mode":"dry-run","total":3,"items":[{"path":"addon/Genshin X Craft BP/blocks/paradise__flashlight_display.json","action":"create"}]}
+{"command":"scaffold","status":0,"mode":"dry-run","total":3,"items":[{"path":"addon/BP/blocks/paradise__flashlight_display.json","action":"create"}]}
 ```
 
 Exact repeats are `unchanged`. Conflicting IDs, changed assets, or conflicting atlas keys produce exit `1`; inspect the diff before editing existing content. The plan is built before writing. Apply uses a repo-local lock and atomic file replacements. If a process was forcibly killed, confirm it has exited before removing an empty `.paradise-ai-scaffold.lock` directory and rerunning the same spec.
@@ -192,7 +211,7 @@ Both commands accept `--release-audio` for the strict release gate. Use `--skip-
 `assets` reports bitmap paths with no exact JSON or script literal reference observed. It also recognizes relative PBR texture-set references and matches subpack textures by their in-game path. Treat its rows as leads. Bedrock can load textures through vanilla identifiers, implicit paths, and overlays. Confirm absence in the target client before removing an asset. For the actual cleanup workflow use `prune` below.
 
 ```json
-{"command":"assets","status":0,"matched":1571,"unmatched":2145,"items":[{"path":"addon/Genshin X Craft RP/textures/blocks/bed_feet_end.png","scope":".","bytes":384}]}
+{"command":"assets","status":0,"matched":1571,"unmatched":2145,"items":[{"path":"addon/RP/textures/blocks/bed_feet_end.png","scope":".","bytes":384}]}
 ```
 
 ## Audit V2 readiness (read-only)
@@ -201,7 +220,7 @@ Both commands accept `--release-audio` for the strict release gate. Use `--skip-
 
 Sections (`--check`, repeatable, default all): `manifest` (min_engine_version vs target, `@minecraft/*` dependency pins vs the stable map, beta-only modules, RP capabilities, experimental `experiments` toggles), `formats` (per-class format_version distribution; error when newer than the target, warning when below), `dimensions` (JSON dimension height bounds plus script-registered dimensions flagged as JSON-migration candidates), `entities` (BP↔RP pairing, 1.26.50 schema flags), `blocks` (BP block schema, RP `blocks.json`), `scripts` (imported modules vs the stable map, curated API/event flags such as removed `worldInitialize` events, API usage and schedule summaries).
 
-Findings are aggregated by message with `count` and up to `--examples` (default 5) `locations`. Exit `1` means findings exist (expected on the 0.3 beta); `0` means the target is already met; `2` is usage error.
+Findings are aggregated by message with `count` and up to `--examples` (default 5) `locations`. Exit `1` means findings exist, `0` means the audited target has no findings, and `2` is a usage error. The stable-target comparison is advisory for the intentional beta pins and script-registered dimensions. Preserve those baselines and investigate other findings.
 
 ```sh
 python3 tools/ai/cli.py audit --limit 50
@@ -209,7 +228,7 @@ python3 tools/ai/cli.py audit --check dimensions --check manifest
 ```
 
 ```json
-{"command":"audit","status":1,"target":{"engine":"1.26.50","stable_script_api":{"@minecraft/server":"2.10.0"}},"checks":{"manifest":{"errors":[],"warnings":[{"check":"manifest","severity":"warning","message":"@minecraft/server is pinned to \"beta\"; pin the stable 2.10.0 for the 1.26.50 release","count":1,"locations":[{"file":"addon/Genshin X Craft BP/manifest.json"}]}]}},"findings":{"total":28,"items":[...]}}
+{"command":"audit","status":1,"target":{"engine":"1.26.50","stable_script_api":{"@minecraft/server":"2.10.0"}},"checks":{"manifest":{"errors":[],"warnings":[{"check":"manifest","severity":"warning","message":"@minecraft/server is pinned to \"beta\"; pin the stable 2.10.0 for the 1.26.50 release","count":1,"locations":[{"file":"addon/BP/manifest.json"}]}]}},"findings":{"total":28,"items":[...]}}
 ```
 
 ## Prune unreferenced RP assets (dry-run default)
@@ -222,16 +241,15 @@ python3 tools/ai/cli.py prune --apply          # after reviewing the plan
 ```
 
 ```json
-{"command":"prune","status":0,"mode":"dry-run","action":"plan","scopes":["textures"],"groups":{"textures":{"files":2145,"bytes":17479937,"matched":1571}},"total_files":2145,"total_bytes":17479937,"items":[{"path":"addon/Genshin X Craft RP/textures/blocks/bed_feet_end.png","scope":"textures","bytes":384}]}
+{"command":"prune","status":0,"mode":"dry-run","action":"plan","scopes":["textures"],"groups":{"textures":{"files":2145,"bytes":17479937,"matched":1571}},"total_files":2145,"total_bytes":17479937,"items":[{"path":"addon/RP/textures/blocks/bed_feet_end.png","scope":"textures","bytes":384}]}
 ```
 
 ## Unified pre-flight gate
 
-`preflight` runs `validate` (including the `integrity` section) plus `audit` in one report. The gate fails (exit `1`) when any hard validator has errors; V2 audit findings are reported under `v2_audit` but only fail the gate with `--require-v2`. It accepts `--skip-typecheck`, `--release-audio`, `--check`, `--target`, and `--examples`.
+`preflight` runs `validate` (including the `integrity` section) plus `audit` in one report. The gate fails (exit `1`) when any hard validator has errors; V2 audit findings are reported under `v2_audit` but only fail the gate with `--require-v2`. Run standard preflight at integration and acceptance checkpoints. It includes type checking, pack/reference validation and the audit. Run repository regressions separately. Use standalone `validate` for targeted diagnosis without the audit. Preflight accepts `--skip-typecheck`, `--release-audio`, `--check`, `--target`, and `--examples`.
 
 ```sh
-python3 tools/ai/cli.py preflight --skip-typecheck --limit 50
-python3 tools/ai/cli.py preflight --require-v2
+python3 tools/ai/cli.py preflight --limit 50
 ```
 
 ```json
@@ -286,7 +304,7 @@ Use the direct commands when you need their complete reports, CI parity, or thei
 | Preview audio staging | `python3 tools/stage_audio_manifest.py --allow-partial` | `{"required_total_files":127,"assets":[]}` with no staged sources. Use `--write` with staged sources to update the manifest. |
 | Verify generated audio registry and definitions | `python3 tools/generate_sound_definitions.py --check` | `{"ok":true,"generated":[],"updated":[]}` |
 | Verify cleared audio encodes | `python3 tools/compress_audio.py --check-only --cleared-only --verify-output` | `{"ok":true,"assets":[],"status":"no_cleared_assets"}` |
-| Syntax-check a script | `node --check "addon/Genshin X Craft BP/scripts/main.js"` | Empty stdout on success. |
+| Syntax-check a script | `node --check "addon/BP/scripts/main.js"` | Empty stdout on success. |
 | Type-check and JS regressions | `npm run typecheck` and `npm test` | Text compiler and test output. |
 | Validator regressions | `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py'` | Text unittest results. |
 | Toolkit integration tests | `PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tools/ai -p 'test_*.py'` | Text unittest results. Apply tests use temporary copies of Git HEAD’s packs. |
@@ -295,13 +313,15 @@ Use the direct commands when you need their complete reports, CI parity, or thei
 | Direct CI packaging | `python3 tools/package_mcaddon.py --output artifacts/Paradise.exe.mcaddon` | Text path and byte count. |
 | In-game runtime harness | `/p:debug` as a player with Game Directors permission and cheats enabled | In-game diagnostics. Use a disposable test world. |
 
-## 0.3 baseline at `6f0bc53` (toolchain snapshot)
+## Historical 0.3 toolchain snapshot at `6f0bc53`
+
+These observations describe that commit. Check the current checkout for pack versions, findings and available tooling.
 
 - Scanned 47 JS files and 385 pack JSON documents with zero parse errors. The index found 5,652 symbols, 219 exports, 129 in-memory `Map`/`Set` stores, 99 event registrations, 195 scheduler calls (`run` 119, `runTimeout` 45, `runInterval` 26, `runJob` 4, `clearRun` 1), 9 dynamic-property calls, 7 script-registered dimensions, 8 fog references, 4 direct sound calls, 2 direct particle calls, 9 `spawnEntity` calls, 5 `ItemStack` literals, and 573 `@minecraft/*` API member usages. All 28 structures and the toolkit’s default pre-flight pass.
 - `validate` (now including the `integrity` section) exits 0: 0 errors everywhere; the audio gate keeps its 8 known warnings. Integrity counts: 4 particles (all referenced), 1 BP entity ↔ 16 client entities (custom `paradise:watcher` paired), 2 BP items with icons present in the 237-entry item atlas, 28/28 structure files referenced, 12/12 sound events referenced, 2 subpacks declared and present.
 - `audit` against the 1.26.50 target exits 1 with 28 findings, all warnings: both manifests pin `min_engine_version 1.26.20` (< 1.26.50); `@minecraft/server` and `@minecraft/server-ui` are pinned to `"beta"` (stable at 1.26.50: 2.10.0 / 2.2.0); 46 content JSON files sit below `format_version` 1.26.50 (1.8.0 ×5, 1.10.0 ×23, 1.16.100 ×9 fogs, 1.20.20 sound_definitions, 1.21.40/1.21.80/1.21.90 subpacks, 1.26.0 ×2, 1.26.10 ×2 items), including the `allow_concurrent_streaming` default flip for sound_definitions.json; all 7 dimensions are script-registered via `registerCustomDimension` and flagged as JSON-dimension migration candidates. No experimental toggles, no entities/blocks at 1.26.50 yet, no `worldInitialize` usages.
 - `prune --scope all` dry-run on 0.3: only textures have unreferenced files — 2,145 of 3,716 bitmaps (~17.5 MB of 4,110-file RP) with no exact observed reference; sounds, particles, fogs, and models are fully referenced. Treat texture rows as leads (vanilla fallback, implicit paths, subpack overlays) before any `--apply`.
-- `preflight` exits 0 with `gate: "pass"` and 28 V2 findings; `--require-v2` exits 1 until the migration lands.
+- `preflight` exits 0 with `gate: "pass"` and 28 V2 findings; `--require-v2` exited 1 on that baseline.
 - The regular audio gate passes with eight warnings. Three wind sources are absent and five source-pack manifests are incomplete. The strict gate fails with eight errors, including the three wind entries awaiting license clearance. The manifest has 3 of 127 required source records.
 - Separately, Blockception at `32fba1e` reported three unresolved animation IDs in the vanilla cat/sheep client overrides (`animation.cat.baby_transform`, `animation.sheep.setup.v2`, `animation.sheep.baby_transform`) and two `common.base_screen` inheritance warnings. The same animation IDs are referenced in Mojang’s client entity samples. Check resolution in the target Bedrock client. [Mojang Bedrock samples](https://github.com/Mojang/bedrock-samples/tree/15701fa9/resource_pack/entity)
 - Three geometry files ship in this checkout. Bring the separately staged décor exports to `catalog` when they are available.
