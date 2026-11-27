@@ -1,14 +1,20 @@
 import { system, world } from "@minecraft/server";
+import { createVisualJobQueue } from "./paradise_visual_job_queue.js";
 
-const MAX_ACTIVE_VISUAL_JOBS = 2;
-const pendingJobs = [];
-const activeKeys = new Set();
-let activeCount = 0;
 const placementStats = {
   placed: 0,
   retried: 0,
   failed: 0,
 };
+
+const visualJobs = createVisualJobQueue({
+  schedule: (callback) => system.run(callback),
+  runJob: (generator) => system.runJob(generator),
+  maxActive: 2,
+  maxPending: 128,
+  maxPendingPerOwner: 32,
+  onError: (error, key) => console.warn(`[Paradise] Visual job failed: ${key}`, error),
+});
 
 export function hash32(value) {
   let n = value | 0;
@@ -33,76 +39,114 @@ export function shouldPlaceRare(x, z, period, salt = 0) {
   return hashCoords(x, z, salt) % safePeriod === 0;
 }
 
-function pump() {
-  while (activeCount < MAX_ACTIVE_VISUAL_JOBS && pendingJobs.length > 0) {
-    const job = pendingJobs.shift();
-    if (!job || activeKeys.has(job.key)) continue;
-
-    activeKeys.add(job.key);
-    activeCount++;
-
-    system.runJob(
-      (function* () {
-        try {
-          const generator = job.generatorFactory();
-          for (const value of generator) {
-            yield value;
-          }
-        } finally {
-          activeKeys.delete(job.key);
-          activeCount = Math.max(0, activeCount - 1);
-          system.run(pump);
-        }
-      })()
-    );
-  }
+/**
+ * @param {string} key
+ * @param {(context: { isCancelled: () => boolean }) => Generator<void, void, void>} generatorFactory
+ * @param {{ owner?: string, onCancelled?: () => void }} [options]
+ * @returns {boolean}
+ */
+export function scheduleVisualJob(key, generatorFactory, options = {}) {
+  return visualJobs.schedule(key, generatorFactory, options.owner ?? "global", options.onCancelled);
 }
 
-export function scheduleVisualJob(key, generatorFactory) {
-  if (!key || typeof generatorFactory !== "function") return false;
-  if (activeKeys.has(key) || pendingJobs.some((job) => job.key === key)) return false;
-  pendingJobs.push({ key, generatorFactory });
-  system.run(pump);
-  return true;
+/**
+ * Cancel pending and active visual jobs owned by a dimension or patch.
+ * Active generators stop at their next yield boundary.
+ *
+ * @param {string} owner
+ * @returns {number}
+ */
+export function cancelVisualJobs(owner) {
+  return visualJobs.cancelOwner(owner);
+}
+
+/**
+ * @param {string} key
+ * @returns {boolean}
+ */
+export function cancelVisualJob(key) {
+  return visualJobs.cancelKey(key);
 }
 
 export function getVisualJobStats() {
   return {
-    active: activeCount,
-    queued: pendingJobs.length,
+    ...visualJobs.getStats(),
     placed: placementStats.placed,
     retried: placementStats.retried,
     failed: placementStats.failed,
   };
 }
 
-
 export function placePackStructure(structureId, dimension, location) {
   if (!structureId || !dimension || !location) return false;
-  try {
-    world.structureManager.place(structureId, dimension, location, {
-      includeBlocks: true,
-      includeEntities: false,
-    });
-    return true;
-  } catch {
-    return false;
-  }
+  world.structureManager.place(structureId, dimension, location, {
+    includeBlocks: true,
+    includeEntities: false,
+  });
+  return true;
 }
 
-export function scheduleStructurePlacement(key, structureId, dimension, location) {
-  return scheduleVisualJob(key, function* () {
-    let placed = placePackStructure(structureId, dimension, location);
-    if (!placed) {
-      placementStats.retried += 1;
-      // One tick-sized yield gives transient chunk/loading failures one bounded
-      // recovery chance without creating a retry loop or an extra queued job.
-      yield;
-      placed = placePackStructure(structureId, dimension, location);
-    }
+/**
+ * @param {string} key
+ * @param {string} structureId
+ * @param {import("@minecraft/server").Dimension} dimension
+ * @param {import("@minecraft/server").Vector3} location
+ * @param {{ owner?: string, isPlacementAllowed?: () => boolean }} [options]
+ * @returns {Promise<boolean>}
+ */
+export function scheduleStructurePlacement(key, structureId, dimension, location, options = {}) {
+  const owner = options.owner ?? dimension.id;
+  const isPlacementAllowed = options.isPlacementAllowed ?? (() => true);
+  if (!isPlacementAllowed()) return Promise.resolve(false);
 
-    if (placed) placementStats.placed += 1;
-    else placementStats.failed += 1;
-    yield;
+  let resolveCompletion;
+  let settled = false;
+  const completion = new Promise((resolve) => {
+    resolveCompletion = resolve;
   });
+  const finish = (placed) => {
+    if (settled) return;
+    settled = true;
+    resolveCompletion(placed);
+  };
+
+  const scheduled = scheduleVisualJob(key, function* (context) {
+    try {
+      if (context.isCancelled() || !isPlacementAllowed()) return;
+      let firstError;
+      try {
+        placePackStructure(structureId, dimension, location);
+        placementStats.placed += 1;
+        finish(true);
+        return;
+      } catch (error) {
+        firstError = error;
+      }
+
+      placementStats.retried += 1;
+      yield;
+      if (context.isCancelled() || !isPlacementAllowed()) return;
+      try {
+        placePackStructure(structureId, dimension, location);
+        placementStats.placed += 1;
+        finish(true);
+      } catch (error) {
+        placementStats.failed += 1;
+        console.warn(`[Paradise] Structure placement failed twice: ${structureId}`, {
+          firstError,
+          retryError: error,
+          dimensionId: dimension.id,
+          location,
+        });
+      }
+    } finally {
+      finish(false);
+    }
+  }, { owner, onCancelled: () => finish(false) });
+
+  if (!scheduled) {
+    console.warn(`[Paradise] Structure placement was not queued: ${key}`);
+    finish(false);
+  }
+  return completion;
 }

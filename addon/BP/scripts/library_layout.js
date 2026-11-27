@@ -1,146 +1,125 @@
-/**
- * Library spatial plan (rework): grand multi-aisle layout, furniture zones,
- * signs and lamps. Pure data so walkability can be tested without a runtime.
- */
-
 import {
+  AISLE_LIGHT_ANCHORS,
   LIBRARY_LIGHT,
   LIBRARY_SHELF,
-  hashCoords,
   isCross,
+  shelfStateFor,
 } from "./library_decor_model.js";
 
-/** Two long shelf banks face the centre aisle; outer bays hold reading zones. */
-export const SHELF_BANKS = Object.freeze([
-  Object.freeze({ x: 4, side: "west" }),
-  Object.freeze({ x: 11, side: "east" }),
-]);
-
-/** Vanilla bookshelf anchors that must survive in the arrival chunk. */
+export const SHELF_BANKS = Object.freeze([3, 11]);
 export const PROTECTED_BOOKSHELVES = Object.freeze([[3, 2], [11, 2], [11, 9]]);
-
-/** Reserved restricted bay, arrival chunk only. */
 export const ALCOVE = Object.freeze({ minX: 10, maxX: 13, minY: 65, maxY: 68, minZ: 12, maxZ: 14 });
+const CHUNK_SIZE = 16;
+const VISIT_GRID_SPACING = 1000;
 
-/** Arrival chunks sit on the 1000-block visit grid along z=0. */
 export function isArrivalChunk(cx, cz) {
   if (cz !== 0) return false;
-  const ox = cx * 16;
-  const base = Math.ceil(ox / 1000) * 1000;
-  return base >= ox && base <= ox + 15;
+  const start = cx * CHUNK_SIZE;
+  const visit = Math.max(0, Math.ceil(start / VISIT_GRID_SPACING));
+  return visit * VISIT_GRID_SPACING <= start + CHUNK_SIZE - 1;
+}
+
+export function isRestrictedRoom(cx, cz) {
+  return isArrivalChunk(cx - 1, cz);
+}
+
+export function isReadingRoom(cx, cz) {
+  return isArrivalChunk(cx, cz + 1);
+}
+
+export function isWestRoom(cx, cz) {
+  return isArrivalChunk(cx + 1, cz);
 }
 
 export function isAlcoveCell(cx, cz, x, y, z) {
-  return isArrivalChunk(cx, cz)
+  return isRestrictedRoom(cx, cz)
     && x >= ALCOVE.minX && x <= ALCOVE.maxX
     && y >= ALCOVE.minY && y <= ALCOVE.maxY
     && z >= ALCOVE.minZ && z <= ALCOVE.maxZ;
 }
 
+export function isRestrictedApproachCell(cx, cz, x, y, z) {
+  return isRestrictedRoom(cx, cz)
+    && x >= 11 && x <= 12
+    && y >= 65 && y <= 67
+    && z >= 9 && z <= 11;
+}
+
 export function isProtectedBookshelf(cx, cz, x, z) {
-  if (!isArrivalChunk(cx, cz)) return false;
-  return PROTECTED_BOOKSHELVES.some(([bx, bz]) => bx === x && bz === z);
+  return isArrivalChunk(cx, cz)
+    && PROTECTED_BOOKSHELVES.some(([bx, bz]) => bx === x && bz === z);
 }
 
-/**
- * Walking lanes: the four-wide centre cross (x7..8 / z7..8) plus the two
- * two-wide side aisles at x2..3 and x12..13. Nothing is placed in them.
- */
-export function isWalkLane(x, z) {
-  return isCross(x, z) || (x >= 2 && x <= 3) || (x >= 12 && x <= 13);
+/** Includes the pad support layer, the pressure plate, sign and standing space. */
+export function isConnectionReservation(cx, cz, localX, y, localZ) {
+  if (y < 64 || y > 67) return false;
+  const x = cx * CHUNK_SIZE + localX;
+  const z = cz * CHUNK_SIZE + localZ;
+  const firstVisit = Math.max(0, Math.floor((x - 16) / VISIT_GRID_SPACING));
+  for (let visit = firstVisit; visit <= firstVisit + 2; visit += 1) {
+    const anchorX = visit * VISIT_GRID_SPACING;
+    if (y >= 65 && Math.abs(x - anchorX) <= 3 && Math.abs(z) <= 3) return true;
+    for (const [dx, dz] of [[8, 0], [-8, 0], [0, 8], [0, -8]]) {
+      const padX = anchorX + dx;
+      if (y <= 66 && Math.abs(x - padX) <= 1 && Math.abs(z - dz) <= 1) return true;
+      if (y <= 65 && x === padX && z === dz + 2) return true;
+    }
+  }
+  return false;
 }
 
-export function shelfTierState(x, z, tier) {
-  const bucket = hashCoords(x + tier * 17, z, 0x5348454c) % 100;
-  if (bucket < 58) return "full";
-  if (bucket < 86) return "sparse";
-  return "empty";
+export function isWalkLane(x, z, westRoom = false) {
+  return isCross(x, z) || (westRoom && x >= 3 && x <= 5);
 }
 
-/** Shelf cells with one-cell window gaps and mid-bank ladders. */
-export function shelfCells(cx, cz, variant) {
+export function shelfTierState(_x, z, _tier) {
+  return shelfStateFor(z);
+}
+
+export function shelfCells(cx, cz, _variant) {
   const cells = [];
-  for (const bank of SHELF_BANKS) {
-    for (let z = 2; z <= 13; z++) {
-      if (isCross(bank.x, z)) continue;
-      if (z === 6 || z === 10) continue; // ladder / window gaps
-      if (bank.x === 11 && z === 11) continue; // restricted-bay partition
-      if (isAlcoveCell(cx, cz, bank.x, 65, z)) continue;
-      if (isProtectedBookshelf(cx, cz, bank.x, z)) continue;
-      if (hashCoords(bank.x, z, 0x474150) % 9 === 0) continue; // occasional open bay
+  const rows = isWestRoom(cx, cz) ? [2, 6] : SHELF_BANKS;
+  for (const x of rows) {
+    for (const z of [1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 14]) {
+      if (isWalkLane(x, z, isWestRoom(cx, cz))) continue;
+      if (isAlcoveCell(cx, cz, x, 65, z)) continue;
+      if (isRestrictedApproachCell(cx, cz, x, 65, z)) continue;
+      if (isWestRoom(cx, cz) && x === 2 && (z === 4 || z === 5)) continue;
+      if (isReadingRoom(cx, cz) && x === 3 && z === 12) continue;
+      if (isProtectedBookshelf(cx, cz, x, z)) continue;
+      if (isConnectionReservation(cx, cz, x, 65, z)) continue;
       for (const tier of [65, 67, 69]) {
-        if (tier === 69 && hashCoords(bank.x, z, 0x54494552) % 3 === 0) continue; // missing top tier
-        cells.push({ x: bank.x, z, tier, state: shelfTierState(bank.x, z, tier), side: bank.side });
-      }
-      if (variant === 2) {
-        const inner = bank.x === 4 ? 6 : 9;
-        if (!isCross(inner, z)) {
-          cells.push({ x: inner, z, tier: 65, state: "sparse", side: bank.side });
-        }
+        cells.push({ x, z, tier, state: shelfTierState(x, z, tier) });
       }
     }
   }
   return cells;
 }
 
-/** One fallen shelf per nine chunks, angled off the bank without closing an aisle. */
 export function fallenShelf(cx, cz) {
-  if (hashCoords(cx, cz, 0x46414c4c) % 9 !== 0) return null;
-  const west = hashCoords(cx, cz, 0x53494445) % 2 === 0;
-  const z = 3 + (hashCoords(cx, cz, 0x5a) % 9);
-  if (isCross(4, z) || isCross(11, z)) return null;
-  return { x: west ? 4 : 11, z, facing: west ? "east" : "west" };
+  return isWestRoom(cx, cz) ? { x: 1, z: 4, facing: "west" } : null;
 }
 
-/** Reading tables, carrels, chairs, carts and ladders in the outer bays. */
-export function furniture(cx, cz, variant) {
-  const plan = [];
-  const footprints = {
-    carrel: [[0, 0], [1, 0], [0, 1], [1, 1]],
-    table: [[0, 0], [1, 0]],
-    chair: [[0, 0]],
-    cart: [[0, 0]],
-    ladder: [[0, 0]],
-    crate: [[0, 0]],
-  };
-  const push = (kind, x, z, facing) => {
-    for (const [dx, dz] of footprints[kind]) {
-      const cx0 = x + dx;
-      const cz0 = z + dz;
-      if (cx0 < 0 || cx0 > 15 || cz0 < 0 || cz0 > 15) return;
-      if (isWalkLane(cx0, cz0)) return;
-      if (isAlcoveCell(cx, cz, cx0, 65, cz0)) return;
-      if (isAlcoveCell(cx, cz, cx0, 68, cz0)) return;
-    }
-    plan.push({ kind, x, z, facing });
-  };
-
-  // Outer reading bays, flush to the x=0 / x=15 walls, outside the side aisles.
-  push("carrel", 0, 2, "east");
-  push("carrel", 14, 2, "west");
-  push("carrel", 0, 12, "east");
-  push("carrel", 14, 12, "west");
-  push("table", 0, 5, "east");
-  push("table", 14, 5, "west");
-  push("table", 0, 9, "east");
-  push("table", 14, 9, "west");
-  push("chair", 0, 4, "east");
-  push("chair", 15, 4, "west");
-
-  // Centre reading cluster between the shelf banks; x7..8 stays open.
-  push("table", 5, 3, "east");
-  push("table", 9, 3, "west");
-  push("table", 5, 11, "east");
-  push("table", 9, 11, "west");
-  push("cart", 6, 5, "east");
-  push("cart", 9, 5, "west");
-  push("ladder", 4, 6, "east");
-  push("ladder", 11, 10, "west");
-
-  if (variant === 3) {
-    push("crate", 0, 14, "east");
+/** Coordinates are chunk-local; furniture is confined to the wall-side rooms. */
+export function furniture(cx, cz, _variant) {
+  if (isReadingRoom(cx, cz)) {
+    return [
+      { kind: "carrel", x: 1, z: 2, facing: "east" },
+      { kind: "table", x: 1, z: 10, facing: "east" },
+      { kind: "chair", x: 2, z: 9, facing: "north" },
+      { kind: "cabinet", x: 1, z: 12, facing: "east" },
+      { kind: "ladder", x: 12, z: 13, facing: "west" },
+      { kind: "crate", x: 14, z: 2, facing: "west" },
+    ];
   }
-  return plan;
+  if (isRestrictedRoom(cx, cz)) {
+    return [
+      { kind: "cart", x: 13, z: 5, facing: "west" },
+      { kind: "lockedCabinet", x: 14, z: 3, facing: "west" },
+      { kind: "staffDoor", x: 14, z: 11, facing: "west" },
+    ];
+  }
+  return [];
 }
 
 export function furnitureBlock(kind) {
@@ -149,47 +128,41 @@ export function furnitureBlock(kind) {
     case "table": return ["paradise:lib_reading_table_x0_y0_z0", "paradise:lib_reading_table_x1_y0_z0"];
     case "chair": return ["paradise:lib_reading_chair"];
     case "cart": return ["paradise:lib_rolling_book_cart_x0_y0_z0", "paradise:lib_rolling_book_cart_x0_y1_z0"];
-    case "ladder": return ["paradise:lib_tall_library_ladder"];
+    case "ladder": return ["paradise:lib_tall_library_ladder_x0_y0_z0", "paradise:lib_tall_library_ladder_x0_y1_z0"];
     case "crate": return ["paradise:lib_dust_covered_crate"];
+    case "cabinet": return ["paradise:lib_index_card_drawer_cabinet"];
+    case "lockedCabinet": return ["paradise:lib_locked_document_cabinet_x0_y0_z0", "paradise:lib_locked_document_cabinet_x0_y1_z0"];
+    case "staffDoor": return ["paradise:lib_staff_door_x0_y0_z0", "paradise:lib_staff_door_x0_y1_z0"];
     default: return [];
   }
 }
 
-/** Desk lamp and open ledger dressing for a reading table. */
 export function tableDressing(x, z, lit) {
   return [
-    { block: lit ? LIBRARY_LIGHT.deskLit : LIBRARY_LIGHT.deskUnlit, x, y: 67, z },
-    { block: "paradise:lib_open_ledger", x: x + 1, y: 67, z },
-    { block: "paradise:lib_loose_papers", x, y: 67, z: z + 1 },
+    { block: "paradise:lib_open_ledger", x, y: 66, z },
+    { block: "paradise:lib_loose_papers", x: x + 1, y: 66, z },
+    { block: "paradise:lib_book_stacks", x, y: 66, z: z + 1 },
+    { block: lit ? LIBRARY_LIGHT.deskLit : LIBRARY_LIGHT.deskUnlit, x: x + 2, y: 66, z: z + 2 },
   ];
 }
 
-/** Warm aisle lamps at the bank ends, unlit on the low-power variant. */
-export function aisleLamps(variant) {
-  const anchors = [
-    { x: 5, z: 4 }, { x: 10, z: 4 }, { x: 5, z: 11 }, { x: 10, z: 11 },
-  ];
-  return anchors.map((anchor, index) => ({
-    ...anchor,
-    lit: variant !== 3 || index % 2 === 0,
+export function aisleLamps(lowPower = false) {
+  return AISLE_LIGHT_ANCHORS.slice(0, 4).map(({ x, z }, index) => ({
+    x,
+    z,
     y: 72,
+    lit: !lowPower || index % 2 === 0,
   }));
 }
 
-/** Static signs, one per function, kept off the walking lanes. */
-export function signs(cx, cz, variant) {
-  const plan = [
-    { kind: "reading", x: 1, y: 66, z: 7, facing: "east" },
-    { kind: "returns", x: 14, y: 66, z: 7, facing: "west" },
-    { kind: "exit", x: 14, y: 66, z: 13, facing: "west" },
+export function signs(cx, cz) {
+  if (isReadingRoom(cx, cz)) return [{ kind: "reading", x: 1, y: 67, z: 9, facing: "east" }];
+  if (isRestrictedRoom(cx, cz)) return [
+    { kind: "returns", x: 14, y: 68, z: 2, facing: "west" },
+    { kind: "restricted", x: 11, y: 69, z: 10, facing: "south" },
+    { kind: "exit", x: 13, y: 68, z: 14, facing: "south" },
   ];
-  if (isArrivalChunk(cx, cz)) {
-    plan.push({ kind: "restricted", x: 10, y: 66, z: 11, facing: "south" });
-  }
-  if (variant === 2) {
-    plan.push({ kind: "reading", x: 1, y: 66, z: 9, facing: "east" });
-  }
-  return plan;
+  return [];
 }
 
 export function signBlocks(kind) {
@@ -205,11 +178,6 @@ export function shelfBlocks(state) {
   return LIBRARY_SHELF[state] || LIBRARY_SHELF.full;
 }
 
-/** Ceiling beams every four cells; flush with the acoustic ceiling. */
 export function ceilingBeams() {
-  const cells = [];
-  for (const z of [4, 12]) {
-    for (let x = 0; x < 16; x++) cells.push({ x, z });
-  }
-  return cells;
+  return [4, 12].flatMap((z) => Array.from({ length: 16 }, (_value, x) => ({ x, z })));
 }

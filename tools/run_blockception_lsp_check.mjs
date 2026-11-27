@@ -4,6 +4,7 @@ import { spawn } from 'node:child_process';
 import { mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { vanillaFallbackReason } from './blockception_vanilla_fallbacks.mjs';
 
 const DEFAULT_TIMEOUT_MS = 10 * 60 * 1000;
 const DIAGNOSTIC_SEVERITY = new Map([
@@ -11,40 +12,6 @@ const DIAGNOSTIC_SEVERITY = new Map([
   [2, 'warning'],
   [3, 'information'],
   [4, 'hint'],
-]);
-
-// Blockception validates the custom workspace in isolation. Minecraft itself stacks
-// the active resource pack over the vanilla/default resource pack, so vanilla
-// client-entity and terrain references can legitimately resolve outside this repo.
-// Keep this allowlist deliberately exact: any unlisted Blockception error still
-// fails CI.
-const VANILLA_SPAWN_EGG_BY_ENTITY = new Map([
-  ['armadillo.entity.json', 'spawn_egg_armadillo'],
-  ['camel.entity.json', 'spawn_egg_camel'],
-  ['cat.entity.json', 'spawn_egg_cat'],
-  ['chicken.entity.json', 'spawn_egg_chicken'],
-  ['cow.entity.json', 'spawn_egg_cow'],
-  ['fox.entity.json', 'spawn_egg_fox'],
-  ['goat.entity.json', 'spawn_egg_goat'],
-  ['llama.entity.json', 'spawn_egg_llama'],
-  ['ocelot.entity.json', 'spawn_egg_ocelot'],
-  ['panda.entity.json', 'spawn_egg_panda'],
-  ['parrot.entity.json', 'spawn_egg_parrot'],
-  ['pig.entity.json', 'spawn_egg_pig'],
-  ['rabbit.entity.json', 'spawn_egg_rabbit'],
-  ['sheep.entity.json', 'spawn_egg_sheep'],
-  ['turtle.entity.json', 'spawn_egg_turtle'],
-]);
-
-const VANILLA_ANIMATION_BY_ENTITY = new Map([
-  ['camel.entity.json', ['animation.camel.look_at_target']],
-  ['fox.entity.json', ['animation.fox.baby_transform']],
-  ['sheep.entity.json', ['animation.sheep.setup.v2', 'animation.sheep.baby_transform']],
-]);
-
-const VANILLA_TERRAIN_TEXTURES = new Set([
-  'textures/blocks/cake',
-  'textures/blocks/smoker_front_on_1',
 ]);
 
 function parseArgs(argv) {
@@ -130,50 +97,6 @@ function formatCode(code) {
   return String(code);
 }
 
-function vanillaFallbackReason(diagnostic) {
-  const file = String(diagnostic.file ?? '').replaceAll('\\', '/');
-  const fileName = path.posix.basename(file);
-  const code = formatCode(diagnostic.code);
-  const message = String(diagnostic.message ?? '');
-
-  if (code === 'behaviorpack.item.components.texture_not_found') {
-    const spawnEgg = VANILLA_SPAWN_EGG_BY_ENTITY.get(fileName);
-    if (
-      spawnEgg &&
-      file.includes('/RP/entity/') &&
-      message.includes(`"${spawnEgg}"`)
-    ) {
-      return `vanilla spawn-egg texture alias ${spawnEgg}`;
-    }
-  }
-
-  if (code === 'resourcepack.anim_or_controller.missing') {
-    const animations = VANILLA_ANIMATION_BY_ENTITY.get(fileName) ?? [];
-    const animation = animations.find((name) => message.includes(name));
-    // Every shipped vanilla client-entity file resolves its animations from the
-    // base pack that stacks under this one. Keep custom entities strict by
-    // allowing the fallback only for the known vanilla population files, and
-    // record which animation triggered it either way.
-    const vanillaEntity = VANILLA_SPAWN_EGG_BY_ENTITY.has(fileName);
-    if (file.includes('/RP/entity/') && (animation || vanillaEntity)) {
-      const reference = animation ?? message.replace(/^[^:]*:\s*/, '');
-      return `vanilla client animation ${reference}`;
-    }
-  }
-
-  if (
-    code === 'resourcepack.texture.missing' &&
-    file.endsWith('/RP/textures/terrain_texture.json')
-  ) {
-    for (const texture of VANILLA_TERRAIN_TEXTURES) {
-      if (message.includes(texture)) {
-        return `vanilla terrain texture ${texture}`;
-      }
-    }
-  }
-
-  return null;
-}
 
 function sortDiagnostics(diagnostics) {
   diagnostics.sort((left, right) => {

@@ -4,6 +4,7 @@ import assert from "node:assert/strict";
 import { applyFogLayer, getFogRuntimeStats } from "../addon/BP/scripts/paradise_fog_runtime.js";
 import {
   clampVisualY,
+  particleYInDimension,
   getVisualBudget,
   isVisualYInBounds,
   shouldPlaceLeaf,
@@ -140,6 +141,43 @@ test("fog keeps other packs' layers and a separate config override on top", () =
   assert.ok(!log.includes(`remove:other_pack_fog`));
 });
 
+test("two players in the same dimension keep independent fog stacks", () => {
+  const playerALog = [];
+  const playerBLog = [];
+  const playerAFog = makeFogSettings(playerALog);
+  const playerBFog = makeFogSettings(playerBLog);
+  const playerA = makePlayer({ fog: playerAFog, name: "Alice" });
+  const playerB = makePlayer({ fog: playerBFog, name: "Bob" });
+
+  applyFogLayer(playerA, "paradise:yellow_halls_fog", DIMENSION_TAG);
+  applyFogLayer(playerB, "paradise:library_fog", DIMENSION_TAG);
+  applyFogLayer(playerA, "paradise:flat_flower_fog", DIMENSION_TAG);
+
+  assert.equal(playerAFog.stack.get(DIMENSION_TAG), "paradise:flat_flower_fog");
+  assert.equal(playerBFog.stack.get(DIMENSION_TAG), "paradise:library_fog");
+  assert.deepEqual(playerA.commands, []);
+  assert.deepEqual(playerB.commands, []);
+  assert.equal(playerALog.filter((entry) => entry === `remove:${DIMENSION_TAG}`).length, 2);
+  assert.equal(playerBLog.filter((entry) => entry === `remove:${DIMENSION_TAG}`).length, 1);
+});
+
+test("two command-fallback players receive only their own name-scoped fog commands", () => {
+  const playerA = makePlayer({ name: "Alice" });
+  const playerB = makePlayer({ name: "Bob" });
+
+  applyFogLayer(playerA, "paradise:yellow_halls_fog", DIMENSION_TAG);
+  applyFogLayer(playerB, "paradise:library_fog", DIMENSION_TAG);
+
+  assert.deepEqual(playerA.commands, [
+    `fog @a[name="Alice"] remove ${DIMENSION_TAG}`,
+    `fog @a[name="Alice"] push paradise:yellow_halls_fog ${DIMENSION_TAG}`,
+  ]);
+  assert.deepEqual(playerB.commands, [
+    `fog @a[name="Bob"] remove ${DIMENSION_TAG}`,
+    `fog @a[name="Bob"] push paradise:library_fog ${DIMENSION_TAG}`,
+  ]);
+});
+
 test("fog counts a command that reports no affected player as a failure", () => {
   const player = makePlayer({ commandResult: { successCount: 0 } });
   const before = baseline();
@@ -205,4 +243,25 @@ test("leaf cleanup skips the Low tier and out-of-band positions", () => {
   assert.equal(shouldPlaceLeaf(mid, 400), false);
   assert.equal(shouldPlaceLeaf(undefined, 64), false);
   assert.equal(shouldPlaceLeaf(undefined, 400), false);
+});
+
+test("malformed memory tiers never increase the low-memory particle budget", () => {
+  for (const memoryTier of [NaN, Infinity, -Infinity, -1, 5, 2.5, "4", null, undefined]) {
+    assert.equal(getVisualBudget({ clientSystemInfo: { memoryTier } }).particleBurst, 0);
+  }
+});
+
+test("particle samples outside the live height range are skipped, not stacked at its edges", () => {
+  const dimension = { heightRange: { min: 0, max: 128 } };
+  assert.equal(particleYInDimension(0, dimension), 0);
+  assert.equal(particleYInDimension(127.9, dimension), 127.9);
+  for (const y of [-1, 128, 320, Infinity, NaN]) assert.equal(particleYInDimension(y, dimension), undefined);
+  assert.equal(particleYInDimension(319.5, {}), 319.5);
+  assert.equal(particleYInDimension(320, {}), undefined);
+});
+
+test("fog fallback rejects an unconfirmed push result", () => {
+  for (const commandResult of [null, {}, { successCount: NaN }, { successCount: Infinity }]) {
+    assert.equal(applyFogLayer(makePlayer({ commandResult }), "paradise:dark_fog", DIMENSION_TAG), false);
+  }
 });

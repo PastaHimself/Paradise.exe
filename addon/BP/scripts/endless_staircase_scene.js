@@ -52,7 +52,7 @@ export function stairY(z) {
 
 /** Only rows whose tread top stays at or below Y319 may be written. */
 export function isLegalRow(z) {
-  return Number.isFinite(z) && z >= START_Z && stairY(z) <= WORLD_MAX_Y;
+  return Number.isInteger(z) && z >= START_Z && stairY(z) <= WORLD_MAX_Y;
 }
 
 export function stationIndex(z) {
@@ -93,8 +93,9 @@ export function plateBlock(k) {
 }
 
 export function serviceDoorBlock(k) {
-  if (k % 6 !== 0 && !(k >= 2 && k % 6 === 2)) return null;
-  return k % 12 === 0 ? STAIR_DECOR.chainedDoor : STAIR_DECOR.emergencyDoor;
+  if (k % 6 === 0) return STAIR_DECOR.emergencyDoor;
+  if (k % 6 === 3) return STAIR_DECOR.chainedDoor;
+  return null;
 }
 
 /** The bridge is staged only at these authored rows, never at the 24-step interval. */
@@ -111,140 +112,132 @@ export function signBlock(k) {
   return STAIR_DECOR.signForward;
 }
 
-/**
- * Guard, landing and fitting placements for one authored row. Coordinates are
- * world space; `lane` is the per-player lane offset.
- *
- * Columns, from west to east:
- *   lane-2  solid shaft wall backing with the flush wall fixtures
- *   lane-1  west tread (`TREAD_COLUMN_OFFSETS`)
- *   lane    east tread
- *   lane+1  guard line at tread-top height (L+1)
- *   lane+2..lane+3  supported side landing at every station row
- *   lane+3  landing guard line on the outer platform edge
- */
-export const WALL_OFFSET = -2;
+export const WALL_OFFSET = -3;
 export const GUARD_OFFSET = 1;
-export const LANDING_INNER_OFFSET = 2;
-export const LANDING_OUTER_OFFSET = 3;
-export const LANDING_GUARD_OFFSET = 3;
+export const LANDING_INNER_OFFSET = -3;
+export const LANDING_OUTER_OFFSET = -5;
+export const LANDING_GUARD_OFFSET = -6;
 
-const WALL_BLOCKS = Object.freeze([
-  STAIR_DECOR.crackedConcrete,
-  STAIR_DECOR.dampWall,
-]);
+export function isLegalTreadRow(z) {
+  return Number.isInteger(z) && z >= -28 && stairY(z) <= WORLD_MAX_Y;
+}
 
-/** Solid wall backing so every fixture has a surface to mount on. */
+/** All writes belong to their physical Z row, including station overhangs. */
 export function wallPlacements(lane, z) {
   if (!isLegalRow(z)) return [];
   const y = stairY(z);
-  const base = z % 9 === 0 || z % 17 === 0 ? WALL_BLOCKS[1] : WALL_BLOCKS[0];
+  const atLanding = z % STATION_STEPS <= 1;
+  return Array.from({ length: atLanding ? 1 : 3 }, (_, dy) => ({
+    x: lane + WALL_OFFSET, y: y + dy, z, block: STAIR_DECOR.crackedConcrete, role: "wall", facing: undefined, text: undefined,
+  })).filter((entry) => entry.y <= WORLD_MAX_Y);
+}
+
+function stationPlacements(lane, k) {
+  const t = stationZ(k);
+  const y = stationY(k);
   const placements = [];
-  for (let dy = 0; dy <= 2; dy++) {
-    if (y + dy > WORLD_MAX_Y) continue;
-    placements.push({ x: lane + WALL_OFFSET, y: y + dy, z, block: base, role: "wall" });
+  /** @param {number} dx @param {number} dy @param {number} dz @param {string} block @param {string} role @param {string} [facing] @param {string} [text] */
+  const add = (dx, dy, dz, block, role, facing = undefined, text = undefined) =>
+    placements.push({ x: lane + dx, y: y + dy, z: t + dz, block, role, facing, text });
+  for (let dx = -5; dx <= -3; dx++) {
+    for (let dz = 0; dz <= 1; dz++) {
+      add(dx, 0, dz, STAIR_DECOR.landingTiles, "landing");
+      add(dx, -1, dz, STAIR_DECOR.crackedConcrete, "support");
+    }
   }
+  add(-2, 0, 0, STAIR_DECOR.landingTiles, "landing");
+  for (let dz = 0; dz <= 1; dz++) {
+    for (let dy = 0; dy <= 3; dy++) add(-6, dy, dz, STAIR_DECOR.crackedConcrete, "wall");
+  }
+  const door = serviceDoorBlock(k);
+  const barricade = k % 6 === 2;
+  const plateY = door || barricade ? 3 : 2;
+  if (k < 4) {
+    add(-5, plateY, 1, "minecraft:oak_wall_sign", "number", undefined, String(k + 1).padStart(2, "0"));
+  } else {
+    add(-5, plateY, 1, plateBlock(k), "plate", "east");
+  }
+  add(-3, 2, 1, lampBlock(k), "lamp");
+  add(-3, 2, -2, signBlock(k), "sign", "east");
+  add(-3, 3, 2, STAIR_DECOR.cable, "fitting", "east");
+  add(-3, 1, 3, STAIR_DECOR.bracket, "fitting", "east");
+  add(-3, 3, 3, STAIR_DECOR.pipeElbow, "fitting", "east");
+  add(-3, 1, 4, STAIR_DECOR.rebar, "fitting", "east");
+  if (k > 0) {
+    // At t-1 this exact Y is occupied by the primary rail. Keep the
+    // continuous guard and mount the light immediately below it instead.
+    add(1, -1, -1, STAIR_DECOR.stepLight, "light", "west");
+    add(1, -2, -1, STAIR_DECOR.crackedConcrete, "support");
+  }
+  if (door) {
+    add(-5, 1, 1, door, "door", "east");
+    add(-5, 2, 1, door === STAIR_DECOR.chainedDoor ? STAIR_DECOR.chainedDoorTop : STAIR_DECOR.emergencyDoorTop, "door", "east");
+  } else if (barricade) {
+    add(-5, 1, 1, "paradise:es_barricaded_landing_x0_y0_z0", "door", "east");
+    add(-5, 2, 1, "paradise:es_barricaded_landing_x0_y1_z0", "door", "east");
+  }
+  if (k % 6 === 4) add(-4, 1, 1, STAIR_DECOR.hatch, "landing", "north");
   return placements;
 }
 
-function landingPlatform(lane, z) {
-  const y = stairY(z);
-  const placements = [];
-  for (let x = lane + LANDING_INNER_OFFSET; x <= lane + LANDING_OUTER_OFFSET; x++) {
-    for (let dz = 0; dz <= 1; dz++) {
-      placements.push({ x, y, z: z + dz, block: STAIR_DECOR.landingTiles, role: "landing" });
+function uniqueLegalRow(placements, z) {
+  const cells = new Map();
+  for (const entry of placements) {
+    if (entry.z === z && entry.y >= -64 && entry.y <= WORLD_MAX_Y) {
+      cells.set(`${entry.x}:${entry.y}:${entry.z}`, entry);
     }
   }
-  // Two stacked support beams carry each landing back down the shaft.
-  for (let dy = 1; dy <= 2; dy++) {
-    placements.push({
-      x: lane + LANDING_OUTER_OFFSET,
-      y: y - dy,
-      z: z + 1,
-      block: STAIR_DECOR.supportBeam,
-      role: "support",
-    });
-  }
-  // Outer guard, two vertical segments at both landing depths.
-  for (let dz = 0; dz <= 1; dz++) {
-    placements.push({ x: lane + LANDING_GUARD_OFFSET, y: y + 1, z: z + dz, block: STAIR_DECOR.guard, role: "guard" });
-    placements.push({ x: lane + LANDING_GUARD_OFFSET, y: y + 2, z: z + dz, block: STAIR_DECOR.guardTop, role: "guard" });
-  }
-  placements.push({ x: lane + LANDING_GUARD_OFFSET, y: y + 1, z: z + 2, block: STAIR_DECOR.guardPost, role: "guard" });
-  placements.push({ x: lane + LANDING_GUARD_OFFSET, y: y + 2, z: z + 2, block: STAIR_DECOR.guardPostTop, role: "guard" });
-  return placements;
+  return [...cells.values()];
 }
 
 export function scenePlacements(lane, z) {
   if (!isLegalRow(z)) return [];
   const y = stairY(z);
-  const k = stationIndex(z);
-  const atStation = z === stationZ(k);
-  const placements = [];
-
-  // Wall backing first: fixtures below replace wall cells and stay flush.
-  placements.push(...wallPlacements(lane, z));
-
-  // Guard line at tread-top height, sloped with the rise; the station row
-  // opens onto the side landing instead.
-  if (!atStation) {
-    placements.push({ x: lane + GUARD_OFFSET, y: y + 1, z, block: STAIR_DECOR.guardSloped, role: "guard" });
+  const post = z % 4 === 0;
+  /** @type {{x:number,y:number,z:number,block:string,role:string,facing?:string,text?:string}[]} */
+  const placements = wallPlacements(lane, z);
+  // The unsplit sloped model crosses the one-cell envelope. The registered
+  // two-segment straight rail is the safe fallback until that asset is staged.
+  placements.push(
+    { x: lane + 1, y: y + 1, z, block: post ? STAIR_DECOR.guardPost : STAIR_DECOR.guard, role: "guard", facing: "east" },
+    { x: lane + 1, y: y + 2, z, block: post ? STAIR_DECOR.guardPostTop : STAIR_DECOR.guardTop, role: "guard", facing: "east" },
+  );
+  for (let k = Math.max(0, stationIndex(z) - 1); k <= stationIndex(z) + 1; k++) {
+    if (isLegalRow(stationZ(k))) placements.push(...stationPlacements(lane, k));
   }
-  if (z % 4 === 0 && !atStation) {
-    placements.push({ x: lane + GUARD_OFFSET, y: y + 1, z, block: STAIR_DECOR.guardPost, role: "guard" });
-    placements.push({ x: lane + GUARD_OFFSET, y: y + 2, z, block: STAIR_DECOR.guardPostTop, role: "guard" });
-  }
-
-  // Chipped treads replace the east tread on the authored rows.
-  if (isChippedRow(z)) {
-    placements.push({ x: lane - 1, y, z, block: STAIR_DECOR.chippedTread, role: "tread" });
-  }
-
-  if (atStation) {
-    const t = stationZ(k);
-    const ly = stationY(k);
-    placements.push(...landingPlatform(lane, t));
-
-    // Flush wall fittings: plate, lamp and the occasional direction sign.
-    placements.push({ x: lane + WALL_OFFSET, y: ly + 2, z: t + 1, block: plateBlock(k), role: "wall" });
-    placements.push({ x: lane + WALL_OFFSET, y: ly + 2, z: t, block: lampBlock(k), role: "wall" });
-    if (k % 3 === 0) {
-      placements.push({ x: lane + WALL_OFFSET, y: ly + 2, z: t - 1, block: signBlock(k), role: "wall" });
-    }
-    const door = serviceDoorBlock(k);
-    if (door) {
-      placements.push({ x: lane + WALL_OFFSET, y: ly + 1, z: t + 1, block: door, role: "wall" });
-      placements.push({
-        x: lane + WALL_OFFSET,
-        y: ly + 2,
-        z: t + 1,
-        block: door === STAIR_DECOR.chainedDoor ? STAIR_DECOR.chainedDoorTop : STAIR_DECOR.emergencyDoorTop,
-        role: "wall",
-      });
-    }
-    placements.push({ x: lane + LANDING_INNER_OFFSET, y: ly + 1, z: t, block: STAIR_DECOR.stepLight, role: "landing" });
-  }
-
-  // Surface wear stays on the wall face, never in the walking volume.
-  if (z % 9 === 0) {
-    placements.push({ x: lane + WALL_OFFSET, y: y + 1, z, block: STAIR_DECOR.dampWall, role: "wall" });
-  }
-  if (z % 13 === 0) {
-    placements.push({ x: lane + WALL_OFFSET, y: y + 2, z, block: STAIR_DECOR.rebar, role: "wall" });
-  }
-  if (z % 6 === 0 && !atStation) {
-    placements.push({ x: lane + WALL_OFFSET, y: y + 1, z: z - 1, block: STAIR_DECOR.bracket, role: "wall" });
-  }
-  // Nothing may be written above the world ceiling, even on the last legal row.
-  return placements.filter((entry) => entry.y <= WORLD_MAX_Y && entry.y >= -64);
+  return uniqueLegalRow(placements, z);
 }
 
-/**
- * The shaft is intentionally empty east of the guard line. Retained for
- * callers and tests: no floating grating or cables are staged in the void.
- */
-export function remotePlacements(_lane, _z) {
-  return [];
+export function remotePlacements(lane, z) {
+  if (!isLegalRow(z)) return [];
+  const k = stationIndex(z);
+  const t = stationZ(k);
+  const y = stationY(k);
+  const dz = z - t;
+  if (dz > 2) return [];
+  const placements = [];
+  /** @param {number} dx @param {number} dy @param {string} block @param {string} [facing] */
+  const add = (dx, dy, block, facing = undefined) =>
+    placements.push({ x: lane + dx, y: y + dy, z, block, role: "remote", facing });
+  for (let dx = 8; dx <= 10; dx++) add(dx, -1, STAIR_DECOR.crackedConcrete);
+  add(8, 0, STAIR_DECOR.metalGrating, "north");
+  if (dz === 0) {
+    add(9, 1, "paradise:es_broken_railing_gap_x0_y0_z0", "east");
+    add(9, 2, "paradise:es_broken_railing_gap_x0_y1_z0", "east");
+  }
+  if (dz === 1) {
+    add(8, 1, "paradise:es_bent_rail_x0_y0_z0", "east");
+    add(8, 2, "paradise:es_bent_rail_x0_y1_z0", "east");
+    add(10, 0, STAIR_DECOR.crackedConcrete);
+    for (let dy = 1; dy <= 4; dy++) add(10, dy, STAIR_DECOR.crackedConcrete);
+    add(9, 4, STAIR_DECOR.crackedConcrete);
+    add(8, 4, STAIR_DECOR.supportBeam, "east");
+    // Cable remains on its own supported cell, away from the bent rail.
+    add(9, 2, STAIR_DECOR.shaftCable, "north");
+    add(9, 3, STAIR_DECOR.shaftCableTop, "north");
+  }
+  if (dz === 2) add(9, 0, "paradise:es_broken_grating_x0_y0_z0", "north");
+  return uniqueLegalRow(placements, z);
 }
 
 /** Authoritative scenery structure choice for an authored row. */

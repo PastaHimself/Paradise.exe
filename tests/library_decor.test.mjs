@@ -21,9 +21,9 @@ describe("library surfaces", () => {
     }
   });
 
-  it("adds the variant-2 parallel rows for a three-block aisle", () => {
-    assert.deepEqual(model.shelfRowsFor(2), [3, 11, 2, 6]);
-    assert.deepEqual(model.shelfRowsFor(0), [3, 11]);
+  it("replaces west-room shelf rows to preserve the three-block aisle", () => {
+    assert.deepEqual(model.shelfRowsFor(true), [2, 6]);
+    assert.deepEqual(model.shelfRowsFor(false), [3, 11]);
   });
 
   it("samples full, sparse and empty tiers by local z mod 6", () => {

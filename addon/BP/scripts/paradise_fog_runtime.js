@@ -13,8 +13,7 @@ function rememberFailure(path, error) {
 
 function commandPushed(result) {
   const count = result?.successCount;
-  if (typeof count !== "number") return true;
-  return count > 0;
+  return Number.isFinite(count) && count > 0;
 }
 
 function tryCommandFog(player, fogId, tag) {

@@ -24,13 +24,25 @@ import {
 } from "./dimension_horror_rules.js";
 import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
 import { shouldRebuildGeneratedPatch } from "./paradise_visual_geometry.js";
+import { runSingleFlight } from "./paradise_single_flight.js";
+import {
+  clearPlayerEntries,
+  collectOccupiedFlowerPatches,
+  collectUniqueFlowerPatches,
+} from "./flat_flower_lifecycle.js";
 import {
   SCENE_GARDEN_PROPS,
   SCENE_LANDMARKS,
+  SCENE_LANDMARK_DRESS,
   SCENE_MARKERS,
+  SCENE_STRUCTURE_SIZES,
+  isAuthoredScenePatch,
+  isScenePath,
   landmarkInPatch,
   sceneFlower,
   sceneGround,
+  sceneStructurePatches,
+  unreservedPatchRectangles,
 } from "./flat_flower_scene.js";
 
 const DIMENSION_ID = "paradise:flat_flower";
@@ -45,6 +57,11 @@ const GROUND_Y = 64;
 const FLOWER_Y = 65;
 const AIR_TOP_Y = 67;
 const LIGHT_Y = 68;
+const PAD_SCAN_MIN_Y = GROUND_Y;
+const PAD_SCAN_FILL_MAX_Y = GROUND_Y + 5;
+const PAD_SCAN_STRUCTURE_MAX_Y = GROUND_Y + 13;
+const PAD_SCAN_DRESS_MAX_Y = GROUND_Y + 8;
+const PAD_SCAN_DECORATION_MAX_Y = GROUND_Y + 3;
 
 const PATCH_SIZE = 32;
 const ACTIVE_PATCH_RADIUS = 1;
@@ -59,6 +76,7 @@ const SPAWN_CLEAR_RADIUS = 4;
 const FLOWER_DENSITY = 0.76;
 const MAX_LIGHT_ANCHORS_PER_PATCH = 8;
 const FALSE_GOLDEN_FLOWERS_PER_RUN = 8;
+const WORLD_GENERATION_SEED = 0;
 const FLAT_FLOWER_MODULES = Object.freeze([
   "paradise:flat_flower/lone_tree",
   "paradise:flat_flower/ruined_gazebo",
@@ -83,12 +101,12 @@ const state = {
   bootstrapReady: false,
   maintenanceRunning: false,
   generatedPatches: new Map(),
+  patchVersions: new Map(),
   dirtyPatches: new Set(),
   patchJobs: new Map(),
   returnPoints: new Map(),
   activeFlowers: new Map(),
   pendingEscapes: new Set(),
-  runSeed: 0,
   nextWeatherRefreshTick: 0,
   lureRules: new Map(),
 };
@@ -181,7 +199,7 @@ function noise2D(x, z) {
   const mixed =
     Math.imul(x | 0, 0x8da6b343) ^
     Math.imul(z | 0, 0xd8163841) ^
-    Math.imul(state.runSeed | 0, 0x9e3779b1) ^
+    Math.imul(WORLD_GENERATION_SEED, 0x9e3779b1) ^
     0x5f3759df;
   return hash32(mixed);
 }
@@ -203,10 +221,69 @@ function getFieldFlowerBlock(x, z) {
   return "minecraft:azure_bluet";
 }
 
-function placeSparseLightAnchors(dimension, minX, minZ) {
+function isPadReserved(x, z, centers) {
+  return centers.some((center) =>
+    (Math.abs(x - center.x) <= 1 && Math.abs(z - center.z) <= 1)
+    || (x === center.x && z === center.z + 2));
+}
+
+function collectPadReservations(dimension, minX, minZ, maxX, maxZ, minY, maxY) {
+  const centers = [];
+  // Keep the snapshot synchronous for destructive fills and placement guards.
+  const volume = new BlockVolume(
+    { x: minX, y: minY, z: minZ },
+    { x: maxX, y: maxY, z: maxZ },
+  );
+  const plates = dimension.getBlocks(volume, {
+    includeTypes: ["minecraft:stone_pressure_plate"],
+  });
+  for (const location of plates.getBlockLocationIterator()) {
+    centers.push({ x: location.x, z: location.z });
+  }
+  return centers;
+}
+
+function collectPadReservationsForPoints(dimension, points, minY, maxY) {
+  if (points.length === 0) return [];
+
+  let minX = Number.POSITIVE_INFINITY;
+  let minZ = Number.POSITIVE_INFINITY;
+  let maxX = Number.NEGATIVE_INFINITY;
+  let maxZ = Number.NEGATIVE_INFINITY;
+  for (const point of points) {
+    minX = Math.min(minX, point.x);
+    minZ = Math.min(minZ, point.z);
+    maxX = Math.max(maxX, point.x);
+    maxZ = Math.max(maxZ, point.z);
+  }
+
+  return collectPadReservations(
+    dimension,
+    minX - 1,
+    minZ - 2,
+    maxX + 1,
+    maxZ + 1,
+    minY,
+    maxY,
+  );
+}
+
+function fillUnreservedPatch(dimension, bounds, centers, fromY, toY, typeId) {
+  for (const [minX, maxX, minZ, maxZ] of unreservedPatchRectangles(
+    bounds.minX, bounds.minZ, bounds.maxX, bounds.maxZ, centers,
+  )) {
+    dimension.fillBlocks(
+      new BlockVolume({ x: minX, y: fromY, z: minZ }, { x: maxX, y: toY, z: maxZ }),
+      typeId,
+    );
+  }
+}
+
+function placeSparseLightAnchors(dimension, minX, minZ, protectedCenters = []) {
   let placed = 0;
   for (let localX = 4; localX < PATCH_SIZE && placed < MAX_LIGHT_ANCHORS_PER_PATCH; localX += 8) {
     for (let localZ = 4; localZ < PATCH_SIZE && placed < MAX_LIGHT_ANCHORS_PER_PATCH; localZ += 8) {
+      if (isPadReserved(minX + localX, minZ + localZ, protectedCenters)) continue;
       setBlockSafe(dimension, { x: minX + localX, y: LIGHT_Y, z: minZ + localZ }, "minecraft:light_block_15");
       placed++;
     }
@@ -224,24 +301,54 @@ function patchHasSpecialFlowerSite(patchX, patchZ) {
   return false;
 }
 
-function scheduleFlatFlowerLandmark(dimension, patchX, patchZ, minX, minZ) {
-  if (patchHasSpecialFlowerSite(patchX, patchZ)) return;
-  const seed = visualHashCoords(patchX, patchZ, state.runSeed ^ 0x464c4154);
-  if (seed % 16 !== 0) return;
+async function scheduleFlatFlowerLandmark(dimension, patchX, patchZ, minX, minZ, token) {
+  if (patchHasSpecialFlowerSite(patchX, patchZ) || isAuthoredScenePatch(patchX, patchZ)) return true;
+  const seed = visualHashCoords(patchX, patchZ, WORLD_GENERATION_SEED ^ 0x464c4154);
+  if (seed % 16 !== 0) return true;
   const structureId = FLAT_FLOWER_MODULES[(seed >>> 4) % FLAT_FLOWER_MODULES.length];
   const offsetX = seed & 1 ? 2 : 18;
   const offsetZ = seed & 2 ? 2 : 18;
-  scheduleStructurePlacement(
-    `flat-flower:${state.runSeed}:${patchX}:${patchZ}`,
+  const location = { x: minX + offsetX, y: GROUND_Y + 1, z: minZ + offsetZ };
+  const [sizeX, , sizeZ] = SCENE_STRUCTURE_SIZES[structureId];
+  const ownsPaintToken = () => state.patchVersions.get(getPatchKey(patchX, patchZ)) === token;
+  const overlapsLivePad = () => collectPadReservations(
+    dimension,
+    location.x - 1,
+    location.z - 2,
+    location.x + sizeX,
+    location.z + sizeZ,
+    PAD_SCAN_MIN_Y,
+    PAD_SCAN_STRUCTURE_MAX_Y,
+  ).length > 0;
+
+  if (!ownsPaintToken()) return false;
+  if (overlapsLivePad()) return true;
+
+  let padBlockedPlacement = false;
+  const isPlacementAllowed = () => {
+    if (!ownsPaintToken()) return false;
+    if (overlapsLivePad()) {
+      padBlockedPlacement = true;
+      return false;
+    }
+    return true;
+  };
+  const placed = await scheduleStructurePlacement(
+    `flat-flower:${WORLD_GENERATION_SEED}:${patchX}:${patchZ}:${token}`,
     structureId,
     dimension,
-    { x: minX + offsetX, y: GROUND_Y + 1, z: minZ + offsetZ },
+    location,
+    { isPlacementAllowed },
   );
+  if (!ownsPaintToken()) return false;
+  if (placed) return true;
+  return padBlockedPlacement || overlapsLivePad();
 }
 
-function paintSceneColumn(dimension, x, z) {
+function paintSceneColumn(dimension, x, z, protectedCenters) {
   const ground = sceneGround(x, z);
   if (!ground) return false;
+  if (isPadReserved(x, z, protectedCenters)) return true;
   setBlockSafe(dimension, { x, y: GROUND_Y, z }, ground);
   const flower = sceneFlower(x, z);
   if (flower) {
@@ -250,35 +357,98 @@ function paintSceneColumn(dimension, x, z) {
   return true;
 }
 
-function placeSceneAnchors(dimension, minX, minZ, maxX, maxZ) {
+function placeScenePiece(dimension, piece, protectedCenters) {
+  if (piece.y <= AIR_TOP_Y && isScenePath(piece.x, piece.z)) return false;
+  if (isPadReserved(piece.x, piece.z, protectedCenters)) return false;
+  const block = dimension.getBlock({ x: piece.x, y: piece.y, z: piece.z });
+  if (!block) return false;
+  const replaceable = block.typeId === "minecraft:air"
+    || block.typeId === "minecraft:structure_void"
+    || block.typeId?.startsWith("paradise:ff_")
+    || ["minecraft:poppy", "minecraft:cornflower", "minecraft:white_tulip", "minecraft:azure_bluet"].includes(block.typeId);
+  if (!replaceable) return false;
+  try {
+    block.setPermutation(BlockPermutation.resolve(piece.block, {
+      "minecraft:cardinal_direction": piece.facing,
+    }));
+    return true;
+  } catch (_error) {
+    return false;
+  }
+}
+
+async function placeSceneAnchors(dimension, patchX, patchZ, minX, minZ, maxX, maxZ, token) {
+  const ownsPaintToken = () => state.patchVersions.get(getPatchKey(patchX, patchZ)) === token;
   for (const landmark of SCENE_LANDMARKS) {
     if (!landmarkInPatch(landmark, minX, minZ, maxX, maxZ)) continue;
-    scheduleStructurePlacement(
-      `flat-flower-scene:${state.runSeed}:${landmark.id}`,
+    // The source structures currently fit wholly in their owning patches.
+    // Check this before a future resize can put unloaded neighboring cells at risk.
+    const requiredPatches = sceneStructurePatches(landmark);
+    if (requiredPatches.some((key) => key !== getPatchKey(patchX, patchZ))) {
+      throw new Error(`Flat Flower structure spans unprepared patches: ${landmark.id}`);
+    }
+    const [sizeX, , sizeZ] = SCENE_STRUCTURE_SIZES[landmark.id];
+    const overlapsLivePad = () => collectPadReservations(
+      dimension,
+      landmark.x - 1,
+      landmark.z - 2,
+      landmark.x + sizeX,
+      landmark.z + sizeZ,
+      PAD_SCAN_MIN_Y,
+      PAD_SCAN_STRUCTURE_MAX_Y,
+    ).length > 0;
+    // The travel planner owns any newly re-anchored pad in this footprint.
+    if (overlapsLivePad()) continue;
+    let padBlockedPlacement = false;
+    const isPlacementAllowed = () => {
+      if (!ownsPaintToken()) return false;
+      if (overlapsLivePad()) {
+        padBlockedPlacement = true;
+        return false;
+      }
+      return true;
+    };
+    const placed = await scheduleStructurePlacement(
+      `flat-flower-scene:${WORLD_GENERATION_SEED}:${landmark.id}:${token}`,
       landmark.id,
       dimension,
       { x: landmark.x, y: landmark.y, z: landmark.z },
+      { isPlacementAllowed },
     );
+    if ((!placed && !padBlockedPlacement && !overlapsLivePad()) || !ownsPaintToken()) {
+      throw new Error(`Flat Flower structure placement failed: ${landmark.id}`);
+    }
+    if (!placed) continue;
+    const dressPieces = SCENE_LANDMARK_DRESS.filter((piece) => piece.landmark === landmark.id);
+    if (dressPieces.length > 0) {
+      const currentPads = collectPadReservationsForPoints(
+        dimension,
+        dressPieces,
+        PAD_SCAN_MIN_Y,
+        PAD_SCAN_DRESS_MAX_Y,
+      );
+      for (const piece of dressPieces) placeScenePiece(dimension, piece, currentPads);
+    }
   }
 
-  for (const marker of SCENE_MARKERS) {
-    if (!landmarkInPatch(marker, minX, minZ, maxX, maxZ)) continue;
+  const localMarkers = SCENE_MARKERS.filter((marker) => landmarkInPatch(marker, minX, minZ, maxX, maxZ));
+  const localProps = SCENE_GARDEN_PROPS.filter((prop) => landmarkInPatch(prop, minX, minZ, maxX, maxZ));
+  const localDecorations = [...localMarkers, ...localProps];
+  const currentPads = collectPadReservationsForPoints(
+    dimension,
+    localDecorations,
+    PAD_SCAN_MIN_Y,
+    PAD_SCAN_DECORATION_MAX_Y,
+  );
+  for (const marker of localMarkers) {
     marker.segments.forEach((segment, index) => {
-      setBlockSafe(dimension, { x: marker.x, y: FLOWER_Y + index, z: marker.z }, segment);
+      if (!isPadReserved(marker.x, marker.z, currentPads)) {
+        setBlockSafe(dimension, { x: marker.x, y: FLOWER_Y + index, z: marker.z }, segment);
+      }
     });
   }
 
-  // Garden remnants dress the gazebo lawn without touching the footpaths.
-  for (const prop of SCENE_GARDEN_PROPS) {
-    if (!landmarkInPatch(prop, minX, minZ, maxX, maxZ)) continue;
-    const block = dimension.getBlock({ x: prop.x, y: FLOWER_Y, z: prop.z });
-    if (!block) continue;
-    try {
-      block.setPermutation(BlockPermutation.resolve(prop.block, {
-        "minecraft:cardinal_direction": prop.facing,
-      }));
-    } catch (error) {}
-  }
+  for (const prop of localProps) placeScenePiece(dimension, prop, currentPads);
 }
 
 function clearSpecialArea(dimension, center, radius) {
@@ -314,14 +484,12 @@ function getPatchJob(dimension, patchX, patchZ, options = {}) {
   const key = getPatchKey(patchX, patchZ);
 
   const existingJob = state.patchJobs.get(key);
-  if (existingJob && options.force !== true) {
-    return existingJob;
-  }
+  if (existingJob) return existingJob;
 
   const current = state.generatedPatches.get(key);
   const stale = shouldRebuildGeneratedPatch(
     current,
-    state.runSeed,
+    WORLD_GENERATION_SEED,
     options.force === true,
     state.dirtyPatches.has(key),
   );
@@ -330,26 +498,32 @@ function getPatchJob(dimension, patchX, patchZ, options = {}) {
     return Promise.resolve(false);
   }
 
-  const job = (async () => {
+  const token = (state.patchVersions.get(key) ?? 0) + 1;
+  state.patchVersions.set(key, token);
+  const job = runSingleFlight(state.patchJobs, key, async () => {
+    state.dirtyPatches.delete(key);
     try {
-      await paintPatch(dimension, patchX, patchZ, options);
+      await paintPatch(dimension, patchX, patchZ, { ...options, token });
       state.generatedPatches.set(key, {
         lastBuiltTick: system.currentTick,
-        runSeed: state.runSeed,
+        runSeed: WORLD_GENERATION_SEED,
       });
-      state.dirtyPatches.delete(key);
       return true;
     } catch (error) {
+      state.dirtyPatches.add(key);
+      console.warn(`[Flat Flower] Patch build failed at ${patchX}:${patchZ}.`, error);
       return false;
-    } finally {
-      if (state.patchJobs.get(key) === job) {
-        state.patchJobs.delete(key);
-      }
     }
-  })();
+  });
 
-  state.patchJobs.set(key, job);
-  return job;
+  return job.then((result) => {
+    if (state.dirtyPatches.has(key)) {
+      system.run(() => {
+        void getPatchJob(dimension, patchX, patchZ).catch(() => {});
+      });
+    }
+    return result;
+  });
 }
 
 async function withTickingArea(dimension, areaId, from, to, work) {
@@ -378,6 +552,7 @@ async function withTickingArea(dimension, areaId, from, to, work) {
 
 async function paintPatch(dimension, patchX, patchZ, options = {}) {
   const { minX, minZ, maxX, maxZ } = getPatchBounds(patchX, patchZ);
+  const bounds = { minX, minZ, maxX, maxZ };
   const areaId = `${DIMENSION_ID}:patch:${patchX}:${patchZ}`;
 
   const from = {
@@ -387,45 +562,47 @@ async function paintPatch(dimension, patchX, patchZ, options = {}) {
   };
   const to = {
     x: maxX + 4,
-    y: LIGHT_Y + 2,
+    y: PAD_SCAN_STRUCTURE_MAX_Y + 2,
     z: maxZ + 4,
   };
 
   await withTickingArea(dimension, areaId, from, to, async () => {
-    dimension.fillBlocks(
-      new BlockVolume(
-        { x: minX, y: GROUND_Y, z: minZ },
-        { x: maxX, y: GROUND_Y, z: maxZ },
-      ),
-      "minecraft:grass_block",
+    const protectedCenters = collectPadReservations(
+      dimension,
+      minX - 1,
+      minZ - 2,
+      maxX + 1,
+      maxZ + 1,
+      PAD_SCAN_MIN_Y,
+      PAD_SCAN_FILL_MAX_Y,
     );
+    fillUnreservedPatch(dimension, bounds, protectedCenters, GROUND_Y, GROUND_Y, "minecraft:grass_block");
 
     // Clear the space above the grass before the flowers and light are applied.
-    dimension.fillBlocks(
-      new BlockVolume(
-        { x: minX, y: FLOWER_Y, z: minZ },
-        { x: maxX, y: LIGHT_Y, z: maxZ },
-      ),
-      "minecraft:air",
-    );
+    fillUnreservedPatch(dimension, bounds, protectedCenters, FLOWER_Y, LIGHT_Y, "minecraft:air");
 
-    placeSparseLightAnchors(dimension, minX, minZ);
+    placeSparseLightAnchors(dimension, minX, minZ, protectedCenters);
 
     for (let x = minX; x <= maxX; x++) {
       for (let z = minZ; z <= maxZ; z++) {
-        if (paintSceneColumn(dimension, x, z)) continue;
+        if (paintSceneColumn(dimension, x, z, protectedCenters)) continue;
+        if (isPadReserved(x, z, protectedCenters)) continue;
         if (shouldPlaceRedFlower(x, z)) {
           setBlockSafe(dimension, { x, y: FLOWER_Y, z }, getFieldFlowerBlock(x, z));
         }
       }
     }
 
-    placeSceneAnchors(dimension, minX, minZ, maxX, maxZ);
-
     if (options.suppressSpecialSites !== true) {
       applySpecialSitesForPatch(dimension, patchX, patchZ);
     }
-    scheduleFlatFlowerLandmark(dimension, patchX, patchZ, minX, minZ);
+    await placeSceneAnchors(
+      dimension, patchX, patchZ, minX, minZ, maxX, maxZ, options.token,
+    );
+    const ambientPlaced = await scheduleFlatFlowerLandmark(
+      dimension, patchX, patchZ, minX, minZ, options.token,
+    );
+    if (!ambientPlaced) throw new Error(`Flat Flower ambient placement failed: ${patchX}:${patchZ}`);
   });
 }
 
@@ -500,9 +677,6 @@ async function resetFlowerAfterLure(player, ruleState) {
   if (!scareDecision.allowed) return;
   ruleState.pressure = 0;
   ruleState.falseFocusTicks = 0;
-  state.runSeed = (state.runSeed + 1) | 0;
-  state.generatedPatches.clear();
-  state.dirtyPatches.clear();
   assignGoldenFlower(player.id, ENTRY_CENTER);
   safeTitle(player, "The field smiles again.", "The perfect flowers lied.", 50);
   safeAddEffect(player, "minecraft:blindness", 45, { amplifier: 0, showParticles: false });
@@ -512,7 +686,7 @@ async function resetFlowerAfterLure(player, ruleState) {
     checkForBlocks: false,
     keepVelocity: false,
   }, { attempts: 6, retryTicks: 3, maxDistance: 48 });
-  await ensureTerrainAroundLocation(ENTRY_CENTER, 1, { force: true });
+  await ensureTerrainAroundLocation(ENTRY_CENTER, 1);
   placeFlowerTeachingSigns(player.dimension);
   await prepareGoldenFlowerSite(player.id);
 }
@@ -587,15 +761,7 @@ function applySpecialSitesForPatch(dimension, patchX, patchZ) {
 }
 
 function chooseGoldenFlowerLocation(origin, playerId) {
-  const occupiedPatches = new Set();
-
-  for (const [otherPlayerId, flower] of state.activeFlowers.entries()) {
-    if (otherPlayerId === playerId) {
-      continue;
-    }
-
-    occupiedPatches.add(getPatchKey(flower.patchX, flower.patchZ));
-  }
+  const occupiedPatches = collectOccupiedFlowerPatches(state.activeFlowers, playerId);
 
   const base = toBlockPos(origin);
 
@@ -636,43 +802,39 @@ function chooseGoldenFlowerLocation(origin, playerId) {
     };
   }
 
-  // Fallback: a deterministic offset that still keeps the target well away from spawn.
-  const fallbackX = base.x + FLOWER_MIN_DISTANCE;
-  const fallbackZ = base.z;
-  const patchX = Math.floor(fallbackX / PATCH_SIZE);
-  const patchZ = Math.floor(fallbackZ / PATCH_SIZE);
+  for (let offset = 0; offset < 64; offset += 1) {
+    const fallbackX = base.x + FLOWER_MIN_DISTANCE + offset * PATCH_SIZE;
+    const fallbackZ = base.z;
+    const patchX = Math.floor(fallbackX / PATCH_SIZE);
+    const patchZ = Math.floor(fallbackZ / PATCH_SIZE);
+    if (occupiedPatches.has(getPatchKey(patchX, patchZ))) continue;
+    return { location: { x: fallbackX, y: FLOWER_Y, z: fallbackZ }, patchX, patchZ };
+  }
 
-  return {
-    location: {
-      x: fallbackX,
-      y: FLOWER_Y,
-      z: fallbackZ,
-    },
-    patchX,
-    patchZ,
-  };
+  throw new Error("Unable to reserve a unique Flat Flower patch for the player.");
 }
 
-function chooseFalseGoldenFlowers(origin, trueFlower) {
+function chooseFalseGoldenFlowers(origin, trueFlower, playerId) {
   const base = toBlockPos(origin);
   const falseFlowers = [];
-  const occupied = new Set([`${trueFlower.location.x}:${trueFlower.location.z}`]);
+  const occupiedPatches = collectOccupiedFlowerPatches(state.activeFlowers, playerId);
+  occupiedPatches.add(getPatchKey(trueFlower.patchX, trueFlower.patchZ));
 
   for (let attempt = 0; attempt < 80 && falseFlowers.length < FALSE_GOLDEN_FLOWERS_PER_RUN; attempt++) {
     const distance = randomInt(Math.floor(FLOWER_MIN_DISTANCE * 0.45), FLOWER_MAX_DISTANCE);
     const angle = Math.random() * Math.PI * 2;
     const x = base.x + Math.round(Math.cos(angle) * distance);
     const z = base.z + Math.round(Math.sin(angle) * distance);
-    const key = `${x}:${z}`;
-    if (occupied.has(key)) {
-      continue;
-    }
-    occupied.add(key);
+    const patchX = Math.floor(x / PATCH_SIZE);
+    const patchZ = Math.floor(z / PATCH_SIZE);
+    const patchKey = getPatchKey(patchX, patchZ);
+    if (occupiedPatches.has(patchKey)) continue;
+    occupiedPatches.add(patchKey);
 
     falseFlowers.push({
       location: { x, y: FLOWER_Y, z },
-      patchX: Math.floor(x / PATCH_SIZE),
-      patchZ: Math.floor(z / PATCH_SIZE),
+      patchX,
+      patchZ,
     });
   }
 
@@ -681,8 +843,8 @@ function chooseFalseGoldenFlowers(origin, trueFlower) {
 
 function assignGoldenFlower(playerId, origin) {
   const choice = chooseGoldenFlowerLocation(origin, playerId);
-  choice.falseFlowers = chooseFalseGoldenFlowers(origin, choice);
-  choice.runSeed = state.runSeed;
+  choice.falseFlowers = chooseFalseGoldenFlowers(origin, choice, playerId);
+  choice.runSeed = WORLD_GENERATION_SEED;
   choice.prepared = false;
   state.activeFlowers.set(playerId, choice);
   return choice;
@@ -704,16 +866,15 @@ async function prepareGoldenFlowerSite(playerId) {
     return;
   }
 
-  await getPatchJob(getFlatFlowerDimension(), flower.patchX, flower.patchZ, {
-    force: flower.prepared !== true,
-  });
-
-  for (const falseFlower of flower.falseFlowers || []) {
-    await getPatchJob(getFlatFlowerDimension(), falseFlower.patchX, falseFlower.patchZ, {
-      force: falseFlower.prepared !== true,
-    });
-    falseFlower.prepared = true;
+  const dimension = getFlatFlowerDimension();
+  const force = flower.prepared !== true;
+  for (const patch of collectUniqueFlowerPatches(flower)) {
+    const built = await getPatchJob(dimension, patch.patchX, patch.patchZ, { force });
+    const key = getPatchKey(patch.patchX, patch.patchZ);
+    if ((force && !built) || state.dirtyPatches.has(key)) return;
   }
+  flower.prepared = true;
+  for (const falseFlower of flower.falseFlowers || []) falseFlower.prepared = true;
 }
 
 async function bootstrapFlatFlowerWorld() {
@@ -803,9 +964,7 @@ async function escapePlayerFromFlatFlower(player) {
 }
 
 function clearStateForLeavingPlayer(playerId) {
-  state.pendingEscapes.delete(playerId);
-  state.activeFlowers.delete(playerId);
-  state.returnPoints.delete(playerId);
+  clearPlayerEntries(playerId, [state.pendingEscapes, state.activeFlowers, state.returnPoints]);
   clearRuleState(state.lureRules, playerId);
 }
 
@@ -946,9 +1105,6 @@ function handlePlayerDimensionChange(event) {
 
   if (enteredFlatFlower) {
     clearStateForLeavingPlayer(player.id);
-    state.runSeed = (state.runSeed + 1) | 0;
-    state.generatedPatches.clear();
-    state.dirtyPatches.clear();
     storeReturnPoint(player.id, event.fromDimension, event.fromLocation);
 
     const origin = event.toLocation ? event.toLocation : ENTRY_CENTER;
@@ -959,7 +1115,7 @@ function handlePlayerDimensionChange(event) {
     } catch (error) {}
 
     system.run(() => {
-      void ensureTerrainAroundLocation(origin, 1, { force: true }).catch(() => {});
+      void ensureTerrainAroundLocation(origin, 1).catch(() => {});
       try { placeFlowerTeachingSigns(event.toDimension); } catch (_error) {}
       void prepareGoldenFlowerSite(player.id).catch(() => {});
     });
@@ -1235,6 +1391,7 @@ world.afterEvents.worldLoad.subscribe(() => {
 });
 
 world.afterEvents.playerDimensionChange.subscribe(handlePlayerDimensionChange);
+world.afterEvents.playerLeave.subscribe((event) => clearStateForLeavingPlayer(event.playerId));
 world.afterEvents.playerInteractWithBlock.subscribe(handlePlayerInteractWithBlock);
 world.beforeEvents.playerBreakBlock.subscribe(handlePlayerBreakBlock);
 world.afterEvents.playerPlaceBlock.subscribe(handlePlayerPlaceBlock);

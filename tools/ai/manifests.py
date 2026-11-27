@@ -39,8 +39,9 @@ def pack_versions(root, args):
                 raise Conflict(f"Invalid existing {field} in {doc['header'].get('name', 'manifest')}")
             if requested is None:
                 continue
-            if requested < current and field == "version":
-                raise Conflict(f"Pack version cannot decrease from {current} to {requested}")
+            if requested < current:
+                label = "Pack version" if field == "version" else "Minimum engine version"
+                raise Conflict(f"{label} cannot decrease from {current} to {requested}")
             doc["header"][field] = requested
         if target is not None:
             for module in doc["modules"]:

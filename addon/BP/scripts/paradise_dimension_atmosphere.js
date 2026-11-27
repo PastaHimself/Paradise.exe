@@ -1,11 +1,13 @@
 import { system, world } from "@minecraft/server";
 import { applyFogConfig } from "./player_config.js";
 import { applyFogLayer } from "./paradise_fog_runtime.js";
-import { clampVisualY, getVisualBudget } from "./paradise_visual_budget.js";
+import { particleYInDimension, getVisualBudget } from "./paradise_visual_budget.js";
 import { DIMENSION_VISUAL_PROFILES } from "./paradise_dimension_visual_profiles.js";
+import { spawnParticleForPlayer } from "./paradise_particle_dispatch.js";
 
 const FOG_TAG = "paradise_dimension_atmosphere";
 const nextParticleTick = new Map();
+let lastParticleDispatchFailureTick = -1;
 
 export function clearDimensionAtmospherePlayer(playerOrId) {
   const playerId = typeof playerOrId === "string" ? playerOrId : playerOrId?.id;
@@ -39,15 +41,22 @@ function pulseAmbientParticles() {
     for (let i = 0; i < budget.particleBurst; i++) {
       const angle = Math.random() * Math.PI * 2;
       const radius = 3 + Math.random() * Math.max(1, radiusMax - 3);
+      const y = particleYInDimension(player.location.y + profile.ambientY + (Math.random() - 0.5) * profile.verticalSpread, player.dimension);
+      if (y === undefined) continue;
       const location = {
         x: player.location.x + Math.cos(angle) * radius,
-        y: clampVisualY(player.location.y + profile.ambientY + (Math.random() - 0.5) * profile.verticalSpread),
+        y,
         z: player.location.z + Math.sin(angle) * radius,
       };
 
       try {
-        player.dimension.spawnParticle(profile.particle, location);
-      } catch (_error) {}
+        spawnParticleForPlayer(player, profile.particle, location);
+      } catch (error) {
+        if (lastParticleDispatchFailureTick !== now) {
+          lastParticleDispatchFailureTick = now;
+          console.warn("[Paradise] Player-scoped ambient particle dispatch failed.", error);
+        }
+      }
     }
   }
 }

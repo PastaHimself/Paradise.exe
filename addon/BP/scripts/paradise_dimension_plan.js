@@ -206,6 +206,7 @@ function getMistakeState(playerId) {
   if (!playerMistakes.has(playerId)) {
     playerMistakes.set(playerId, {
       doorTicks: [],
+      lastDimensionId: undefined,
       lastLocation: undefined,
       lastMoveTick: currentTick(),
       highestRecentY: undefined,
@@ -217,6 +218,49 @@ function getMistakeState(playerId) {
     });
   }
   return playerMistakes.get(playerId);
+}
+
+function resetMovementSamples(state, dimensionId, location, tick) {
+  state.lastDimensionId = dimensionId;
+  state.lastLocation = location;
+  state.lastMoveTick = tick;
+  state.highestRecentY = location ? location.y : undefined;
+  state.fireRunTicks = 0;
+  state.endlessFastClimbTicks = 0;
+  state.endlessQuietTicks = 0;
+  state.endlessBrightTicks = 0;
+}
+
+function sampleMovement(state, dimensionId, location, tick) {
+  if (state.lastDimensionId !== dimensionId) {
+    resetMovementSamples(state, dimensionId, location, tick);
+  }
+
+  const last = state.lastLocation;
+  const dt = last ? Math.max(1, tick - (state.lastMoveTick || tick)) : 1;
+  const dy = last ? location.y - last.y : 0;
+  const horizontal = last ? horizontalDistance(location, last) : 0;
+
+  state.lastLocation = location;
+  state.lastMoveTick = tick;
+
+  return { dt, dy, horizontalSpeed: horizontal / dt };
+}
+
+function isMovementSampleCurrent(state, sampledDimensionId, currentDimensionId) {
+  return state.lastDimensionId === sampledDimensionId && currentDimensionId === sampledDimensionId;
+}
+
+function shouldEnterStaircaseFromFall(state, location, dy) {
+  if (state.highestRecentY === undefined || location.y > state.highestRecentY || dy > -0.05) {
+    state.highestRecentY = location.y;
+  }
+  const dropDistance = (state.highestRecentY || location.y) - location.y;
+  if (dropDistance >= 12 && dy < -0.6) {
+    state.highestRecentY = location.y;
+    return true;
+  }
+  return false;
 }
 
 function cooldownKey(player, key) {
@@ -690,23 +734,14 @@ function updateMovementMistakes() {
     const playerId = playerIdOf(player);
     const state = getMistakeState(playerId);
     const location = copyLocation(player.location);
-    const last = state.lastLocation;
-    const dt = Math.max(1, tick - (state.lastMoveTick || tick));
-    const dy = last ? location.y - last.y : 0;
-    const horizontal = last ? horizontalDistance(location, last) : 0;
-    const horizontalSpeed = horizontal / dt;
-
-    state.lastLocation = location;
-    state.lastMoveTick = tick;
+    const dimensionId = dimensionIdOf(player);
+    const { dt, dy, horizontalSpeed } = sampleMovement(state, dimensionId, location, tick);
 
     if (!isPlayerInParadise(player)) {
-      if (state.highestRecentY === undefined || location.y > state.highestRecentY || dy > -0.05) {
-        state.highestRecentY = location.y;
-      }
-      const dropDistance = (state.highestRecentY || location.y) - location.y;
-      if (dropDistance >= 12 && dy < -0.6) {
-        state.highestRecentY = location.y;
+      if (shouldEnterStaircaseFromFall(state, location, dy)) {
+        const fallDimensionId = dimensionId;
         system.run(() => {
+          if (!isMovementSampleCurrent(state, fallDimensionId, dimensionIdOf(player))) return;
           void enterTargetDimension(player, DIMENSION.endlessStaircase, "The fall became a staircase.");
         });
       }
@@ -724,11 +759,11 @@ function updateMovementMistakes() {
       }
     }
 
-    if (dimensionIdOf(player) === DIMENSION.endlessStaircase) {
+    if (dimensionId === DIMENSION.endlessStaircase) {
       updateEndlessConnectionRules(player, state, horizontalSpeed, dt);
     }
 
-    if (dimensionIdOf(player) === DIMENSION.burningHighway && location.y < 56) {
+    if (dimensionId === DIMENSION.burningHighway && location.y < 56) {
       system.run(() => {
         void enterCatacombsWorse(player, "The broken road drops into the Catacombs.");
       });
@@ -1316,6 +1351,11 @@ function handleDimensionChange(event) {
   const playerId = playerIdOf(player);
   const toId = dimensionIdOf(event.toDimension);
   const fromId = dimensionIdOf(event.fromDimension);
+
+  if (fromId && toId && fromId !== toId) {
+    const destination = event.toLocation ? copyLocation(event.toLocation) : undefined;
+    resetMovementSamples(getMistakeState(playerId), toId, destination, currentTick());
+  }
 
   if (isParadiseDimensionId(toId)) {
     if (!returnPoints.has(playerId) && fromId && !isParadiseDimensionId(fromId)) {

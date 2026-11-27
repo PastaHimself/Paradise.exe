@@ -7,6 +7,11 @@ from math import ceil, cos, floor, isfinite, radians, sin
 CELL_MIN = (-8, 0, -8)
 CELL_MAX = (8, 16, 8)
 EPSILON = 1e-7
+CUSTOM_BLOCK_MIN = (-14, -14, -14)
+CUSTOM_BLOCK_MAX = (30, 30, 30)
+CUSTOM_BLOCK_MAX_SIZE = 30
+CUSTOM_BLOCK_MAX_CENTER_OFFSET = 7
+CUSTOM_BLOCK_MIN_CELL_INTERSECTION = 1
 # Axes and edge directions in the Bedrock JSON exported by Blockbench.
 # Each tuple records U axis, V axis, normal axis, and the three signs.
 FACE_AXES = {
@@ -30,17 +35,18 @@ def translated(point, delta):
     return [round(x + shift, 9) for x, shift in zip(point, delta)]
 
 
-def rotate(point, pivot, angles):
+def rotate(point, pivot, angles, positive_z_rotation=False):
     x, y, z = (v - p for v, p in zip(point, pivot))
     # Convert Bedrock static geometry axes to the ZYX rotation convention.
-    a, b, c = (radians(-angles[0]), radians(angles[1]), radians(-angles[2]))
+    z_angle = angles[2] if positive_z_rotation else -angles[2]
+    a, b, c = (radians(-angles[0]), radians(angles[1]), radians(z_angle))
     y, z = y * cos(a) - z * sin(a), y * sin(a) + z * cos(a)
     x, z = x * cos(b) + z * sin(b), -x * sin(b) + z * cos(b)
     x, y = x * cos(c) - y * sin(c), x * sin(c) + y * cos(c)
     return translated((x, y, z), pivot)
 
 
-def cube_bounds(cube, ancestors):
+def cube_bounds(cube, ancestors, positive_z_rotation=False):
     origin = vector(cube["origin"], 3, "cube origin")
     size = vector(cube["size"], 3, "cube size")
     if any(n < 0 for n in size) or sum(n > 0 for n in size) < 2:
@@ -58,7 +64,7 @@ def cube_bounds(cube, ancestors):
     ]
     corners = list(product(*zip(lo, hi)))
     for pivot, angles in transforms:
-        corners = [rotate(point, pivot, angles) for point in corners]
+        corners = [rotate(point, pivot, angles, positive_z_rotation) for point in corners]
     return ([min(axis) for axis in zip(*corners)],
             [max(axis) for axis in zip(*corners)], bool(transforms))
 
@@ -123,7 +129,7 @@ def clipped_faces(faces, lo, hi, cut_lo, cut_hi):
     return output
 
 
-def read_cubes(model):
+def read_cubes(model, positive_z_rotation=False):
     bones = model.get("bones", [])
     by_name = {bone["name"]: bone for bone in bones}
     if len(bones) != len(by_name):
@@ -139,11 +145,14 @@ def read_cubes(model):
         if any(key in bone for key in ("poly_mesh", "texture_meshes", "locators")):
             raise ValueError("Static scaffold supports cube bones only")
         for cube in bone.get("cubes", []):
-            yield i, cube, *cube_bounds(cube, parents), cube.get("mirror", bone.get("mirror", False))
+            yield i, cube, *cube_bounds(cube, parents, positive_z_rotation), cube.get("mirror", bone.get("mirror", False))
 
 
 def shifted_geometry(model, cell_cubes, delta):
     result = deepcopy(model)
+    description = result.get("description", {})
+    if "visible_bounds_offset" in description:
+        description["visible_bounds_offset"] = translated(description["visible_bounds_offset"], delta)
     for i, bone in enumerate(result.get("bones", [])):
         # A missing pivot means the model origin. Translate it as well so
         # inherited rotations preserve their center in the segment.
@@ -153,7 +162,58 @@ def shifted_geometry(model, cell_cubes, delta):
     return result
 
 
-def stage_cells(model, split):
+def cells_for_bounds(lo, hi):
+    intervals = []
+    for a, b, base in zip(lo, hi, CELL_MIN):
+        first = floor((a - base + EPSILON) / 16)
+        last = ceil((b - base - EPSILON) / 16) - 1
+        first = min(first, max(0, last))
+        intervals.append(range(first, max(first, last) + 1))
+    return sorted(product(*intervals))
+
+
+def validate_custom_block_segment(model, cell):
+    # Validate in Bedrock's geometry rotation convention, including its Z sign.
+    cubes = list(read_cubes(model))
+    if not cubes:
+        raise ValueError(f"Segment {cell} has no geometry")
+    mins = [min(row[2][axis] for row in cubes) for axis in range(3)]
+    maxs = [max(row[3][axis] for row in cubes) for axis in range(3)]
+    if any(hi - lo > CUSTOM_BLOCK_MAX_SIZE + EPSILON for lo, hi in zip(mins, maxs)):
+        raise ValueError(f"Segment {cell} exceeds the 30-unit custom block geometry limit")
+    if not inside(mins, maxs, CUSTOM_BLOCK_MIN, CUSTOM_BLOCK_MAX):
+        raise ValueError(f"Segment {cell} exceeds the custom block geometry bounds")
+    center = [(lo + hi) / 2 for lo, hi in zip(mins, maxs)]
+    center_offset = [center[0], center[1] - 8, center[2]]
+    if any(abs(value) > CUSTOM_BLOCK_MAX_CENTER_OFFSET + EPSILON for value in center_offset):
+        raise ValueError(f"Segment {cell} geometry center is more than 7 units from its block center")
+    overlap = [max(0, min(hi, upper) - max(lo, lower))
+               for lo, hi, lower, upper in zip(mins, maxs, CELL_MIN, CELL_MAX)]
+    if any(value < CUSTOM_BLOCK_MIN_CELL_INTERSECTION - EPSILON for value in overlap):
+        raise ValueError(f"Segment {cell} must intersect its own 16-unit cell by at least 1 unit on every axis")
+
+
+def add_non_rendering_segment_anchor(model):
+    bones = model.setdefault("bones", [])
+    anchor_name = "__scaffold_segment_anchor"
+    if any(bone.get("name") == anchor_name for bone in bones):
+        raise ValueError(f"Reserved segment anchor bone name already exists: {anchor_name}")
+    bones.append({
+        "name": anchor_name,
+        "neverRender": True,
+        "pivot": [0, 0, 0],
+        "cubes": [{"origin": [0, 1, 0], "size": [1, 1, 1], "uv": [0, 0]}],
+    })
+
+
+def stage_cells(model, split, preserve_rotated_cubes=False, translation_bias=None):
+    if type(preserve_rotated_cubes) is not bool:
+        raise ValueError("preserve_rotated_cubes must be boolean")
+    bias = vector(translation_bias if translation_bias is not None else [0, 0, 0],
+                  3, "translation_bias")
+    if not split and (preserve_rotated_cubes or any(bias)):
+        raise ValueError("preserve_rotated_cubes and translation_bias require geometry_mode S")
+    # Cell assignment must use the same transform Bedrock applies at runtime.
     cubes = list(read_cubes(model))
     if not split:
         for _, _, lo, hi, _, _ in cubes:
@@ -166,8 +226,9 @@ def stage_cells(model, split):
     maxs = [max(row[3][a] for row in cubes) for a in range(3)]
     if any(hi - lo > 64 * 16 for lo, hi in zip(mins, maxs)):
         raise ValueError("Geometry span exceeds 64 cells on an axis")
-    shift = tuple(base - lo if lo < base - EPSILON or hi > end + EPSILON else 0
-                  for base, end, lo, hi in zip(CELL_MIN, CELL_MAX, mins, maxs))
+    shift = [base - lo if lo < base - EPSILON or hi > end + EPSILON else 0
+             for base, end, lo, hi in zip(CELL_MIN, CELL_MAX, mins, maxs)]
+    shift = [value + adjustment for value, adjustment in zip(shift, bias)]
     grouped = {}
     for bone, cube, low, high, rotated, mirrored in cubes:
         lo, hi = translated(low, shift), translated(high, shift)
@@ -180,7 +241,17 @@ def stage_cells(model, split):
             first = min(first, max(0, last))
             intervals.append(range(first, max(first, last) + 1))
         if rotated and any(len(axis) != 1 for axis in intervals):
-            raise ValueError("Rotated cube crosses a 16-unit plane; author adjoining cell-sized pieces")
+            if not preserve_rotated_cubes:
+                raise ValueError("Rotated cube crosses a 16-unit plane; author adjoining cell-sized pieces")
+            cell = tuple(floor(((a + b) / 2 - base + EPSILON) / 16)
+                         for a, b, base in zip(lo, hi, CELL_MIN))
+            part = deepcopy(cube)
+            delta = [value - 16 * index for value, index in zip(shift, cell)]
+            part["origin"] = translated(cube["origin"], delta)
+            if "pivot" in cube or any(cube.get("rotation", [])):
+                part["pivot"] = translated(cube.get("pivot", [0, 0, 0]), delta)
+            grouped.setdefault(cell, {}).setdefault(bone, []).append(part)
+            continue
         for cell in product(*intervals):
             offset = [16 * n for n in cell]
             delta = [s - n for s, n in zip(shift, offset)]
@@ -201,14 +272,26 @@ def stage_cells(model, split):
                 part["inflate"] = 0
                 part["uv"] = clipped_faces(face_uvs(cube), lo, hi, cut_lo, cut_hi)
             grouped.setdefault(cell, {}).setdefault(bone, []).append(part)
+    if preserve_rotated_cubes:
+        for cell in cells_for_bounds(translated(mins, shift), translated(maxs, shift)):
+            grouped.setdefault(cell, {})
+
     staged = {}
     for cell, cell_cubes in sorted(grouped.items()):
         segment = shifted_geometry(model, cell_cubes, [s - 16 * n for s, n in zip(shift, cell)])
-        for _, _, lo, hi, _, _ in read_cubes(segment):
-            if not inside(lo, hi):
-                raise ValueError(f"Segment {cell} still has out-of-bounds geometry")
+        if not cell_cubes:
+            # AABB occupancy can include a cell with no cube centre. Keep its
+            # runtime segment registered while neighbouring oversized cubes
+            # render the authored shape across the cell boundary.
+            add_non_rendering_segment_anchor(segment)
+        if preserve_rotated_cubes:
+            validate_custom_block_segment(segment, cell)
+        else:
+            for _, _, lo, hi, _, _ in read_cubes(segment):
+                if not inside(lo, hi):
+                    raise ValueError(f"Segment {cell} still has out-of-bounds geometry")
         staged[cell] = segment
-    return staged, shift
+    return staged, tuple(shift)
 
 
 def placement_offsets(cells, cardinal):

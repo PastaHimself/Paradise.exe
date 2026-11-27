@@ -17,14 +17,19 @@ import {
   poolPlanters,
   restStationPlan,
   restStations,
+  visitLandmarks,
+  visitReservations,
+  coveredChunks,
+  rectanglesIntersect,
   segmentsFor,
 } from "../addon/BP/scripts/heaven_scene.js";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 
-test("the rest pair stages a clean station and a disturbed twin nine blocks east", () => {
+test("the fixed rest displays are twenty blocks west and ten blocks apart", () => {
   const stations = restStations(100, 50);
-  assert.deepEqual(stations.map((s) => [s.id, s.offsetX]), [["clean", 0], ["disturbed", 9]]);
+  assert.deepEqual(stations.map((s) => [s.id, s.offsetX]), [["clean", -20], ["disturbed", -20]]);
+  assert.deepEqual(stations.map(s => s.z), [52, 62]);
   assert.notEqual(REST.clean.bench, REST.disturbed.bench);
   assert.notEqual(REST.clean.sign, REST.disturbed.sign);
 });
@@ -36,8 +41,8 @@ test("each rest station keeps the approach and bed/chest slots", () => {
   const sign = plan.find((p) => p.block === REST.clean.sign);
   assert.equal(bench.y, FLOOR_Y + 1);
   assert.equal(chest.y, FLOOR_Y + 1);
-  assert.equal(sign.z, 23);
-  for (const entry of plan) assert.ok(entry.y >= FLOOR_Y && entry.y <= FLOOR_Y + 2);
+  assert.equal(sign.z, 25);
+  for (const entry of plan) assert.ok(entry.y >= FLOOR_Y && entry.y <= FLOOR_Y + 3);
 });
 
 test("the disturbed twin adds footprints but no extra furniture", () => {
@@ -50,7 +55,7 @@ test("the disturbed twin adds footprints but no extra furniture", () => {
 
 test("pool edging keeps the north pedestrian opening and wraps the rim", () => {
   const cells = poolEdging(0, 0, 12);
-  assert.equal(cells.length, 46);
+  assert.equal(cells.length, 42);
   assert.equal(new Set(cells.map((c) => `${c.x}:${c.z}`)).size, 42);
   for (const cell of cells) {
     assert.ok(cell.x === 0 || cell.x === 11 || cell.z === 0 || cell.z === 11);
@@ -73,9 +78,9 @@ test("the temple dais stays reserved and empty", () => {
   assert.equal(isDaisReserved(11, 7, 11), false);
 });
 
-test("exit frames flank the arrival pad", () => {
+test("exit frames are anchored in the temple", () => {
   const frames = exitFrames(100, 60);
-  assert.deepEqual(frames.map((f) => f.x), [96, 104]);
+  assert.deepEqual(frames.map((f) => f.x), [103, 110]);
   assert.equal(frames[0].block, EXIT_FRAMES.open);
   assert.equal(frames[1].block, EXIT_FRAMES.final);
   assert.ok(EXIT_FRAMES.open !== EXIT_FRAMES.final);
@@ -108,4 +113,15 @@ test("the altar dais stays reserved at [10..13,3..6,10..13]", () => {
   assert.equal(isDaisReserved(9, 3, 10), false);
   assert.equal(isDaisReserved(10, 7, 10), false);
   assert.equal(isDaisReserved(10, 3, 14), false);
+});
+
+test("fixed scene reservations cover actual chunks without demanding new generation", () => {
+  const [clean, disturbed, pool, temple] = visitLandmarks(1000);
+  assert.deepEqual([clean.x, clean.z, disturbed.x, disturbed.z], [980, 2, 980, 12]);
+  assert.deepEqual([pool.x + 2, pool.z + 3, temple.x, temple.z], [992, 22, 1016, 16]);
+  assert.ok(coveredChunks(temple).length > 1);
+  assert.ok(visitReservations(1000).some(rect => rectanglesIntersect(rect, { x: 1000, z: 5, width: 1, depth: 1 })));
+  assert.ok(visitReservations(1000).some(rect => rectanglesIntersect(rect, { x: 1009, z: 10, width: 1, depth: 1 })));
+  assert.ok(!visitReservations(1000).some(rect => rectanglesIntersect(rect, { x: 1060, z: 60, width: 1, depth: 1 })));
+  assert.ok(!rectanglesIntersect(clean, disturbed));
 });

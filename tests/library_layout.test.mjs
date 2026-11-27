@@ -5,180 +5,146 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import * as layout from "../addon/BP/scripts/library_layout.js";
-import { RESTRICTED_RESERVE, isCross } from "../addon/BP/scripts/library_decor_model.js";
+import { isCross, shelfStateFor } from "../addon/BP/scripts/library_decor_model.js";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const ARRIVAL = [62, 0];
+const RESTRICTED = [63, 0];
+const READING = [62, -1];
+const WEST = [61, 0];
 const PLAIN = [40, 7];
 
-const FOOTPRINTS = {
-  carrel: [[0, 0], [1, 0], [0, 1], [1, 1]],
-  table: [[0, 0], [1, 0]],
-  chair: [[0, 0]],
-  cart: [[0, 0]],
-  ladder: [[0, 0]],
-  crate: [[0, 0]],
-};
-
-describe("library arrival chunk", () => {
-  it("detects the 1000-block visit grid and nothing else", () => {
-    assert.equal(layout.isArrivalChunk(...ARRIVAL), true);
-    assert.equal(layout.isArrivalChunk(0, 0), true);
-    assert.equal(layout.isArrivalChunk(125, 0), true);
+describe("Library room assignments and protected volumes", () => {
+  it("derives all four roles from the 1000-block visit grid", () => {
+    for (const [visit, arrivalX] of [[0, 0], [1, 62], [2, 125], [3, 187]]) {
+      assert.equal(layout.isArrivalChunk(arrivalX, 0), true, `visit ${visit}`);
+      assert.equal(layout.isReadingRoom(arrivalX, -1), true);
+      assert.equal(layout.isRestrictedRoom(arrivalX + 1, 0), true);
+      assert.equal(layout.isWestRoom(arrivalX - 1, 0), true);
+      assert.equal(layout.isArrivalChunk(arrivalX, 1), false);
+    }
+    assert.equal(layout.isArrivalChunk(...PLAIN), false);
     assert.equal(layout.isArrivalChunk(63, 0), false);
-    assert.equal(layout.isArrivalChunk(62, 1), false);
   });
 
-  it("reserves exactly the documented restricted bay", () => {
-    assert.deepEqual(
-      [layout.ALCOVE.minX, layout.ALCOVE.minY, layout.ALCOVE.minZ],
-      RESTRICTED_RESERVE.min,
-    );
-    assert.deepEqual(
-      [layout.ALCOVE.maxX, layout.ALCOVE.maxY, layout.ALCOVE.maxZ],
-      RESTRICTED_RESERVE.max,
-    );
-    assert.equal(layout.isAlcoveCell(...ARRIVAL, 10, 65, 12), true);
-    assert.equal(layout.isAlcoveCell(...ARRIVAL, 13, 68, 14), true);
-    assert.equal(layout.isAlcoveCell(...ARRIVAL, 9, 65, 12), false);
-    assert.equal(layout.isAlcoveCell(...PLAIN, 10, 65, 12), false);
+  it("reserves the archive volume in the east room only", () => {
+    assert.deepEqual(layout.ALCOVE, { minX: 10, maxX: 13, minY: 65, maxY: 68, minZ: 12, maxZ: 14 });
+    assert.equal(layout.isAlcoveCell(...RESTRICTED, 10, 65, 12), true);
+    assert.equal(layout.isAlcoveCell(...RESTRICTED, 13, 68, 14), true);
+    assert.equal(layout.isAlcoveCell(...RESTRICTED, 10, 69, 13), false);
+    assert.equal(layout.isAlcoveCell(...ARRIVAL, 10, 65, 12), false);
+    assert.equal(layout.isAlcoveCell(...READING, 10, 65, 12), false);
   });
 
-  it("protects the three vanilla bookshelf anchors only on arrival", () => {
+  it("protects all four travel pads, their signs and the spawn buffer at chunk edges", () => {
+    for (const [cx, cz, x, z] of [
+      [62, 0, 8, 8], [62, -1, 8, 8], [63, 0, 0, 0], [62, 0, 0, 0],
+      [62, 0, 8, 0], [62, 0, 11, 2],
+    ]) {
+      assert.equal(layout.isConnectionReservation(cx, cz, x, 65, z), true, `${cx},${cz}:${x},${z}`);
+    }
+    assert.equal(layout.isConnectionReservation(63, 0, 0, 64, 0), true);
+    assert.equal(layout.isConnectionReservation(62, -1, 8, 65, 10), true);
+    assert.equal(layout.isConnectionReservation(63, 0, 0, 68, 0), false);
+    assert.equal(layout.isConnectionReservation(63, 0, 8, 65, 4), false);
+    assert.equal(layout.isConnectionReservation(...PLAIN, 8, 65, 8), false);
+  });
+
+  it("preserves three vanilla bookshelf functional anchors on the arrival chunk", () => {
+    assert.deepEqual(layout.PROTECTED_BOOKSHELVES, [[3, 2], [11, 2], [11, 9]]);
     for (const [x, z] of layout.PROTECTED_BOOKSHELVES) {
       assert.equal(layout.isProtectedBookshelf(...ARRIVAL, x, z), true);
-      assert.equal(layout.isProtectedBookshelf(...PLAIN, x, z), false);
-    }
-    assert.equal(layout.isProtectedBookshelf(...ARRIVAL, 4, 2), false);
-  });
-});
-
-describe("library walkability", () => {
-  it("keeps the four-lane cross and side aisles as walk lanes", () => {
-    for (let i = 0; i < 16; i += 1) {
-      assert.equal(layout.isWalkLane(7, i), true);
-      assert.equal(layout.isWalkLane(8, i), true);
-      assert.equal(layout.isWalkLane(i, 7), true);
-      assert.equal(layout.isWalkLane(i, 8), true);
-      assert.equal(layout.isWalkLane(2, i), true);
-      assert.equal(layout.isWalkLane(3, i), true);
-      assert.equal(layout.isWalkLane(12, i), true);
-      assert.equal(layout.isWalkLane(13, i), true);
-      if (!isCross(4, i)) assert.equal(layout.isWalkLane(4, i), false);
-      if (!isCross(11, i)) assert.equal(layout.isWalkLane(11, i), false);
-    }
-  });
-
-  it("never raises a shelf in a walk lane, the bay or an anchor", () => {
-    for (const variant of [1, 2, 3]) {
-      for (const [cx, cz] of [ARRIVAL, PLAIN]) {
-        for (const cell of layout.shelfCells(cx, cz, variant)) {
-          assert.equal(layout.isWalkLane(cell.x, cell.z), false, `${cell.x},${cell.z}`);
-          assert.equal(layout.isAlcoveCell(cx, cz, cell.x, 65, cell.z), false);
-          assert.equal(layout.isProtectedBookshelf(cx, cz, cell.x, cell.z), false);
-          assert.ok([65, 67, 69].includes(cell.tier));
-        }
-      }
-    }
-  });
-
-  it("leaves the arrival bay visibly emptier than a plain room", () => {
-    const arrival = layout.shelfCells(...ARRIVAL, 1).length;
-    const plain = layout.shelfCells(...PLAIN, 1).length;
-    assert.ok(arrival < plain, `${arrival} !< ${plain}`);
-  });
-
-  it("keeps furniture footprints out of every walk lane", () => {
-    for (const variant of [1, 2, 3]) {
-      for (const [cx, cz] of [ARRIVAL, PLAIN, [0, 0]]) {
-        for (const item of layout.furniture(cx, cz, variant)) {
-          const footprint = FOOTPRINTS[item.kind];
-          assert.ok(footprint, item.kind);
-          for (const [dx, dz] of footprint) {
-            assert.equal(layout.isWalkLane(item.x + dx, item.z + dz), false, `${item.kind}@${item.x + dx},${item.z + dz}`);
-            assert.equal(layout.isAlcoveCell(cx, cz, item.x + dx, 65, item.z + dz), false);
-          }
-        }
-      }
-    }
-  });
-
-  it("keeps the centre cross clear of tables, carts and ladders", () => {
-    for (const item of layout.furniture(...PLAIN, 1)) {
-      for (const [dx, dz] of FOOTPRINTS[item.kind]) {
-        assert.equal(isCross(item.x + dx, item.z + dz), false);
-      }
-    }
-  });
-
-  it("angles a fallen shelf off the bank, never across a lane", () => {
-    for (let cx = -8; cx <= 8; cx += 1) {
-      const fallen = layout.fallenShelf(cx, 0);
-      if (!fallen) continue;
-      assert.ok([4, 11].includes(fallen.x));
-      assert.equal(layout.isWalkLane(fallen.x, fallen.z), false);
-      assert.equal(layout.isAlcoveCell(cx, 0, fallen.x, 65, fallen.z), false);
+      assert.equal(layout.shelfCells(...ARRIVAL, 0).some((cell) => cell.x === x && cell.z === z), false);
+      assert.equal(layout.isProtectedBookshelf(...READING, x, z), false);
     }
   });
 });
 
-describe("library dressing plan", () => {
-  it("mounts signs on solid walls and off the shelf banks", () => {
-    for (const [cx, cz] of [ARRIVAL, PLAIN]) {
-      const plan = layout.signs(cx, cz, 1);
-      assert.ok(plan.length === 3 || plan.length === 4, String(plan.length));
-      for (const sign of plan) {
-        assert.ok(sign.x === 1 || sign.x === 14 || sign.kind === "restricted", JSON.stringify(sign));
-        assert.ok(sign.y >= 65 && sign.y <= 68);
-      }
-    }
-    assert.equal(layout.signs(...ARRIVAL, 1).some((s) => s.kind === "restricted"), true);
-    assert.equal(layout.signs(...PLAIN, 1).some((s) => s.kind === "restricted"), false);
-  });
-
-  it("hangs lamps below the ceiling on the low-power alternate", () => {
-    const lamps = layout.aisleLamps(3);
-    assert.ok(lamps.length >= 4);
-    for (const [index, lamp] of lamps.entries()) {
-      assert.equal(lamp.y, 72);
-      assert.equal(lamp.lit, index % 2 === 0);
-      assert.equal(layout.isWalkLane(lamp.x, lamp.z), false);
-    }
-    for (const lamp of layout.aisleLamps(1)) assert.equal(lamp.lit, true);
-  });
-
-  it("samples full, sparse and empty tiers deterministically", () => {
-    const seen = new Set();
+describe("Library corridor and shelf geometry", () => {
+  it("keeps the complete two-block public cross and west room's three-block aisle open", () => {
     for (let x = 0; x < 16; x += 1) {
       for (let z = 0; z < 16; z += 1) {
-        for (const tier of [65, 67, 69]) seen.add(layout.shelfTierState(x, z, tier));
+        assert.equal(isCross(x, z), x === 7 || x === 8 || z === 7 || z === 8);
+        assert.equal(layout.isWalkLane(x, z, true), isCross(x, z) || (x >= 3 && x <= 5));
       }
     }
-    assert.deepEqual([...seen].sort(), ["empty", "full", "sparse"]);
-    assert.equal(
-      layout.shelfTierState(4, 3, 65),
-      layout.shelfTierState(4, 3, 65),
-    );
+    for (const [cx, cz] of [ARRIVAL, RESTRICTED, READING, WEST, PLAIN]) {
+      for (const cell of layout.shelfCells(cx, cz, 3)) {
+        assert.equal(isCross(cell.x, cell.z), false, JSON.stringify(cell));
+        assert.equal(layout.isAlcoveCell(cx, cz, cell.x, cell.tier, cell.z), false);
+        assert.equal(layout.isConnectionReservation(cx, cz, cell.x, cell.tier, cell.z), false);
+      }
+    }
   });
 
-  it("registers only block ids that exist in the behavior pack", () => {
-    const source = readFileSync(path.join(ROOT, "addon/BP/scripts/library_layout.js"), "utf8");
-    const ids = [...new Set(source.match(/paradise:[a-z0-9_]+/g) ?? [])].sort();
-    assert.ok(ids.length > 20);
-    const missing = ids.filter((id) => !existsSync(
-      path.join(ROOT, "addon/BP/blocks", `${id.replace(":", "__")}.json`),
-    ));
-    assert.deepEqual(missing, []);
+  it("uses x3/x11 and west x2/x6, fixed tiers and z modulo six", () => {
+    for (const [cx, cz, allowed] of [
+      [...READING, [3, 11]], [...RESTRICTED, [3, 11]], [...PLAIN, [3, 11]], [...WEST, [2, 6]],
+    ]) {
+      const cells = layout.shelfCells(cx, cz, 1);
+      assert.ok(cells.length > 0);
+      for (const cell of cells) {
+        assert.ok(allowed.includes(cell.x), JSON.stringify(cell));
+        assert.ok([65, 67, 69].includes(cell.tier));
+        assert.ok((cell.z >= 1 && cell.z <= 6) || (cell.z >= 9 && cell.z <= 14));
+        assert.equal(cell.state, shelfStateFor(cell.z));
+      }
+      assert.equal(cells.some((cell) => cell.tier > 69), false);
+    }
+    assert.deepEqual([0, 1, 2, 3, 4, 5].map((z) => layout.shelfTierState(3, z, 65)),
+      ["full", "full", "sparse", "sparse", "full", "empty"]);
   });
 
-  it("encodes cell offsets in every multi-cell segment id", () => {
-    for (const kind of ["carrel", "table", "cart"]) {
-      const ids = layout.furnitureBlock(kind);
-      assert.ok(ids.length > 1, kind);
-      for (const id of ids) assert.match(id, /_x\d+_y\d+_z\d+$/);
+  it("places the fallen shelf only west of arrival, clear of the aisle", () => {
+    assert.deepEqual(layout.fallenShelf(...WEST), { x: 1, z: 4, facing: "west" });
+    assert.equal(layout.fallenShelf(...ARRIVAL), null);
+    assert.equal(layout.fallenShelf(...READING), null);
+    assert.equal(layout.isWalkLane(1, 4, true), false);
+    assert.equal(layout.isWalkLane(2, 5, true), false);
+  });
+
+  it("places the reading and restricted furniture outside the cross and document reserve", () => {
+    assert.deepEqual(layout.furniture(...PLAIN, 0), []);
+    assert.deepEqual(layout.furniture(...ARRIVAL, 0), []);
+    assert.ok(layout.furniture(...READING, 0).some((item) => item.kind === "table" && item.x === 1 && item.z === 10));
+    assert.ok(layout.furniture(...RESTRICTED, 0).some((item) => item.kind === "staffDoor" && item.z === 11));
+    for (const [cx, cz] of [READING, RESTRICTED]) {
+      for (const item of layout.furniture(cx, cz, 0)) {
+        assert.equal(isCross(item.x, item.z), false);
+        assert.equal(layout.isAlcoveCell(cx, cz, item.x, 65, item.z), false);
+      }
     }
-    for (const state of ["full", "sparse", "empty"]) {
-      for (const id of layout.shelfBlocks(state)) assert.match(id, /_x\d+_y\d+_z\d+$/);
+  });
+});
+
+describe("Library fixture and registry references", () => {
+  it("uses fixed pairs at Y72, with alternate lights only in the low-power room", () => {
+    assert.deepEqual(layout.aisleLamps(false), [
+      { x: 4, z: 4, y: 72, lit: true }, { x: 10, z: 4, y: 72, lit: true },
+      { x: 4, z: 11, y: 72, lit: true }, { x: 11, z: 11, y: 72, lit: true },
+    ]);
+    assert.deepEqual(layout.aisleLamps(true).map((lamp) => lamp.lit), [true, false, true, false]);
+  });
+
+  it("positions the static restricted and reading signs without a riddle/card trigger", () => {
+    assert.deepEqual(layout.signs(...ARRIVAL), []);
+    assert.ok(layout.signs(...READING).some((sign) => sign.kind === "reading"));
+    assert.ok(layout.signs(...RESTRICTED).some((sign) => sign.kind === "restricted" && sign.y === 69));
+    assert.ok(layout.signs(...RESTRICTED).some((sign) => sign.kind === "exit"));
+  });
+
+  it("uses only registered existing block IDs and explicit offsets for split assets", () => {
+    const text = readFileSync(path.join(ROOT, "addon/BP/scripts/library_layout.js"), "utf8")
+      + readFileSync(path.join(ROOT, "addon/BP/scripts/library_decor.js"), "utf8");
+    const ids = [...new Set(text.match(/paradise:[a-z0-9_]+/g) ?? [])];
+    assert.ok(ids.length > 30);
+    assert.deepEqual(ids.filter((id) => !existsSync(path.join(ROOT, "addon/BP/blocks", `${id.replace(":", "__")}.json`))), []);
+    for (const kind of ["carrel", "table", "cart", "ladder", "lockedCabinet", "staffDoor"]) {
+      for (const id of layout.furnitureBlock(kind)) assert.match(id, /_x\d+_y\d+_z\d+$/);
     }
+    assert.deepEqual(layout.furnitureBlock("ladder"), [
+      "paradise:lib_tall_library_ladder_x0_y0_z0",
+      "paradise:lib_tall_library_ladder_x0_y1_z0",
+    ]);
   });
 });

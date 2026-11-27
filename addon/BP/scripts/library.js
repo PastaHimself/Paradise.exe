@@ -24,9 +24,25 @@ import {
   setStandingSign,
 } from "./dimension_horror_rules.js";
 import { getCachedPlayers } from "./paradise_tick_cache.js";
-import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
-import { applyLibraryDressing } from "./library_decor.js";
-import { isProtectedBookshelf } from "./library_layout.js";
+import { hashCoords as visualHashCoords, scheduleStructurePlacement, scheduleVisualJob } from "./paradise_visual_jobs.js";
+import {
+  applyLibrarySurfaces,
+  applyLibraryShelves,
+  applyLibraryFurniture,
+  applyLibraryLights,
+  applyLibrarySigns,
+  applyLibraryRestrictedBay,
+} from "./library_decor.js";
+import {
+  isAlcoveCell,
+  isArrivalChunk,
+  isConnectionReservation,
+  isProtectedBookshelf,
+  isReadingRoom,
+  isRestrictedApproachCell,
+  isRestrictedRoom,
+  isWestRoom,
+} from "./library_layout.js";
 
 export const LIBRARY_DIMENSION_ID = "library:the_library";
 const LEGACY_ENTER_COMMAND_ID = "p:library";
@@ -132,10 +148,52 @@ const returnPoints = new Map();
 const libraryGamemodes = new Map();
 const visitCounters = new Map();
 const generatedChunks = new Set();
+const pendingChunkGenerations = new Map();
+const pendingSpawnPreparations = new Map();
 const pendingVoidFall = new Set();
 const playerHistory = new Map();
 const pendingQuestion = new Map();
 const libraryRuleState = new Map();
+const activeLibraryReturnAttempts = new Map();
+const failedLibraryReturnPlayers = new Set();
+const returnAreaLeaseTokens = new Map();
+let nextReturnAreaLeaseToken = 0;
+
+function beginLibraryReturnAttempt(playerId) {
+  activeLibraryReturnAttempts.set(
+    playerId,
+    (activeLibraryReturnAttempts.get(playerId) || 0) + 1,
+  );
+}
+
+function endLibraryReturnAttempt(playerId) {
+  const activeCount = activeLibraryReturnAttempts.get(playerId) || 0;
+  if (activeCount <= 1) {
+    activeLibraryReturnAttempts.delete(playerId);
+    return;
+  }
+  activeLibraryReturnAttempts.set(playerId, activeCount - 1);
+}
+
+function acquireReturnAreaLease(areaId) {
+  nextReturnAreaLeaseToken += 1;
+  returnAreaLeaseTokens.set(areaId, nextReturnAreaLeaseToken);
+  return nextReturnAreaLeaseToken;
+}
+
+function releaseReturnAreaLease(areaId, leaseToken) {
+  if (returnAreaLeaseTokens.get(areaId) !== leaseToken) {
+    return false;
+  }
+
+  returnAreaLeaseTokens.delete(areaId);
+  try {
+    world.tickingAreaManager.removeTickingArea(areaId);
+  } catch (_error) {
+    // Ignore missing ticking areas and cleanup failures.
+  }
+  return true;
+}
 
 const LIBRARY_LIGHT_ITEM_IDS = new Set([
   "minecraft:torch",
@@ -351,6 +409,11 @@ function dimNearbyLibraryLight(dim, player, ruleState) {
     { x: px - 4, y: CEILING_Y, z: pz - 4 },
   ];
   for (const pos of options) {
+    const localX = ((pos.x % CHUNK_SIZE) + CHUNK_SIZE) % CHUNK_SIZE;
+    const localZ = ((pos.z % CHUNK_SIZE) + CHUNK_SIZE) % CHUNK_SIZE;
+    if ((localX === 4 && localZ === 4)
+      || (localX === 11 && localZ === 11)
+      || (localX === 10 && localZ === 13)) continue;
     const block = getBlockSafe(dim, pos.x, pos.y, pos.z);
     if (block && block.typeId === "minecraft:glowstone") {
       fillSafe(dim, pos, pos, "minecraft:oak_planks");
@@ -447,10 +510,34 @@ function getLibraryRoomVariant(cx, cz) {
   return visualHashCoords(cx, cz, 0x4c494252) % 4;
 }
 
+function structureFootprintIsFree(cx, cz, minX, maxX, minY, maxY, minZ, maxZ) {
+  for (let x = minX; x <= maxX; x += 1) {
+    for (let z = minZ; z <= maxZ; z += 1) {
+      for (let y = minY; y <= maxY; y += 1) {
+        if (isConnectionReservation(cx, cz, x, y, z)
+          || isAlcoveCell(cx, cz, x, y, z)
+          || isRestrictedApproachCell(cx, cz, x, y, z)
+          || (y <= FLOOR_Y + 3 && (x === 7 || x === 8 || z === 7 || z === 8))) {
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}
+
 function scheduleLibraryChunkArt(dim, cx, cz) {
   const seed = visualHashCoords(cx, cz, 0x41524348);
   const ox = cx * CHUNK_SIZE;
   const oz = cz * CHUNK_SIZE;
+
+  if (isRestrictedRoom(cx, cz)) {
+    // The archive frame's central lower backplane is masked in its structure.
+    scheduleStructurePlacement(`library-archive-frame:${cx}:${cz}`, LIBRARY_ART.frame, dim,
+      { x: ox + 8, y: FLOOR_Y + 1, z: oz + 13 });
+    return;
+  }
+  if (isArrivalChunk(cx, cz) || isReadingRoom(cx, cz) || isWestRoom(cx, cz)) return;
 
   if (seed % 32 === 0) {
     // The monument begins above head height, leaving both cross aisles open.
@@ -471,38 +558,96 @@ function scheduleLibraryChunkArt(dim, cx, cz) {
     : structureId === LIBRARY_ART.alcove
       ? { x: ox, y: FLOOR_Y + 1, z: oz + 10 }
       : { x: ox, y: FLOOR_Y + 1, z: oz + 1 };
+  const bounds = structureId === LIBRARY_ART.balcony
+    ? [1, 9, 68, 72, 0, 6]
+    : structureId === LIBRARY_ART.alcove
+      ? [0, 5, 65, 70, 10, 14]
+      : [0, 6, 65, 72, 1, 3];
+  if (!structureFootprintIsFree(cx, cz, ...bounds)) return;
   scheduleStructurePlacement(`library-art:${cx}:${cz}`, structureId, dim, location);
 }
 
-function generateLibraryChunk(dim, cx, cz) {
-  const ox = cx * CHUNK_SIZE;
-  const oz = cz * CHUNK_SIZE;
-  const variant = getLibraryRoomVariant(cx, cz);
-
-  // Base shell only; the dressing pass owns surfaces, shelves and furniture.
-  fillSafe(dim, { x: ox, y: FLOOR_Y, z: oz }, { x: ox + 15, y: FLOOR_Y, z: oz + 15 }, "minecraft:oak_planks");
-  fillSafe(dim, { x: ox, y: CEILING_Y, z: oz }, { x: ox + 15, y: CEILING_Y, z: oz + 15 }, "minecraft:oak_planks");
-
-  // Remove the pre-rework shelf walls and stray light blocks, but never the
-  // protected vanilla anchors, travel pads, chests or beds.
-  for (let localX = 0; localX < 16; localX++) {
-    for (let localZ = 0; localZ < 16; localZ++) {
-      for (let y = ROOM_HEIGHT_MIN; y <= ROOM_HEIGHT_MAX; y++) {
-        try {
-          const block = dim.getBlock({ x: ox + localX, y, z: oz + localZ });
-          if (!block) continue;
-          if (block.typeId === "minecraft:bookshelf" && !isProtectedBookshelf(cx, cz, localX, localZ)) {
-            block.setType("minecraft:air");
-          } else if (block.typeId === "minecraft:glowstone") {
-            block.setType("minecraft:air");
-          }
-        } catch (_error) {}
-      }
+function ensureLibraryChunkLoaded(dim, cx, cz) {
+  for (const x of [cx * CHUNK_SIZE, cx * CHUNK_SIZE + 15]) {
+    for (const z of [cz * CHUNK_SIZE, cz * CHUNK_SIZE + 15]) {
+      if (!getBlockSafe(dim, x, FLOOR_Y, z) || !getBlockSafe(dim, x, CEILING_Y, z)) return false;
     }
   }
+  return true;
+}
 
-  applyLibraryDressing(dim, ox, oz, variant, cx, cz);
-  scheduleLibraryChunkArt(dim, cx, cz);
+function requestLibraryChunk(dim, cx, cz) {
+  const key = `${cx}:${cz}`;
+  if (generatedChunks.has(key)) return Promise.resolve(true);
+  if (pendingChunkGenerations.has(key)) return pendingChunkGenerations.get(key);
+
+  let resolveCompletion;
+  const completion = new Promise((resolve) => { resolveCompletion = resolve; });
+  pendingChunkGenerations.set(key, completion);
+  let settled = false;
+  const settle = (completed) => {
+    if (settled) return;
+    settled = true;
+    pendingChunkGenerations.delete(key);
+    if (completed) generatedChunks.add(key);
+    resolveCompletion(completed);
+  };
+
+  const scheduled = scheduleVisualJob(`library-chunk:${key}`, function* (context) {
+    let completed = false;
+    try {
+      if (context.isCancelled() || !ensureLibraryChunkLoaded(dim, cx, cz)) return;
+      const ox = cx * CHUNK_SIZE;
+      const oz = cz * CHUNK_SIZE;
+      const variant = getLibraryRoomVariant(cx, cz);
+
+      for (let localX = 0; localX < CHUNK_SIZE; localX += 2) {
+        for (let x = localX; x < localX + 2; x += 1) {
+          for (let z = 0; z < CHUNK_SIZE; z += 1) {
+            if (isProtectedBookshelf(cx, cz, x, z)) continue;
+            for (let y = ROOM_HEIGHT_MIN; y <= ROOM_HEIGHT_MAX; y += 1) {
+              if (isConnectionReservation(cx, cz, x, y, z)) continue;
+              const block = getBlockSafe(dim, ox + x, y, oz + z);
+              if (!block) throw new Error("Library generation lost a loaded chunk");
+              if (block.typeId === "minecraft:bookshelf" || block.typeId === "minecraft:glowstone") {
+                block.setType("minecraft:air");
+              }
+            }
+          }
+        }
+        yield;
+        if (context.isCancelled()) return;
+      }
+
+      applyLibrarySurfaces(dim, ox, oz, variant, cx, cz);
+      yield;
+      if (context.isCancelled()) return;
+      if (!ensureLibraryChunkLoaded(dim, cx, cz)) throw new Error("Library chunk unloaded during dressing");
+      applyLibraryShelves(dim, ox, oz, variant, cx, cz);
+      yield;
+      if (context.isCancelled()) return;
+      if (!ensureLibraryChunkLoaded(dim, cx, cz)) throw new Error("Library chunk unloaded during dressing");
+      applyLibraryFurniture(dim, ox, oz, variant, cx, cz);
+      yield;
+      if (context.isCancelled()) return;
+      if (!ensureLibraryChunkLoaded(dim, cx, cz)) throw new Error("Library chunk unloaded during dressing");
+      applyLibraryLights(dim, ox, oz, variant, cx, cz);
+      yield;
+      if (context.isCancelled()) return;
+      if (!ensureLibraryChunkLoaded(dim, cx, cz)) throw new Error("Library chunk unloaded during dressing");
+      applyLibrarySigns(dim, ox, oz, variant, cx, cz);
+      applyLibraryRestrictedBay(dim, ox, oz, cx, cz);
+      if (context.isCancelled()) return;
+      scheduleLibraryChunkArt(dim, cx, cz);
+      completed = true;
+    } catch (error) {
+      console.warn(`[Paradise] Library chunk ${key} generation failed`, error);
+    } finally {
+      settle(completed);
+    }
+  }, { owner: LIBRARY_DIMENSION_ID, onCancelled: () => settle(false) });
+  if (!scheduled) settle(false);
+  return completion;
 }
 
 function generateLibraryRooms() {
@@ -524,17 +669,7 @@ function generateLibraryRooms() {
       for (let dz = -1; dz <= 1; dz++) {
         const cx = pcx + dx;
         const cz = pcz + dz;
-        const key = `${cx}:${cz}`;
-        if (generatedChunks.has(key)) {
-          continue;
-        }
-
-        try {
-          generateLibraryChunk(dim, cx, cz);
-          generatedChunks.add(key);
-        } catch (_error) {
-          // Chunk may not be loaded yet; retry next tick.
-        }
+        void requestLibraryChunk(dim, cx, cz);
       }
     }
   }
@@ -592,40 +727,36 @@ function getNextLibrarySpawn(visitIndex) {
 async function preGenerateSpawnChunks(dim, spawn) {
   const scx = Math.floor(spawn.x / CHUNK_SIZE);
   const scz = Math.floor(spawn.z / CHUNK_SIZE);
-
   const pregenAreaId = `library:pregen:${scx}:${scz}`;
-  try {
+  if (pendingSpawnPreparations.has(pregenAreaId)) return pendingSpawnPreparations.get(pregenAreaId);
+  const preparation = (async () => {
     await world.tickingAreaManager.createTickingArea(pregenAreaId, {
       dimension: dim,
       from: { x: (scx - 1) * CHUNK_SIZE, y: FLOOR_Y, z: (scz - 1) * CHUNK_SIZE },
       to: { x: (scx + 2) * CHUNK_SIZE - 1, y: CEILING_Y, z: (scz + 2) * CHUNK_SIZE - 1 },
     });
-  } catch (_error) {
-    // Ticking area may already exist or capacity reached; continue anyway.
-  }
-
-  for (let dx = -1; dx <= 1; dx++) {
-    for (let dz = -1; dz <= 1; dz++) {
-      const cx = scx + dx;
-      const cz = scz + dz;
-      const key = `${cx}:${cz}`;
-      if (generatedChunks.has(key)) {
-        continue;
+    try {
+      const requested = [];
+      for (let dx = -1; dx <= 1; dx += 1) {
+        for (let dz = -1; dz <= 1; dz += 1) {
+          requested.push(requestLibraryChunk(dim, scx + dx, scz + dz));
+        }
       }
-
-      try {
-        generateLibraryChunk(dim, cx, cz);
-        generatedChunks.add(key);
-      } catch (_error) {
-        // Ignore generation failures for pre-load.
+      const results = await Promise.all(requested);
+      if (results.some((completed) => !completed)) {
+        throw new Error("Library pre-generation was incomplete; retry entry once chunks load");
       }
+    } finally {
+      world.tickingAreaManager.removeTickingArea(pregenAreaId);
     }
-  }
-
+  })();
+  pendingSpawnPreparations.set(pregenAreaId, preparation);
   try {
-    world.tickingAreaManager.removeTickingArea(pregenAreaId);
-  } catch (_error) {
-    // Ignore cleanup failures.
+    await preparation;
+  } finally {
+    if (pendingSpawnPreparations.get(pregenAreaId) === preparation) {
+      pendingSpawnPreparations.delete(pregenAreaId);
+    }
   }
 }
 
@@ -848,13 +979,14 @@ function runLibraryEntryCommand(player) {
   });
 }
 
-async function exitLibraryToOverworld(player) {
+export async function exitLibraryToOverworld(player) {
+  beginLibraryReturnAttempt(player.id);
   try {
     const saved = returnPoints.get(player.id);
     const targetDimId = saved ? saved.dimensionId : "minecraft:overworld";
-    const targetDimension = getDimensionSafe(targetDimId) || getDimensionSafe("minecraft:overworld");
+    const targetDimension = getDimensionSafe(targetDimId);
     if (!targetDimension) {
-      throw new Error("No valid return dimension is available.");
+      throw new Error(`The saved return dimension is unavailable: ${targetDimId}.`);
     }
 
     const fallbackLocation = (saved && saved.location) || world.getDefaultSpawnLocation();
@@ -866,50 +998,64 @@ async function exitLibraryToOverworld(player) {
     };
 
     const returnAreaId = `${RETURN_TICKING_AREA_PREFIX}${player.id}`;
+    const leaseToken = acquireReturnAreaLease(returnAreaId);
     try {
       world.tickingAreaManager.removeTickingArea(returnAreaId);
     } catch (_error) {
       // Ignore missing ticking areas.
     }
 
-    await world.tickingAreaManager.createTickingArea(returnAreaId, {
-      dimension: targetDimension,
-      from: {
-        x: Math.floor(teleportTarget.x) - 4,
-        y: Math.floor(teleportTarget.y) - 2,
-        z: Math.floor(teleportTarget.z) - 4,
-      },
-      to: {
-        x: Math.floor(teleportTarget.x) + 4,
-        y: Math.floor(teleportTarget.y) + 4,
-        z: Math.floor(teleportTarget.z) + 4,
-      },
-    });
+    try {
+      await world.tickingAreaManager.createTickingArea(returnAreaId, {
+        dimension: targetDimension,
+        from: {
+          x: Math.floor(teleportTarget.x) - 4,
+          y: Math.floor(teleportTarget.y) - 2,
+          z: Math.floor(teleportTarget.z) - 4,
+        },
+        to: {
+          x: Math.floor(teleportTarget.x) + 4,
+          y: Math.floor(teleportTarget.y) + 4,
+          z: Math.floor(teleportTarget.z) + 4,
+        },
+      });
+    } catch (error) {
+      releaseReturnAreaLease(returnAreaId, leaseToken);
+      throw error;
+    }
+
+    if (returnAreaLeaseTokens.get(returnAreaId) !== leaseToken) {
+      throw new Error("The Library return ticking-area lease was superseded.");
+    }
 
     try {
+      let returned = false;
       if (safeLocation) {
-        await verifiedPlayerTeleport(player, teleportTarget, {
+        returned = await verifiedPlayerTeleport(player, teleportTarget, {
           dimension: targetDimension,
           checkForBlocks: false,
           keepVelocity: false,
         }, { attempts: 8, retryTicks: 4, maxDistance: 64 });
       } else {
-        await verifiedPlayerTeleport(player, teleportTarget, {
+        returned = await verifiedPlayerTeleport(player, teleportTarget, {
           dimension: targetDimension,
           checkForBlocks: true,
           keepVelocity: false,
         }, { attempts: 8, retryTicks: 4, maxDistance: 64 });
       }
+      if (returned !== true) {
+        throw new Error("The return teleport could not be verified.");
+      }
     } finally {
-      system.runTimeout(() => {
-        try {
-          world.tickingAreaManager.removeTickingArea(returnAreaId);
-        } catch (_error) {
-          // Ignore cleanup failures.
-        }
-      }, 20);
+      const cleanup = () => releaseReturnAreaLease(returnAreaId, leaseToken);
+      try {
+        system.runTimeout(cleanup, 20);
+      } catch (_error) {
+        cleanup();
+      }
     }
 
+    failedLibraryReturnPlayers.delete(player.id);
     restoreLibraryBuildAccess(player);
     returnPoints.delete(player.id);
     libraryGamemodes.delete(player.id);
@@ -917,11 +1063,18 @@ async function exitLibraryToOverworld(player) {
     pendingQuestion.delete(player.id);
     clearRuleState(libraryRuleState, player.id);
     announce(player, "You have escaped the Library.", "");
+    return true;
   } catch (error) {
+    if (returnPoints.has(player.id)) {
+      failedLibraryReturnPlayers.add(player.id);
+    }
     pendingVoidFall.delete(player.id);
     try {
       player.sendMessage(`Failed to return from The Library: ${String(error)}`);
     } catch (_e) {}
+    return false;
+  } finally {
+    endLibraryReturnAttempt(player.id);
   }
 }
 
@@ -1027,7 +1180,12 @@ world.afterEvents.playerDimensionChange.subscribe((event) => {
       return;
     }
 
-    returnPoints.delete(player.id);
+    if (
+      !activeLibraryReturnAttempts.has(player.id)
+      && !failedLibraryReturnPlayers.has(player.id)
+    ) {
+      returnPoints.delete(player.id);
+    }
     libraryGamemodes.delete(player.id);
     pendingQuestion.delete(player.id);
     clearRuleState(libraryRuleState, player.id);
@@ -1036,6 +1194,7 @@ world.afterEvents.playerDimensionChange.subscribe((event) => {
 
 world.afterEvents.playerLeave.subscribe((event) => {
   returnPoints.delete(event.playerId);
+  failedLibraryReturnPlayers.delete(event.playerId);
   libraryGamemodes.delete(event.playerId);
   visitCounters.delete(event.playerId);
   pendingVoidFall.delete(event.playerId);

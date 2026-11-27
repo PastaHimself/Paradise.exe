@@ -129,13 +129,13 @@ export function floorBlock(x, z) {
 export function lampFor(k) {
   switch (mod(k, 4)) {
     case 0:
-      return { block: DRESS.lampLit, light: 9 };
+      return { block: DRESS.candleLit, light: 9 };
     case 1:
-      return { block: DRESS.lampOut, light: 0 };
+      return { block: DRESS.candleOut, light: 0 };
     case 2:
       return { block: DRESS.lampSconce, light: 10 };
     default:
-      return { block: DRESS.lampRusted, light: 8 };
+      return { block: DRESS.lampLit, light: 8 };
   }
 }
 
@@ -166,22 +166,47 @@ export function archFor(k) {
  * excluding the last six path cells, with a closed side and an interior
  * neighbour. Preference E, S, W, N then lexicographic x/z.
  */
-export function selectJunction(cells, pathLength, excludedKeys = new Set()) {
+export function selectJunction(cells, pathLength, excludedKeys = new Set(), width = 17, depth = 17) {
   const preference = ["east", "south", "west", "north"];
-  const candidates = cells
-    .filter((cell) => cell.role === "corridor" || cell.role === "deadEnd")
-    .filter((cell) => !excludedKeys.has(`${cell.x}:${cell.z}`))
-    .filter((cell) => cell.pathIndex >= 6 && cell.pathIndex <= pathLength - 7)
-    .sort((a, b) => (a.pathIndex - b.pathIndex) || (a.x - b.x) || (a.z - b.z));
-
-  for (const cell of candidates) {
-    for (const side of preference) {
-      if (cell.closedSides.includes(side) && cell.degree >= 2) {
-        return { cell, side };
-      }
+  const internal = (cell, side) => (
+    side === "east" ? cell.x < width - 1 : side === "south" ? cell.z < depth - 1 :
+      side === "west" ? cell.x > 0 : cell.z > 0
+  );
+  const eligible = cells.filter((cell) => cell.role === "corridor" && cell.degree >= 2 &&
+    !excludedKeys.has(`${cell.x}:${cell.z}`));
+  const select = (candidates) => {
+    for (const cell of candidates) {
+      const side = preference.find((side) => cell.closedSides.includes(side) && internal(cell, side));
+      if (side) return { cell, side };
     }
-  }
-  return null;
+    return null;
+  };
+  const path = eligible.filter((cell) => cell.pathIndex >= 6 && cell.pathIndex <= pathLength - 7)
+    .sort((a, b) => a.pathIndex - b.pathIndex || a.x - b.x || a.z - b.z);
+  return select(path) ?? select(eligible.filter((cell) => cell.pathIndex < 0 ||
+    (cell.pathIndex >= 6 && cell.pathIndex <= pathLength - 7)).sort((a, b) => a.z - b.z || a.x - b.x));
+}
+
+export function junctionCandidates(cells, path, getClosedSides) {
+  const indexes = new Map(path.map((cell, index) => [`${cell.x}:${cell.z}`, index]));
+  return cells.map((cell) => ({
+    x: cell.x, z: cell.z, role: cell.role,
+    pathIndex: indexes.get(`${cell.x}:${cell.z}`) ?? -1,
+    closedSides: getClosedSides(cell), degree: cell.links.size,
+  }));
+}
+
+/** Rotate all segments together, keeping the minimum cell at the anchor. */
+export function rotatePiece(block, side) {
+  const facing = { north: "south", east: "west", south: "north", west: "east" }[side];
+  const rotated = segmentsFor(block).map(([dx, dy, dz, id]) => {
+    const [x, z] = facing === "east" ? [-dz, dx] : facing === "south" ? [-dx, -dz] :
+      facing === "west" ? [dz, -dx] : [dx, dz];
+    return { x, y: dy, z, id, facing };
+  });
+  const minX = Math.min(...rotated.map((part) => part.x));
+  const minZ = Math.min(...rotated.map((part) => part.z));
+  return rotated.map((part) => ({ ...part, x: part.x - minX, z: part.z - minZ }));
 }
 
 /** Wall-run offset in cell-local coordinates for the sealed doorway set. */

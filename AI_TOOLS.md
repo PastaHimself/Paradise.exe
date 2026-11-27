@@ -306,3 +306,15 @@ Use the direct commands when you need their complete reports, CI parity, or thei
 - Separately, Blockception at `32fba1e` reported three unresolved animation IDs in the vanilla cat/sheep client overrides (`animation.cat.baby_transform`, `animation.sheep.setup.v2`, `animation.sheep.baby_transform`) and two `common.base_screen` inheritance warnings. The same animation IDs are referenced in Mojang’s client entity samples. Check resolution in the target Bedrock client. [Mojang Bedrock samples](https://github.com/Mojang/bedrock-samples/tree/15701fa9/resource_pack/entity)
 - Three geometry files ship in this checkout. Bring the separately staged décor exports to `catalog` when they are available.
 - The texture inventory found 2,145 paths with no exact reference observed. Use these as inspection candidates, with vanilla fallback, implicit references, and subpacks in mind.
+
+
+### Reviewed existing-asset migrations
+
+Run from the repository root. Dry-run first; inspect every proposed change, then use the exact returned `plan_sha256` for `--expected-plan`. An applied plan is invalid once any input bytes change. Do not relax ordinary scaffold conflict protections.
+
+- `python3 tools/ai/cli.py geometry-reuse --dry-run --json`: exactly identical shared geometry owners; preserves block IDs, materials, transforms, collisions and provenance. `--apply --expected-plan SHA256` performs the guarded transaction.
+- `python3 tools/ai/cli.py repair-flat-flower-floors --dry-run --json`: verifies the six authored full-cube floor IDs before restoring solid collision.
+- `python3 tools/ai/cli.py repair-stair-treads --dry-run --json`: verifies the two authored tread IDs before restoring the ascending two-box profile. Both collision repair commands also require `--apply --expected-plan SHA256`.
+- `python3 tools/ai/repair_scene_structures.py`: reviewed dry-run for the exact Highway wreck and Heaven pool/dais masks; `--apply --expected-plan SHA256` applies only those named structures, preserving unrelated bytes, palette entries and secondary layers. Bedrock NBT indexing is Z-fastest: `(x * sizeY + y) * sizeZ + z`.
+
+Repeat dry-run after each apply and run validation, typecheck and appropriate behavioral/structure tests.

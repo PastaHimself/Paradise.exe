@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -18,6 +18,7 @@ import {
   isBridgeRow,
   isChippedRow,
   isLegalRow,
+  isLegalTreadRow,
   lampBlock,
   lampLight,
   plateBlock,
@@ -44,15 +45,18 @@ test("the stair rises one block per row and stops at the world ceiling", () => {
   assert.equal(isLegalRow(256), false);
   assert.equal(isLegalRow(-1), false);
   assert.equal(isLegalRow(Number.NaN), false);
+  assert.equal(isLegalTreadRow(-28), true);
+  assert.equal(isLegalTreadRow(-29), false);
+  assert.equal(isLegalTreadRow(256), false);
 });
 
 test("both walk columns share the same tread row", () => {
   assert.deepEqual([...TREAD_COLUMN_OFFSETS], [0, -1]);
-  assert.equal(WALL_OFFSET, -2);
+  assert.equal(WALL_OFFSET, -3);
   assert.equal(GUARD_OFFSET, 1);
-  assert.equal(LANDING_INNER_OFFSET, 2);
-  assert.equal(LANDING_OUTER_OFFSET, 3);
-  assert.equal(LANDING_GUARD_OFFSET, 3);
+  assert.equal(LANDING_INNER_OFFSET, -3);
+  assert.equal(LANDING_OUTER_OFFSET, -5);
+  assert.equal(LANDING_GUARD_OFFSET, -6);
 });
 
 test("station maths keeps the 12-step rhythm", () => {
@@ -124,106 +128,81 @@ test("every emitted decor id exists in the behavior pack", () => {
   assert.deepEqual(missing, []);
 });
 
-test("every row carries solid wall backing behind the walk", () => {
-  for (const z of [0, 7, 13, 96, 200]) {
-    const wall = wallPlacements(LANE, z);
-    assert.equal(wall.length, 3, `wall rows at z=${z}`);
-    for (const [index, entry] of wall.entries()) {
-      assert.equal(entry.x, LANE + WALL_OFFSET);
-      assert.equal(entry.y, stairY(z) + index);
-      assert.ok([STAIR_DECOR.crackedConcrete, STAIR_DECOR.dampWall].includes(entry.block));
-    }
-  }
-  const top = wallPlacements(LANE, 255);
-  assert.ok(top.length >= 1);
-  assert.ok(top.every((entry) => entry.y <= WORLD_MAX_Y));
-});
-
-test("the guard line sits at L+1 on ordinary rows and opens at landings", () => {
-  for (const z of [7, 13, 155]) {
-    const placements = scenePlacements(LANE, z);
-    const guard = placements.find((entry) => entry.x === LANE + GUARD_OFFSET && entry.y === stairY(z) + 1);
-    assert.equal(guard?.block, STAIR_DECOR.guardSloped, `sloped guard missing at z=${z}`);
-  }
-  for (const z of [0, 12, 24, 96]) {
-    const placements = scenePlacements(LANE, z);
-    assert.equal(
-      placements.some((entry) => entry.x === LANE + GUARD_OFFSET && entry.z === z && entry.block === STAIR_DECOR.guardPost),
-      false,
-      `station row ${z} must open onto its landing`,
+test("regular and chipped treads use the schema-valid ascending two-box collision profile", () => {
+  const expectedCollisionBoxes = [
+    { origin: [-8, 0, -8], size: [16, 8, 16] },
+    { origin: [-8, 8, 0], size: [16, 8, 8] },
+  ];
+  for (const file of [
+    "paradise__es_stair_tread.json",
+    "paradise__es_chipped_stair_tread_geometry.json",
+  ]) {
+    const path = new URL(`../addon/BP/blocks/${file}`, import.meta.url);
+    const block = JSON.parse(readFileSync(path, "utf8"));
+    assert.deepEqual(
+      block["minecraft:block"].components["minecraft:collision_box"],
+      expectedCollisionBoxes,
+      file,
     );
   }
 });
 
-test("guard posts rise above the rail every four rows", () => {
-  const placements = scenePlacements(LANE, 8);
-  const has = (x, y, block) => placements.some((entry) => entry.x === x && entry.y === y && entry.z === 8 && entry.block === block);
-  assert.ok(has(LANE + GUARD_OFFSET, stairY(8) + 1, STAIR_DECOR.guardPost));
-  assert.ok(has(LANE + GUARD_OFFSET, stairY(8) + 2, STAIR_DECOR.guardPostTop));
-});
-
-test("chipped rows replace the west tread instead of floating a spare", () => {
-  const placements = scenePlacements(LANE, 7);
-  assert.ok(placements.some((entry) => entry.x === LANE - 1 && entry.y === stairY(7) && entry.block === STAIR_DECOR.chippedTread));
-  for (const entry of placements) {
-    if (entry.block === STAIR_DECOR.chippedTread) assert.equal(entry.x, LANE - 1);
+test("wall backing stays at L-3 except for open landing access", () => {
+  for (let z = 0; z <= 255; z++) {
+    const wall = wallPlacements(LANE, z);
+    assert.ok(wall.length > 0);
+    assert.ok(wall.every((entry) => entry.x === LANE - 3 && entry.block === STAIR_DECOR.crackedConcrete));
+    if (z % 12 <= 1) assert.equal(wall.length, 1);
   }
 });
 
-test("each landing is a supported two-by-two platform with an outer guard", () => {
-  const lane = 0;
-  const z = 24; // k=2, red lamp station
-  const placements = scenePlacements(lane, z);
-  const has = (x, y, cellZ, block) => placements.some(
-    (entry) => entry.x === x && entry.y === y && entry.z === cellZ && entry.block === block,
-  );
-
-  for (let x = lane + LANDING_INNER_OFFSET; x <= lane + LANDING_OUTER_OFFSET; x++) {
-    for (let dz = 0; dz <= 1; dz++) {
-      assert.ok(has(x, stationY(2), stationZ(2) + dz, STAIR_DECOR.landingTiles), `tile ${x}/${dz}`);
-    }
-  }
-  assert.ok(has(lane + WALL_OFFSET, stationY(2) + 2, stationZ(2) + 1, plateBlock(2)));
-  assert.ok(has(lane + WALL_OFFSET, stationY(2) + 2, stationZ(2), STAIR_DECOR.lampRed));
-  assert.ok(has(lane + LANDING_INNER_OFFSET, stationY(2) + 1, stationZ(2), STAIR_DECOR.stepLight));
-
-  for (let dy = 1; dy <= 2; dy += 1) {
-    assert.ok(has(lane + LANDING_OUTER_OFFSET, stationY(2) - dy, stationZ(2) + 1, STAIR_DECOR.supportBeam));
-  }
-  for (const dz of [0, 1]) {
-    assert.ok(has(lane + LANDING_GUARD_OFFSET, stationY(2) + 1, stationZ(2) + dz, STAIR_DECOR.guard));
-    assert.ok(has(lane + LANDING_GUARD_OFFSET, stationY(2) + 2, stationZ(2) + dz, STAIR_DECOR.guardTop));
+test("primary guard never opens at stations and posts repeat every four rows", () => {
+  for (let z = 0; z < 254; z++) {
+    const guard = scenePlacements(LANE, z).filter((entry) => entry.role === "guard");
+    assert.equal(guard.length, 2);
+    assert.ok(guard.every((entry) => entry.x === LANE + 1));
+    assert.equal(guard[0].block, z % 4 === 0 ? STAIR_DECOR.guardPost : STAIR_DECOR.guard);
   }
 });
 
-test("service doors alternate on the thirds and mount flush to the wall", () => {
-  const doors = [];
-  for (let k = 0; k < 12; k++) {
-    const door = serviceDoorBlock(k);
-    if (door) doors.push(door);
-  }
-  assert.ok(doors.length >= 4);
-  assert.ok(doors.includes(STAIR_DECOR.chainedDoor));
-  assert.ok(doors.includes(STAIR_DECOR.emergencyDoor));
-
-  for (let z = 0; z <= 120; z += 12) {
-    for (const entry of scenePlacements(500, z)) {
-      if (entry.block === STAIR_DECOR.chainedDoor || entry.block === STAIR_DECOR.emergencyDoor) {
-        assert.equal(entry.x, 500 + WALL_OFFSET, "doors belong in the wall plane");
+test("western station landings preserve the ascending main route", () => {
+  for (let k = 0; k < 21; k++) {
+    const t = stationZ(k), y = stationY(k);
+    const cells = [...scenePlacements(LANE, t), ...scenePlacements(LANE, t + 1)];
+    for (let x = LANE - 5; x <= LANE - 3; x++) {
+      for (let dz = 0; dz <= 1; dz++) {
+        assert.ok(cells.some((entry) => entry.x === x && entry.y === y && entry.z === t + dz && entry.block === STAIR_DECOR.landingTiles));
       }
     }
+    assert.ok(cells.some((entry) => entry.x === LANE - 2 && entry.y === y && entry.z === t && entry.block === STAIR_DECOR.landingTiles));
+    assert.ok(cells.some((entry) => entry.x === LANE - 3 && entry.y === y + 2 && entry.z === t + 1 && entry.block === lampBlock(k)));
+    if (k < 4) assert.ok(cells.some((entry) => entry.role === "number" && entry.text === String(k + 1).padStart(2, "0")));
   }
 });
 
-test("no decor is staged in the void east of the guard line", () => {
-  assert.deepEqual(remotePlacements(3000, 0), []);
-  assert.deepEqual(remotePlacements(3000, 240), []);
-  for (let z = 0; z <= 255; z += 1) {
-    for (const entry of scenePlacements(3000, z)) {
-      assert.ok(entry.x <= 3000 + LANDING_GUARD_OFFSET, `floating piece at x=${entry.x} z=${entry.z}`);
-      assert.ok(entry.y >= -64 && entry.y <= WORLD_MAX_Y, `y ${entry.y} out of bounds`);
-      if (entry.role === "tread") continue;
-      assert.ok(!(entry.x === 3000 || entry.x === 3000 - 1), `walk column blocked at z=${z}`);
+test("service door selector uses the exact six-station cycle", () => {
+  assert.deepEqual(Array.from({ length: 6 }, (_, k) => serviceDoorBlock(k)), [
+    STAIR_DECOR.emergencyDoor, null, null, STAIR_DECOR.chainedDoor, null, null,
+  ]);
+});
+
+test("row-owned placements are unique, bounded, and keep the shaft and both treads open", () => {
+  let remoteCount = 0;
+  for (let z = 0; z <= 255; z++) {
+    const scene = scenePlacements(LANE, z);
+    const remote = remotePlacements(LANE, z);
+    remoteCount += remote.length;
+    const coordinates = new Set();
+    for (const entry of [...scene, ...remote]) {
+      const key = `${entry.x}:${entry.y}:${entry.z}`;
+      assert.ok(!coordinates.has(key), key);
+      coordinates.add(key);
+      assert.equal(entry.z, z);
+      assert.ok(entry.y >= -64 && entry.y <= WORLD_MAX_Y);
+      assert.ok(entry.x < LANE - 1 || entry.x > LANE);
+      assert.ok(entry.x < LANE + 2 || entry.x > LANE + 7);
     }
+    assert.ok(remote.every((entry) => entry.x >= LANE + 8 && entry.x <= LANE + 10));
   }
+  assert.ok(remoteCount > 0);
 });

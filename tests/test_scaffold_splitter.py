@@ -3,6 +3,8 @@ import json
 import subprocess
 import tempfile
 import unittest
+from collections import Counter
+from copy import deepcopy
 from pathlib import Path
 
 
@@ -163,3 +165,114 @@ class StaticScaffoldTests(unittest.TestCase):
         with self.index.open(newline="") as stream:
             applied = next(item for item in csv.DictReader(stream) if item["block_id"] == row["id"])
         self.assertEqual((applied["status"], applied["vanilla_path"]), ("substituted", QUARTZ))
+
+    def test_rotated_library_assets_keep_source_cubes_and_exact_cell_footprints(self):
+        from tools.ai.scaffold_geometry import (
+            CELL_MAX,
+            CELL_MIN,
+            read_cubes,
+            stage_cells,
+            translated,
+        )
+
+        assets = [
+            ("fallen_shelf", [0, 0, 0.1],
+             [(0, 0, 0), (0, 0, 1), (1, 0, 0), (1, 0, 1)],
+             {(0, 0, 1)}),
+            ("tall_library_ladder", [0, 0, 0],
+             [(0, 0, 0), (0, 1, 0)], set()),
+        ]
+
+        def cube_signature(cube):
+            return json.dumps({key: value for key, value in cube.items()
+                               if key not in ("origin", "pivot")}, sort_keys=True)
+
+        for slug, bias, expected_cells, anchor_cells in assets:
+            with self.subTest(asset=slug):
+                asset_dir = ROOT / DECOR / "library" / slug
+                source_path = asset_dir / f"library_{slug}.geo.json"
+                model = json.loads(source_path.read_text())["minecraft:geometry"][0]
+                recorded_bounds = json.loads((asset_dir / "transformed_bounds.json").read_text())
+                # The recorded authoring bounds use positive Z rotation; staging uses Bedrock's runtime convention.
+                source_bounds = list(read_cubes(model, positive_z_rotation=True))
+                source_min = [min(row[2][axis] for row in source_bounds) for axis in range(3)]
+                source_max = [max(row[3][axis] for row in source_bounds) for axis in range(3)]
+                for axis in range(3):
+                    self.assertAlmostEqual(source_min[axis], recorded_bounds["min"][axis], places=6)
+                    self.assertAlmostEqual(source_max[axis], recorded_bounds["max"][axis], places=6)
+
+                with self.assertRaisesRegex(ValueError, "Rotated cube crosses a 16-unit plane"):
+                    stage_cells(model, True)
+
+                cells, shift = stage_cells(model, True, preserve_rotated_cubes=True,
+                                           translation_bias=bias)
+                self.assertEqual(list(cells), expected_cells)
+                source_cubes = [cube for bone in model["bones"] for cube in bone.get("cubes", [])]
+                remaining = list(source_cubes)
+                output_signatures = []
+
+                for cell, segment in cells.items():
+                    delta = [shift[axis] - 16 * cell[axis] for axis in range(3)]
+                    for bone_index, source_bone in enumerate(model["bones"]):
+                        segment_bone = segment["bones"][bone_index]
+                        self.assertEqual(segment_bone.get("rotation"), source_bone.get("rotation"))
+                        self.assertEqual(segment_bone.get("pivot"),
+                                         translated(source_bone.get("pivot", [0, 0, 0]), delta))
+                        for cube in segment_bone.get("cubes", []):
+                            signature = cube_signature(cube)
+                            def matches_source(source_cube):
+                                if cube_signature(source_cube) != signature:
+                                    return False
+                                if translated(source_cube["origin"], delta) != cube["origin"]:
+                                    return False
+                                if "pivot" in source_cube or any(source_cube.get("rotation", [])):
+                                    return translated(source_cube.get("pivot", [0, 0, 0]), delta) == cube.get("pivot")
+                                return True
+
+                            match_index = next((index for index, source_cube in enumerate(remaining)
+                                                if matches_source(source_cube)), None)
+                            self.assertIsNotNone(match_index, f"unexpected or duplicated source cube: {cube}")
+                            source_cube = remaining.pop(match_index)
+                            self.assertEqual(cube["origin"], translated(source_cube["origin"], delta))
+                            if "pivot" in source_cube or any(source_cube.get("rotation", [])):
+                                self.assertEqual(cube.get("pivot"),
+                                                 translated(source_cube.get("pivot", [0, 0, 0]), delta))
+                            output_signatures.append(signature)
+
+                    anchors = [bone for bone in segment["bones"] if bone.get("neverRender") is True]
+                    if cell in anchor_cells:
+                        self.assertEqual(len(anchors), 1)
+                        self.assertEqual(anchors[0]["cubes"][0]["origin"], [0, 1, 0])
+                        self.assertEqual(anchors[0]["cubes"][0]["size"], [1, 1, 1])
+                    else:
+                        self.assertEqual(anchors, [])
+
+                    segment_cubes = list(read_cubes(segment))
+                    mins = [min(row[2][axis] for row in segment_cubes) for axis in range(3)]
+                    maxs = [max(row[3][axis] for row in segment_cubes) for axis in range(3)]
+                    self.assertTrue(all(size <= 30 + 1e-6 for size in
+                                        (maxs[axis] - mins[axis] for axis in range(3))))
+                    self.assertTrue(all(lower - 1e-6 <= mins[axis] <= maxs[axis] <= upper + 1e-6
+                                        for axis, (lower, upper) in enumerate(
+                                            [(-14, 30), (-14, 30), (-14, 30)])))
+                    center = [(mins[axis] + maxs[axis]) / 2 for axis in range(3)]
+                    center_offset = [center[0], center[1] - 8, center[2]]
+                    self.assertLessEqual(max(abs(value) for value in center_offset), 7 + 1e-6)
+                    overlap = [max(0, min(maxs[axis], CELL_MAX[axis]) - max(mins[axis], CELL_MIN[axis]))
+                               for axis in range(3)]
+                    self.assertTrue(all(value >= 1 - 1e-6 for value in overlap))
+
+                    if slug == "fallen_shelf":
+                        runtime_path = ROOT / "addon/RP/models/blocks" / (
+                            f"paradise__lib_fallen_shelf_x{cell[0]}_y{cell[1]}_z{cell[2]}.geo.json"
+                        )
+                        runtime_model = json.loads(runtime_path.read_text())["minecraft:geometry"][0]
+                        expected_model = deepcopy(segment)
+                        expected_model["description"]["identifier"] = (
+                            f"geometry.paradise.lib_fallen_shelf_x{cell[0]}_y{cell[1]}_z{cell[2]}"
+                        )
+                        self.assertEqual(runtime_model, expected_model)
+
+                self.assertEqual(remaining, [], "every authored source cube must appear exactly once")
+                self.assertEqual(Counter(output_signatures),
+                                 Counter(cube_signature(cube) for cube in source_cubes))

@@ -17,7 +17,11 @@ import {
   wreckSegmentPlacements,
   segmentsFor,
   turnoutShelterPlacements,
+  turnoutWallPlacements,
+  turnoutShoulderPlacements,
   dividerBlock,
+  dividerPlacements,
+  isTurnoutRow,
   isRoadOverlaySafe,
   isTurnoutEntry,
   ribRows,
@@ -27,7 +31,7 @@ import {
 
 test("lane line only paints the documented windows", () => {
   assert.equal(surfaceOverlay(-2, 17, 300), SURFACE.lane);
-  assert.equal(surfaceOverlay(-2, 20, 300), SURFACE.plain);
+  assert.equal(surfaceOverlay(-2, 20, 300), null);
   assert.equal(surfaceOverlay(-2, 5, 300), null);
   assert.equal(surfaceOverlay(-2, 290, 300), null);
 });
@@ -40,7 +44,7 @@ test("shoulder stripes, skids, cracks and heat sit on their own rows", () => {
   }
   assert.equal(surfaceOverlay(3, 34, 300), SURFACE.cracked);
   assert.equal(surfaceOverlay(-3, 46, 300), SURFACE.heat);
-  assert.equal(surfaceOverlay(0, 20, 300), SURFACE.plain);
+  assert.equal(surfaceOverlay(0, 20, 300), null);
 });
 
 test("the turnout paints plain asphalt with a merge arrow at Z125", () => {
@@ -76,7 +80,7 @@ test("ribs skip the turnout and the finish area", () => {
 
 test("wreck origin stays on the service side and inside the lane", () => {
   const origin = wreckOrigin(2000, 380, 0);
-  assert.equal(origin.x, 1999);
+  assert.equal(origin.x, 2009);
   assert.equal(origin.y, ROAD_Y);
   assert.ok(origin.z <= 350);
   assert.ok(origin.z >= 286);
@@ -85,7 +89,7 @@ test("wreck origin stays on the service side and inside the lane", () => {
   // shoulder, so the documented X-3..-1 walking strips stay clear.
   for (const [x, , z] of WRECK_CELLS) {
     const laneX = origin.x + x - 2000;
-    assert.ok(laneX >= 1 && laneX <= 2, `shell cell at lane X${laneX} z${z}`);
+    assert.ok(laneX >= 11 && laneX <= 12, `shell cell at lane X${laneX} z${z}`);
   }
   for (const fitting of WRECK_FITTINGS) assert.ok(fitting.block.startsWith("paradise:bh_"));
 });
@@ -117,12 +121,26 @@ test("dividers, the turnout shelter and the bumper place every segment", () => {
   assert.deepEqual(segmentsFor(TURNOUT.clean).map(([dx, dy, dz]) => [dx, dy, dz]), [[0, 0, 0], [1, 0, 0]]);
   assert.deepEqual(segmentsFor(TURNOUT.damaged).map(([dx, dy, dz]) => [dx, dy, dz]), [[0, 0, 0], [1, 0, 0]]);
   const shelter = turnoutShelterPlacements(0);
-  assert.equal(shelter.length, 4);
+  assert.equal(shelter.length, 24);
   for (const piece of shelter) {
     assert.ok(piece.z >= TURNOUT_START && piece.z <= TURNOUT_END);
-    assert.ok(piece.x >= 1 && piece.x <= 3, `shelter at x${piece.x}`);
+    assert.ok(piece.x === 3, `shelter at x${piece.x}`);
   }
   const fittings = wreckFittingPlacements({ x: 0, y: 64, z: 0 });
   assert.ok(fittings.some((piece) => piece.block.endsWith("bh_broken_bumper_x1_y0_z0")));
   assert.ok(fittings.some((piece) => piece.block === "paradise:bh_detached_wheel"));
+});
+
+test("longitudinal divider covers every middle row once without narrowing either route", () => {
+  const entries = dividerPlacements(100);
+  assert.deepEqual(entries.map(entry => entry.z), Array.from({ length: 26 }, (_, index) => 99 + index));
+  assert.ok(entries.every(entry => entry.x === 100 && entry.y === 65));
+  assert.ok(entries.every(entry => isTurnoutRow(entry.z) && !isTurnoutEntry(entry.z)));
+});
+
+test("turnout fittings are outside both two-wide paths", () => {
+  const walls = turnoutWallPlacements(1000);
+  assert.ok(walls.every(entry => entry.x === 1004 && entry.z >= 96 && entry.z <= 127));
+  assert.equal(new Set(walls.map(entry => `${entry.y}:${entry.z}`)).size, walls.length);
+  assert.ok(turnoutShoulderPlacements(1000).every(entry => entry.x === 1003 && entry.y === 65));
 });

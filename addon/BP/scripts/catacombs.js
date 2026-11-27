@@ -8,10 +8,9 @@ import {
 } from "@minecraft/server";
 import { maybePlayCatacombAudio } from "./horror_audio.js";
 import { getCachedPlayers } from "./paradise_tick_cache.js";
-import { scheduleStructurePlacement } from "./paradise_visual_jobs.js";
+import { cancelVisualJobs, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
 import {
   DRESS,
-  archFor,
   burialFor,
   cellRoll,
   floorBlock,
@@ -19,6 +18,8 @@ import {
   sealedDoorwayPlan,
   segmentsFor,
   selectJunction,
+  junctionCandidates,
+  rotatePiece,
   wallBlock,
 } from "./catacombs_scene.js";
 import {
@@ -249,14 +250,17 @@ const pendingEscape = new Set();
 const catacombGamemodes = new Map();
 const catacombEscapeTimers = new Map();
 const pendingCatacombRespawns = new Set();
+const pendingCatacombEntries = new Set();
 const catacombMemoryRules = new Map();
 
 let mazePlan = null;
 let mazeReady = false;
 let bootstrapPromise = null;
+let mazeRebuildPromise = null;
 let coreAreaPromise = null;
 let timedRebuildPromise = null;
 let mazeGenerationNonce = 0;
+let postExitRebuildGeneration = 0;
 let flickerLightNodes = [];
 let flickerLightsReady = false;
 
@@ -387,6 +391,7 @@ world.afterEvents.playerDimensionChange.subscribe((event) => {
   }
 
   if (isCatacombDimensionId(event.toDimension.id) && !isCatacombDimensionId(event.fromDimension.id)) {
+    invalidatePostExitRebuild();
     if (!returnPoints.has(player.id)) {
       returnPoints.set(player.id, {
         dimensionId: event.fromDimension.id,
@@ -409,7 +414,7 @@ world.afterEvents.playerDimensionChange.subscribe((event) => {
       restoreCatacombBuildAccess(player);
     });
     clearCatacombEscapeTimer(player.id);
-    if (pendingCatacombRespawns.has(player.id)) {
+    if (pendingCatacombRespawns.has(player.id) || pendingEscape.has(player.id)) {
       return;
     }
 
@@ -468,19 +473,32 @@ world.afterEvents.playerSpawn.subscribe((event) => {
 
   system.runTimeout(() => {
     pendingCatacombRespawns.delete(player.id);
+    const shouldRebuild = beginCatacombEntry(player);
     void (async () => {
-      await rebuildMazeNow();
-      const spawn = mazePlan ? getStartSpawnLocation(mazePlan) : { x: 2.5, y: MAZE.originY + 1, z: 2.5 };
-      await teleportPlayerIntoCatacombs(player, spawn, {
-        title: "Catacomb Mazes",
-        subtitle: "Death does not release you. The maze rebuilt itself.",
-        reportFailure: false,
-      });
+      try {
+        let rebuilt = false;
+        if (shouldRebuild) {
+          rebuilt = await rebuildMazeNow();
+        } else {
+          await ensureWorldReady();
+        }
+        const spawn = mazePlan ? getStartSpawnLocation(mazePlan) : { x: 2.5, y: MAZE.originY + 1, z: 2.5 };
+        await teleportPlayerIntoCatacombs(player, spawn, {
+          title: "Catacomb Mazes",
+          subtitle: rebuilt
+            ? "Death does not release you. The maze rebuilt itself."
+            : "Death does not release you. The maze remembers.",
+          reportFailure: false,
+        });
+      } finally {
+        pendingCatacombEntries.delete(player.id);
+      }
     })().catch(() => {});
   }, 1);
 });
 
 world.afterEvents.playerLeave.subscribe((event) => {
+  pendingCatacombEntries.delete(event.playerId);
   returnPoints.delete(event.playerId);
   pendingEscape.delete(event.playerId);
   catacombGamemodes.delete(event.playerId);
@@ -752,6 +770,40 @@ function getCatacombPlayers() {
   } catch (_error) {
     return [];
   }
+}
+
+function hasCatacombOccupants() {
+  return pendingCatacombEntries.size > 0 || getCatacombPlayers().length > 0;
+}
+
+function invalidatePostExitRebuild() {
+  postExitRebuildGeneration += 1;
+}
+
+function beginCatacombEntry(player) {
+  const shouldRebuild = !hasCatacombOccupants();
+  pendingCatacombEntries.add(player.id);
+  invalidatePostExitRebuild();
+  return shouldRebuild;
+}
+
+function schedulePostExitRebuild() {
+  const generation = ++postExitRebuildGeneration;
+  system.runTimeout(() => {
+    if (generation !== postExitRebuildGeneration || hasCatacombOccupants()) {
+      return;
+    }
+
+    void rebuildMazeNow(
+      () => generation === postExitRebuildGeneration && !hasCatacombOccupants(),
+    ).catch((error) => {
+      try {
+        world.sendMessage(`Catacombs failed to regenerate: ${String(error)}`);
+      } catch (_innerError) {
+        // Ignore chat failures.
+      }
+    });
+  }, 60);
 }
 
 function syncCatacombEscapeTimers() {
@@ -1960,75 +2012,91 @@ function decorateCorridorCell(dim, cell, rng) {
 }
 
 
-function dressCatacombCell(dim, cell, index) {
-  const interior = getCellInterior(cell);
-  const centerX = Math.floor((interior.minX + interior.maxX) / 2);
-  const centerZ = Math.floor((interior.minZ + interior.maxZ) / 2);
+function setDressBlock(dim, x, y, z, id, facing = undefined) {
+  const block = getMazeBlock(dim, x, y, z);
+  if (!block) return false;
+  try {
+    block.setPermutation(BlockPermutation.resolve(id, facing ? { "minecraft:cardinal_direction": facing } : undefined));
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
 
+function dressCatacombCell(dim, cell, index) {
+  if (cell.role !== "corridor" && cell.role !== "deadEnd") return;
+  const interior = getCellInterior(cell);
+  const center = getCellCenter(cell);
   for (let x = interior.minX; x <= interior.maxX; x++) {
     for (let z = interior.minZ; z <= interior.maxZ; z++) {
-      if (x === centerX && z === centerZ) continue; // keep the functional slot
-      setBlock(dim, x, MAZE.originY, z, floorBlock(x, z));
+      if (x === center.x && z === center.z) continue;
+      const below = getMazeBlock(dim, x, MAZE.originY, z);
+      const above = getMazeBlock(dim, x, MAZE.originY + 1, z);
+      if (!below || below.isAir || below.isLiquid || !above?.isAir) continue;
+      setDressBlock(dim, x, MAZE.originY, z, floorBlock(x, z));
     }
   }
 
   const closed = getClosedSides(cell);
   for (const side of closed) {
-    const run = getWallRun(cell, side);
-    for (const point of run) {
+    for (const point of getWallRun(cell, side)) {
       for (let y = MAZE.originY + 1; y <= MAZE.originY + 3; y++) {
-        setBlock(dim, point.x, y, point.z, wallBlock(point.x, point.z));
+        const existing = getMazeBlock(dim, point.x, y, point.z);
+        // Keep functional lights, skulls, and other vanilla features.
+        if (existing?.typeId === "minecraft:stone_bricks") {
+          setDressBlock(dim, point.x, y, point.z, wallBlock(point.x, point.z));
+        }
       }
     }
   }
-
-  if (closed.length > 0) {
-    const lamp = lampFor(index);
-    setPiece(dim, centerX, MAZE.ceilingY - 1, centerZ, lamp.block);
-    const arch = archFor(index);
-    if (arch) {
-      const wall = getWallCenter(cell, closed[0]);
-      setPiece(dim, wall.x, MAZE.ceilingY - 1, wall.z, arch);
-    }
+  if (!closed.length) return;
+  const side = closed[0];
+  const run = getWallRun(cell, side);
+  // All staged segments stay inside the closed wall plane. Never write into a
+  // linked portal or the player's two-wide turn.
+  if (index % 4 === 0) {
+    const lamp = lampFor(Math.floor(index / 4));
+    const point = run[lamp.block === DRESS.candleLit || lamp.block === DRESS.candleOut ? 1 : 2];
+    setPiece(dim, point.x, MAZE.originY + 2, point.z, lamp.block, side, cell);
   }
-
-  if (cell.deadEnd && closed.length > 0) {
-    const wall = getWallRun(cell, closed[0])[1];
-    setPiece(dim, wall.x, MAZE.originY + 1, wall.z, burialFor(cellRoll(cell.x, cell.z, 0xb001)));
+  if (cell.deadEnd) {
+    setPiece(dim, run[0].x, MAZE.originY + 1, run[0].z, burialFor(cellRoll(cell.x, cell.z, 0xb001)), side, cell);
   }
 }
 
-function placeSealedJunction(dim, plan) {
-  const cells = plan.cellsFlat
-    .filter((cell) => cell.role === "corridor" || cell.role === "deadEnd")
-    .map((cell) => ({
-      x: cell.x,
-      z: cell.z,
-      role: cell.role,
-      pathIndex: plan.path ? plan.path.indexOf(cell) : -1,
-      closedSides: getClosedSides(cell),
-      degree: cell.links ? cell.links.size : 0,
-    }))
-    .filter((cell) => cell.pathIndex >= 0);
-  const choice = selectJunction(cells, plan.path ? plan.path.length : 0);
+function placeSealedJunction(dim, plan, choice) {
   if (!choice) return null;
-
   const base = getCellBase(choice.cell);
   const doorway = sealedDoorwayPlan(base, choice.side);
-  for (const point of doorway.plane) setPiece(dim, point.x, point.y, point.z, DRESS.sealedDoorway);
-  setPiece(dim, doorway.clue.x, doorway.clue.y, doorway.clue.z, DRESS.cluePanel);
-  setPiece(dim, doorway.sconce.x, doorway.sconce.y, doorway.sconce.z, DRESS.lampSconce);
-  setBlock(dim, doorway.warning.x, doorway.warning.y, doorway.warning.z, DRESS.warning);
-  for (const point of doorway.flatFloor) setBlock(dim, point.x, point.y, point.z, DRESS.floorBase);
-  for (const point of doorway.approach) setBlock(dim, point.x, point.y, point.z, "minecraft:air");
+  const anchor = doorway.plane[0];
+  setPiece(dim, anchor.x, anchor.y, anchor.z, DRESS.sealedDoorway, choice.side, choice.cell);
+  // Keep the entire sealed doorway and clue model intact. Their authored
+  // two-cell widths overlap on the same three-cell wall. Use another closed
+  // wall if one exists, otherwise the native warning remains visible.
+  const otherSide = choice.cell.closedSides.find((side) => side !== choice.side);
+  if (otherSide) {
+    const clue = getWallRun(choice.cell, otherSide)[0];
+    setPiece(dim, clue.x, MAZE.originY + 2, clue.z, DRESS.cluePanel, otherSide, choice.cell);
+  }
+  setDressBlock(dim, doorway.warning.x, doorway.warning.y, doorway.warning.z, DRESS.warning);
+  setPiece(dim, doorway.sconce.x, doorway.sconce.y, doorway.sconce.z, DRESS.lampSconce, choice.side, choice.cell);
+  for (const point of doorway.flatFloor) setDressBlock(dim, point.x, point.y, point.z, DRESS.wallClean);
+  for (const point of doorway.approach) {
+    for (let y = point.y; y <= point.y + 1; y++) setBlock(dim, point.x, y, point.z, BLOCK.air);
+  }
+  console.info("[Paradise] Catacombs sealed junction", plan.seed, anchor.x, anchor.y, anchor.z, choice.side);
   return { cell: choice.cell, side: choice.side, base, reserved: doorway.futureOpening };
 }
 
-/** Place every staged segment of a multi-cell piece at an anchor cell. */
-function setPiece(dim, x, y, z, block) {
-  for (const [dx, dy, dz, id] of segmentsFor(block)) {
-    setBlock(dim, x + dx, y + dy, z + dz, id);
+/** Place only complete pieces whose rotated footprint fits the closed wall. */
+function setPiece(dim, x, y, z, block, side, cell) {
+  const plane = new Set(getWallRun(cell, side).map((point) => `${point.x}:${point.z}`));
+  const parts = rotatePiece(block, side);
+  if (parts.some((part) => y + part.y > MAZE.openMaxY || !plane.has(`${x + part.x}:${z + part.z}`))) return false;
+  for (const part of parts) {
+    if (!setDressBlock(dim, x + part.x, y + part.y, z + part.z, part.id, part.facing)) return false;
   }
+  return true;
 }
 
 function paintFloorCell(dim, cell, permutation) {
@@ -2040,10 +2108,10 @@ function paintFloorCell(dim, cell, permutation) {
   }
 }
 
-function scheduleCatacombVisualModules(dim, plan) {
+function scheduleCatacombVisualModules(dim, plan, junction) {
   const candidates = plan.cellsFlat.filter((cell) => {
-    if (!(cell.deadEnd || cell.role === "safe" || cell.role === "loot")) return false;
-    if (cell.role === "start" || cell.role === "exit") return false;
+    if (cell.role !== "deadEnd") return false;
+    if (junction && cell.x === junction.cell.x && cell.z === junction.cell.z) return false;
     return getClosedSides(cell).includes("south");
   });
   const rng = makeRng(`${plan.seed}:authored-modules`);
@@ -2052,19 +2120,23 @@ function scheduleCatacombVisualModules(dim, plan) {
   const count = Math.min(MAX_AUTHORED_CATACOMB_MODULES, candidates.length);
   for (let index = 0; index < count; index++) {
     const cell = candidates[index];
-    const spec = CATACOMB_MODULES[(index + rng.int(CATACOMB_MODULES.length)) % CATACOMB_MODULES.length];
+    // Full-cell modules may overwrite a linked mouth. Keep the two shallow
+    // south-wall modules until their full-cell counterparts are mask-patched.
+    const spec = CATACOMB_MODULES[(index + rng.int(2)) % 2];
     const base = getCellBase(cell);
     scheduleStructurePlacement(
       `catacombs:${plan.seed}:${cell.x}:${cell.z}`,
       spec.id,
       dim,
       { x: base.x, y: MAZE.originY + 1, z: base.z + MAZE.cellSize - spec.depth },
+      { owner: "catacombs-maze", isPlacementAllowed: () => mazePlan === plan },
     );
   }
 }
 
 function* buildMazeJob(plan) {
   const dim = getCatacombDimension();
+  cancelVisualJobs("catacombs-maze");
   flickerLightsReady = false;
   flickerLightNodes = [];
   const minX = getMazeMinX();
@@ -2082,11 +2154,6 @@ function* buildMazeJob(plan) {
   for (const cell of plan.cellsFlat) {
     yield* carveCellInterior(dim, cell);
   }
-
-  for (let index = 0; index < plan.cellsFlat.length; index++) {
-    dressCatacombCell(dim, plan.cellsFlat[index], index);
-  }
-  placeSealedJunction(dim, plan);
 
   // Open the carved links between cells.
   for (const cell of plan.cellsFlat) {
@@ -2130,7 +2197,17 @@ function* buildMazeJob(plan) {
     }
   }
 
-  scheduleCatacombVisualModules(dim, plan);
+  const junction = selectJunction(junctionCandidates(plan.cellsFlat, plan.path, getClosedSides),
+    plan.path.length, new Set(), MAZE.cellsX, MAZE.cellsZ);
+  for (let index = 0; index < plan.cellsFlat.length; index++) {
+    const cell = plan.cellsFlat[index];
+    if (!junction || cell.x !== junction.cell.x || cell.z !== junction.cell.z) {
+      dressCatacombCell(dim, cell, index);
+    }
+    if (index % 4 === 0) yield;
+  }
+  placeSealedJunction(dim, plan, junction);
+  scheduleCatacombVisualModules(dim, plan, junction);
   spawnThemedMobs(dim, plan);
   markMazeBuilt();
   flickerLightsReady = true;
@@ -2386,7 +2463,7 @@ function triggerExit(player) {
   pendingEscape.add(player.id);
   clearCatacombEscapeTimer(player.id);
   openExitDoor(true);
-  announce(player, "You escaped the Catacombs.", "Returning you to your previous location.");
+  announce(player, "The exit opens.", "Returning you to your previous location.");
   system.runTimeout(() => {
     void exitCatacombs(player);
   }, 2);
@@ -2395,15 +2472,7 @@ function triggerExit(player) {
     openExitDoor(false);
   }, 20);
 
-  system.runTimeout(() => {
-    void rebuildMazeNow().catch((error) => {
-      try {
-        world.sendMessage(`Catacombs failed to regenerate: ${String(error)}`);
-      } catch (_innerError) {
-        // Ignore chat failures.
-      }
-    });
-  }, 60);
+  schedulePostExitRebuild();
 }
 
 async function teleportPlayerIntoCatacombs(player, spawn, options = {}) {
@@ -2482,30 +2551,38 @@ function getRandomCatacombSpawnLocation(plan) {
 }
 
 export async function enterCatacombs(player) {
+  if (!player) {
+    return false;
+  }
+
   if (isCatacombDimensionId(player.dimension.id)) {
     announce(player, "Catacomb Mazes", "You are already inside the Catacombs.");
     return false;
   }
 
+  const shouldRebuild = beginCatacombEntry(player);
   try {
-    await rebuildMazeNow();
-  } catch (error) {
-    // Rebuilds can fail transiently while chunks/ticking areas are catching up.
-    // Try the existing maze instead of making the command appear to do nothing.
-    await ensureWorldReady().catch(() => {});
-  }
-  const spawn = mazePlan ? getStartSpawnLocation(mazePlan) : { x: 2.5, y: MAZE.originY + 1, z: 2.5 };
-  const moved = await teleportPlayerIntoCatacombs(player, spawn, {
-    title: "Catacomb Mazes",
-    subtitle: "Find the exit door. Repeated corridors remember you.",
-    reportFailure: true,
-  });
+    try {
+      if (shouldRebuild) {
+        await rebuildMazeNow();
+      } else {
+        await ensureWorldReady();
+      }
+    } catch (error) {
+      // Rebuilds can fail transiently while chunks/ticking areas are catching up.
+      // Try the existing maze instead of making the command appear to do nothing.
+      await ensureWorldReady().catch(() => {});
+    }
 
-  if (!moved) {
-    return false;
+    const spawn = mazePlan ? getStartSpawnLocation(mazePlan) : { x: 2.5, y: MAZE.originY + 1, z: 2.5 };
+    return await teleportPlayerIntoCatacombs(player, spawn, {
+      title: "Catacomb Mazes",
+      subtitle: "Find the exit door. Repeated corridors remember you.",
+      reportFailure: true,
+    });
+  } finally {
+    pendingCatacombEntries.delete(player.id);
   }
-
-  return true;
 }
 
 function runCatacombsEntryCommand(player) {
@@ -2597,6 +2674,11 @@ function applyTransitionEffect(player, ticks) {
 }
 
 export async function enterCatacombsAtRandomLocation(player, options = {}) {
+  if (!player) {
+    return false;
+  }
+
+  const shouldRebuild = beginCatacombEntry(player);
   try {
     const transitionTicks = options.transitionTicks === undefined ? 12 : options.transitionTicks;
     const freshMaze = options.freshMaze !== false;
@@ -2605,7 +2687,7 @@ export async function enterCatacombsAtRandomLocation(player, options = {}) {
     applyTransitionEffect(player, transitionTicks);
     spawnTransitionParticles(currentDimension, player.location);
 
-    const rebuildPromise = freshMaze ? rebuildMazeNow() : ensureWorldReady();
+    const rebuildPromise = freshMaze && shouldRebuild ? rebuildMazeNow() : ensureWorldReady();
     if (transitionTicks > 0) {
       await waitTicks(transitionTicks);
     }
@@ -2619,13 +2701,16 @@ export async function enterCatacombsAtRandomLocation(player, options = {}) {
     return moved;
   } catch (_error) {
     return false;
+  } finally {
+    pendingCatacombEntries.delete(player.id);
   }
 }
 
 async function exitCatacombs(player) {
   try {
     const saved = returnPoints.get(player.id);
-    const targetDimension = getDimensionSafe("minecraft:overworld");
+    const targetDimensionId = saved && saved.dimensionId ? saved.dimensionId : "minecraft:overworld";
+    const targetDimension = getDimensionSafe(targetDimensionId);
     if (!targetDimension) {
       throw new Error("No valid return dimension is available.");
     }
@@ -2660,18 +2745,23 @@ async function exitCatacombs(player) {
     });
 
     try {
+      let teleported = false;
       if (safeLocation) {
-        await verifiedPlayerTeleport(player, teleportTarget, {
+        teleported = await verifiedPlayerTeleport(player, teleportTarget, {
           dimension: targetDimension,
           checkForBlocks: false,
           keepVelocity: false,
         }, { attempts: 8, retryTicks: 4, maxDistance: 64 });
       } else {
-        await verifiedPlayerTeleport(player, teleportTarget, {
+        teleported = await verifiedPlayerTeleport(player, teleportTarget, {
           dimension: targetDimension,
           checkForBlocks: true,
           keepVelocity: false,
         }, { attempts: 8, retryTicks: 4, maxDistance: 64 });
+      }
+
+      if (!teleported) {
+        throw new Error("Catacombs return teleport verification failed.");
       }
     } finally {
       try {
@@ -2685,11 +2775,13 @@ async function exitCatacombs(player) {
     returnPoints.delete(player.id);
     pendingEscape.delete(player.id);
     announce(player, "Catacomb Mazes", "Your return point has been restored.");
+    return true;
   } catch (error) {
     pendingEscape.delete(player.id);
     if (typeof player.sendMessage === "function") {
       player.sendMessage(`Failed to escape the Catacombs: ${String(error)}`);
     }
+    return false;
   }
 }
 
@@ -2816,6 +2908,13 @@ function syncCatacombGamemodes() {
 }
 
 async function ensureWorldReady(forceRebuild = false) {
+  if (mazeRebuildPromise) {
+    await mazeRebuildPromise;
+    if (mazeReady && !forceRebuild) {
+      return;
+    }
+  }
+
   if (mazeReady && !forceRebuild) {
     return;
   }
@@ -2850,24 +2949,52 @@ async function ensureWorldReady(forceRebuild = false) {
   await bootstrapPromise;
 }
 
-async function rebuildMazeNow() {
-  if (bootstrapPromise) {
-    await bootstrapPromise;
+async function rebuildMazeNow(shouldContinue = () => true) {
+  if (mazeRebuildPromise) {
+    return await mazeRebuildPromise;
   }
 
-  bootstrapPromise = (async () => {
-    mazePlan = createMazePlan(makeFreshMazeSeedText());
-    mazeReady = false;
+  const rebuildPromise = (async () => {
+    if (bootstrapPromise) {
+      await bootstrapPromise;
+    }
+
+    if (!shouldContinue()) {
+      if (bootstrapPromise === rebuildPromise) {
+        bootstrapPromise = null;
+      }
+      return false;
+    }
+
+    const nextPlan = createMazePlan(makeFreshMazeSeedText());
     await ensureCoreTickingArea();
-    await buildMazeNow(mazePlan);
+    if (!shouldContinue()) {
+      if (bootstrapPromise === rebuildPromise) {
+        bootstrapPromise = null;
+      }
+      return false;
+    }
+
+    mazePlan = nextPlan;
+    mazeReady = false;
+    await buildMazeNow(nextPlan);
     mazeReady = true;
+    return true;
   })().catch((error) => {
     bootstrapPromise = null;
     mazeReady = false;
     throw error;
   });
 
-  await bootstrapPromise;
+  mazeRebuildPromise = rebuildPromise;
+  bootstrapPromise = rebuildPromise;
+  try {
+    return await rebuildPromise;
+  } finally {
+    if (mazeRebuildPromise === rebuildPromise) {
+      mazeRebuildPromise = null;
+    }
+  }
 }
 
 async function rebuildMazeAfterEscapeTimeout() {

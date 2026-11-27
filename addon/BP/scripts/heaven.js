@@ -1,5 +1,6 @@
 import {
   BlockVolume,
+  BlockPermutation,
   CommandPermissionLevel,
   CustomCommandStatus,
   GameMode,
@@ -24,7 +25,11 @@ import {
 import { getCachedPlayers } from "./paradise_tick_cache.js";
 import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
 import {
-  exitFrames,
+  POOL,
+  visitLandmarks,
+  visitReservations,
+  coveredChunks,
+  rectanglesIntersect,
   restStationPlan,
   segmentsFor,
   restStations,
@@ -50,6 +55,9 @@ const HEAVEN_ART = Object.freeze({
 });
 const HEAVEN_ART_SIZE = Object.freeze({
   temple: Object.freeze({ x: 24, y: 15, z: 24 }),
+  pool: Object.freeze({ x: 12, y: 2, z: 12 }),
+  arch: Object.freeze({ x: 11, y: 10, z: 4 }),
+  colonnade: Object.freeze({ x: 16, y: 10, z: 8 }),
 });
 const HEAVEN_STRUCTURE_PLAYER_MARGIN = 2;
 
@@ -117,6 +125,7 @@ const returnPoints = new Map();
 const heavenGamemodes = new Map();
 const visitCounters = new Map();
 const generatedChunks = new Set();
+const visitScenes = new Map();
 const pendingVoidFall = new Set();
 const heavenTrustRules = new Map();
 
@@ -320,31 +329,123 @@ function placeHeavenRestStation(dim, spawn, playerId = undefined) {
     }
   } catch (_error) {}
 
-  stageRestTwin(dim, x, z);
-
-  for (const frame of exitFrames(x, z + 2)) {
-    setPiece(dim, frame.x, frame.y, frame.z, frame.block);
-  }
-
   if (playerId) {
     const ruleState = getHeavenTrustState(playerId);
     ruleState.restLocation = center;
   }
 }
 
-/** Place every staged segment of a multi-cell Heaven piece. */
+/** Place complete registered segments with their authored north-facing state. */
 function setPiece(dim, x, y, z, block) {
+  let complete = true;
   for (const [dx, dy, dz, id] of segmentsFor(block)) {
-    setBlockTypeSafe(dim, { x: x + dx, y: y + dy, z: z + dz }, id);
+    const location = { x: x + dx, y: y + dy, z: z + dz };
+    try {
+      const target = dim.getBlock(location);
+      if (!target) { complete = false; continue; }
+      const permutation = BlockPermutation.resolve(id);
+      const states = permutation.getAllStates();
+      target.setPermutation(Object.hasOwn(states, "minecraft:cardinal_direction")
+        ? permutation.withState("minecraft:cardinal_direction", "north") : permutation);
+    } catch (_error) { complete = false; }
   }
+  return complete;
 }
 
-function stageRestTwin(dim, x, z) {
-  for (const station of restStations(x, z)) {
-    const disturbed = station.id === "disturbed";
-    for (const entry of restStationPlan(station.offsetX + x, station.z, station.blocks, disturbed)) {
-      setPiece(dim, entry.x, entry.y, entry.z, entry.block);
+function stageRestDisplay(dim, spawnX, station) {
+  const x = spawnX + station.offsetX;
+  const z = station.z;
+  let complete = true;
+  for (let dx = 0; dx < 8; dx++) {
+    for (let dz = 0; dz < 7; dz++) {
+      complete = setBlockTypeSafe(dim, { x: x + dx, y: 64, z: z + dz }, "paradise:hv_white_floor_tiles_clean") && complete;
     }
+    for (let y = 65; y <= 68; y++) {
+      complete = setBlockTypeSafe(dim, { x: x + dx, y, z: z + 6 }, "minecraft:smooth_quartz") && complete;
+    }
+  }
+  for (const entry of restStationPlan(x, z, station.blocks, station.id === "disturbed")) {
+    complete = setPiece(dim, entry.x, entry.y, entry.z, entry.block) && complete;
+  }
+  return complete;
+}
+
+function registerVisitScene(x) {
+  if (!visitScenes.has(x)) visitScenes.set(x, { complete: new Set(), pending: new Set() });
+}
+
+function reservedHeavenArt(location, size) {
+  const rect = { x: location.x, z: location.z, width: size.x, depth: size.z };
+  for (const x of visitScenes.keys()) {
+    if (visitReservations(x).some(reservation => rectanglesIntersect(rect, reservation))) return true;
+  }
+  return false;
+}
+
+function stagePoolGarden(dim, origin) {
+  let complete = true;
+  const write = (x, y, z, block) => {
+    complete = setBlockTypeSafe(dim, { x: origin.x + x, y: origin.y + y, z: origin.z + z }, block) && complete;
+  };
+  // Gilded corners and cyan interior are already carried by the patched NBT.
+  for (const [x, z] of [[0, 0], [10, 0], [0, 10], [10, 10]]) {
+    complete = setPiece(dim, origin.x + x, origin.y + 1, origin.z + z, POOL.planter) && complete;
+  }
+  for (const z of [-3, 14]) {
+    for (const x of [2, 3, 4, 7, 8, 9]) {
+      complete = setPiece(dim, origin.x + x, origin.y, origin.z + z, POOL.hedge) && complete;
+    }
+  }
+  for (const x of [-2, 13]) for (let z = 3; z <= 8; z++) {
+    complete = setPiece(dim, origin.x + x, origin.y, origin.z + z, POOL.edging) && complete;
+  }
+  for (const x of [5, 6]) for (let z = -2; z <= 0; z++) write(x, 0, z, "minecraft:smooth_quartz");
+  return complete;
+}
+
+function stageTempleArchitecture(dim, origin) {
+  let complete = true;
+  const write = (x, y, z, block) => {
+    complete = setBlockTypeSafe(dim, { x: origin.x + x, y: origin.y + y, z: origin.z + z }, block) && complete;
+  };
+  for (const x of [3, 20]) for (const z of [3, 7, 12, 17, 20]) {
+    for (let y = 2; y <= 7; y++) write(x, y, z, "minecraft:quartz_pillar");
+    complete = setPiece(dim, origin.x + x, origin.y + 8, origin.z + z, "paradise:hv_column_capital") && complete;
+  }
+  for (let y = 2; y <= 5; y++) for (const x of [10, 13]) write(x, y, 20, "minecraft:smooth_quartz");
+  for (const x of [11, 12]) {
+    for (let y = 2; y <= 4; y++) write(x, y, 20, "minecraft:air");
+    write(x, 5, 20, "minecraft:smooth_quartz");
+  }
+  for (let y = 2; y <= 4; y++) for (const x of [3, 4]) write(x, y, 22, "minecraft:smooth_quartz");
+  complete = setPiece(dim, origin.x + 3, origin.y + 2, origin.z + 20, "paradise:hv_open_exit_frame_x0_y0_z0") && complete;
+  return complete;
+}
+
+function scheduleVisitLandmarks(dim, spawnX) {
+  const scene = visitScenes.get(spawnX);
+  if (!scene) return;
+  for (const rect of visitLandmarks(spawnX)) {
+    if (scene.complete.has(rect.key) || scene.pending.has(rect.key)) continue;
+    if (!coveredChunks(rect).every(key => generatedChunks.has(key))) continue;
+    const location = { x: rect.x, y: FLOOR_Y, z: rect.z };
+    const size = { x: rect.width, y: 16, z: rect.depth };
+    const safe = () => !playersIntersectStructureBounds(getHeavenPlayers(), location, size, 1);
+    if (!safe()) continue;
+    if (rect.key.endsWith("-rest")) {
+      const station = restStations(spawnX, 0).find(entry => rect.key === entry.id + "-rest");
+      if (station && stageRestDisplay(dim, spawnX, station)) scene.complete.add(rect.key);
+      continue;
+    }
+    const pool = rect.key === "pool";
+    const origin = { x: rect.x + (pool ? 2 : 0), y: 65, z: rect.z + (pool ? 3 : 0) };
+    scene.pending.add(rect.key);
+    void scheduleStructurePlacement(
+      `heaven-fixed:${spawnX}:${rect.key}`, pool ? HEAVEN_ART.pool : HEAVEN_ART.temple, dim, origin,
+      { owner: `heaven-visit-${spawnX}`, isPlacementAllowed: safe },
+    ).then(placed => {
+      if (placed && (pool ? stagePoolGarden(dim, origin) : stageTempleArchitecture(dim, origin))) scene.complete.add(rect.key);
+    }).finally(() => scene.pending.delete(rect.key));
   }
 }
 
@@ -633,12 +734,13 @@ function scheduleHeavenChunkArt(dim, cx, cz) {
     HEAVEN_STRUCTURE_PLAYER_MARGIN,
   );
 
-  if (seed % 64 === 0 && !templeBlockedByPlayer) {
+  if (seed % 64 === 0 && !templeBlockedByPlayer && !reservedHeavenArt(templeLocation, HEAVEN_ART_SIZE.temple)) {
     scheduleStructurePlacement(
       `heaven-temple:${cx}:${cz}`,
       HEAVEN_ART.temple,
       dim,
       templeLocation,
+      { isPlacementAllowed: () => !reservedHeavenArt(templeLocation, HEAVEN_ART_SIZE.temple) && !playersIntersectStructureBounds(getHeavenPlayers(), templeLocation, HEAVEN_ART_SIZE.temple, HEAVEN_STRUCTURE_PLAYER_MARGIN) },
     );
     return;
   }
@@ -649,7 +751,9 @@ function scheduleHeavenChunkArt(dim, cx, cz) {
   const location = structureId === HEAVEN_ART.arch
     ? { x: ox + 2, y: FLOOR_Y + 1, z: oz + 10 }
     : { x: ox, y: FLOOR_Y + 1, z: oz };
-  scheduleStructurePlacement(`heaven-art:${cx}:${cz}`, structureId, dim, location);
+  const size = structureId === HEAVEN_ART.arch ? HEAVEN_ART_SIZE.arch : structureId === HEAVEN_ART.pool ? HEAVEN_ART_SIZE.pool : HEAVEN_ART_SIZE.colonnade;
+  const safe = () => !reservedHeavenArt(location, size) && !playersIntersectStructureBounds(getHeavenPlayers(), location, size, HEAVEN_STRUCTURE_PLAYER_MARGIN);
+  if (safe()) void scheduleStructurePlacement(`heaven-art:${cx}:${cz}`, structureId, dim, location, { isPlacementAllowed: safe });
 }
 
 function generateHeavenChunk(dim, cx, cz) {
@@ -689,6 +793,8 @@ function generateHeavenFloor() {
         }
       }
     }
+    const visit = visitCounters.get(player.id);
+    if (visit) scheduleVisitLandmarks(dim, visit * VISIT_GRID_SPACING);
   }
 }
 
@@ -800,6 +906,7 @@ export async function enterHeaven(player) {
     return false;
   }
 
+  registerVisitScene(Math.floor(spawn.x));
   preGenerateSpawnChunks(dim, spawn);
 
   try {

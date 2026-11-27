@@ -18,7 +18,7 @@ export function getVisualBudget(player) {
   let tier = MEMORY_TIER.Low;
   try {
     const value = player?.clientSystemInfo?.memoryTier;
-    if (typeof value === "number") tier = value;
+    if (Number.isInteger(value) && value >= MEMORY_TIER.SuperLow && value <= MEMORY_TIER.SuperHigh) tier = value;
   } catch (_error) {}
 
   if (tier >= MEMORY_TIER.SuperHigh) return PROFILE.SUPER_HIGH;
@@ -52,4 +52,19 @@ export function shouldPlaceLeaf(budget, value) {
   if (!isVisualYInBounds(value)) return false;
   const burst = budget?.particleBurst ?? PROFILE.LOW.particleBurst;
   return burst > 0;
+}
+
+/** Return a legal, unclipped ambient particle height, or skip the sample. */
+export function particleYInDimension(value, dimension) {
+  if (!Number.isFinite(value)) return undefined;
+  let min = WORLD_MIN_Y;
+  let max = WORLD_MAX_Y + 1;
+  try {
+    const range = dimension?.heightRange;
+    if (Number.isFinite(range?.min) && Number.isFinite(range?.max) && range.max > range.min) {
+      min = Math.max(min, range.min);
+      max = Math.min(max, range.max);
+    }
+  } catch (_error) {}
+  return value >= min && value < max ? value : undefined;
 }

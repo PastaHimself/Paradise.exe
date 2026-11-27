@@ -25,7 +25,7 @@ BLOCK_OPTIONAL = {"model", "texture", "texture_path", "render_method", "collisio
                   "light_emission", "light_dampening", "friction", "sound", "display_name", "materials",
                   "rp_block", "batch", "rotation", "rotation_offset", "state_count", "geometry_mode",
                   "geometry_owner", "source_geometry", "allow_tall_collision",
-                  "provenance", "vanilla_root", "index"}
+                  "provenance", "vanilla_root", "index", "preserve_rotated_cubes", "translation_bias"}
 DIMENSION_OPTIONAL = {"min_y", "height_range", "biome", "batch"}
 MATERIAL_FACES = {"*", "up", "down", "north", "south", "east", "west", "side"}
 
@@ -189,9 +189,18 @@ class Plan:
         path = checked_path(self.root, relative)
         return path.read_bytes() if path.is_file() else None
 
+    def remove_verified(self, relative, *, expected):
+        """Plan an explicit removal only for a file whose bytes were verified."""
+        path = checked_path(self.root, relative)
+        if not path.is_file() or path.read_bytes() != expected:
+            raise Conflict(f"File changed during removal planning: {relative.as_posix()}")
+        if relative in self.files:
+            raise Conflict(f"Batch proposes both writing and removing {relative.as_posix()}")
+        self.files[relative] = (expected, None)
+
     def summary(self):
         return [
-            {"path": path.as_posix(), "action": "unchanged" if before == after else "update" if before is not None else "create"}
+            {"path": path.as_posix(), "action": "unchanged" if before == after else "remove" if after is None else "update" if before is not None else "create"}
             for path, (before, after) in sorted(self.files.items())
         ]
 
@@ -199,20 +208,25 @@ class Plan:
         saved = []
         try:
             for relative, (before, after) in self.files.items():
-                if before == after:
-                    continue
                 path = checked_path(self.root, relative)
                 current = path.read_bytes() if path.exists() else None
                 if current != before:
                     raise Conflict(f"File changed during scaffold: {relative.as_posix()}")
-                atomic_write(path, after)
-                saved.append((path, before))
+                if before == after:
+                    continue
+                mode = stat.S_IMODE(path.stat().st_mode) if before is not None else None
+                if after is None:
+                    path.unlink()
+                else:
+                    atomic_write(path, after)
+                saved.append((path, before, mode))
         except (Exception, KeyboardInterrupt):
-            for path, previous in reversed(saved):
+            for path, previous, mode in reversed(saved):
                 if previous is None:
                     path.unlink()
                 else:
                     atomic_write(path, previous)
+                    path.chmod(mode)
             raise
 
 
@@ -265,6 +279,13 @@ def stage_block_models(root, plan, models, row, name):
     mode = row.get("geometry_mode", "1")
     if mode not in ("1", "S"):
         raise ValueError("geometry_mode must be 1 or S")
+    preserve_rotated = row.get("preserve_rotated_cubes", False)
+    if type(preserve_rotated) is not bool:
+        raise ValueError("preserve_rotated_cubes must be boolean")
+    bias = row.get("translation_bias", [0, 0, 0])
+    vector(bias, 3, "translation_bias")
+    if mode != "S" and (preserve_rotated or any(bias)):
+        raise ValueError("preserve_rotated_cubes and translation_bias require geometry_mode S")
     explicit = row.get("geometry")
     if "model" not in row:
         if mode == "S" or "geometry_owner" in row or "source_geometry" in row:
@@ -293,7 +314,7 @@ def stage_block_models(root, plan, models, row, name):
     owner = row.get("geometry_owner", name)
     identifier(owner)
     model = document["minecraft:geometry"][exported.index(source_id)]
-    cells, shift = stage_cells(model, mode == "S")
+    cells, shift = stage_cells(model, mode == "S", preserve_rotated, bias)
     staged = []
     for cell, segment in cells.items():
         suffix = "" if mode != "S" else "_x{}_y{}_z{}".format(*cell)

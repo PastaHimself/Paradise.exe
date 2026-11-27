@@ -71,11 +71,9 @@ export function isShelfEndcap(localZ) {
   return localZ === 0 || localZ === 15;
 }
 
-/** Shelf rows: x3 and x11, plus the variant-2 parallel rows at x2 and x6. */
-export function shelfRowsFor(variant) {
-  const rows = [3, 11];
-  if (variant === 2) rows.push(2, 6);
-  return rows;
+/** The west room replaces the normal banks with x2/x6 to leave x3..5 clear. */
+export function shelfRowsFor(westRoom = false) {
+  return westRoom ? [2, 6] : [3, 11];
 }
 
 /** Cracked plaster on one in eight non-door wall panels. */

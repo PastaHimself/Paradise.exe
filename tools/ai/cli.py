@@ -18,6 +18,8 @@ from common import BP, ROOT, RP, page, read_json, require_packs
 sys.path.insert(1, str(ROOT / "tools"))
 from audit import CHECKS, audit
 from checks import texture_candidates, validate
+from block_repairs import build_floor_collision_plan, build_stair_collision_plan
+from geometry_reuse import build_shared_reuse_plan, plan_digest
 from manifests import pack_versions, version_argument
 from navigation import references, script_impact
 from package_mcaddon import package_mcaddon
@@ -110,6 +112,15 @@ provenance and vanilla_root required. New PNG atlas checks require Pillow.
     scaffold.add_argument("--ids", help="Comma-separated block/dimension IDs to include from the spec")
     scaffold.add_argument("--batch", help="Only include spec rows whose batch field matches this tag")
     writable(scaffold)
+    reuse = commands.add_parser("geometry-reuse", help="Migrate exactly identical shared block models to existing owners", allow_abbrev=False)
+    reuse.add_argument("--expected-plan", help="SHA-256 of the reviewed dry-run; required for --apply")
+    writable(reuse)
+    repair = commands.add_parser("repair-flat-flower-floors", help="Restore solid collision on six verified full-tile Y64 floors", allow_abbrev=False)
+    repair.add_argument("--expected-plan", help="SHA-256 of the reviewed dry-run; required for --apply")
+    writable(repair)
+    tread = commands.add_parser("repair-stair-treads", help="Restore the two authored stair collision profiles", allow_abbrev=False)
+    tread.add_argument("--expected-plan", help="SHA-256 of the reviewed dry-run; required for --apply")
+    writable(tread)
     check = commands.add_parser("validate", help="Run pack, audio, references, structure, and Script API checks", allow_abbrev=False)
     preflight(check)
     assets = commands.add_parser("assets", help="List textures with no exact local reference observed", allow_abbrev=False)
@@ -170,7 +181,7 @@ provenance and vanilla_root required. New PNG atlas checks require Pillow.
     gate.add_argument("--check", action="append", choices=list(CHECKS), help="V2 audit section to include (repeatable; default all)")
     gate.add_argument("--target", help="Target engine version MAJOR.MINOR.PATCH (default 1.26.50)")
     gate.add_argument("--examples", type=integer(1, 50), default=5, help="Max locations kept per audit finding (default 5)")
-    for command in (inspect, scan, scaffold, check, assets, build, refs, impact, structs, profile, diagnostics, manifest,
+    for command in (inspect, scan, scaffold, reuse, repair, tread, check, assets, build, refs, impact, structs, profile, diagnostics, manifest,
                     slice, audit_cmd, prune_cmd, gate):
         command.add_argument("--json", action="store_true", help="Compact JSON output (default)")
         pagination(command)
@@ -386,6 +397,27 @@ def run(args):
             if args.apply:
                 plan.apply()
             return False, report
+    if args.command == "geometry-reuse":
+        with scaffold_lock(root, args.apply):
+            plan, mapping, index_rows = build_shared_reuse_plan(root)
+            digest = plan_digest(plan)
+            if args.apply:
+                if args.expected_plan != digest:
+                    raise Conflict("Geometry migration requires the exact reviewed --expected-plan digest")
+                plan.apply()
+        return False, {"mode": "apply" if args.apply else "dry-run", "plan_sha256": digest,
+                       "removed_geometries": len(mapping), "updated_index_rows": index_rows,
+                       "mapping": mapping, **page(plan.summary(), args)}
+    if args.command in ("repair-flat-flower-floors", "repair-stair-treads"):
+        with scaffold_lock(root, args.apply):
+            plan = (build_floor_collision_plan if args.command == "repair-flat-flower-floors" else build_stair_collision_plan)(root)
+            digest = plan_digest(plan)
+            if args.apply:
+                if args.expected_plan != digest:
+                    raise Conflict("Floor repair requires the exact reviewed --expected-plan digest")
+                plan.apply()
+        return False, {"mode": "apply" if args.apply else "dry-run", "plan_sha256": digest,
+                       **page(plan.summary(), args)}
     if args.command == "validate":
         return summarize_checks(validate(root, args, script_index(root)), args)
     return build_archive(root, args)

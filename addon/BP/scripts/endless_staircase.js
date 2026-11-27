@@ -23,13 +23,19 @@ import { enterFlatFlower } from "./flat_flower.js";
 import { enterHeaven } from "./heaven.js";
 import { enterLibrary } from "./library.js";
 import { enterYellowHalls } from "./yellow_halls.js";
-import { scheduleStructurePlacement } from "./paradise_visual_jobs.js";
+import { cancelVisualJob, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
 import {
   isLegalRow,
+  isLegalTreadRow,
+  WORLD_MAX_Y,
+  STAIR_DECOR,
+  isChippedRow,
   remotePlacements,
   scenePlacements,
   sceneryFor,
 } from "./endless_staircase_scene.js";
+
+import { STAIR_STRUCTURE_MASKS } from "./endless_staircase_structure_masks.js";
 
 const DIMENSION_ID = "paradise:endless_staircase";
 const ENTER_COMMAND_ID = "p:enter_endless_staircase";
@@ -48,14 +54,6 @@ const EXIT_Z = START_Z - 28;
 const EXIT_TRIGGER_RADIUS = 3.25;
 const UPWARD_TRANSFER_DISTANCE = 120;
 const CHECKPOINT_INTERVAL = 4;
-const STAIR_SCENERY_INTERVAL = 12;
-const STAIR_SCENERY = Object.freeze({
-  support: "paradise:endless_staircase/support_arch",
-  buttress: "paradise:endless_staircase/broken_buttress",
-  bridge: "paradise:endless_staircase/distant_bridge",
-  landing: "paradise:endless_staircase/landing_frame",
-});
-
 const STAIR_WEIRDO_DIRECTION_BY_TRAVEL = Object.freeze({
   east: 0,
   west: 1,
@@ -71,7 +69,8 @@ const BLOCK = {
   stonePressurePlate: "minecraft:stone_pressure_plate",
 };
 
-const generatedVisualSlices = new Set();
+const generatedVisualSlices = new Map();
+const liveStairRows = new Map();
 
 const state = {
   bootstrapPromise: null,
@@ -121,6 +120,7 @@ function getDimensionById(dimensionId) {
 }
 
 function setBlockSafe(dimension, location, typeId) {
+  if (location.y < -64 || location.y > WORLD_MAX_Y) return false;
   try {
     dimension.setBlockType(toBlockPos(location), typeId);
     return true;
@@ -150,6 +150,7 @@ function setStairBlock(dimension, x, y, z) {
 }
 
 function clearBlock(dimension, x, y, z) {
+  if (y < -64 || y > WORLD_MAX_Y) return false;
   try {
     dimension.setBlockType({ x, y, z }, BLOCK.air);
     return true;
@@ -163,69 +164,113 @@ function getStairY(z) {
 }
 
 function scheduleStairScenery(dimension, laneOffset, z) {
-  if (!isLegalRow(z)) return;
-  if (z < START_Z || z % STAIR_SCENERY_INTERVAL !== 0) return;
+  const kind = sceneryFor(z);
+  if (!kind) return;
   const key = `${laneOffset}:${z}`;
   if (generatedVisualSlices.has(key)) return;
-  generatedVisualSlices.add(key);
-
+  const spec = STAIR_STRUCTURE_MASKS[kind];
   const y = getStairY(z);
+  const location = { x: laneOffset + spec.origin[0], y: y + spec.origin[1], z: z + spec.origin[2] };
+  if (location.y < -64 || location.y + spec.size[1] - 1 > WORLD_MAX_Y) return;
+  const jobKey = `endless-stair:${key}`;
+  const site = { laneOffset, z, spec, jobKey, placed: false };
+  generatedVisualSlices.set(key, site);
+  void scheduleStructurePlacement(jobKey, spec.id, dimension, location, {
+    owner: `endless-stair:${laneOffset}`,
+    isPlacementAllowed: () => generatedVisualSlices.get(key) === site && liveStairRows.get(laneOffset)?.has(z) === true,
+  }).then((placed) => {
+    if (generatedVisualSlices.get(key) !== site) return;
+    if (placed) {
+      site.placed = true;
+      // Preserve authored row fittings wherever a bearing column intersects.
+      for (let row = location.z; row < location.z + spec.size[2]; row++) {
+        if (!liveStairRows.get(laneOffset)?.has(row)) continue;
+        placeSceneBlocks(dimension, scenePlacements(laneOffset, row));
+        placeSceneBlocks(dimension, remotePlacements(laneOffset, row));
+      }
+    } else {
+      generatedVisualSlices.delete(key);
+    }
+  }).catch(() => {
+    if (generatedVisualSlices.get(key) === site) generatedVisualSlices.delete(key);
+  });
+}
 
-  // The solid shaft wall now carries the structure the old support/landing
-  // structures used to float in the void. Only the authored distant bridge
-  // remains as a scheduled structure, at rows 96 and 192.
-  if (sceneryFor(z) !== "bridge") return;
-
-  const structureId = STAIR_SCENERY.bridge;
-  const location = { x: laneOffset + 10, y: Math.min(318, y + 4), z: z - 2 };
-  scheduleStructurePlacement(`endless-stair:${key}`, structureId, dimension, location);
+function removeStairSite(dimension, key, site) {
+  generatedVisualSlices.delete(key);
+  cancelVisualJob(site.jobKey);
+  if (!site.placed) return;
+  for (const [dx, dy, dz] of site.spec.cells) {
+    clearBlock(dimension, site.laneOffset + dx, getStairY(site.z) + dy, site.z + dz);
+  }
+  for (let row = site.z + site.spec.origin[2]; row < site.z + site.spec.origin[2] + site.spec.size[2]; row++) {
+    if (!liveStairRows.get(site.laneOffset)?.has(row)) continue;
+    placeSceneBlocks(dimension, scenePlacements(site.laneOffset, row));
+    placeSceneBlocks(dimension, remotePlacements(site.laneOffset, row));
+  }
 }
 
 function placeSceneBlocks(dimension, placements) {
   for (const entry of placements) {
-    setBlockSafe(dimension, { x: entry.x, y: entry.y, z: entry.z }, entry.block);
+    try {
+      const block = dimension.getBlock({ x: entry.x, y: entry.y, z: entry.z });
+      if (!block) continue;
+      if (entry.role === "number") {
+        block.setPermutation(BlockPermutation.resolve(entry.block, { facing_direction: 5 }));
+        const sign = block.getComponent("minecraft:sign");
+        if (sign) {
+          sign.setText(entry.text);
+          sign.setWaxed(true);
+        }
+      } else if (entry.facing) {
+        block.setPermutation(BlockPermutation.resolve(entry.block, { "minecraft:cardinal_direction": entry.facing }));
+      } else {
+        setBlockSafe(dimension, entry, entry.block);
+      }
+    } catch (error) {}
   }
 }
 
 function generateStairSlice(dimension, laneOffset, z) {
-  if (!isLegalRow(z)) return;
+  if (!isLegalTreadRow(z)) return;
   const y = getStairY(z);
-  setStairBlock(dimension, laneOffset, y, z);
-  setStairBlock(dimension, laneOffset - 1, y, z);
+  for (const x of [laneOffset - 1, laneOffset]) {
+    if (z < 0) setStairBlock(dimension, x, y, z);
+    else setBlockSafe(dimension, { x, y, z }, isChippedRow(z) ? STAIR_DECOR.chippedTread : STAIR_DECOR.tread);
+    for (let dy = 1; dy <= 2; dy++) clearBlock(dimension, x, y + dy, z);
+  }
+  if (z < 0) return;
+  if (!liveStairRows.has(laneOffset)) liveStairRows.set(laneOffset, new Set());
+  const freshRow = !liveStairRows.get(laneOffset).has(z);
+  liveStairRows.get(laneOffset).add(z);
+  // Remove obsolete east-side landings and the former wall on the west access.
+  if (freshRow) for (let dy = 0; dy <= 2; dy++) {
+    clearBlock(dimension, laneOffset - 2, y + dy, z);
+    for (let dx = 2; dx <= 3; dx++) clearBlock(dimension, laneOffset + dx, y + dy, z);
+  }
   placeSceneBlocks(dimension, scenePlacements(laneOffset, z));
   placeSceneBlocks(dimension, remotePlacements(laneOffset, z));
   scheduleStairScenery(dimension, laneOffset, z);
 }
 
 function clearStairSlice(dimension, laneOffset, z) {
-  if (!isLegalRow(z)) return;
+  if (!isLegalTreadRow(z)) return;
+  liveStairRows.get(laneOffset)?.delete(z);
+  const siteKey = `${laneOffset}:${z}`;
+  const site = generatedVisualSlices.get(siteKey);
+  if (site) removeStairSite(dimension, siteKey, site);
   const y = getStairY(z);
-  // Treads, wall backing, guard line and the old floating east ledge are all
-  // owned by this row, so cleanup removes every one of them together.
-  for (let dy = -2; dy <= 3; dy++) {
-    for (let dx = -2; dx <= 1; dx++) {
-      clearBlock(dimension, laneOffset + dx, y + dy, z);
-    }
+  for (const x of [laneOffset - 1, laneOffset]) {
+    for (let dy = 0; dy <= 2; dy++) clearBlock(dimension, x, y + dy, z);
   }
-  for (let dx = 2; dx <= 4; dx++) {
-    for (let dy = 0; dy <= 2; dy++) {
-      clearBlock(dimension, laneOffset + dx, y + dy, z);
-      clearBlock(dimension, laneOffset + dx, y + dy, z + 1);
-    }
-  }
-  for (let dy = 1; dy <= 2; dy++) {
-    clearBlock(dimension, laneOffset + 3, y - dy, z + 1);
-  }
-  for (let dx = 6; dx <= 10; dx++) {
-    for (let dy = -1; dy <= 1; dy++) {
-      clearBlock(dimension, laneOffset + dx, y + dy, z);
-    }
+  for (const entry of [...scenePlacements(laneOffset, z), ...remotePlacements(laneOffset, z)]) {
+    clearBlock(dimension, entry.x, entry.y, entry.z);
   }
 }
 
 function generateStairsAhead(dimension, laneOffset, currentZ) {
   const startZ = Math.max(EXIT_Z, Math.floor(currentZ));
-  const maxZ = Math.floor(currentZ) + GENERATE_AHEAD;
+  const maxZ = Math.min(WORLD_MAX_Y - START_Y, Math.floor(currentZ) + GENERATE_AHEAD);
   for (let z = startZ; z <= maxZ; z++) {
     generateStairSlice(dimension, laneOffset, z);
   }
@@ -234,13 +279,23 @@ function generateStairsAhead(dimension, laneOffset, currentZ) {
 function clearOldStairs(dimension, laneOffset, currentZ) {
   const minZ = Math.floor(currentZ) - CLEANUP_BEHIND;
   if (minZ <= START_Z) return;
+  for (const [key, site] of generatedVisualSlices) {
+    if (site.laneOffset === laneOffset && site.z + site.spec.origin[2] + site.spec.size[2] <= minZ) {
+      removeStairSite(dimension, key, site);
+    }
+  }
   for (let z = Math.max(START_Z, minZ - 5); z < minZ; z++) {
     clearStairSlice(dimension, laneOffset, z);
   }
 }
 
 function clearRouteArea(dimension, laneOffset, minZ, maxZ) {
+  liveStairRows.delete(laneOffset);
+  for (const [key, site] of generatedVisualSlices) {
+    if (site.laneOffset === laneOffset) removeStairSite(dimension, key, site);
+  }
   for (let z = minZ; z <= maxZ; z++) {
+    clearStairSlice(dimension, laneOffset, z);
     const y = getStairY(z);
     for (let dx = -3; dx <= 3; dx++) {
       for (let dy = -5; dy <= 5; dy++) {

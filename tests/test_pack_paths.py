@@ -32,13 +32,21 @@ class PackPathTests(unittest.TestCase):
             self.assertEqual(path.name, identifier.replace(":", "__") + ".json", path.name)
 
     def test_every_block_has_a_matching_geometry_file(self):
+        geometry_ids = set()
+        for geometry_path in sorted((ROOT / "addon/RP/models/blocks").rglob("*.geo.json")):
+            document = json.loads(geometry_path.read_text())
+            for geometry in document.get("minecraft:geometry", []):
+                identifier = geometry.get("description", {}).get("identifier")
+                if identifier:
+                    geometry_ids.add(identifier)
+
         missing = []
         for path in sorted((ROOT / "addon/BP/blocks").glob("*.json")):
             document = json.loads(path.read_text())
             geometry = document["minecraft:block"]["components"]["minecraft:geometry"]
-            expected = ROOT / "addon/RP/models/blocks" / path.name.replace(".json", ".geo.json")
-            if not expected.exists():
-                missing.append((path.name, geometry))
+            identifier = geometry if isinstance(geometry, str) else geometry.get("identifier")
+            if identifier not in geometry_ids:
+                missing.append((path.name, identifier))
         self.assertEqual(missing, [])
 
 

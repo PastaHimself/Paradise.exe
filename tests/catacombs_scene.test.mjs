@@ -17,6 +17,8 @@ import {
   sealedDoorwayPlan,
   segmentsFor,
   selectJunction,
+  junctionCandidates,
+  rotatePiece,
   sideInset,
   wallBlock,
   wallRunOffsets,
@@ -61,10 +63,10 @@ test("floors use uneven tiles 12%, puddles 4% and base 84%", () => {
 });
 
 test("light slots cycle lit, unlit, sconce and cage", () => {
-  assert.deepEqual(lampFor(0), { block: DRESS.lampLit, light: 9 });
-  assert.deepEqual(lampFor(1), { block: DRESS.lampOut, light: 0 });
+  assert.deepEqual(lampFor(0), { block: DRESS.candleLit, light: 9 });
+  assert.deepEqual(lampFor(1), { block: DRESS.candleOut, light: 0 });
   assert.deepEqual(lampFor(2), { block: DRESS.lampSconce, light: 10 });
-  assert.deepEqual(lampFor(3), { block: DRESS.lampRusted, light: 8 });
+  assert.deepEqual(lampFor(3), { block: DRESS.lampLit, light: 8 });
   assert.deepEqual(lampFor(4), lampFor(0));
   assert.equal(candleFor(10), DRESS.candleLit);
   assert.equal(candleFor(90), DRESS.candleOut);
@@ -165,4 +167,35 @@ test("multi-cell pieces expose every segment including the top", () => {
     assert.equal(segmentsFor(DRESS[key]).length, 2, key);
   }
   assert.deepEqual(segmentsFor(DRESS.niche), [[0, 0, 0, DRESS.niche]]);
+});
+
+
+test("junction path indexing uses coordinates rather than object identity", () => {
+  const cells = Array.from({length: 17}, (_, x) => ({
+    x, z: 0, role: "corridor", links: new Set(["a", "b"]),
+  }));
+  const path = cells.map(({x,z}) => ({x,z}));
+  const candidates = junctionCandidates(cells, path, () => ["north","south"]);
+  const choice = selectJunction(candidates, path.length);
+  assert.equal(choice.cell.pathIndex, 6);
+  assert.equal(choice.side, "south", "outer north wall is not an internal future shortcut");
+});
+
+test("junction fallback chooses an internal off-path corridor, never a functional room", () => {
+  const cells = [
+    { x: 0, z: 0, role: "corridor", degree: 2, pathIndex: -1, closedSides: ["north", "west"] },
+    { x: 2, z: 1, role: "loot", degree: 2, pathIndex: -1, closedSides: ["south"] },
+    { x: 3, z: 2, role: "corridor", degree: 2, pathIndex: -1, closedSides: ["east"] },
+  ];
+  assert.equal(selectJunction(cells, 12).cell.x, 3);
+});
+
+test("all four wall orientations rotate every segment within its original wall plane", () => {
+  for (const side of SIDE_ORDER) {
+    const parts = rotatePiece(DRESS.sealedDoorway, side);
+    assert.equal(parts.length, 4);
+    assert.equal(new Set(parts.map(p => `${p.x}:${p.y}:${p.z}`)).size, 4);
+    assert.ok(parts.every(p => p.x >= 0 && p.x <= 1 && p.z >= 0 && p.z <= 1));
+    assert.ok(parts.every(p => side === "north" || side === "south" ? p.z === 0 : p.x === 0));
+  }
 });

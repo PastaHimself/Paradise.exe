@@ -101,6 +101,15 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual({row["action"] for row in self.call_cli(*args, "--apply")["items"]}, {"unchanged"})
         self.call_cli("manifest", "--rp-version", "1.0.0", "--apply", status=1)
 
+    def test_manifest_engine_floor_cannot_be_lowered(self):
+        before = {
+            pack: (self.root / pack / "manifest.json").read_bytes()
+            for pack in (BP, RP)
+        }
+        self.call_cli("manifest", "--engine", "1.26.20", status=1)
+        for pack in (BP, RP):
+            self.assertEqual((self.root / pack / "manifest.json").read_bytes(), before[pack])
+
     def test_structure_filters_observed_blocks(self):
         path = BP / "structures/paradise/catacombs/collapsed_crypt.mcstructure"
         target = self.root / path

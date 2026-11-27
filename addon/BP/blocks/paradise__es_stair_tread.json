@@ -8,7 +8,32 @@
       "minecraft:tags": [
         "paradise:static_decor"
       ],
-      "minecraft:collision_box": true,
+      "minecraft:collision_box": [
+        {
+          "origin": [
+            -8,
+            0,
+            -8
+          ],
+          "size": [
+            16,
+            8,
+            16
+          ]
+        },
+        {
+          "origin": [
+            -8,
+            8,
+            0
+          ],
+          "size": [
+            16,
+            8,
+            8
+          ]
+        }
+      ],
       "minecraft:geometry": "geometry.paradise.es_stair_tread",
       "minecraft:material_instances": {
         "*": {

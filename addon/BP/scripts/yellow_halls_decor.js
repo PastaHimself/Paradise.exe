@@ -21,6 +21,12 @@ export const CARPET = Object.freeze({
   dark_stain: "paradise:yh_beige_carpet_dark_stain",
 });
 
+export const CARPET_CORNERS = Object.freeze({
+  base: "paradise:yh_raised_carpet_corner",
+  worn: "paradise:yh_raised_carpet_corner_worn",
+  dark: "paradise:yh_raised_carpet_corner_dark",
+});
+
 export const CEILING = Object.freeze({
   intact: "paradise:yh_acoustic_ceiling_intact",
   cracked: "paradise:yh_acoustic_ceiling_cracked",
@@ -72,7 +78,7 @@ const PAIR = {
     { id: "paradise:yh_exit_sign_normal_x0_y0_z0", offset: [0, 0, 0] },
     { id: "paradise:yh_exit_sign_normal_x1_y0_z0", offset: [1, 0, 0] },
   ],
-  poster: [
+  corridor_poster_normal: [
     { id: "paradise:yh_poster_normal_x0_y0_z0", offset: [0, 0, 0] },
     { id: "paradise:yh_poster_normal_x0_y1_z0", offset: [0, 1, 0] },
   ],
@@ -125,13 +131,33 @@ function placeBlock(dimension, typeId, x, y, z, facing) {
   }
 }
 
+function getSegmentWorldPositions(entry, base, facing) {
+  if (!entry?.length) return [];
+  const rotated = entry.map(({ id, offset: [x, y, z] }) => {
+    switch (facing) {
+      case "east": return { id, x: -z, y, z: x };
+      case "south": return { id, x: -x, y, z: -z };
+      case "west": return { id, x: z, y, z: -x };
+      default: return { id, x, y, z };
+    }
+  });
+  const minX = Math.min(...rotated.map((segment) => segment.x));
+  const minZ = Math.min(...rotated.map((segment) => segment.z));
+  return rotated.map((segment) => ({
+    id: segment.id,
+    x: base.x + segment.x - minX,
+    y: base.y + segment.y,
+    z: base.z + segment.z - minZ,
+  }));
+}
+
 /** Place every staged segment of a registry entry at a base position. */
 export function placeSegments(dimension, entry, base, facing) {
-  if (!entry) return 0;
+  const segments = getSegmentWorldPositions(entry, base, facing);
+  if (segments.length === 0) return 0;
   let placed = 0;
-  for (const segment of entry) {
-    const [dx, dy, dz] = segment.offset;
-    if (placeBlock(dimension, segment.id, base.x + dx, base.y + dy, base.z + dz, facing)) {
+  for (const segment of segments) {
+    if (placeBlock(dimension, segment.id, segment.x, segment.y, segment.z, facing)) {
       placed += 1;
     }
   }
@@ -156,29 +182,12 @@ export function collectWallCells(maze, minX, minZ) {
       const cellMinZ = minZ + cz * 8;
       const cellMaxX = cellMinX + 7;
       const cellMaxZ = cellMinZ + 7;
-      const horizontal = (x0, z0) => {
-        for (let dx = 0; dx <= 7; dx += 1) {
-          if (dx >= 3 && dx <= 4) continue;
-          add(x0 + dx, z0);
-        }
-      };
-      const vertical = (x0, z0) => {
-        for (let dz = 0; dz <= 7; dz += 1) {
-          if (dz >= 3 && dz <= 4) continue;
-          add(x0, z0 + dz);
-        }
-      };
-      if (cell.north) horizontal(cellMinX, cellMinZ);
-      else for (let dx = 0; dx <= 7; dx += 1) add(cellMinX + dx, cellMinZ);
-      if (cz === size - 1) {
-        if (cell.south) horizontal(cellMinX, cellMaxZ);
-        else for (let dx = 0; dx <= 7; dx += 1) add(cellMinX + dx, cellMaxZ);
-      }
-      if (cell.west) vertical(cellMinX, cellMinZ);
-      else for (let dz = 0; dz <= 7; dz += 1) add(cellMinX, cellMinZ + dz);
-      if (cx === size - 1) {
-        if (cell.east) vertical(cellMaxX, cellMinZ);
-        else for (let dz = 0; dz <= 7; dz += 1) add(cellMaxX, cellMinZ + dz);
+      for (let offset = 0; offset < 8; offset++) {
+        const portal = offset === 3 || offset === 4;
+        if (!cell.north || !portal) add(cellMinX + offset, cellMinZ);
+        if (!cell.south || !portal) add(cellMinX + offset, cellMaxZ);
+        if (!cell.west || !portal) add(cellMinX, cellMinZ + offset);
+        if (!cell.east || !portal) add(cellMaxX, cellMinZ + offset);
       }
     }
   }
@@ -186,32 +195,59 @@ export function collectWallCells(maze, minX, minZ) {
 }
 
 export function isCornerWallCell(x, z, minX, minZ) {
-  return (x - minX) % 8 === 0 && (z - minZ) % 8 === 0;
+  const localX = (x - minX) % 8;
+  const localZ = (z - minZ) % 8;
+  return (localX <= 1 || localX >= 6) && (localZ <= 1 || localZ >= 6);
+}
+
+/** Place the two opaque baffles that shape each orthogonal corridor turn. */
+export function applyYellowHallsTurnBaffles(dimension, patchX, patchZ, maze, minX, minZ, options = {}) {
+  const blockId = options.blockId ?? "minecraft:yellow_concrete";
+  let placed = 0;
+  for (let cellX = 0; cellX < maze.length; cellX++) {
+    for (let cellZ = 0; cellZ < maze[cellX].length; cellZ++) {
+      if (options.excludedCells?.has(`${cellX},${cellZ}`)) continue;
+      if (!model.isTurnBaffleEligible(patchX, patchZ, cellX, cellZ, maze[cellX][cellZ])) continue;
+      const regions = model.planTurnBaffleRegions(
+        maze[cellX][cellZ],
+        minX + cellX * 8,
+        minZ + cellZ * 8,
+      );
+      for (const region of regions) {
+        for (let x = region.minX; x <= region.maxX; x++) {
+          for (let z = region.minZ; z <= region.maxZ; z++) {
+            for (let y = 65; y <= 67; y++) {
+              if (placeBlock(dimension, blockId, x, y, z, null)) placed += 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  return { placed };
 }
 
 /** Wallpaper, carpet and acoustic ceiling surface rules for one patch. */
 export function applyYellowHallsSurfaces(dimension, patchX, patchZ, maze, minX, minZ, options = {}) {
   const groundY = options.groundY ?? 64;
   const ceilingY = options.ceilingY ?? 68;
-  const vents = options.vents ?? model.CONDUIT_RUN.filter((row) => row.id === "return_air_vent");
+  const authoredPatch = patchX === model.BREAKER_MOUNT.patchX && patchZ === model.BREAKER_MOUNT.patchZ;
+  const vents = options.vents ?? (authoredPatch ? model.CONDUIT_RUN.filter((row) => row.id === "return_air_vent") : []);
   const size = maze.length;
   const writes = { walls: 0, floor: 0, ceiling: 0 };
 
   const nearVent = (x, z) =>
-    vents.some((vent) => model.manhattan(x, z, minX + vent.x, minZ + vent.z) <= 2);
+    vents.some((vent) => model.manhattan(x, z, minX + vent.x, minZ + vent.z) <= 1);
 
   for (let cx = 0; cx < size; cx++) {
     for (let cz = 0; cz < size; cz++) {
-      const cell = maze[cx][cz];
-      const straightZ = cell.north && cell.south && !cell.east && !cell.west;
-      const straightX = cell.east && cell.west && !cell.north && !cell.south;
-      const onRoute = straightZ || straightX || (cell.north && cell.south) || (cell.east && cell.west);
       const cellMinX = minX + cx * 8;
       const cellMinZ = minZ + cz * 8;
       for (let dx = 0; dx < 8; dx++) {
         for (let dz = 0; dz < 8; dz++) {
           const x = cellMinX + dx;
           const z = cellMinZ + dz;
+          const onRoute = model.isRouteBlockPosition(maze, x, z, minX, minZ);
           const floorState = model.selectFloorState(x, z, { onRoute });
           if (placeBlock(dimension, CARPET[floorState], x, groundY, z, null)) writes.floor += 1;
           const ceilingState = model.selectCeilingState(x, z);
@@ -221,10 +257,24 @@ export function applyYellowHallsSurfaces(dimension, patchX, patchZ, maze, minX, 
     }
   }
 
+  for (const corner of model.planRaisedCarpetCorners(maze, minX, minZ)) {
+    const insideArrivalBuffer =
+      patchX === 0 &&
+      patchZ === 0 &&
+      corner.x >= -3 &&
+      corner.x <= 3 &&
+      corner.z >= -3 &&
+      corner.z <= 3;
+    if (insideArrivalBuffer) continue;
+    if (placeBlock(dimension, CARPET_CORNERS[corner.state], corner.x, groundY + 1, corner.z, corner.facing)) {
+      writes.floor += 1;
+    }
+  }
+
   for (const cell of collectWallCells(maze, minX, minZ)) {
     const corner = isCornerWallCell(cell.x, cell.z, minX, minZ);
     const vent = nearVent(cell.x, cell.z);
-    for (let y = groundY; y <= groundY + 3; y++) {
+    for (let y = groundY + 1; y <= groundY + 3; y++) {
       const state = model.selectWallpaperState(cell.x, y, cell.z, { isCorner: corner, nearVent: vent });
       if (placeBlock(dimension, WALLPAPER[state], cell.x, y, cell.z, null)) writes.walls += 1;
     }
@@ -238,31 +288,66 @@ export function applyYellowHallsFixtures(dimension, patchX, patchZ, maze, minX, 
   const size = maze.length;
   const plan = [];
   let legOrdinal = 0;
-  for (let cx = 0; cx < size; cx++) {
-    for (let cz = 0; cz < size; cz++) {
-      const cell = maze[cx][cz];
-      const degree = [cell.north, cell.south, cell.east, cell.west].filter(Boolean).length;
-      const straightZ = (cell.north || cell.south) && !cell.east && !cell.west;
-      const straightX = (cell.east || cell.west) && !cell.north && !cell.south;
-      const cellMinX = minX + cx * 8;
-      const cellMinZ = minZ + cz * 8;
-      if (!straightZ && !straightX) {
-        // The turn-adjacent bay always reads as a low-power fixture.
-        if (degree >= 2) {
-          plan.push({ x: cellMinX + 3, z: cellMinZ + 3, state: "dim", facing: "north" });
+  const isStraight = (cell, axis) =>
+    axis === "z"
+      ? (cell.north || cell.south) && !cell.east && !cell.west
+      : (cell.east || cell.west) && !cell.north && !cell.south;
+  const hasStraightPredecessor = (cellX, cellZ, axis) => {
+    const previousX = axis === "x" ? cellX - 1 : cellX;
+    const previousZ = axis === "z" ? cellZ - 1 : cellZ;
+    if (previousX < 0 || previousZ < 0) return false;
+    const previous = maze[previousX]?.[previousZ];
+    if (!previous || !isStraight(previous, axis)) return false;
+    return axis === "x"
+      ? previous.east && maze[cellX][cellZ].west
+      : previous.south && maze[cellX][cellZ].north;
+  };
+
+  for (const axis of ["z", "x"]) {
+    for (let cellX = 0; cellX < size; cellX++) {
+      for (let cellZ = 0; cellZ < size; cellZ++) {
+        const cell = maze[cellX][cellZ];
+        if (!isStraight(cell, axis) || hasStraightPredecessor(cellX, cellZ, axis)) continue;
+
+        const run = [];
+        let currentX = cellX;
+        let currentZ = cellZ;
+        while (currentX < size && currentZ < size) {
+          const current = maze[currentX]?.[currentZ];
+          if (!current || !isStraight(current, axis)) break;
+          run.push({ x: currentX, z: currentZ });
+          const hasForwardLink = axis === "x" ? current.east : current.south;
+          if (!hasForwardLink) break;
+          if (axis === "x") currentX += 1;
+          else currentZ += 1;
+          const next = maze[currentX]?.[currentZ];
+          if (!next || !isStraight(next, axis)) break;
+          if (axis === "x" ? !next.west : !next.north) break;
         }
-        continue;
+
+        if (run.length === 0) continue;
+        const start = run[0];
+        const fixtures = model.planLegFixtures(run.length * 8, legOrdinal, { axis });
+        legOrdinal += 1;
+        for (const fixture of fixtures) {
+          const base = fixture.offset - 1;
+          const x = axis === "x" ? minX + start.x * 8 + base : minX + start.x * 8 + 3;
+          const z = axis === "z" ? minZ + start.z * 8 + base : minZ + start.z * 8 + 3;
+          plan.push({ x, z, state: fixture.state, facing: axis === "z" ? "north" : "east" });
+        }
       }
-      const axis = straightZ ? "z" : "x";
-      const fixtures = model.planLegFixtures(8, legOrdinal, { axis });
-      legOrdinal += 1;
-      for (const fixture of fixtures) {
-        // Keep both halves inside the cell: cells 1..6 along the leg axis.
-        const base = Math.max(1, Math.min(5, fixture.offset - 1));
-        const x = axis === "x" ? cellMinX + base : cellMinX + 3;
-        const z = axis === "z" ? cellMinZ + base : cellMinZ + 3;
-        plan.push({ x, z, state: fixture.state, facing: axis === "z" ? "north" : "east" });
-      }
+    }
+  }
+
+  for (let cellX = 0; cellX < size; cellX++) {
+    for (let cellZ = 0; cellZ < size; cellZ++) {
+      if (!model.isOrthogonalTurn(maze[cellX][cellZ])) continue;
+      plan.push({
+        x: minX + cellX * 8 + 3,
+        z: minZ + cellZ * 8 + 3,
+        state: "dim",
+        facing: "north",
+      });
     }
   }
   let placed = 0;
@@ -300,6 +385,10 @@ export function applyYellowHallsScenery(dimension, patchX, patchZ, maze, minX, m
     const isPortal = model.bayFaceIsPortal(maze, bay);
     const anchor = model.bayDoorAnchor(bay, isPortal);
     if (bay.prop) place(PAIR[bay.prop], minX + anchor.x, anchor.y, minZ + anchor.z, bay.facing);
+    if (bay.bay === 1) {
+      place(PAIR.door_frame, minX + 2, bay.y, minZ + bay.z, bay.facing);
+      place(PAIR.door_frame, minX + 5, bay.y, minZ + bay.z, bay.facing);
+    }
     if (bay.sign) {
       const entry = PAIR[`${bay.sign}_sign`];
       if (entry) place(entry, minX + bay.signX, bay.y + 2, minZ + bay.signZ, bay.facing);
@@ -317,7 +406,19 @@ export function applyYellowHallsScenery(dimension, patchX, patchZ, maze, minX, m
   }
 
   for (const prop of model.FLOOR_PROPS) {
-    place(PAIR[prop.id], minX + prop.x, prop.y, minZ + prop.z, prop.facing);
+    const entry = PAIR[prop.id];
+    let safeSegments;
+    for (const position of [{ x: prop.x, z: prop.z }, ...(prop.alternates ?? [])]) {
+      const base = { x: minX + position.x, y: prop.y, z: minZ + position.z };
+      const segments = getSegmentWorldPositions(entry, base, prop.facing);
+      if (segments.every((segment) => !model.isRouteBlockPosition(maze, segment.x, segment.z, minX, minZ))) {
+        safeSegments = segments;
+        break;
+      }
+    }
+    for (const segment of safeSegments ?? []) {
+      if (placeBlock(dimension, segment.id, segment.x, segment.y, segment.z, prop.facing)) placed += 1;
+    }
   }
   for (const prop of model.WALL_PROPS) {
     place(PAIR[prop.id], minX + prop.x, prop.y, minZ + prop.z, prop.facing);
@@ -341,8 +442,9 @@ export function applyYellowHallsScenery(dimension, patchX, patchZ, maze, minX, m
 
 /** Run every Yellow Halls static pass for a freshly painted patch. */
 export function applyYellowHallsDressing(dimension, patchX, patchZ, maze, minX, minZ, options = {}) {
+  const baffles = applyYellowHallsTurnBaffles(dimension, patchX, patchZ, maze, minX, minZ, options);
   const surfaces = applyYellowHallsSurfaces(dimension, patchX, patchZ, maze, minX, minZ, options);
   const fixtures = applyYellowHallsFixtures(dimension, patchX, patchZ, maze, minX, minZ, options);
   const scenery = applyYellowHallsScenery(dimension, patchX, patchZ, maze, minX, minZ, options);
-  return { surfaces, fixtures, scenery };
+  return { baffles, surfaces, fixtures, scenery };
 }

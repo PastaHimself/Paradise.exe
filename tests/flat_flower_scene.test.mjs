@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -10,17 +10,22 @@ import {
   SCENE_GARDEN_PROPS,
   SCENE_GROUND,
   SCENE_LANDMARKS,
+  SCENE_LANDMARK_DRESS,
   SCENE_MARKERS,
   SCENE_PATHS,
+  SCENE_STRUCTURE_SIZES,
   SCENE_ZONES,
   inRect,
   inScene,
+  isAuthoredScenePatch,
   isScenePath,
   landmarkInPatch,
   markerTopY,
   sceneFlower,
   sceneGround,
   sceneRoll,
+  sceneStructurePatches,
+  unreservedPatchRectangles,
 } from "../addon/BP/scripts/flat_flower_scene.js";
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
@@ -65,8 +70,104 @@ test("scene ground follows paths first, then the zone weights", () => {
   }
   assert.deepEqual(
     [...seen].sort(),
-    [SCENE_GROUND.bare, SCENE_GROUND.dry, SCENE_GROUND.flattened, SCENE_GROUND.shortGrass].sort(),
+    [SCENE_GROUND.bare, SCENE_GROUND.dry, SCENE_GROUND.flattened, SCENE_GROUND.shortGrass, SCENE_FLOWERS.barePatch].sort(),
   );
+});
+
+test("flower-bed soil is a Y64 tile and row gaps stay empty at Y65", () => {
+  assert.equal(sceneGround(24, 30), SCENE_FLOWERS.barePatch);
+  assert.equal(sceneFlower(24, 30), null);
+  assert.equal(sceneGround(46, 26), SCENE_FLOWERS.barePatch);
+  assert.equal(sceneFlower(46, 26), null);
+  assert.equal(sceneFlower(45, 26), SCENE_FLOWERS.rows);
+});
+
+test("authored paths form one connected two-wide route to every branch", () => {
+  const cells = new Set();
+  for (const [minX, maxX, minZ, maxZ] of SCENE_PATHS) {
+    for (let x = minX; x <= maxX; x++) {
+      for (let z = minZ; z <= maxZ; z++) cells.add(`${x}:${z}`);
+    }
+  }
+  const reached = new Set(["0:3"]);
+  const pending = [[0, 3]];
+  for (let i = 0; i < pending.length; i++) {
+    const [x, z] = pending[i];
+    for (const [dx, dz] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
+      const key = `${x + dx}:${z + dz}`;
+      if (cells.has(key) && !reached.has(key)) {
+        reached.add(key);
+        pending.push([x + dx, z + dz]);
+      }
+    }
+  }
+  assert.equal(reached.size, cells.size);
+  assert.ok(reached.has("37:22"), "north branch reaches true marker");
+  assert.ok(reached.has("18:44"), "west decoy branch reaches its marker");
+  assert.ok(reached.has("55:41"), "east decoy branch reaches its marker");
+});
+
+test("fixed structures fit their loaded owner patch and own unchanged sizes", () => {
+  assert.deepEqual(SCENE_STRUCTURE_SIZES, {
+    "paradise:flat_flower/ruined_gazebo": [12, 8, 12],
+    "paradise:flat_flower/lone_tree": [11, 12, 11],
+    "paradise:flat_flower/flower_ring": [9, 2, 9],
+    "paradise:flat_flower/distant_marker": [7, 11, 7],
+  });
+  for (const landmark of SCENE_LANDMARKS) {
+    assert.deepEqual(sceneStructurePatches(landmark), [
+      `${Math.floor(landmark.x / 32)}:${Math.floor(landmark.z / 32)}`,
+    ]);
+  }
+  assert.equal(isAuthoredScenePatch(0, 0), true);
+  assert.equal(isAuthoredScenePatch(1, 1), true);
+  assert.equal(isAuthoredScenePatch(2, 1), false);
+});
+
+test("pad partitions preserve the plate, 3x3 area and native sign without other holes", () => {
+  for (const centers of [[], [{ x: 10, z: 10 }], [{ x: 0, z: 10 }, { x: 31, z: 29 }]]) {
+    const rects = unreservedPatchRectangles(0, 0, 31, 31, centers);
+    const painted = new Set();
+    for (const [minX, maxX, minZ, maxZ] of rects) {
+      for (let x = minX; x <= maxX; x++) {
+        for (let z = minZ; z <= maxZ; z++) {
+          const key = `${x}:${z}`;
+          assert.equal(painted.has(key), false, `duplicate paint at ${key}`);
+          painted.add(key);
+        }
+      }
+    }
+    for (let x = 0; x < 32; x++) {
+      for (let z = 0; z < 32; z++) {
+        const protectedCell = centers.some(({ x: cx, z: cz }) =>
+          (Math.abs(x - cx) <= 1 && Math.abs(z - cz) <= 1) || (x === cx && z === cz + 2));
+        assert.equal(painted.has(`${x}:${z}`), !protectedCell, `cell ${x}:${z}`);
+      }
+    }
+  }
+});
+
+test("the authored garden and landmark dressing reference registered assets", () => {
+  for (const prop of [...SCENE_GARDEN_PROPS, ...SCENE_LANDMARK_DRESS]) {
+    assert.ok(existsSync(path.join(ROOT, "addon/BP/blocks", `paradise__${prop.block.slice("paradise:".length)}.json`)), prop.block);
+  }
+  const spots = SCENE_GARDEN_PROPS.map((prop) => `${prop.block}@${prop.x},${prop.y},${prop.z}`);
+  assert.ok(spots.includes("paradise:ff_abandoned_bench@14,65,28"));
+  assert.ok(spots.includes("paradise:ff_standalone_garden_gate@8,65,17"));
+  assert.ok(spots.includes("paradise:ff_rusted_watering_can_x0_y0_z0@13,65,29"));
+  assert.equal(spots.some((spot) => spot.includes("@20,65,45")), false, "west path stays clear");
+});
+
+test("all authored field-ground and bare-patch blocks retain collision", () => {
+  for (const identifier of [...Object.values(SCENE_GROUND), SCENE_FLOWERS.barePatch]) {
+    const fileName = `${identifier.replace("paradise:", "paradise__")}.json`;
+    const definition = JSON.parse(readFileSync(path.join(ROOT, "addon/BP/blocks", fileName), "utf8"));
+    assert.equal(
+      definition["minecraft:block"].components["minecraft:collision_box"],
+      true,
+      `${identifier} must remain collidable`,
+    );
+  }
 });
 
 test("no flower or debris sits on a scene path", () => {

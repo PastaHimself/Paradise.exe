@@ -1,5 +1,6 @@
 import {
   BlockVolume,
+  BlockPermutation,
   CommandPermissionLevel,
   CustomCommandStatus,
   WeatherType,
@@ -16,17 +17,16 @@ import {
   verifiedPlayerTeleport,
 } from "./dimension_horror_rules.js";
 import { getCachedPlayerById } from "./paradise_tick_cache.js";
-import { hashCoords as visualHashCoords, scheduleStructurePlacement, scheduleVisualJob } from "./paradise_visual_jobs.js";
+import { hashCoords as visualHashCoords, scheduleStructurePlacement } from "./paradise_visual_jobs.js";
 import {
   OVERLAY_Y,
   SURFACE,
-  wreckFittingPlacements,
   wreckOrigin,
-  wreckSegmentPlacements,
-  segmentsFor,
+  dividerPlacements,
   turnoutShelterPlacements,
-  dividerBlock,
-  isTurnoutEntry,
+  turnoutWallPlacements,
+  turnoutShoulderPlacements,
+  isTurnoutRow,
   ribRows,
   surfaceOverlay,
 } from "./burning_highway_scene.js";
@@ -347,54 +347,45 @@ async function withTickingArea(dimension, areaId, from, to, work) {
   }
 }
 
-function scheduleHighwayScenery(dimension, laneOffset, finishDistance) {
-  // Static authored art is requested only during lane generation. Nothing in
-  // the collapse/geyser hot path performs structure work.
+async function scheduleHighwayScenery(dimension, laneOffset, finishDistance) {
+  const owner = `highway-lane-${laneOffset}`;
   for (const z of ribRows(finishDistance)) {
-    scheduleStructurePlacement(
-      `highway-rib:${laneOffset}:${z}`,
-      HIGHWAY_SCENERY.tunnelRib,
-      dimension,
-      { x: laneOffset - 5, y: ROAD_Y, z: z - 1 },
+    await scheduleStructurePlacement(
+      `highway-rib:${laneOffset}:${z}`, HIGHWAY_SCENERY.tunnelRib,
+      dimension, { x: laneOffset - 5, y: ROAD_Y, z: z - 1 }, { owner },
     );
   }
-
   const sideSeed = visualHashCoords(laneOffset, finishDistance, 0x53494445);
   const placements = [
     { id: HIGHWAY_SCENERY.overpass, z: Math.min(finishDistance - 80, 104 + (sideSeed % 17)), x: laneOffset + HALF_WIDTH + 7 },
     { id: HIGHWAY_SCENERY.lavafall, z: Math.min(finishDistance - 54, 190 + ((sideSeed >>> 5) % 19)), x: laneOffset - HALF_WIDTH - 8 },
-
   ];
-
-  for (let index = 0; index < placements.length; index++) {
-    const placement = placements[index];
+  for (const [index, placement] of placements.entries()) {
     if (placement.z <= SAFE_START_PAD_LENGTH + 24 || placement.z >= finishDistance - 18) continue;
-    scheduleStructurePlacement(
-      `highway-landmark:${laneOffset}:${index}:${placement.z}`,
-      placement.id,
-      dimension,
-      { x: placement.x, y: ROAD_Y, z: placement.z },
+    await scheduleStructurePlacement(
+      `highway-landmark:${laneOffset}:${index}:${placement.z}`, placement.id,
+      dimension, { x: placement.x, y: ROAD_Y, z: placement.z }, { owner },
     );
   }
-
-  // Four-part shell and fittings ARE the wreck cluster; they sit on the road
-  // shoulder at X+1..+2 so the X−3..−1 walking strips stay clear.
   const origin = wreckOrigin(laneOffset, finishDistance, sideSeed);
-  if (!(origin.z <= SAFE_START_PAD_LENGTH + 24 || origin.z >= finishDistance - 18)) {
-    scheduleVisualPlacements(dimension, [
-      ...wreckSegmentPlacements(origin),
-      ...wreckFittingPlacements(origin),
-    ]);
+  if (origin.z > SAFE_START_PAD_LENGTH + 24 && origin.z < finishDistance - 18) {
+    await scheduleStructurePlacement(
+      `highway-wreck:${laneOffset}:${origin.z}`, HIGHWAY_SCENERY.wreck, dimension, origin, { owner },
+    );
   }
 }
 
-function scheduleVisualPlacements(dimension, placements) {
-  scheduleVisualJob(`highway-wreck-detail:${placements[0]?.x ?? 0}:${placements[0]?.z ?? 0}`, function* () {
-    for (const entry of placements) {
-      setBlockSafe(dimension, { x: entry.x, y: entry.y, z: entry.z }, entry.block);
+function placeTurnoutDecor(dimension, entry) {
+  try {
+    if (entry.facing) {
+      dimension.getBlock(entry)?.setPermutation(BlockPermutation.resolve(entry.block, { "minecraft:cardinal_direction": entry.facing }));
+    } else {
+      setBlockSafe(dimension, entry, entry.block);
     }
-    yield;
-  });
+  } catch (_error) {
+    // A native divider is safer than an empty gap if a custom permutation fails.
+    if (entry.y === OVERLAY_Y) setBlockSafe(dimension, entry, "minecraft:gray_concrete");
+  }
 }
 
 async function generateHighwayLane(dimension, laneOffset, finishDistance = HIGHWAY_LENGTH) {
@@ -418,7 +409,7 @@ async function generateHighwayLane(dimension, laneOffset, finishDistance = HIGHW
     dimension,
     areaId,
     { x: minX, y: minY, z: minZ },
-    { x: maxX, y: maxY, z: maxZ },
+    { x: Math.max(maxX, laneOffset + 34), y: Math.max(maxY, 95), z: maxZ },
     async () => {
       // Lava sea and bedrock floor
       fillBlocksSafe(
@@ -481,19 +472,10 @@ async function generateHighwayLane(dimension, laneOffset, finishDistance = HIGHW
 
       // Turnout divider, end caps and merge arrow. Both divider cells are
       // placed so no half-model hangs on the lane.
-      for (let z = 96; z <= 127; z++) {
-        if (isTurnoutEntry(z)) continue;
-        const divider = dividerBlock(z);
-        if (divider) {
-          for (const [dx, dy, dz, block] of segmentsFor(divider)) {
-            setBlockSafe(dimension, { x: laneOffset + dx, y: OVERLAY_Y + dy, z: z + dz }, block);
-          }
-        }
+      for (const entry of [...dividerPlacements(laneOffset), ...turnoutShelterPlacements(laneOffset)]) {
+        placeTurnoutDecor(dimension, entry);
       }
       setBlockSafe(dimension, { x: laneOffset + 1, y: OVERLAY_Y, z: 125 }, SURFACE.mergeArrow);
-      for (const shelter of turnoutShelterPlacements(laneOffset)) {
-        setBlockSafe(dimension, { x: shelter.x, y: shelter.y, z: shelter.z }, shelter.block);
-      }
 
       // Build side walls and ceiling with a deterministic structural rhythm.
       // This changes the material selected by existing writes rather than adding
@@ -527,13 +509,26 @@ async function generateHighwayLane(dimension, laneOffset, finishDistance = HIGHW
         }
       }
 
+      // Fixed side-wall fittings are applied after the structural wall writes.
+      for (const entry of turnoutWallPlacements(laneOffset)) {
+        setBlockSafe(dimension, { x: entry.x + 1, y: entry.y, z: entry.z }, "minecraft:copper_block");
+        placeTurnoutDecor(dimension, entry);
+      }
+      for (const entry of turnoutShoulderPlacements(laneOffset)) placeTurnoutDecor(dimension, entry);
+      // The service roof leaves two blocks of headroom, with three clear on the main path.
+      for (let z = 105; z <= 116; z++) {
+        for (let dx = 1; dx <= 3; dx++) {
+          setBlockSafe(dimension, { x: laneOffset + dx, y: ROAD_Y + 3, z }, BLOCK.polishedBlackstoneBricks);
+        }
+      }
+
       // Keep the playable route straight: no service detours, branches, loops, or side lanes.
       placeStaticHighwayObstacles(dimension, laneOffset, finishDistance);
 
       // Place finish portal structure
       placeFinishPortal(dimension, laneOffset, finishDistance);
 
-      scheduleHighwayScenery(dimension, laneOffset, finishDistance);
+      await scheduleHighwayScenery(dimension, laneOffset, finishDistance);
 
       // Store lane unstable blocks for future players
       state.laneUnstableBlocks.set(laneKey, unstableBlocks);
@@ -587,6 +582,7 @@ function placeStaticHighwayObstacles(dimension, laneOffset, finishDistance = HIG
       : BLOCK.polishedBlackstoneBricks;
 
     for (let dz = 0; dz < obstacle.depth; dz++) {
+      if (isTurnoutRow(z + dz)) continue;
       for (const x of obstacle.xs) {
         if (x < bounds.leftX || x > bounds.rightX) continue;
         if (bounds.inBranch && isInBranchGap(laneOffset, x)) continue;
@@ -1296,6 +1292,9 @@ function collapseHighwayRow(dimension, playerState, collapseZ, currentTick) {
     } else {
       setBlockSafe(dimension, { x, y: ROAD_Y, z: collapseZ }, BLOCK.lava);
       setBlockSafe(dimension, { x, y: ROAD_Y + 1, z: collapseZ }, BLOCK.air);
+      if (x === laneOffset + 3 && collapseZ >= 105 && collapseZ <= 116) {
+        setBlockSafe(dimension, { x, y: ROAD_Y + 2, z: collapseZ }, BLOCK.air);
+      }
     }
   }
 
@@ -1309,6 +1308,12 @@ function collapseHighwayRow(dimension, playerState, collapseZ, currentTick) {
       if (block && !SAFE_BLOCKS.has(block.typeId) && block.typeId !== BLOCK.lava && block.typeId !== BLOCK.fire) {
         setBlockSafe(dimension, { x, y: ROAD_Y, z: warningZ }, BLOCK.fire);
       }
+    }
+  }
+
+  if (collapseZ >= 105 && collapseZ <= 116) {
+    for (let dx = 1; dx <= 3; dx++) {
+      setBlockSafe(dimension, { x: laneOffset + dx, y: ROAD_Y + 3, z: collapseZ }, BLOCK.lava);
     }
   }
 

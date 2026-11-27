@@ -16,10 +16,11 @@ export const REST = Object.freeze({
     bench: "paradise:hv_disturbed_rest_bench_geomet_x0_y0_z0",
     lamp: "paradise:hv_disturbed_wall_lamp_geomet",
     sign: "paradise:hv_disturbed_safety_sign_geome_x0_y0_z0",
-    table: "paradise:hv_bedside_table_disturbed",
+    table: "paradise:hv_disturbed_bedside_table_geo_x0_y0_z0",
     chest: "paradise:hv_disturbed_white_chest_geome_x0_y0_z0",
-    plaque: "paradise:hv_engraved_panel_disturbed_x0_y0_z0",
-    footprints: "paradise:hv_disturbed_footprints_deep",
+    plaque: "paradise:hv_cracked_plaque_disturbed_x0_y0_z0",
+    footprints: "paradise:hv_disturbed_footprints_faint",
+    footprintsDistinct: "paradise:hv_disturbed_footprints_disti",
   }),
 });
 
@@ -69,9 +70,8 @@ export const PIECE_SEGMENTS = Object.freeze({
   ],
   [REST.disturbed.plaque]: [
     [0, 0, 0, REST.disturbed.plaque],
-    [0, 1, 0, "paradise:hv_engraved_panel_disturbed_x0_y1_z0"],
-    [1, 0, 0, "paradise:hv_engraved_panel_disturbed_x1_y0_z0"],
-    [1, 1, 0, "paradise:hv_engraved_panel_disturbed_x1_y1_z0"],
+    [0, 1, 0, "paradise:hv_cracked_plaque_disturbed_x0_y1_z0"],
+    [1, 0, 0, "paradise:hv_cracked_plaque_disturbed_x1_y0_z0"],
   ],
   [POOL.rim]: [
     [0, 0, 0, POOL.rim],
@@ -85,6 +85,12 @@ export const PIECE_SEGMENTS = Object.freeze({
     [0, 1, 0, "paradise:hv_pale_planter_clean_x0_y1_z0"],
     [1, 0, 0, "paradise:hv_pale_planter_clean_x1_y0_z0"],
     [1, 0, 1, "paradise:hv_pale_planter_clean_x1_y0_z1"],
+  ],
+  "paradise:hv_empty_planter_disturbed_x0_y0_z0": [
+    [0, 0, 0, "paradise:hv_empty_planter_disturbed_x0_y0_z0"],
+    [0, 0, 1, "paradise:hv_empty_planter_disturbed_x0_y0_z1"],
+    [1, 0, 0, "paradise:hv_empty_planter_disturbed_x1_y0_z0"],
+    [1, 0, 1, "paradise:hv_empty_planter_disturbed_x1_y0_z1"],
   ],
   [POOL.hedge]: [[0, 0, 0, POOL.hedge], [0, 1, 0, "paradise:hv_clipped_hedge_clean_x0_y1_z0"]],
   [EXIT_FRAMES.open]: [
@@ -121,32 +127,65 @@ export function isDaisReserved(x, y, z) {
     && z >= DAIS_RESERVE.minZ && z <= DAIS_RESERVE.maxZ;
 }
 
-/**
- * Side-by-side rest stations: the clean one at the spawn anchor and the
- * disturbed twin nine blocks east so both read from the same approach.
- */
+/** Static displays are deliberately separate from the gameplay rest pad. */
 export function restStations(x, z) {
   return [
-    { id: "clean", offsetX: 0, z, blocks: REST.clean },
-    { id: "disturbed", offsetX: 9, z, blocks: REST.disturbed },
+    { id: "clean", offsetX: -20, z: z + 2, blocks: REST.clean },
+    { id: "disturbed", offsetX: -20, z: z + 12, blocks: REST.disturbed },
   ];
 }
 
-/** Bench, lamp, sign, table and chest placements for one station. */
 export function restStationPlan(x, z, blocks, disturbed = false) {
   const plan = [
-    { x, y: FLOOR_Y + 1, z: z + 5, block: blocks.bench },
-    { x: x + 2, y: FLOOR_Y + 2, z: z + 5, block: blocks.lamp },
-    { x, y: FLOOR_Y + 1, z: z + 3, block: blocks.sign },
-    { x: x - 1, y: FLOOR_Y + 1, z: z + 5, block: blocks.table },
-    { x: x + 2, y: FLOOR_Y + 1, z: z + 6, block: blocks.chest },
-    { x: x, y: FLOOR_Y + 1, z: z + 7, block: blocks.plaque },
+    { x, y: 65, z: z + 4, block: blocks.bench },
+    { x: x + 6, y: 66, z: z + 5, block: blocks.lamp },
+    { x: x + 3, y: 66, z: z + 5, block: blocks.sign },
+    { x: x + 2, y: 65, z: z + 4, block: blocks.table },
+    { x: x + 6, y: 65, z: z + 4, block: blocks.chest },
+    { x: x + 5, y: 67, z: z + 5, block: blocks.plaque },
+    { x: x + 7, y: 65, z: z + 2, block: disturbed ? "paradise:hv_empty_planter_disturbed_x0_y0_z0" : POOL.planter },
   ];
   if (disturbed) {
-    plan.push({ x: x + 1, y: FLOOR_Y, z: z + 4, block: REST.disturbed.footprints });
-    plan.push({ x: x - 1, y: FLOOR_Y, z: z + 6, block: REST.disturbed.footprints });
+    plan.push({ x: x + 2, y: 64, z: z + 2, block: REST.disturbed.footprints });
+    plan.push({ x: x + 4, y: 64, z: z + 3, block: REST.disturbed.footprintsDistinct });
   }
   return plan;
+}
+
+export function visitLandmarks(x) {
+  const chunkX = 16 * Math.floor(x / 16);
+  return [
+    { key: "clean-rest", x: x - 20, z: 2, width: 9, depth: 7 },
+    { key: "disturbed-rest", x: x - 20, z: 12, width: 9, depth: 7 },
+    { key: "pool", x: chunkX - 2, z: 19, width: 16, depth: 18 },
+    { key: "temple", x: chunkX + 24, z: 16, width: 24, depth: 24 },
+  ];
+}
+
+export function coveredChunks(rectangle) {
+  const keys = [];
+  for (let cx = Math.floor(rectangle.x / 16); cx <= Math.floor((rectangle.x + rectangle.width - 1) / 16); cx++) {
+    for (let cz = Math.floor(rectangle.z / 16); cz <= Math.floor((rectangle.z + rectangle.depth - 1) / 16); cz++) {
+      keys.push(`${cx}:${cz}`);
+    }
+  }
+  return keys;
+}
+
+export function rectanglesIntersect(a, b) {
+  return a.x < b.x + b.width && b.x < a.x + a.width
+    && a.z < b.z + b.depth && b.z < a.z + a.depth;
+}
+
+export function visitReservations(x) {
+  return [
+    ...visitLandmarks(x),
+    { x: x - 3, z: 2, width: 7, depth: 7 },
+    { x: x + 6, z: 7, width: 7, depth: 7 },
+    { x: x - 16, z: 4, width: 13, depth: 2 },
+    { x: x - 16, z: 6, width: 2, depth: 10 },
+    { x: x - 14, z: 6, width: 5, depth: 5 },
+  ];
 }
 
 /**
@@ -162,7 +201,7 @@ export function poolEdging(x, z, size = 12) {
       cells.push({ x: x + dx, y: FLOOR_Y + 1, z: z + dz });
     }
   }
-  for (let dz = 0; dz <= last; dz++) {
+  for (let dz = 1; dz < last; dz++) {
     for (const dx of [0, last]) {
       cells.push({ x: x + dx, y: FLOOR_Y + 1, z: z + dz });
     }
@@ -180,10 +219,10 @@ export function poolPlanters(x, z, size = 12) {
   ];
 }
 
-/** Exit frames flank the arrival pad: open on the west, final on the east. */
+/** Inert exit models belong at the fixed temple, not at the gameplay pad. */
 export function exitFrames(x, z) {
   return [
-    { x: x - 4, y: FLOOR_Y + 1, z, block: EXIT_FRAMES.open },
-    { x: x + 4, y: FLOOR_Y + 1, z, block: EXIT_FRAMES.final },
+    { x: x + 3, y: FLOOR_Y + 3, z: z + 20, block: EXIT_FRAMES.open },
+    { x: x + 10, y: FLOOR_Y + 3, z: z + 20, block: EXIT_FRAMES.final },
   ];
 }
